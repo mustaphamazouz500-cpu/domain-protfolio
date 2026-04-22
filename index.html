@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>◈ IMPERIAL DOMAINS ◈</title>
+    <title>BentQ.com | Premium Domain For Sale</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,619 +15,394 @@
 
         :root {
             --gold: #c9a96e;
-            --gold-bright: #f0d78c;
+            --gold-light: #e8d5b7;
             --gold-dark: #8b6914;
-            --bg: #030303;
-            --bg-light: #0a0a0a;
+            --bg: #0a0a0a;
+            --bg-elevated: #111111;
+            --text: #ffffff;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --success: #22c55e;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background: var(--bg);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            cursor: none;
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ===== WEBGL CANVAS ===== */
-        #webgl-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
+        /* ===== UTILITY ===== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        /* ===== CUSTOM CURSOR ===== */
-        .cursor-main {
-            width: 12px;
-            height: 12px;
-            background: var(--gold);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 99999;
-            mix-blend-mode: difference;
-            transition: transform 0.15s ease;
+        /* ===== NAV ===== */
+        .nav {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .cursor-ring {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--gold);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 99998;
-            transition: all 0.3s ease;
-        }
-
-        .cursor-glow {
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, rgba(201,169,110,0.3) 0%, transparent 70%);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 99997;
-            transition: all 0.5s ease;
-        }
-
-        /* ===== LOADING SCREEN ===== */
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: var(--bg);
-            z-index: 100000;
+        .nav-inner {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            transition: opacity 1.5s ease, visibility 1.5s;
         }
 
-        .loader.done {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-sigil {
-            width: 120px;
-            height: 120px;
-            border: 2px solid var(--gold);
-            position: relative;
-            animation: sigilRotate 4s linear infinite;
-        }
-
-        .loader-sigil::before,
-        .loader-sigil::after {
-            content: '';
-            position: absolute;
-            border: 2px solid var(--gold);
-        }
-
-        .loader-sigil::before {
-            inset: 15px;
-            transform: rotate(45deg);
-        }
-
-        .loader-sigil::after {
-            inset: 30px;
-            transform: rotate(90deg);
-        }
-
-        @keyframes sigilRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .loader-text {
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             color: var(--gold);
-            margin-top: 40px;
-            letter-spacing: 0.5em;
-            animation: loaderPulse 2s ease-in-out infinite;
+            font-weight: 600;
         }
 
-        @keyframes loaderPulse {
-            0%, 100% { opacity: 1; letter-spacing: 0.5em; }
-            50% { opacity: 0.3; letter-spacing: 0.8em; }
+        .nav-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
-        /* ===== CONTENT LAYERS ===== */
-        .content {
-            position: relative;
-            z-index: 10;
+        .nav-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
         /* ===== HERO ===== */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 80px 0 60px;
             text-align: center;
-            position: relative;
-            perspective: 1000px;
         }
 
-        .hero-eyebrow {
-            font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.4em;
+        .hero-domain {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero-domain span {
             color: var(--gold);
-            margin-bottom: 30px;
-            opacity: 0;
-            transform: translateY(20px);
         }
 
-        .hero-eyebrow.revealed {
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(3rem, 10vw, 8rem);
-            font-weight: 900;
-            line-height: 1;
-            background: linear-gradient(
-                180deg,
-                #fff 0%,
-                var(--gold-bright) 30%,
-                var(--gold) 60%,
-                var(--gold-dark) 100%
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .hero h1.revealed {
-            animation: fadeInUp 1.2s ease 0.3s forwards;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            color: #666;
-            max-width: 600px;
-            margin-top: 30px;
-            line-height: 1.8;
-            opacity: 0;
-        }
-
-        .hero-subtitle.revealed {
-            animation: fadeInUp 1s ease 0.6s forwards;
-        }
-
-        .hero-line {
-            width: 1px;
-            height: 0;
-            background: linear-gradient(to bottom, var(--gold), transparent);
-            margin: 40px auto;
-            opacity: 0;
-        }
-
-        .hero-line.revealed {
-            animation: growLine 1.5s ease 0.9s forwards;
-        }
-
-        @keyframes growLine {
-            to { height: 100px; opacity: 1; }
-        }
-
-        /* ===== GLASS CARDS ===== */
-        .domains-section {
-            padding: 150px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 100px;
-        }
-
-        .section-header h2 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .section-header p {
-            color: #666;
+        .hero-tagline {
             font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 32px;
         }
 
-        .header-line {
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-            margin: 20px auto;
+        .hero-price {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 32px;
         }
 
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 40px;
-            perspective: 2000px;
-        }
-
-        .glass-card {
-            position: relative;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(201,169,110,0.15);
-            border-radius: 24px;
-            padding: 50px;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
-            opacity: 0;
-            transform: translateY(60px) rotateX(10deg);
-        }
-
-        .glass-card.visible {
-            animation: cardReveal 1s ease forwards;
-        }
-
-        .glass-card:nth-child(1).visible { animation-delay: 0.1s; }
-        .glass-card:nth-child(2).visible { animation-delay: 0.2s; }
-        .glass-card:nth-child(3).visible { animation-delay: 0.3s; }
-
-        @keyframes cardReveal {
-            to {
-                opacity: 1;
-                transform: translateY(0) rotateX(0);
-            }
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                rgba(201,169,110,0.08),
-                transparent 40%
-            );
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-
-        .glass-card:hover::before {
-            opacity: 1;
-        }
-
-        .glass-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0%,
-                rgba(201,169,110,0.03) 10%,
-                transparent 20%
-            );
-            animation: rotate 15s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes rotate {
-            to { transform: rotate(360deg); }
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .card-crown {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        .card-name {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--gold-bright);
-            margin-bottom: 10px;
-        }
-
-        .card-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--bg);
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 30px;
-            box-shadow: 0 0 20px rgba(201,169,110,0.3);
-            animation: badgePulse 3s ease-in-out infinite;
-        }
-
-        @keyframes badgePulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(201,169,110,0.3); }
-            50% { box-shadow: 0 0 40px rgba(201,169,110,0.6); }
-        }
-
-        .card-price {
+        .price-amount {
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .card-price::before {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--gold);
-        }
-
-        .card-features {
-            list-style: none;
-            margin-bottom: 40px;
-        }
-
-        .card-features li {
-            padding: 14px 0;
-            padding-left: 30px;
-            position: relative;
-            color: #888;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-        }
-
-        .card-features li:hover {
-            color: #fff;
-            padding-left: 35px;
-        }
-
-        .card-features li::before {
-            content: '◆';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-size: 0.6rem;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: all 0.3s;
-        }
-
-        .card-features li:hover::before {
-            transform: translateY(-50%) scale(1.5);
-            text-shadow: 0 0 10px var(--gold);
-        }
-
-        /* ===== MAGNETIC BUTTON ===== */
-        .magnetic-btn {
-            position: relative;
-            display: block;
-            width: 100%;
-            padding: 20px;
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            cursor: none;
-            overflow: hidden;
-            transition: all 0.3s;
-            z-index: 2;
-        }
-
-        .magnetic-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201,169,110,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .magnetic-btn:hover::before {
-            left: 100%;
-        }
-
-        .magnetic-btn:hover {
-            background: var(--gold);
-            color: var(--bg);
-            box-shadow: 0 0 40px rgba(201,169,110,0.4);
-            border-color: var(--gold-bright);
-        }
-
-        .magnetic-btn span {
-            position: relative;
-            z-index: 3;
-        }
-
-        /* ===== STATS ===== */
-        .stats-section {
-            padding: 150px 20px;
-            position: relative;
-        }
-
-        .stats-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 60px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .stat-box {
-            text-align: center;
-            padding: 40px;
-            position: relative;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .stat-box.visible {
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .stat-number {
-            font-family: 'Cinzel', serif;
-            font-size: 5rem;
-            font-weight: 900;
             color: var(--gold);
             line-height: 1;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
         }
 
-        .stat-number::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
+        .price-label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             background: var(--gold);
-            transition: width 1s ease;
+            color: var(--bg);
+            padding: 18px 48px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
-        .stat-box.visible .stat-number::after {
-            width: 60px;
+        .hero-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(201,169,110,0.2);
         }
 
-        .stat-label {
-            color: #666;
-            font-size: 1rem;
+        .hero-cta::after {
+            content: '→';
+            transition: transform 0.2s;
+        }
+
+        .hero-cta:hover::after {
+            transform: translateX(4px);
+        }
+
+        .hero-trust {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .trust-item::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* ===== WHY ===== */
+        .why {
+            padding: 80px 0;
+            background: var(--bg-elevated);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(201,169,110,0.2);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(201,169,110,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
             line-height: 1.6;
         }
 
+        /* ===== DOMAINS LIST ===== */
+        .domains-list {
+            padding: 80px 0;
+        }
+
+        .domain-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .domain-row:hover {
+            border-color: rgba(201,169,110,0.2);
+            background: rgba(201,169,110,0.02);
+        }
+
+        .domain-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            margin-bottom: 4px;
+        }
+
+        .domain-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .domain-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .domain-btn {
+            padding: 12px 32px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .domain-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
         /* ===== CONTACT ===== */
-        .contact-section {
-            padding: 150px 20px;
-            position: relative;
+        .contact {
+            padding: 80px 0;
+            background: var(--bg-elevated);
         }
 
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
         }
 
-        .contact-container {
-            max-width: 700px;
-            margin: 0 auto;
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-info > p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-method-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(201,169,110,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-method h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-method p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         .contact-form {
             background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(201,169,110,0.15);
-            border-radius: 24px;
-            padding: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-form::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(201,169,110,0.1) 50%,
-                transparent 70%
-            );
-            border-radius: 24px;
-            z-index: -1;
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .form-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .form-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 50px;
-            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
         }
 
         .form-group {
-            margin-bottom: 30px;
-            position: relative;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            color: var(--gold);
-            font-size: 0.7rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 12px;
-            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(201,169,110,0.2);
-            border-radius: 12px;
-            padding: 18px;
-            color: #fff;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 14px 16px;
+            color: var(--text);
             font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
-            cursor: none;
+            font-family: inherit;
+            transition: border-color 0.2s;
         }
 
         .form-group input:focus,
@@ -635,106 +410,45 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(201,169,110,0.15);
-            background: rgba(0,0,0,0.6);
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #444;
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
         }
 
-        .submit-btn {
+        .form-submit {
             width: 100%;
-            padding: 22px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            border: none;
-            border-radius: 12px;
+            padding: 16px;
+            background: var(--gold);
             color: var(--bg);
+            border: none;
+            border-radius: 10px;
             font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            cursor: none;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-            margin-top: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(201,169,110,0.3);
-        }
-
-        .submit-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 40%,
-                rgba(255,255,255,0.1) 50%,
-                transparent 60%
-            );
-            animation: btnShine 3s infinite;
-        }
-
-        @keyframes btnShine {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
+        .form-submit:hover {
+            background: var(--gold-light);
         }
 
         /* ===== FOOTER ===== */
         .footer {
-            padding: 80px 20px;
+            padding: 40px 0;
             text-align: center;
-            border-top: 1px solid rgba(201,169,110,0.1);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .footer-sigil {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            opacity: 0.3;
-            animation: sigilFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes sigilFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .footer-text {
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            font-size: 1.2rem;
-            letter-spacing: 0.3em;
-        }
-
-        .footer-sub {
-            color: #444;
+        .footer p {
             font-size: 0.85rem;
-            margin-top: 15px;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            color: var(--text-dim);
         }
 
         /* ===== SCROLLBAR ===== */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
@@ -743,471 +457,217 @@
 
         ::-webkit-scrollbar-thumb {
             background: var(--gold-dark);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold);
+            border-radius: 3px;
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .cursor-main, .cursor-ring, .cursor-glow {
-                display: none;
+        @media (max-width: 640px) {
+            .hero-price {
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
             }
-            body {
-                cursor: auto;
+            
+            .hero-cta {
+                width: 100%;
+                justify-content: center;
             }
-            .hero h1 {
-                font-size: 2.5rem;
+            
+            .domain-row {
+                flex-direction: column;
+                text-align: center;
             }
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-            .glass-card {
-                padding: 30px;
-            }
-            .contact-form {
-                padding: 30px;
-            }
-            .stat-number {
-                font-size: 3.5rem;
+            
+            .domain-btn {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- WebGL Canvas -->
-    <canvas id="webgl-canvas"></canvas>
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="container nav-inner">
+            <div class="nav-logo">Imperial Domains</div>
+            <div class="nav-status">Available Now</div>
+        </div>
+    </nav>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-main"></div>
-    <div class="cursor-ring"></div>
-    <div class="cursor-glow"></div>
-
-    <!-- Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-sigil"></div>
-        <div class="loader-text">INITIALIZING</div>
-    </div>
-
-    <!-- Content -->
-    <div class="content">
-
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-eyebrow" id="hero-eyebrow">◈ THE EMPEROR'S VAULT ◈</div>
-            <h1 id="hero-title">STRATEGIC<br>DOMAINS</h1>
-            <p class="hero-subtitle" id="hero-subtitle">
-                Rare digital sovereignty. Each name is a fortress, each letter a crown jewel. 
-                Curated for those who build empires, not websites.
-            </p>
-            <div class="hero-line" id="hero-line"></div>
-        </section>
-
-        <!-- Domains -->
-        <section class="domains-section">
-            <div class="section-header">
-                <h2>The Crown Jewels</h2>
-                <div class="header-line"></div>
-                <p>Three thrones. One will be yours.</p>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-domain">BentQ<span>.com</span></h1>
+            <p class="hero-tagline">5-letter brandable domain. Globally pronounceable. Perfect for design, tech, and industrial brands.</p>
+            
+            <div class="hero-price">
+                <span class="price-amount">$2,888</span>
+                <span class="price-label">Buy Now</span>
             </div>
+            
+            <a href="#contact" class="hero-cta">Make an Offer</a>
+            
+            <div class="hero-trust">
+                <span class="trust-item">Secure Escrow</span>
+                <span class="trust-item">Instant Transfer</span>
+                <span class="trust-item">.com Authority</span>
+            </div>
+        </div>
+    </section>
 
-            <div class="cards-container">
+    <!-- Why -->
+    <section class="why">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why This Domain?</h2>
+                <p>The difference between a brand and an empire is the name.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Authority</h3>
+                    <p>Short, memorable domains signal trust before a single word is read. Your customers judge in milliseconds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Reach</h3>
+                    <p>.com is the default. 60% of type-in traffic goes to .com automatically. Don't fight gravity.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Appreciating Asset</h3>
+                    <p>Premium domains are digital real estate. They don't depreciate. They compound in value.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Brand Ready</h3>
+                    <p>No hyphens. No numbers. No confusion. BentQ works in every language, on every billboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- BentQ.com -->
-                <div class="glass-card" data-tilt>
-                    <div class="card-content">
-                        <div class="card-crown">♔</div>
-                        <div class="card-name">BentQ.com</div>
-                        <div class="card-badge">Imperial Class</div>
-                        <div class="card-price">$2,888</div>
-                        <ul class="card-features">
-                            <li>5-Letter Sovereign Brandable</li>
-                            <li>Globally Pronounceable Authority</li>
-                            <li>Design, Tech, Industrial Empires</li>
-                            <li>Instant Trust & Market Dominion</li>
-                        </ul>
-                        <button class="magnetic-btn" onclick="selectDomain('BentQ.com')">
-                            <span>Claim This Throne</span>
-                        </button>
+    <!-- Domains List -->
+    <section class="domains-list">
+        <div class="container">
+            <div class="section-title">
+                <h2>More Assets</h2>
+                <p>Part of The Emperor's Collection.</p>
+            </div>
+            
+            <div class="domain-row">
+                <div class="domain-info">
+                    <h3>Ooqle.com</h3>
+                    <p>Tech-forward. AI-ready positioning.</p>
+                </div>
+                <div class="domain-price">$1,488</div>
+                <a href="#contact" class="domain-btn" onclick="setDomain('Ooqle.com')">Inquire</a>
+            </div>
+            
+            <div class="domain-row">
+                <div class="domain-info">
+                    <h3>SpysBrand.com</h3>
+                    <p>Unique positioning. Security meets branding.</p>
+                </div>
+                <div class="domain-price">$388</div>
+                <a href="#contact" class="domain-btn" onclick="setDomain('SpysBrand.com')">Inquire</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2>Serious Inquiries Only</h2>
+                <p>Direct acquisition available. All offers considered through secure escrow.</p>
+                
+                <div class="contact-method">
+                    <div class="contact-method-icon">🛡️</div>
+                    <div>
+                        <h4>Escrow.com Protection</h4>
+                        <p>Funds held securely until domain transfer is confirmed.</p>
                     </div>
                 </div>
-
-                <!-- Ooqle.com -->
-                <div class="glass-card" data-tilt>
-                    <div class="card-content">
-                        <div class="card-crown">♕</div>
-                        <div class="card-name">Ooqle.com</div>
-                        <div class="card-badge">Royal Class</div>
-                        <div class="card-price">$1,488</div>
-                        <ul class="card-features">
-                            <li>Tech-Forward Innovation Name</li>
-                            <li>AI-Ready Market Positioning</li>
-                            <li>Algorithmically Memorable</li>
-                            <li>Search & Intelligence Focus</li>
-                        </ul>
-                        <button class="magnetic-btn" onclick="selectDomain('Ooqle.com')">
-                            <span>Claim This Throne</span>
-                        </button>
+                
+                <div class="contact-method">
+                    <div class="contact-method-icon">⚡</div>
+                    <div>
+                        <h4>Fast Transfer</h4>
+                        <p>Domain pushed within 24 hours of payment confirmation.</p>
                     </div>
                 </div>
-
-                <!-- SpysBrand.com -->
-                <div class="glass-card" data-tilt>
-                    <div class="card-content">
-                        <div class="card-crown">♖</div>
-                        <div class="card-name">SpysBrand.com</div>
-                        <div class="card-badge">Noble Class</div>
-                        <div class="card-price">$388</div>
-                        <ul class="card-features">
-                            <li>Unique Market Positioning</li>
-                            <li>Security Meets Branding Power</li>
-                            <li>Distinctive & Bold Presence</li>
-                            <li>Memorable Authority Builder</li>
-                        </ul>
-                        <button class="magnetic-btn" onclick="selectDomain('SpysBrand.com')">
-                            <span>Claim This Throne</span>
-                        </button>
+                
+                <div class="contact-method">
+                    <div class="contact-method-icon">📧</div>
+                    <div>
+                        <h4>Direct Email</h4>
+                        <p>Prefer email? Reach out directly for negotiation.</p>
                     </div>
                 </div>
-
             </div>
-        </section>
-
-        <!-- Stats -->
-        <section class="stats-section">
-            <div class="section-header">
-                <h2>The Empire's Metrics</h2>
-                <div class="header-line"></div>
-                <p>Numbers that command allegiance.</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-number" data-target="94">0</div>
-                    <div class="stat-label">% of First Impressions<br>Are Design-Based</div>
+            
+            <form class="contact-form" action="https://formspree.io/f/xdaypkly" method="POST">
+                <input type="hidden" name="domain" id="domain-field" value="BentQ.com">
+                
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" required placeholder="Your name">
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number" data-target="3">0</div>
-                    <div class="stat-label">x Higher Trust<br>With .com Domains</div>
+                
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required placeholder="you@company.com">
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number" data-target="60">0</div>
-                    <div class="stat-label">% of Traffic Goes<br>To .com by Default</div>
+                
+                <div class="form-group">
+                    <label>Domain Interest</label>
+                    <select name="domain_interest" id="domain-select">
+                        <option value="BentQ.com">BentQ.com — $2,888</option>
+                        <option value="Ooqle.com">Ooqle.com — $1,488</option>
+                        <option value="SpysBrand.com">SpysBrand.com — $388</option>
+                    </select>
                 </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section class="contact-section" id="contact">
-            <div class="contact-container">
-                <div class="contact-form">
-                    <div class="form-title">Imperial Inquiry</div>
-                    <div class="form-subtitle">Serious acquisitions only. The Emperor does not entertain amateurs.</div>
-                    
-                    <form action="https://formspree.io/f/xdaypkly" method="POST">
-                        <input type="hidden" name="domain" id="domain-field" value="">
-                        
-                        <div class="form-group">
-                            <label>Sovereign Name</label>
-                            <input type="text" name="name" required placeholder="Your imperial identity">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Royal Seal (Email)</label>
-                            <input type="email" name="email" required placeholder="your@empire.com">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Your Realm (Company)</label>
-                            <input type="text" name="company" placeholder="Name of your kingdom">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Treasury Allocation</label>
-                            <select name="budget" required>
-                                <option value="">Select your treasury range</option>
-                                <option value="under-1k">Under $1,000</option>
-                                <option value="1k-3k">$1,000 - $3,000</option>
-                                <option value="3k-5k">$3,000 - $5,000</option>
-                                <option value="5k-10k">$5,000 - $10,000</option>
-                                <option value="10k-plus">$10,000+</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Imperial Decree</label>
-                            <textarea name="message" rows="4" placeholder="State your purpose. Which throne do you seek, and why?"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Transmit Decree</button>
-                    </form>
+                
+                <div class="form-group">
+                    <label>Budget</label>
+                    <select name="budget" required>
+                        <option value="">Select range</option>
+                        <option value="under-1k">Under $1,000</option>
+                        <option value="1k-3k">$1,000 — $3,000</option>
+                        <option value="3k-5k">$3,000 — $5,000</option>
+                        <option value="5k-plus">$5,000+</option>
+                    </select>
                 </div>
-            </div>
-        </section>
+                
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" placeholder="Tell us about your project..."></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-sigil">◈</div>
-            <div class="footer-text">IMPERIAL DOMAIN ASSETS</div>
-            <div class="footer-sub">Curated by The Emperor · All rights reserved · Premium .com domains for empire builders</div>
-        </footer>
-
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© Imperial Domain Assets. Secure transactions via Escrow.com</p>
+        </div>
+    </footer>
 
     <script>
-        // ===== WEBGL FLUID BACKGROUND =====
-        const canvas = document.getElementById('webgl-canvas');
-        const gl = canvas.getContext('webgl');
-
-        if (gl) {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const vertexShaderSource = `
-                attribute vec2 position;
-                void main() {
-                    gl_Position = vec4(position, 0.0, 1.0);
-                }
-            `;
-
-            const fragmentShaderSource = `
-                precision highp float;
-                uniform vec2 resolution;
-                uniform float time;
-                uniform vec2 mouse;
-
-                void main() {
-                    vec2 uv = gl_FragCoord.xy / resolution.xy;
-                    vec2 p = uv * 2.0 - 1.0;
-                    p.x *= resolution.x / resolution.y;
-                    
-                    float d = length(p);
-                    float a = atan(p.y, p.x);
-                    
-                    float wave = sin(d * 10.0 - time * 2.0) * 0.5 + 0.5;
-                    wave *= sin(a * 3.0 + time) * 0.5 + 0.5;
-                    
-                    vec2 mouseEffect = mouse / resolution - uv;
-                    float mouseDist = length(mouseEffect);
-                    float mouseWave = smoothstep(0.5, 0.0, mouseDist) * 0.3;
-                    
-                    vec3 gold = vec3(0.788, 0.663, 0.431);
-                    vec3 dark = vec3(0.02, 0.02, 0.02);
-                    
-                    float intensity = wave * 0.15 + mouseWave;
-                    vec3 color = mix(dark, gold, intensity);
-                    
-                    gl_FragColor = vec4(color, 1.0);
-                }
-            `;
-
-            function createShader(gl, type, source) {
-                const shader = gl.createShader(type);
-                gl.shaderSource(shader, source);
-                gl.compileShader(shader);
-                return shader;
-            }
-
-            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-
-            const program = gl.createProgram();
-            gl.attachShader(program, vertexShader);
-            gl.attachShader(program, fragmentShader);
-            gl.linkProgram(program);
-            gl.useProgram(program);
-
-            const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
-            const buffer = gl.createBuffer();
-            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-            gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
-
-            const position = gl.getAttribLocation(program, 'position');
-            gl.enableVertexAttribArray(position);
-            gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-
-            const resolutionUniform = gl.getUniformLocation(program, 'resolution');
-            const timeUniform = gl.getUniformLocation(program, 'time');
-            const mouseUniform = gl.getUniformLocation(program, 'mouse');
-
-            let mouseX = canvas.width / 2;
-            let mouseY = canvas.height / 2;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = canvas.height - e.clientY;
-            });
-
-            function render(time) {
-                gl.viewport(0, 0, canvas.width, canvas.height);
-                gl.uniform2f(resolutionUniform, canvas.width, canvas.height);
-                gl.uniform1f(timeUniform, time * 0.001);
-                gl.uniform2f(mouseUniform, mouseX, mouseY);
-                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-                requestAnimationFrame(render);
-            }
-
-            requestAnimationFrame(render);
-
-            window.addEventListener('resize', () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            });
-        }
-
-        // ===== LOADER =====
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('done');
-            }, 2500);
-        });
-
-        // ===== CUSTOM CURSOR =====
-        const cursorMain = document.querySelector('.cursor-main');
-        const cursorRing = document.querySelector('.cursor-ring');
-        const cursorGlow = document.querySelector('.cursor-glow');
-
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-        let glowX = 0, glowY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function animateCursor() {
-            cursorMain.style.left = mouseX - 6 + 'px';
-            cursorMain.style.top = mouseY - 6 + 'px';
-
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            cursorRing.style.left = ringX - 20 + 'px';
-            cursorRing.style.top = ringY - 20 + 'px';
-
-            glowX += (mouseX - glowX) * 0.08;
-            glowY += (mouseY - glowY) * 0.08;
-            cursorGlow.style.left = glowX - 30 + 'px';
-            cursorGlow.style.top = glowY - 30 + 'px';
-
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // ===== MAGNETIC BUTTONS =====
-        document.querySelectorAll('.magnetic-btn').forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate(0, 0)';
-            });
-        });
-
-        // ===== 3D CARD TILT =====
-        document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 15;
-                const rotateY = (centerX - x) / 15;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
-                card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-            });
-        });
-
-        // ===== SCROLL REVEAL =====
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.glass-card, .stat-box, .hero-eyebrow, .hero h1, .hero-subtitle, .hero-line').forEach(el => {
-            observer.observe(el);
-        });
-
-        // ===== COUNT UP ANIMATION =====
-        const statObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.getAttribute('data-target'));
-                    const suffix = target === 3 ? 'x' : '%';
-                    let current = 0;
-                    const increment = target / 60;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            entry.target.textContent = target + suffix;
-                            clearInterval(timer);
-                        } else {
-                            entry.target.textContent = Math.floor(current) + suffix;
-                        }
-                    }, 25);
-                    statObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stat-number').forEach(stat => {
-            statObserver.observe(stat);
-        });
-
-        // ===== DOMAIN SELECTION =====
-        function selectDomain(domain) {
+        function setDomain(domain) {
             document.getElementById('domain-field').value = domain;
+            document.getElementById('domain-select').value = domain;
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            
-            // Flash effect
-            const btn = event.target.closest('.magnetic-btn');
-            btn.style.background = 'var(--gold)';
-            btn.style.color = 'var(--bg)';
-            setTimeout(() => {
-                btn.style.background = '';
-                btn.style.color = '';
-            }, 300);
         }
-
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // ===== PARALLAX ON SCROLL =====
-        let scrollY = 0;
-        window.addEventListener('scroll', () => {
-            scrollY = window.scrollY;
-            document.querySelectorAll('.glass-card').forEach((card, i) => {
-                const speed = 0.05 + (i * 0.02);
-                card.style.transform += ` translateY(${scrollY * speed}px)`;
-            });
+        
+        // Sync select with hidden field
+        document.getElementById('domain-select').addEventListener('change', function() {
+            document.getElementById('domain-field').value = this.value;
         });
     </script>
 </body>
