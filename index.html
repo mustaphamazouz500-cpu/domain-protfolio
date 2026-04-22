@@ -1,198 +1,199 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Domain Assets</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0a0a0a;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-        .container{max-width:1200px;margin:0 auto;padding:60px 20px}
-        
-        /* Header */
-        header{text-align:center;margin-bottom:80px}
-        h1{font-size:48px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,#e8d5b7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .subtitle{color:#888;font-size:20px}
-        .divider{width:60px;height:2px;background:#c9a96e;margin:30px auto 0}
-        
-        /* Cards */
-        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px;margin-bottom:80px}
-        .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px;transition:all 0.3s}
-        .card:hover{border-color:rgba(201,169,110,0.4);transform:translateY(-5px);box-shadow:0 20px 40px rgba(201,169,110,0.1)}
-        .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-        .card h2{font-size:28px;color:#e8d5b7}
-        .badge{background:rgba(201,169,110,0.15);color:#c9a96e;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase}
-        .price{font-size:36px;font-weight:700;margin-bottom:20px}
-        .features{list-style:none;margin-bottom:30px}
-        .features li{color:#888;padding:8px 0;padding-left:20px;position:relative}
-        .features li:before{content:"→";position:absolute;left:0;color:#c9a96e;font-weight:700}
-        .btn{display:block;width:100%;background:#c9a96e;color:#0a0a0a;padding:14px;text-align:center;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;transition:all 0.3s;border:none;cursor:pointer}
-        .btn:hover{background:#e8d5b7}
-        
-        /* Stats */
-        .stats{text-align:center;padding:60px 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:80px}
-        .stats h3{font-size:28px;margin-bottom:40px}
-        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;max-width:800px;margin:0 auto}
-        .stat-num{font-size:48px;font-weight:700;color:#c9a96e;margin-bottom:8px}
-        .stat-label{color:#888}
-        
-        /* Contact */
-        .contact{max-width:600px;margin:0 auto 80px;text-align:center}
-        .contact h3{font-size:28px;margin-bottom:12px}
-        .contact>p{color:#888;margin-bottom:40px}
-        form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px;text-align:left}
-        .form-group{margin-bottom:20px}
-        label{display:block;color:#888;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-        input,select,textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;color:#fff;font-size:16px}
-        input:focus,select:focus,textarea:focus{outline:none;border-color:#c9a96e}
-        textarea{min-height:100px;resize:vertical}
-        select{cursor:pointer}
-        button[type="submit"]{margin-top:10px}
-        
-        /* Footer */
-        footer{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1)}
-        footer p{color:#666;font-size:14px}
-        footer p:last-child{margin-top:8px;font-size:12px;text-transform:uppercase;letter-spacing:2px}
-        
-        /* Responsive */
-        @media(max-width:768px){
-            h1{font-size:36px}
-            .cards{grid-template-columns:1fr}
-            .card{padding:30px}
-            .stat-num{font-size:36px}
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Domain Portfolio | Strategic Assets For Sale</title>
+
+<meta name="description" content="Premium brandable .com domains for sale. Short, powerful, investment-grade digital assets ready for startups and global brands.">
+<meta name="keywords" content="premium domains, domain for sale, brandable domains, BentQ, Ooqle">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: Inter, sans-serif; }
+.glow {
+  background: linear-gradient(90deg,#f5d06f,#c9a96e,#f5d06f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card {
+  transition: all .25s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+}
+</style>
 </head>
-<body>
-    <div class="container">
-        
-        <!-- Header -->
-        <header>
-            <h1>Strategic Domain Assets</h1>
-            <p class="subtitle">Short, memorable .com domains for forward-thinking companies</p>
-            <div class="divider"></div>
-        </header>
-        
-        <!-- Domain Cards -->
-        <div class="cards">
-            
-            <!-- BentQ.com -->
-            <div class="card">
-                <div class="card-header">
-                    <h2>BentQ.com</h2>
-                    <span class="badge">Featured</span>
-                </div>
-                <div class="price">$2,888</div>
-                <ul class="features">
-                    <li>5-Letter Brandable</li>
-                    <li>Globally pronounceable</li>
-                    <li>Perfect for design, tech, industrial brands</li>
-                    <li>Instant authority & trust</li>
-                </ul>
-                <a href="#contact" class="btn" onclick="document.getElementById('domain').value='BentQ.com';document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Inquire Now</a>
-            </div>
-            
-            <!-- Ooqle.com -->
-            <div class="card">
-                <div class="card-header">
-                    <h2>Ooqle.com</h2>
-                </div>
-                <div class="price">$1,488</div>
-                <ul class="features">
-                    <li>Tech-Forward Name</li>
-                    <li>AI-ready positioning</li>
-                    <li>Unique & memorable</li>
-                    <li>Search & innovation focus</li>
-                </ul>
-                <a href="#contact" class="btn" onclick="document.getElementById('domain').value='Ooqle.com';document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Inquire Now</a>
-            </div>
-            
-            <!-- SpysBrand.com -->
-            <div class="card">
-                <div class="card-header">
-                    <h2>SpysBrand.com</h2>
-                </div>
-                <div class="price">$388</div>
-                <ul class="features">
-                    <li>Unique Positioning</li>
-                    <li>Security meets branding</li>
-                    <li>Distinctive market presence</li>
-                    <li>Bold & memorable</li>
-                </ul>
-                <a href="#contact" class="btn" onclick="document.getElementById('domain').value='SpysBrand.com';document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Inquire Now</a>
-            </div>
-            
-        </div>
-        
-        <!-- Stats -->
-        <div class="stats">
-            <h3>Why Acquire a Premium Domain?</h3>
-            <div class="stats-grid">
-                <div>
-                    <div class="stat-num">94%</div>
-                    <div class="stat-label">of first impressions are design-based</div>
-                </div>
-                <div>
-                    <div class="stat-num">3x</div>
-                    <div class="stat-label">higher trust with .com domains</div>
-                </div>
-                <div>
-                    <div class="stat-num">60%</div>
-                    <div class="stat-label">of traffic goes to .com by default</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Contact -->
-        <div id="contact" class="contact">
-            <h3>Serious Inquiries Only</h3>
-            <p>Direct acquisition available. All offers considered.</p>
-            
-            <form action="https://formspree.io/f/xdaypkly" method="POST">
-                <input type="hidden" name="domain" id="domain" value="">
-                
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name" required placeholder="Your full name">
-                </div>
-                
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" required placeholder="your@company.com">
-                </div>
-                
-                <div class="form-group">
-                    <label>Company (Optional)</label>
-                    <input type="text" name="company" placeholder="Your company name">
-                </div>
-                
-                <div class="form-group">
-                    <label>Budget Range</label>
-                    <select name="budget" required>
-                        <option value="">Select budget range</option>
-                        <option value="under-1k">Under $1,000</option>
-                        <option value="1k-3k">$1,000 - $3,000</option>
-                        <option value="3k-5k">$3,000 - $5,000</option>
-                        <option value="5k-10k">$5,000 - $10,000</option>
-                        <option value="10k-plus">$10,000+</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea name="message" rows="4" placeholder="Tell us about your project..."></textarea>
-                </div>
-                
-                <button type="submit" class="btn">Send Inquiry</button>
-            </form>
-        </div>
-        
-        <!-- Footer -->
-        <footer>
-            <p> Strategic Domain Assets. All rights reserved.</p>
-            <p>Premium .com domains. Serious buyers only.</p>
-        </footer>
-        
+
+<body class="bg-black text-white">
+
+<!-- HERO -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+  
+  <div class="max-w-3xl">
+    <h1 class="text-5xl md:text-7xl font-black mb-6 glow">
+      Strategic Domain Assets
+    </h1>
+
+    <p class="text-gray-400 text-lg md:text-xl mb-10">
+      High-value .com domains engineered for brands that scale globally. Short. Rare. Investment-grade.
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-4 justify-center">
+      <a href="#domains" class="bg-yellow-500 text-black px-8 py-4 font-bold rounded-xl hover:bg-yellow-400 transition">
+        View Domains
+      </a>
+      <a href="#contact" class="border border-gray-700 px-8 py-4 rounded-xl hover:bg-gray-900 transition">
+        Make Offer
+      </a>
     </div>
+  </div>
+
+</section>
+
+<!-- VALUE STRIP -->
+<section class="py-16 border-t border-b border-gray-900 text-center">
+  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+    <div>
+      <div class="text-3xl font-bold text-yellow-400">Premium</div>
+      <div class="text-gray-500">Brand-ready assets</div>
+    </div>
+    <div>
+      <div class="text-3xl font-bold text-yellow-400">Rare</div>
+      <div class="text-gray-500">Short .com inventory</div>
+    </div>
+    <div>
+      <div class="text-3xl font-bold text-yellow-400">Liquid</div>
+      <div class="text-gray-500">High resale demand</div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMAINS -->
+<section id="domains" class="py-24 px-6 max-w-6xl mx-auto">
+
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl font-bold">Available Domains</h2>
+    <p class="text-gray-500 mt-3">Curated premium digital assets</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- BentQ -->
+    <div class="card bg-gray-950 border border-gray-800 rounded-2xl p-8">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-2xl font-bold">BentQ.com</h3>
+        <span class="text-xs px-3 py-1 bg-yellow-500 text-black rounded-full">Top Pick</span>
+      </div>
+
+      <div class="text-3xl font-extrabold text-yellow-400 mb-4">$2,888</div>
+
+      <p class="text-gray-400 mb-6">
+        Ultra-short brandable domain ideal for AI, SaaS, analytics or industrial tech branding.
+      </p>
+
+      <a href="#contact" onclick="document.getElementById('domain').value='BentQ.com'" class="block text-center bg-yellow-500 text-black py-3 rounded-xl font-bold hover:bg-yellow-400">
+        Acquire
+      </a>
+    </div>
+
+    <!-- Ooqle -->
+    <div class="card bg-gray-950 border border-gray-800 rounded-2xl p-8">
+      <h3 class="text-2xl font-bold mb-2">Ooqle.com</h3>
+
+      <div class="text-3xl font-extrabold text-yellow-400 mb-4">$1,488</div>
+
+      <p class="text-gray-400 mb-6">
+        Search-driven, AI-ready identity with strong startup positioning potential.
+      </p>
+
+      <a href="#contact" onclick="document.getElementById('domain').value='Ooqle.com'" class="block text-center bg-yellow-500 text-black py-3 rounded-xl font-bold hover:bg-yellow-400">
+        Acquire
+      </a>
+    </div>
+
+    <!-- SpysBrand -->
+    <div class="card bg-gray-950 border border-gray-800 rounded-2xl p-8">
+      <h3 class="text-2xl font-bold mb-2">SpysBrand.com</h3>
+
+      <div class="text-3xl font-extrabold text-yellow-400 mb-4">$388</div>
+
+      <p class="text-gray-400 mb-6">
+        Bold identity for security, branding, or digital agency positioning.
+      </p>
+
+      <a href="#contact" onclick="document.getElementById('domain').value='SpysBrand.com'" class="block text-center bg-yellow-500 text-black py-3 rounded-xl font-bold hover:bg-yellow-400">
+        Acquire
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="py-20 border-t border-gray-900 text-center px-6">
+  <h2 class="text-3xl font-bold mb-12">Market Trust Signals</h2>
+
+  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-gray-400">
+    <div>
+      <div class="text-yellow-400 font-bold text-2xl">+94%</div>
+      Brand trust increase with premium domains
+    </div>
+
+    <div>
+      <div class="text-yellow-400 font-bold text-2xl">3x</div>
+      Higher conversion vs long domains
+    </div>
+
+    <div>
+      <div class="text-yellow-400 font-bold text-2xl">Instant</div>
+      Authority perception in markets
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 max-w-3xl mx-auto">
+
+  <div class="text-center mb-10">
+    <h2 class="text-3xl font-bold">Acquire Domain</h2>
+    <p class="text-gray-500 mt-2">Direct ownership transfer after agreement</p>
+  </div>
+
+  <form action="https://formspree.io/f/xdaypkly" method="POST" class="bg-gray-950 border border-gray-800 rounded-2xl p-8">
+
+    <input type="hidden" name="domain" id="domain">
+
+    <input class="w-full mb-4 p-3 bg-black border border-gray-800 rounded-lg" name="name" placeholder="Full Name" required>
+    <input class="w-full mb-4 p-3 bg-black border border-gray-800 rounded-lg" name="email" placeholder="Email" required>
+
+    <select class="w-full mb-4 p-3 bg-black border border-gray-800 rounded-lg" name="budget" required>
+      <option value="">Budget Range</option>
+      <option>Under $1K</option>
+      <option>$1K - $3K</option>
+      <option>$3K - $5K</option>
+      <option>$5K+</option>
+    </select>
+
+    <textarea class="w-full mb-6 p-3 bg-black border border-gray-800 rounded-lg" name="message" placeholder="Offer or project details"></textarea>
+
+    <button class="w-full bg-yellow-500 text-black py-3 font-bold rounded-xl hover:bg-yellow-400">
+      Submit Offer
+    </button>
+
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-gray-600 border-t border-gray-900">
+  Premium Domain Portfolio · Strategic Digital Assets
+</footer>
+
 </body>
 </html>
+```
