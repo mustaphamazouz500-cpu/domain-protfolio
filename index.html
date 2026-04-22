@@ -1,198 +1,1214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>◈ IMPERIAL DOMAINS ◈</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<title>Premium Domain Portfolio | Strategic Assets For Sale</title>
+        :root {
+            --gold: #c9a96e;
+            --gold-bright: #f0d78c;
+            --gold-dark: #8b6914;
+            --bg: #030303;
+            --bg-light: #0a0a0a;
+        }
 
-<meta name="description" content="Premium brandable .com domains for sale. Short, powerful, investment-grade digital assets ready for startups and global brands.">
-<meta name="keywords" content="premium domains, domain for sale, brandable domains, BentQ, Ooqle">
+        body {
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            cursor: none;
+        }
 
-<script src="https://cdn.tailwindcss.com"></script>
+        /* ===== WEBGL CANVAS ===== */
+        #webgl-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+        /* ===== CUSTOM CURSOR ===== */
+        .cursor-main {
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            mix-blend-mode: difference;
+            transition: transform 0.15s ease;
+        }
 
-<style>
-body { font-family: Inter, sans-serif; }
-.glow {
-  background: linear-gradient(90deg,#f5d06f,#c9a96e,#f5d06f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.card {
-  transition: all .25s ease;
-}
-.card:hover {
-  transform: translateY(-8px);
-}
-</style>
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99998;
+            transition: all 0.3s ease;
+        }
+
+        .cursor-glow {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(201,169,110,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99997;
+            transition: all 0.5s ease;
+        }
+
+        /* ===== LOADING SCREEN ===== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 100000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1.5s ease, visibility 1.5s;
+        }
+
+        .loader.done {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-sigil {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--gold);
+            position: relative;
+            animation: sigilRotate 4s linear infinite;
+        }
+
+        .loader-sigil::before,
+        .loader-sigil::after {
+            content: '';
+            position: absolute;
+            border: 2px solid var(--gold);
+        }
+
+        .loader-sigil::before {
+            inset: 15px;
+            transform: rotate(45deg);
+        }
+
+        .loader-sigil::after {
+            inset: 30px;
+            transform: rotate(90deg);
+        }
+
+        @keyframes sigilRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-top: 40px;
+            letter-spacing: 0.5em;
+            animation: loaderPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes loaderPulse {
+            0%, 100% { opacity: 1; letter-spacing: 0.5em; }
+            50% { opacity: 0.3; letter-spacing: 0.8em; }
+        }
+
+        /* ===== CONTENT LAYERS ===== */
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-eyebrow.revealed {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(
+                180deg,
+                #fff 0%,
+                var(--gold-bright) 30%,
+                var(--gold) 60%,
+                var(--gold-dark) 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .hero h1.revealed {
+            animation: fadeInUp 1.2s ease 0.3s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #666;
+            max-width: 600px;
+            margin-top: 30px;
+            line-height: 1.8;
+            opacity: 0;
+        }
+
+        .hero-subtitle.revealed {
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .hero-line {
+            width: 1px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            margin: 40px auto;
+            opacity: 0;
+        }
+
+        .hero-line.revealed {
+            animation: growLine 1.5s ease 0.9s forwards;
+        }
+
+        @keyframes growLine {
+            to { height: 100px; opacity: 1; }
+        }
+
+        /* ===== GLASS CARDS ===== */
+        .domains-section {
+            padding: 150px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px auto;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            perspective: 2000px;
+        }
+
+        .glass-card {
+            position: relative;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(201,169,110,0.15);
+            border-radius: 24px;
+            padding: 50px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            opacity: 0;
+            transform: translateY(60px) rotateX(10deg);
+        }
+
+        .glass-card.visible {
+            animation: cardReveal 1s ease forwards;
+        }
+
+        .glass-card:nth-child(1).visible { animation-delay: 0.1s; }
+        .glass-card:nth-child(2).visible { animation-delay: 0.2s; }
+        .glass-card:nth-child(3).visible { animation-delay: 0.3s; }
+
+        @keyframes cardReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(201,169,110,0.08),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0%,
+                rgba(201,169,110,0.03) 10%,
+                transparent 20%
+            );
+            animation: rotate 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-crown {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .card-name {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            margin-bottom: 10px;
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--bg);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(201,169,110,0.3);
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(201,169,110,0.3); }
+            50% { box-shadow: 0 0 40px rgba(201,169,110,0.6); }
+        }
+
+        .card-price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .card-price::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .card-features li {
+            padding: 14px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #888;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .card-features li:hover {
+            color: #fff;
+            padding-left: 35px;
+        }
+
+        .card-features li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s;
+        }
+
+        .card-features li:hover::before {
+            transform: translateY(-50%) scale(1.5);
+            text-shadow: 0 0 10px var(--gold);
+        }
+
+        /* ===== MAGNETIC BUTTON ===== */
+        .magnetic-btn {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: none;
+            overflow: hidden;
+            transition: all 0.3s;
+            z-index: 2;
+        }
+
+        .magnetic-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201,169,110,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .magnetic-btn:hover::before {
+            left: 100%;
+        }
+
+        .magnetic-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+            box-shadow: 0 0 40px rgba(201,169,110,0.4);
+            border-color: var(--gold-bright);
+        }
+
+        .magnetic-btn span {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* ===== STATS ===== */
+        .stats-section {
+            padding: 150px 20px;
+            position: relative;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .stat-box.visible {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .stat-number::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 1s ease;
+        }
+
+        .stat-box.visible .stat-number::after {
+            width: 60px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-section {
+            padding: 150px 20px;
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(201,169,110,0.15);
+            border-radius: 24px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(201,169,110,0.1) 50%,
+                transparent 70%
+            );
+            border-radius: 24px;
+            z-index: -1;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .form-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(201,169,110,0.2);
+            border-radius: 12px;
+            padding: 18px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+            cursor: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(201,169,110,0.15);
+            background: rgba(0,0,0,0.6);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #444;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 22px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border: none;
+            border-radius: 12px;
+            color: var(--bg);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(201,169,110,0.3);
+        }
+
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 40%,
+                rgba(255,255,255,0.1) 50%,
+                transparent 60%
+            );
+            animation: btnShine 3s infinite;
+        }
+
+        @keyframes btnShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(201,169,110,0.1);
+        }
+
+        .footer-sigil {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.3;
+            animation: sigilFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes sigilFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .footer-text {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.2rem;
+            letter-spacing: 0.3em;
+        }
+
+        .footer-sub {
+            color: #444;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .cursor-main, .cursor-ring, .cursor-glow {
+                display: none;
+            }
+            body {
+                cursor: auto;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            .glass-card {
+                padding: 30px;
+            }
+            .contact-form {
+                padding: 30px;
+            }
+            .stat-number {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 </head>
+<body>
 
-<body class="bg-black text-white">
+    <!-- WebGL Canvas -->
+    <canvas id="webgl-canvas"></canvas>
 
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-  
-  <div class="max-w-3xl">
-    <h1 class="text-5xl md:text-7xl font-black mb-6 glow">
-      Strategic Domain Assets
-    </h1>
+    <!-- Custom Cursor -->
+    <div class="cursor-main"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-glow"></div>
 
-    <p class="text-gray-400 text-lg md:text-xl mb-10">
-      High-value .com domains engineered for brands that scale globally. Short. Rare. Investment-grade.
-    </p>
-
-    <div class="flex flex-col md:flex-row gap-4 justify-center">
-      <a href="#domains" class="bg-yellow-500 text-black px-8 py-4 font-bold rounded-xl hover:bg-yellow-400 transition">
-        View Domains
-      </a>
-      <a href="#contact" class="border border-gray-700 px-8 py-4 rounded-xl hover:bg-gray-900 transition">
-        Make Offer
-      </a>
-    </div>
-  </div>
-
-</section>
-
-<!-- VALUE STRIP -->
-<section class="py-16 border-t border-b border-gray-900 text-center">
-  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-    <div>
-      <div class="text-3xl font-bold text-yellow-400">Premium</div>
-      <div class="text-gray-500">Brand-ready assets</div>
-    </div>
-    <div>
-      <div class="text-3xl font-bold text-yellow-400">Rare</div>
-      <div class="text-gray-500">Short .com inventory</div>
-    </div>
-    <div>
-      <div class="text-3xl font-bold text-yellow-400">Liquid</div>
-      <div class="text-gray-500">High resale demand</div>
-    </div>
-  </div>
-</section>
-
-<!-- DOMAINS -->
-<section id="domains" class="py-24 px-6 max-w-6xl mx-auto">
-
-  <div class="text-center mb-16">
-    <h2 class="text-3xl md:text-4xl font-bold">Available Domains</h2>
-    <p class="text-gray-500 mt-3">Curated premium digital assets</p>
-  </div>
-
-  <div class="grid md:grid-cols-3 gap-8">
-
-    <!-- BentQ -->
-    <div class="card bg-gray-950 border border-gray-800 rounded-2xl p-8">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="text-2xl font-bold">BentQ.com</h3>
-        <span class="text-xs px-3 py-1 bg-yellow-500 text-black rounded-full">Top Pick</span>
-      </div>
-
-      <div class="text-3xl font-extrabold text-yellow-400 mb-4">$2,888</div>
-
-      <p class="text-gray-400 mb-6">
-        Ultra-short brandable domain ideal for AI, SaaS, analytics or industrial tech branding.
-      </p>
-
-      <a href="#contact" onclick="document.getElementById('domain').value='BentQ.com'" class="block text-center bg-yellow-500 text-black py-3 rounded-xl font-bold hover:bg-yellow-400">
-        Acquire
-      </a>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-sigil"></div>
+        <div class="loader-text">INITIALIZING</div>
     </div>
 
-    <!-- Ooqle -->
-    <div class="card bg-gray-950 border border-gray-800 rounded-2xl p-8">
-      <h3 class="text-2xl font-bold mb-2">Ooqle.com</h3>
+    <!-- Content -->
+    <div class="content">
 
-      <div class="text-3xl font-extrabold text-yellow-400 mb-4">$1,488</div>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-eyebrow" id="hero-eyebrow">◈ THE EMPEROR'S VAULT ◈</div>
+            <h1 id="hero-title">STRATEGIC<br>DOMAINS</h1>
+            <p class="hero-subtitle" id="hero-subtitle">
+                Rare digital sovereignty. Each name is a fortress, each letter a crown jewel. 
+                Curated for those who build empires, not websites.
+            </p>
+            <div class="hero-line" id="hero-line"></div>
+        </section>
 
-      <p class="text-gray-400 mb-6">
-        Search-driven, AI-ready identity with strong startup positioning potential.
-      </p>
+        <!-- Domains -->
+        <section class="domains-section">
+            <div class="section-header">
+                <h2>The Crown Jewels</h2>
+                <div class="header-line"></div>
+                <p>Three thrones. One will be yours.</p>
+            </div>
 
-      <a href="#contact" onclick="document.getElementById('domain').value='Ooqle.com'" class="block text-center bg-yellow-500 text-black py-3 rounded-xl font-bold hover:bg-yellow-400">
-        Acquire
-      </a>
+            <div class="cards-container">
+
+                <!-- BentQ.com -->
+                <div class="glass-card" data-tilt>
+                    <div class="card-content">
+                        <div class="card-crown">♔</div>
+                        <div class="card-name">BentQ.com</div>
+                        <div class="card-badge">Imperial Class</div>
+                        <div class="card-price">$2,888</div>
+                        <ul class="card-features">
+                            <li>5-Letter Sovereign Brandable</li>
+                            <li>Globally Pronounceable Authority</li>
+                            <li>Design, Tech, Industrial Empires</li>
+                            <li>Instant Trust & Market Dominion</li>
+                        </ul>
+                        <button class="magnetic-btn" onclick="selectDomain('BentQ.com')">
+                            <span>Claim This Throne</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ooqle.com -->
+                <div class="glass-card" data-tilt>
+                    <div class="card-content">
+                        <div class="card-crown">♕</div>
+                        <div class="card-name">Ooqle.com</div>
+                        <div class="card-badge">Royal Class</div>
+                        <div class="card-price">$1,488</div>
+                        <ul class="card-features">
+                            <li>Tech-Forward Innovation Name</li>
+                            <li>AI-Ready Market Positioning</li>
+                            <li>Algorithmically Memorable</li>
+                            <li>Search & Intelligence Focus</li>
+                        </ul>
+                        <button class="magnetic-btn" onclick="selectDomain('Ooqle.com')">
+                            <span>Claim This Throne</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SpysBrand.com -->
+                <div class="glass-card" data-tilt>
+                    <div class="card-content">
+                        <div class="card-crown">♖</div>
+                        <div class="card-name">SpysBrand.com</div>
+                        <div class="card-badge">Noble Class</div>
+                        <div class="card-price">$388</div>
+                        <ul class="card-features">
+                            <li>Unique Market Positioning</li>
+                            <li>Security Meets Branding Power</li>
+                            <li>Distinctive & Bold Presence</li>
+                            <li>Memorable Authority Builder</li>
+                        </ul>
+                        <button class="magnetic-btn" onclick="selectDomain('SpysBrand.com')">
+                            <span>Claim This Throne</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-section">
+            <div class="section-header">
+                <h2>The Empire's Metrics</h2>
+                <div class="header-line"></div>
+                <p>Numbers that command allegiance.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number" data-target="94">0</div>
+                    <div class="stat-label">% of First Impressions<br>Are Design-Based</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">x Higher Trust<br>With .com Domains</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" data-target="60">0</div>
+                    <div class="stat-label">% of Traffic Goes<br>To .com by Default</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-section" id="contact">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <div class="form-title">Imperial Inquiry</div>
+                    <div class="form-subtitle">Serious acquisitions only. The Emperor does not entertain amateurs.</div>
+                    
+                    <form action="https://formspree.io/f/xdaypkly" method="POST">
+                        <input type="hidden" name="domain" id="domain-field" value="">
+                        
+                        <div class="form-group">
+                            <label>Sovereign Name</label>
+                            <input type="text" name="name" required placeholder="Your imperial identity">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Royal Seal (Email)</label>
+                            <input type="email" name="email" required placeholder="your@empire.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Your Realm (Company)</label>
+                            <input type="text" name="company" placeholder="Name of your kingdom">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Treasury Allocation</label>
+                            <select name="budget" required>
+                                <option value="">Select your treasury range</option>
+                                <option value="under-1k">Under $1,000</option>
+                                <option value="1k-3k">$1,000 - $3,000</option>
+                                <option value="3k-5k">$3,000 - $5,000</option>
+                                <option value="5k-10k">$5,000 - $10,000</option>
+                                <option value="10k-plus">$10,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Imperial Decree</label>
+                            <textarea name="message" rows="4" placeholder="State your purpose. Which throne do you seek, and why?"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Transmit Decree</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-sigil">◈</div>
+            <div class="footer-text">IMPERIAL DOMAIN ASSETS</div>
+            <div class="footer-sub">Curated by The Emperor · All rights reserved · Premium .com domains for empire builders</div>
+        </footer>
+
     </div>
 
-    <!-- SpysBrand -->
-    <div class="card bg-gray-950 border border-gray-800 rounded-2xl p-8">
-      <h3 class="text-2xl font-bold mb-2">SpysBrand.com</h3>
+    <script>
+        // ===== WEBGL FLUID BACKGROUND =====
+        const canvas = document.getElementById('webgl-canvas');
+        const gl = canvas.getContext('webgl');
 
-      <div class="text-3xl font-extrabold text-yellow-400 mb-4">$388</div>
+        if (gl) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
 
-      <p class="text-gray-400 mb-6">
-        Bold identity for security, branding, or digital agency positioning.
-      </p>
+            const vertexShaderSource = `
+                attribute vec2 position;
+                void main() {
+                    gl_Position = vec4(position, 0.0, 1.0);
+                }
+            `;
 
-      <a href="#contact" onclick="document.getElementById('domain').value='SpysBrand.com'" class="block text-center bg-yellow-500 text-black py-3 rounded-xl font-bold hover:bg-yellow-400">
-        Acquire
-      </a>
-    </div>
+            const fragmentShaderSource = `
+                precision highp float;
+                uniform vec2 resolution;
+                uniform float time;
+                uniform vec2 mouse;
 
-  </div>
-</section>
+                void main() {
+                    vec2 uv = gl_FragCoord.xy / resolution.xy;
+                    vec2 p = uv * 2.0 - 1.0;
+                    p.x *= resolution.x / resolution.y;
+                    
+                    float d = length(p);
+                    float a = atan(p.y, p.x);
+                    
+                    float wave = sin(d * 10.0 - time * 2.0) * 0.5 + 0.5;
+                    wave *= sin(a * 3.0 + time) * 0.5 + 0.5;
+                    
+                    vec2 mouseEffect = mouse / resolution - uv;
+                    float mouseDist = length(mouseEffect);
+                    float mouseWave = smoothstep(0.5, 0.0, mouseDist) * 0.3;
+                    
+                    vec3 gold = vec3(0.788, 0.663, 0.431);
+                    vec3 dark = vec3(0.02, 0.02, 0.02);
+                    
+                    float intensity = wave * 0.15 + mouseWave;
+                    vec3 color = mix(dark, gold, intensity);
+                    
+                    gl_FragColor = vec4(color, 1.0);
+                }
+            `;
 
-<!-- TRUST -->
-<section class="py-20 border-t border-gray-900 text-center px-6">
-  <h2 class="text-3xl font-bold mb-12">Market Trust Signals</h2>
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                return shader;
+            }
 
-  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-gray-400">
-    <div>
-      <div class="text-yellow-400 font-bold text-2xl">+94%</div>
-      Brand trust increase with premium domains
-    </div>
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
 
-    <div>
-      <div class="text-yellow-400 font-bold text-2xl">3x</div>
-      Higher conversion vs long domains
-    </div>
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            gl.useProgram(program);
 
-    <div>
-      <div class="text-yellow-400 font-bold text-2xl">Instant</div>
-      Authority perception in markets
-    </div>
-  </div>
-</section>
+            const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+            const buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+            gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
 
-<!-- CONTACT -->
-<section id="contact" class="py-24 px-6 max-w-3xl mx-auto">
+            const position = gl.getAttribLocation(program, 'position');
+            gl.enableVertexAttribArray(position);
+            gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
 
-  <div class="text-center mb-10">
-    <h2 class="text-3xl font-bold">Acquire Domain</h2>
-    <p class="text-gray-500 mt-2">Direct ownership transfer after agreement</p>
-  </div>
+            const resolutionUniform = gl.getUniformLocation(program, 'resolution');
+            const timeUniform = gl.getUniformLocation(program, 'time');
+            const mouseUniform = gl.getUniformLocation(program, 'mouse');
 
-  <form action="https://formspree.io/f/xdaypkly" method="POST" class="bg-gray-950 border border-gray-800 rounded-2xl p-8">
+            let mouseX = canvas.width / 2;
+            let mouseY = canvas.height / 2;
 
-    <input type="hidden" name="domain" id="domain">
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = canvas.height - e.clientY;
+            });
 
-    <input class="w-full mb-4 p-3 bg-black border border-gray-800 rounded-lg" name="name" placeholder="Full Name" required>
-    <input class="w-full mb-4 p-3 bg-black border border-gray-800 rounded-lg" name="email" placeholder="Email" required>
+            function render(time) {
+                gl.viewport(0, 0, canvas.width, canvas.height);
+                gl.uniform2f(resolutionUniform, canvas.width, canvas.height);
+                gl.uniform1f(timeUniform, time * 0.001);
+                gl.uniform2f(mouseUniform, mouseX, mouseY);
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                requestAnimationFrame(render);
+            }
 
-    <select class="w-full mb-4 p-3 bg-black border border-gray-800 rounded-lg" name="budget" required>
-      <option value="">Budget Range</option>
-      <option>Under $1K</option>
-      <option>$1K - $3K</option>
-      <option>$3K - $5K</option>
-      <option>$5K+</option>
-    </select>
+            requestAnimationFrame(render);
 
-    <textarea class="w-full mb-6 p-3 bg-black border border-gray-800 rounded-lg" name="message" placeholder="Offer or project details"></textarea>
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
 
-    <button class="w-full bg-yellow-500 text-black py-3 font-bold rounded-xl hover:bg-yellow-400">
-      Submit Offer
-    </button>
+        // ===== LOADER =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('done');
+            }, 2500);
+        });
 
-  </form>
-</section>
+        // ===== CUSTOM CURSOR =====
+        const cursorMain = document.querySelector('.cursor-main');
+        const cursorRing = document.querySelector('.cursor-ring');
+        const cursorGlow = document.querySelector('.cursor-glow');
 
-<!-- FOOTER -->
-<footer class="py-10 text-center text-gray-600 border-t border-gray-900">
-  Premium Domain Portfolio · Strategic Digital Assets
-</footer>
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+        let glowX = 0, glowY = 0;
 
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorMain.style.left = mouseX - 6 + 'px';
+            cursorMain.style.top = mouseY - 6 + 'px';
+
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.left = ringX - 20 + 'px';
+            cursorRing.style.top = ringY - 20 + 'px';
+
+            glowX += (mouseX - glowX) * 0.08;
+            glowY += (mouseY - glowY) * 0.08;
+            cursorGlow.style.left = glowX - 30 + 'px';
+            cursorGlow.style.top = glowY - 30 + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // ===== MAGNETIC BUTTONS =====
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // ===== 3D CARD TILT =====
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+                card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // ===== SCROLL REVEAL =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card, .stat-box, .hero-eyebrow, .hero h1, .hero-subtitle, .hero-line').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== COUNT UP ANIMATION =====
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const suffix = target === 3 ? 'x' : '%';
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            entry.target.textContent = target + suffix;
+                            clearInterval(timer);
+                        } else {
+                            entry.target.textContent = Math.floor(current) + suffix;
+                        }
+                    }, 25);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            statObserver.observe(stat);
+        });
+
+        // ===== DOMAIN SELECTION =====
+        function selectDomain(domain) {
+            document.getElementById('domain-field').value = domain;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            
+            // Flash effect
+            const btn = event.target.closest('.magnetic-btn');
+            btn.style.background = 'var(--gold)';
+            btn.style.color = 'var(--bg)';
+            setTimeout(() => {
+                btn.style.background = '';
+                btn.style.color = '';
+            }, 300);
+        }
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // ===== PARALLAX ON SCROLL =====
+        let scrollY = 0;
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+            document.querySelectorAll('.glass-card').forEach((card, i) => {
+                const speed = 0.05 + (i * 0.02);
+                card.style.transform += ` translateY(${scrollY * speed}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
-```
