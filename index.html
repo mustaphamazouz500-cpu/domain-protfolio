@@ -3,10 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Domain Assets | Strategic .com Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Premium Domain Assets</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0a0a0a;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:60px 20px}
+        
+        /* Header */
+        header{text-align:center;margin-bottom:80px}
+        h1{font-size:48px;font-weight:700;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,#e8d5b7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .subtitle{color:#888;font-size:20px}
+        .divider{width:60px;height:2px;background:#c9a96e;margin:30px auto 0}
+        
+        /* Cards */
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px;margin-bottom:80px}
+        .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px;transition:all 0.3s}
+        .card:hover{border-color:rgba(201,169,110,0.4);transform:translateY(-5px);box-shadow:0 20px 40px rgba(201,169,110,0.1)}
+        .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+        .card h2{font-size:28px;color:#e8d5b7}
+        .badge{background:rgba(201,169,110,0.15);color:#c9a96e;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase}
+        .price{font-size:36px;font-weight:700;margin-bottom:20px}
+        .features{list-style:none;margin-bottom:30px}
+        .features li{color:#888;padding:8px 0;padding-left:20px;position:relative}
+        .features li:before{content:"→";position:absolute;left:0;color:#c9a96e;font-weight:700}
+        .btn{display:block;width:100%;background:#c9a96e;color:#0a0a0a;padding:14px;text-align:center;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;transition:all 0.3s;border:none;cursor:pointer}
+        .btn:hover{background:#e8d5b7}
+        
+        /* Stats */
+        .stats{text-align:center;padding:60px 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:80px}
+        .stats h3{font-size:28px;margin-bottom:40px}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;max-width:800px;margin:0 auto}
+        .stat-num{font-size:48px;font-weight:700;color:#c9a96e;margin-bottom:8px}
+        .stat-label{color:#888}
+        
+        /* Contact */
+        .contact{max-width:600px;margin:0 auto 80px;text-align:center}
+        .contact h3{font-size:28px;margin-bottom:12px}
+        .contact>p{color:#888;margin-bottom:40px}
+        form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px;text-align:left}
+        .form-group{margin-bottom:20px}
+        label{display:block;color:#888;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+        input,select,textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;color:#fff;font-size:16px}
+        input:focus,select:focus,textarea:focus{outline:none;border-color:#c9a96e}
+        textarea{min-height:100px;resize:vertical}
+        select{cursor:pointer}
+        button[type="submit"]{margin-top:10px}
+        
+        /* Footer */
+        footer{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1)}
+        footer p{color:#666;font-size:14px}
+        footer p:last-child{margin-top:8px;font-size:12px;text-transform:uppercase;letter-spacing:2px}
+        
+        /* Responsive */
+        @media(max-width:768px){
+            h1{font-size:36px}
+            .cards{grid-template-columns:1fr}
+            .card{padding:30px}
+            .stat-num{font-size:36px}
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -17,12 +72,12 @@
             <p class="subtitle">Short, memorable .com domains for forward-thinking companies</p>
             <div class="divider"></div>
         </header>
-
+        
         <!-- Domain Cards -->
-        <div class="domains-grid">
+        <div class="cards">
             
             <!-- BentQ.com -->
-            <div class="domain-card featured">
+            <div class="card">
                 <div class="card-header">
                     <h2>BentQ.com</h2>
                     <span class="badge">Featured</span>
@@ -34,11 +89,11 @@
                     <li>Perfect for design, tech, industrial brands</li>
                     <li>Instant authority & trust</li>
                 </ul>
-                <a href="#contact" class="btn btn-primary" onclick="setDomain('BentQ.com')">Inquire Now</a>
+                <a href="#contact" class="btn" onclick="document.getElementById('domain').value='BentQ.com';document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Inquire Now</a>
             </div>
-
+            
             <!-- Ooqle.com -->
-            <div class="domain-card">
+            <div class="card">
                 <div class="card-header">
                     <h2>Ooqle.com</h2>
                 </div>
@@ -49,11 +104,11 @@
                     <li>Unique & memorable</li>
                     <li>Search & innovation focus</li>
                 </ul>
-                <a href="#contact" class="btn btn-primary" onclick="setDomain('Ooqle.com')">Inquire Now</a>
+                <a href="#contact" class="btn" onclick="document.getElementById('domain').value='Ooqle.com';document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Inquire Now</a>
             </div>
-
+            
             <!-- SpysBrand.com -->
-            <div class="domain-card">
+            <div class="card">
                 <div class="card-header">
                     <h2>SpysBrand.com</h2>
                 </div>
@@ -64,56 +119,56 @@
                     <li>Distinctive market presence</li>
                     <li>Bold & memorable</li>
                 </ul>
-                <a href="#contact" class="btn btn-primary" onclick="setDomain('SpysBrand.com')">Inquire Now</a>
+                <a href="#contact" class="btn" onclick="document.getElementById('domain').value='SpysBrand.com';document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Inquire Now</a>
             </div>
-
+            
         </div>
-
-        <!-- Why Buy Section -->
-        <section class="why-buy">
+        
+        <!-- Stats -->
+        <div class="stats">
             <h3>Why Acquire a Premium Domain?</h3>
             <div class="stats-grid">
-                <div class="stat">
-                    <div class="stat-number">94%</div>
+                <div>
+                    <div class="stat-num">94%</div>
                     <div class="stat-label">of first impressions are design-based</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">3x</div>
+                <div>
+                    <div class="stat-num">3x</div>
                     <div class="stat-label">higher trust with .com domains</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">60%</div>
+                <div>
+                    <div class="stat-num">60%</div>
                     <div class="stat-label">of traffic goes to .com by default</div>
                 </div>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
+        </div>
+        
+        <!-- Contact -->
+        <div id="contact" class="contact">
             <h3>Serious Inquiries Only</h3>
-            <p class="contact-subtitle">Direct acquisition available. All offers considered.</p>
+            <p>Direct acquisition available. All offers considered.</p>
             
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-                <input type="hidden" name="domain" id="domain-field" value="">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="domain" id="domain" value="">
                 
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Your full name">
+                    <label>Name</label>
+                    <input type="text" name="name" required placeholder="Your full name">
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="your@company.com">
+                    <label>Email</label>
+                    <input type="email" name="email" required placeholder="your@company.com">
                 </div>
                 
                 <div class="form-group">
-                    <label for="company">Company (Optional)</label>
-                    <input type="text" id="company" name="company" placeholder="Your company name">
+                    <label>Company (Optional)</label>
+                    <input type="text" name="company" placeholder="Your company name">
                 </div>
                 
                 <div class="form-group">
-                    <label for="budget">Budget Range</label>
-                    <select id="budget" name="budget" required>
+                    <label>Budget Range</label>
+                    <select name="budget" required>
                         <option value="">Select budget range</option>
                         <option value="under-1k">Under $1,000</option>
                         <option value="1k-3k">$1,000 - $3,000</option>
@@ -124,32 +179,20 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project and which domain interests you..."></textarea>
+                    <label>Message</label>
+                    <textarea name="message" rows="4" placeholder="Tell us about your project..."></textarea>
                 </div>
                 
-                <button type="submit" class="btn btn-submit">Send Inquiry</button>
+                <button type="submit" class="btn">Send Inquiry</button>
             </form>
-            
-            <div class="contact-alt">
-                <p>Prefer direct contact?</p>
-                <a href="mailto:your-email@example.com" class="email-link">your-email@example.com</a>
-            </div>
-        </section>
-
+        </div>
+        
         <!-- Footer -->
         <footer>
             <p> Strategic Domain Assets. All rights reserved.</p>
-            <p class="footer-note">Premium .com domains. Serious buyers only.</p>
+            <p>Premium .com domains. Serious buyers only.</p>
         </footer>
-
+        
     </div>
-
-    <script>
-        function setDomain(domainName) {
-            document.getElementById('domain-field').value = domainName;
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>
