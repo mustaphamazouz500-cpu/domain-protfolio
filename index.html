@@ -3,115 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Asset Acquisition | Private Sale</title>
+    <title>NETWORK OVERRIDE | SECURE ASSET INJECTION</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Outfit:wght@100;400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #ffffff; --bg: #000000; }
-        body { background-color: var(--bg); font-family: 'Outfit', sans-serif; color: white; scroll-behavior: smooth; }
-        .font-grotesk { font-family: 'Space Grotesk', sans-serif; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade { animation: fadeIn 1s ease-out forwards; }
-
-        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .glass-card:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); transform: scale(1.02); }
-        .hero-gradient { background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 70%); }
-        
-        .cta-float { position: relative; overflow: hidden; }
-        .cta-float::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); transform: rotate(45deg); transition: 0.5s; }
-        .cta-float:hover::after { left: 100%; }
+        :root { --main-cyan: #00f2ff; --main-red: #ff004c; }
+        body { background: #020205; color: #fff; font-family: 'JetBrains Mono', monospace; overflow-x: hidden; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .glitch-bg { background: linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px); background-size: 20px 20px; }
+        .cyber-card { background: rgba(10, 10, 15, 0.8); border: 1px solid rgba(0, 242, 255, 0.1); backdrop-filter: blur(10px); transition: 0.4s; position: relative; }
+        .cyber-card:hover { border-color: var(--main-cyan); box-shadow: 0 0 30px rgba(0, 242, 255, 0.2); transform: translateY(-5px); }
+        .status-bar { height: 2px; background: var(--main-cyan); width: 0%; box-shadow: 0 0 15px var(--main-cyan); transition: 0.3s; }
+        .scan-anim { position: absolute; top: 0; width: 100%; height: 2px; background: var(--main-cyan); animation: scan 4s infinite; opacity: 0.3; }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .shimmer { background: linear-gradient(90deg, transparent, rgba(0, 242, 255, 0.1), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        .btn-glow { background: var(--main-cyan); color: #000; box-shadow: 0 0 20px var(--main-cyan); transition: 0.3s; }
+        .btn-glow:hover { box-shadow: 0 0 40px var(--main-cyan); transform: scale(1.05); }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="glitch-bg min-h-screen">
 
-    <div class="fixed inset-0 hero-gradient pointer-events-none"></div>
+    <div class="fixed top-0 left-0 w-full p-4 flex justify-between items-center z-50 pointer-events-none opacity-50">
+        <div class="text-[10px] orbitron tracking-widest text-cyan-400">SESSION: <span id="session-id">LOADING...</span></div>
+        <div class="text-[10px] orbitron tracking-widest text-red-500 animate-pulse">SYSTEM: UNRESTRICTED ACCESS</div>
+    </div>
 
-    <nav class="relative z-10 flex justify-between items-center px-8 py-12 max-w-7xl mx-auto">
-        <div class="font-grotesk font-bold text-xl tracking-tighter uppercase border-l-2 border-white pl-4">Digital Vault</div>
-        <a href="#contact" class="text-[10px] font-light tracking-[0.4em] uppercase opacity-50 hover:opacity-100 transition">Inquire Now</a>
-    </nav>
+    <div class="container mx-auto px-6 pt-24 pb-12 relative z-10">
+        
+        <div class="text-center mb-16">
+            <h1 class="orbitron text-5xl md:text-8xl font-black mb-4 tracking-tighter shimmer inline-block px-4">RAID<span class="text-cyan-400">CORE</span>.PRO</h1>
+            <p class="text-gray-500 uppercase tracking-[0.6em] text-xs">Direct Server-Side Data Modification v8.2</p>
+        </div>
 
-    <header class="relative z-10 container mx-auto px-6 pt-10 pb-32 text-center">
-        <h1 class="animate-fade text-6xl md:text-9xl font-black tracking-tighter leading-none mb-6">
-            Elite <span class="opacity-20">Holdings.</span>
-        </h1>
-        <p class="animate-fade text-gray-500 text-sm tracking-[0.5em] uppercase">Verified Premium Domain Assets</p>
-    </header>
+        <div class="max-w-4xl mx-auto mb-10 bg-black/60 border-l-2 border-cyan-500 p-4 flex items-center gap-4 animate-fade-in">
+            <div class="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+            <div id="live-feed" class="text-[11px] text-cyan-200 tracking-wider">INITIALIZING CONNECTION TO GLOBAL NODES...</div>
+        </div>
 
-    <section class="relative z-10 container mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div id="game-selection" class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             
-            <div class="glass-card p-12 flex flex-col justify-between min-h-[450px]">
-                <div>
-                    <span class="text-[10px] tracking-[0.5em] text-gray-600 uppercase mb-4 block">Asset ID: OQL-14</span>
-                    <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-4">ooqle<span class="opacity-20">.com</span></h2>
-                    <p class="text-gray-400 font-light text-sm tracking-widest uppercase mb-8 leading-relaxed">Search Engine & AI Infrastructure Elite Tier.</p>
+            <div class="cyber-card p-8 rounded-none group cursor-pointer" onclick="initiate('ROBLOX', 'ROBUX')">
+                <div class="scan-anim"></div>
+                <div class="mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <img src="https://img.icons8.com/color/512/roblox.png" class="w-16 h-16 mx-auto">
                 </div>
-                <div class="flex items-end justify-between">
-                    <div>
-                        <div class="text-[10px] text-gray-600 uppercase tracking-widest mb-1">Buy It Now</div>
-                        <div class="text-4xl font-bold tracking-tighter">$1,488</div>
-                    </div>
-                    <a href="#contact" class="cta-float bg-white text-black px-8 py-4 text-[10px] font-black uppercase tracking-widest">Secure</a>
-                </div>
+                <h3 class="orbitron text-center font-bold tracking-widest">ROBLOX</h3>
+                <p class="text-[9px] text-center text-cyan-600 mt-2">DB-X3 ENCRYPTED</p>
             </div>
 
-            <div class="glass-card p-12 flex flex-col justify-between min-h-[450px]">
-                <div>
-                    <span class="text-[10px] tracking-[0.5em] text-gray-600 uppercase mb-4 block">Asset ID: BTQ-28</span>
-                    <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-4">BentQ<span class="opacity-20">.com</span></h2>
-                    <p class="text-gray-400 font-light text-sm tracking-widest uppercase mb-8 leading-relaxed">Luxury Identity & Premium Global Branding.</p>
+            <div class="cyber-card p-8 rounded-none group cursor-pointer" onclick="initiate('FREE FIRE', 'DIAMONDS')">
+                <div class="scan-anim"></div>
+                <div class="mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <img src="https://img.icons8.com/color/512/free-fire.png" class="w-16 h-16 mx-auto">
                 </div>
-                <div class="flex items-end justify-between">
-                    <div>
-                        <div class="text-[10px] text-gray-600 uppercase tracking-widest mb-1">Buy It Now</div>
-                        <div class="text-4xl font-bold tracking-tighter">$2,888</div>
-                    </div>
-                    <a href="#contact" class="cta-float bg-white text-black px-8 py-4 text-[10px] font-black uppercase tracking-widest">Secure</a>
+                <h3 class="orbitron text-center font-bold tracking-widest">FREE FIRE</h3>
+                <p class="text-[9px] text-center text-red-600 mt-2">API OVERRIDE ACTIVE</p>
+            </div>
+
+            <div class="cyber-card p-8 rounded-none group cursor-pointer" onclick="initiate('FORTNITE', 'V-BUCKS')">
+                <div class="scan-anim"></div>
+                <div class="mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <img src="https://img.icons8.com/color/512/fortnite.png" class="w-16 h-16 mx-auto">
                 </div>
+                <h3 class="orbitron text-center font-bold tracking-widest">FORTNITE</h3>
+                <p class="text-[9px] text-center text-purple-600 mt-2">U-EFN INJECTION</p>
+            </div>
+
+            <div class="cyber-card p-8 rounded-none group cursor-pointer" onclick="initiate('PUBG MOBILE', 'UC')">
+                <div class="scan-anim"></div>
+                <div class="mb-6 opacity-60 group-hover:opacity-100 transition-opacity">
+                    <img src="https://img.icons8.com/color/512/pubg.png" class="w-16 h-16 mx-auto">
+                </div>
+                <h3 class="orbitron text-center font-bold tracking-widest">PUBG MOBILE</h3>
+                <p class="text-[9px] text-center text-yellow-600 mt-2">SECURE-UC BYPASS</p>
             </div>
 
         </div>
-    </section>
 
-    <section id="contact" class="relative z-10 container mx-auto px-6 py-40">
-        <div class="max-w-2xl mx-auto border-t border-white/10 pt-20">
-            <h2 class="text-4xl font-black mb-4 tracking-tighter uppercase">Initiate Acquisition</h2>
-            <p class="text-gray-500 mb-12 text-xs tracking-widest uppercase italic">Confidential Inquiry for Verified Buyers Only.</p>
-            
-            <form action="https://formspree.io/f/xdaypkly" method="POST" class="space-y-10">
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div>
-                        <label class="text-[10px] uppercase tracking-[0.3em] text-gray-500 block mb-2">Legal Name</label>
-                        <input type="text" name="name" required class="w-full bg-transparent border-b border-white/10 py-4 focus:border-white outline-none transition text-sm tracking-widest uppercase">
-                    </div>
-                    <div>
-                        <label class="text-[10px] uppercase tracking-[0.3em] text-gray-500 block mb-2">Corporate Email</label>
-                        <input type="email" name="_replyto" required class="w-full bg-transparent border-b border-white/10 py-4 focus:border-white outline-none transition text-sm tracking-widest uppercase">
-                    </div>
-                </div>
-                <div>
-                    <label class="text-[10px] uppercase tracking-[0.3em] text-gray-500 block mb-2">Select Asset</label>
-                    <select name="subject" class="w-full bg-transparent border-b border-white/10 py-4 focus:border-white outline-none transition text-sm tracking-widest uppercase appearance-none cursor-pointer">
-                        <option value="Inquiry for ooqle.com ($1,488)" class="bg-black">ooqle.com - $1,488</option>
-                        <option value="Inquiry for BentQ.com ($2,888)" class="bg-black">BentQ.com - $2,888</option>
-                        <option value="Portfolio Offer" class="bg-black">Entire Portfolio Bundle</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="text-[10px] uppercase tracking-[0.3em] text-gray-500 block mb-2">Private Message / Offer</label>
-                    <textarea name="message" rows="3" class="w-full bg-transparent border-b border-white/10 py-4 focus:border-white outline-none transition text-sm tracking-widest uppercase"></textarea>
+        <div id="console-wrap" class="max-w-3xl mx-auto mt-20 hidden">
+            <div class="bg-[#050508] border border-cyan-500/30 p-8 shadow-2xl relative">
+                <div class="flex gap-2 mb-6">
+                    <div class="w-3 h-3 rounded-full bg-red-600"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-600"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-600"></div>
                 </div>
                 
-                <button type="submit" class="w-full bg-white text-black py-6 font-black uppercase tracking-[0.6em] text-xs hover:bg-gray-200 transition active:scale-[0.98]">Confirm Intent</button>
-            </form>
+                <div id="terminal-log" class="text-xs space-y-2 text-cyan-300 min-h-[300px]"></div>
+                
+                <div class="mt-6">
+                    <div class="flex justify-between text-[10px] mb-2 uppercase tracking-widest">
+                        <span>Injection Progress</span>
+                        <span id="pct">0%</span>
+                    </div>
+                    <div class="bg-gray-900 w-full h-1">
+                        <div id="bar" class="status-bar h-full"></div>
+                    </div>
+                </div>
+
+                <div id="lock-screen" class="hidden absolute inset-0 bg-black/95 flex flex-col items-center justify-center p-12 text-center">
+                    <div class="orbitron text-2xl text-red-500 mb-4 animate-pulse">SECURITY LOCKDOWN</div>
+                    <p class="text-sm text-gray-400 mb-8 uppercase tracking-[0.2em] leading-relaxed">
+                        To prevent server-wide detection and finalize the resource synchronization, you must complete the human verification protocol.
+                    </p>
+                    <a href="YOUR_CPA_LINK_HERE" class="btn-glow px-12 py-5 orbitron font-black text-sm uppercase tracking-widest">UNBLOCK & SYNC</a>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <footer class="relative z-10 py-20 border-t border-white/5 text-center">
-        <p class="text-[10px] text-gray-700 tracking-[1em] uppercase">Private Inventory &copy; 2026. Secured Transactions via Escrow.</p>
-    </footer>
+    </div>
 
+    <script>
+        // Session & Activity Logic
+        document.getElementById('session-id').innerText = Math.random().toString(36).substring(2, 10).toUpperCase();
+
+        const logs = [
+            "> Establishing handshake with main server...",
+            "> Patching security vulnerabilities...",
+            "> Success! Tunneling through SSH-X86...",
+            "> Searching for UID in localized shards...",
+            "> Found database entry [0x12F8...]",
+            "> Initializing resource packet generator...",
+            "> Synchronizing values with global ledger...",
+            "> Encrypting transaction logs to avoid ban...",
+            "> ⚠️ NETWORK CONGESTION DETECTED: BOT FILTER ACTIVE."
+        ];
+
+        function initiate(game, res) {
+            document.getElementById('game-selection').style.display = 'none';
+            document.getElementById('console-wrap').classList.remove('hidden');
+            
+            let i = 0;
+            const logDiv = document.getElementById('terminal-log');
+            const bar = document.getElementById('bar');
+            const pct = document.getElementById('pct');
+
+            const timer = setInterval(() => {
+                if (i < logs.length) {
+                    const line = document.createElement('div');
+                    line.innerText = logs[i];
+                    logDiv.appendChild(line);
+                    i++;
+                    bar.style.width = (i * 11) + '%';
+                    pct.innerText = (i * 11) + '%';
+                } else {
+                    clearInterval(timer);
+                    setTimeout(() => {
+                        document.getElementById('lock-screen').classList.remove('hidden');
+                    }, 500);
+                }
+            }, 800);
+        }
+
+        // Fake Activity Loop
+        const feed = document.getElementById('live-feed');
+        const activity = [
+            "User 'Ghost92' received 50,000 Robux (Success)",
+            "User 'RaidX' bypass successful - 1,200 UC added",
+            "Injection complete for 'User_771' (V-Bucks Sync)",
+            "Manual Verification required for node [Germany]"
+        ];
+        setInterval(() => {
+            feed.innerText = activity[Math.floor(Math.random() * activity.length)].toUpperCase();
+        }, 5000);
+    </script>
 </body>
 </html>
