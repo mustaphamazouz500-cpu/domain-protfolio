@@ -3,98 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MODSQUAD PRO | Unlimited Gaming Power</title>
+    <title>ULTRAGAMING | PRIVATE SERVER ACCESS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .glow-purple { box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
-        .gradient-text { background: linear-gradient(to bottom, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @keyframes pulse-fast { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .animate-pulse-fast { animation: pulse-fast 1s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        :root { --accent: #8b5cf6; }
+        body { font-family: 'Inter', sans-serif; background-color: #020202; color: white; overflow-x: hidden; }
+        .font-sync { font-family: 'Syncopate', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .glass-card:hover { border-color: var(--accent); background: rgba(139, 92, 246, 0.05); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1); }
+        .neon-text { text-shadow: 0 0 10px rgba(139, 92, 246, 0.5); }
+        .shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        .btn-premium { background: linear-gradient(135deg, #fff 0%, #a855f7 100%); color: black; font-weight: 900; transition: all 0.3s; }
+        .btn-premium:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(168, 85, 247, 0.4); }
     </style>
 </head>
 <body>
 
-    <nav class="sticky top-0 z-50 glass border-b border-white/10 px-6 py-4 flex justify-between items-center bg-black/80">
-        <div class="flex items-center gap-2">
-            <div class="bg-purple-600 p-2 rounded-lg font-black italic">MOD</div>
-            <span class="font-black tracking-tighter text-xl italic">SQUAD PRO</span>
+    <nav class="fixed top-0 w-full z-[100] border-b border-white/5 bg-black/80 backdrop-blur-2xl px-8 py-5 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 border-2 border-purple-500 flex items-center justify-center font-sync text-xs rotate-45">UG</div>
+            <span class="font-sync font-bold tracking-[0.3em] text-sm">ULTRAGAMING <span class="text-purple-500 text-[10px] ml-2 animate-pulse">ENCRYPTED</span></span>
         </div>
-        <div class="flex items-center gap-2 text-xs font-bold text-green-400">
-            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> SERVERS ONLINE
+        <div class="hidden md:flex gap-8 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
+            <span class="hover:text-purple-500 cursor-pointer transition-all">Exploits</span>
+            <span class="hover:text-purple-500 cursor-pointer transition-all">Mobile Ports</span>
+            <span class="text-green-500">Live Status: Stable</span>
         </div>
     </nav>
 
-    <section class="py-16 px-6 text-center">
-        <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-6">
-            <span class="text-red-500 text-[10px] font-black uppercase tracking-widest animate-pulse-fast">Limited Slots Available</span>
+    <section class="relative pt-40 pb-20 px-6 text-center overflow-hidden">
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-600/20 blur-[150px] rounded-full"></div>
+        
+        <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-2 rounded-full mb-8 backdrop-blur-md">
+            <span class="w-2 h-2 bg-red-600 rounded-full animate-ping"></span>
+            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-300">New Mods Just Injected (US-EAST Servers)</span>
         </div>
-        <h1 class="text-5xl md:text-7xl font-black gradient-text mb-6 italic leading-tight">DOMINATE THE GAME</h1>
-        <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base">The ultimate vault for premium game modifications. No jailbreak, no root. Instant injection.</p>
+
+        <h1 class="text-6xl md:text-8xl font-black font-sync tracking-tighter leading-none mb-8 italic">
+            LIMITLESS <br> <span class="text-purple-500 neon-text">POWER</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-gray-400 text-sm md:text-lg mb-12 font-light leading-relaxed">
+            The world's most sophisticated cloud-based gaming exploits. <br> Guaranteed 0% ban rate. Instant server-side verification.
+        </p>
     </section>
 
-    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
         
-        <div class="glass rounded-[32px] overflow-hidden group hover:border-purple-500/50 transition-all duration-500">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1605339396515-41b52bc6647b?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+        <div class="glass-card rounded-[40px] overflow-hidden p-3 group">
+            <div class="h-64 rounded-[32px] overflow-hidden relative mb-6">
+                <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 font-sync text-[10px] text-purple-400 font-bold">ROBLOX VER. 2.9</div>
             </div>
-            <div class="p-6">
-                <h3 class="text-xl font-bold mb-1">Roblox Mod Menu</h3>
-                <p class="text-purple-400 text-xs font-black mb-6 uppercase tracking-widest">Unlimited Robux & Fly</p>
-                <button onclick="startInjection('Roblox')" class="w-full bg-white text-black py-4 rounded-2xl font-black hover:bg-purple-600 hover:text-white transition-all">INSTALL NOW</button>
-            </div>
-        </div>
-
-        <div class="glass rounded-[32px] overflow-hidden group hover:border-purple-500/50 transition-all duration-500">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1635326444740-482937748839?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
-            </div>
-            <div class="p-6">
-                <h3 class="text-xl font-bold mb-1">Toca Boca World</h3>
-                <p class="text-purple-400 text-xs font-black mb-6 uppercase tracking-widest">All Maps & Items Unlocked</p>
-                <button onclick="startInjection('Toca Boca')" class="w-full bg-white text-black py-4 rounded-2xl font-black hover:bg-purple-600 hover:text-white transition-all">INSTALL NOW</button>
+            <div class="px-6 pb-6">
+                <h3 class="font-sync font-bold text-lg mb-2">MOD MENU X</h3>
+                <p class="text-gray-500 text-xs mb-8 uppercase tracking-widest">Unlimited Robux & Ghost Mode</p>
+                <button onclick="startInjection('Roblox')" class="w-full btn-premium py-5 rounded-2xl text-[11px] tracking-[0.2em]">INITIALIZE INJECTION</button>
             </div>
         </div>
 
-        <div class="glass rounded-[32px] overflow-hidden group hover:border-purple-500/50 transition-all duration-500">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+        <div class="glass-card rounded-[40px] overflow-hidden p-3 group">
+            <div class="h-64 rounded-[32px] overflow-hidden relative mb-6">
+                <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 font-sync text-[10px] text-purple-400 font-bold">TOCA WORLD MOD</div>
             </div>
-            <div class="p-6">
-                <h3 class="text-xl font-bold mb-1">Spider-Man Mobile</h3>
-                <p class="text-purple-400 text-xs font-black mb-6 uppercase tracking-widest">All Suits & Mission Port</p>
-                <button onclick="startInjection('Spider-Man')" class="w-full bg-white text-black py-4 rounded-2xl font-black hover:bg-purple-600 hover:text-white transition-all">INSTALL NOW</button>
+            <div class="px-6 pb-6">
+                <h3 class="font-sync font-bold text-lg mb-2">ALL UNLOCKED</h3>
+                <p class="text-gray-500 text-xs mb-8 uppercase tracking-widest">Full World Access & Premium Gear</p>
+                <button onclick="startInjection('Toca Boca')" class="w-full btn-premium py-5 rounded-2xl text-[11px] tracking-[0.2em]">INITIALIZE INJECTION</button>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-[40px] overflow-hidden p-3 group">
+            <div class="h-64 rounded-[32px] overflow-hidden relative mb-6">
+                <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+            </div>
+            <div class="px-6 pb-6">
+                <h3 class="font-sync font-bold text-lg mb-2">MILES MORALES</h3>
+                <p class="text-gray-500 text-xs mb-8 uppercase tracking-widest">Spider-Verse All Suits Hack</p>
+                <button onclick="startInjection('Spider-Man')" class="w-full btn-premium py-5 rounded-2xl text-[11px] tracking-[0.2em]">INITIALIZE INJECTION</button>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-[40px] overflow-hidden p-3 group">
+            <div class="h-64 rounded-[32px] overflow-hidden relative mb-6">
+                <img src="https://images.unsplash.com/photo-1635326444740-482937748839?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+            </div>
+            <div class="px-6 pb-6">
+                <h3 class="font-sync font-bold text-lg mb-2">BRAWL MAX</h3>
+                <p class="text-gray-500 text-xs mb-8 uppercase tracking-widest">Infinite Gems & All Brawlers</p>
+                <button onclick="startInjection('Brawl Stars')" class="w-full btn-premium py-5 rounded-2xl text-[11px] tracking-[0.2em]">INITIALIZE INJECTION</button>
             </div>
         </div>
 
     </div>
 
-    <div id="injection-screen" class="fixed inset-0 bg-black z-[100] hidden flex-col items-center justify-center text-center">
-        <div class="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mb-6"></div>
-        <h2 id="injection-text" class="text-2xl font-black italic animate-pulse">CONNECTING TO SERVER...</h2>
-        <p class="text-gray-500 mt-2 font-mono text-xs">Bypassing security layers...</p>
+    <div id="injection-screen" class="fixed inset-0 bg-black z-[1000] hidden flex-col items-center justify-center text-center p-10">
+        <div class="shimmer w-64 h-1 bg-white/10 rounded-full mb-12 overflow-hidden">
+            <div id="progress-bar" class="w-0 h-full bg-purple-600 transition-all duration-500"></div>
+        </div>
+        <h2 id="injection-text" class="font-sync text-2xl font-bold italic tracking-tighter mb-4">ESTABLISHING ENCRYPTED LINK...</h2>
+        <p class="text-purple-500 font-mono text-[10px] tracking-widest uppercase" id="log-text">Bypassing platform security...</p>
     </div>
 
-    <div id="verification-modal" class="fixed inset-0 bg-black/90 backdrop-blur-2xl z-[101] hidden flex items-center justify-center p-6">
-        <div class="glass w-full max-w-md rounded-[40px] p-10 text-center relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
-            <h2 class="text-3xl font-black mb-4 italic tracking-tighter">VERIFICATION REQUIRED</h2>
-            <p class="text-gray-400 text-sm mb-8 leading-relaxed">To protect this mod from being patched, please verify you are human. This is a one-time process.</p>
+    <div id="verification-modal" class="fixed inset-0 bg-[#020202]/95 backdrop-blur-3xl z-[2000] hidden flex items-center justify-center p-8">
+        <div class="max-w-2xl w-full text-center">
+            <div class="mb-12 relative inline-block">
+                <div class="absolute inset-0 bg-purple-500 blur-3xl opacity-20"></div>
+                <div class="w-24 h-24 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-8 relative z-10">
+                    <div class="w-16 h-16 border border-purple-500 rounded-full flex items-center justify-center animate-pulse">
+                        <span class="font-sync text-xs text-purple-500">!</span>
+                    </div>
+                </div>
+            </div>
             
-            <div class="space-y-4">
-                <a href="YOUR_CPA_LINK_HERE" class="block w-full bg-white text-black py-5 rounded-2xl font-black hover:bg-purple-600 hover:text-white transition-all text-sm">VERIFY VIA MOBILE</a>
-                <button onclick="window.location.reload()" class="block w-full text-gray-500 font-bold text-xs">RETRY CONNECTION</button>
-            </div>
-
-            <div class="mt-8 flex justify-center gap-4 opacity-30 grayscale">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/McAfee_logo.svg" class="h-4">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Norton_logo.svg" class="h-4">
+            <h2 class="font-sync text-3xl font-black mb-6 tracking-tighter">FINAL AUTHENTICATION</h2>
+            <p class="text-gray-500 text-sm mb-12 max-w-md mx-auto leading-relaxed uppercase tracking-widest">
+                Our server has successfully injected the mod. To complete the synchronization, <span class="text-white">Mobile Verification</span> is mandatory to protect the private server IP.
+            </p>
+            
+            <div class="space-y-6">
+                <a href="YOUR_CPA_LINK_HERE" class="block w-full bg-white text-black py-8 rounded-[30px] font-sync font-bold text-xs tracking-[0.3em] hover:bg-purple-600 hover:text-white transition-all">AUTHENTICATE VIA DEVICE</a>
+                <p class="text-[9px] text-gray-600 uppercase tracking-widest font-bold">Process time: ~28 seconds | Verified Secure</p>
             </div>
         </div>
     </div>
@@ -102,21 +137,35 @@
     <script>
         function startInjection(game) {
             const screen = document.getElementById('injection-screen');
+            const progress = document.getElementById('progress-bar');
             const text = document.getElementById('injection-text');
+            const log = document.getElementById('log-text');
             const modal = document.getElementById('verification-modal');
 
             screen.classList.remove('hidden');
             screen.classList.add('flex');
 
-            setTimeout(() => { text.innerText = "FINDING EXPLOIT..."; }, 1000);
-            setTimeout(() => { text.innerText = "INJECTING SCRIPTS INTO " + game.toUpperCase() + "..."; }, 2500);
-            
-            setTimeout(() => {
-                screen.classList.remove('flex');
-                screen.classList.add('hidden');
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            }, 4500);
+            const steps = [
+                {p: '20%', t: 'SEARCHING VULNERABILITY...', l: 'Scanning game binary...'},
+                {p: '45%', t: 'EXPLOIT FOUND: CVE-2026-X', l: 'Escalating privileges...'},
+                {p: '70%', t: 'INJECTING SCRIPTS...', l: 'Overwriting server-side values...'},
+                {p: '100%', t: 'SUCCESS: PAYLOAD DELIVERED', l: 'Finalizing handshake...'}
+            ];
+
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    progress.style.width = step.p;
+                    text.innerText = step.t;
+                    log.innerText = step.l;
+                    if(index === steps.length - 1) {
+                        setTimeout(() => {
+                            screen.classList.add('hidden');
+                            modal.classList.remove('hidden');
+                            modal.classList.add('flex');
+                        }, 1000);
+                    }
+                }, (index + 1) * 1200);
+            });
         }
     </script>
 </body>
