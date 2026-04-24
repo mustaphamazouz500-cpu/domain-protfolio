@@ -1,166 +1,123 @@
-import { useState, useEffect } from 'react';
-import { Download, Shield, Star, Zap, Lock, AlertCircle, Smartphone, CheckCircle } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODSQUAD PRO | Unlimited Gaming Power</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-purple { box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
+        .gradient-text { background: linear-gradient(to bottom, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes pulse-fast { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .animate-pulse-fast { animation: pulse-fast 1s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+</head>
+<body>
 
-interface Game {
-  id: string;
-  name: string;
-  image: string; // تم التغيير من icon إلى image
-  feature: string;
-  color: string;
-  platform: string;
-}
+    <nav class="sticky top-0 z-50 glass border-b border-white/10 px-6 py-4 flex justify-between items-center bg-black/80">
+        <div class="flex items-center gap-2">
+            <div class="bg-purple-600 p-2 rounded-lg font-black italic">MOD</div>
+            <span class="font-black tracking-tighter text-xl italic">SQUAD PRO</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-bold text-green-400">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> SERVERS ONLINE
+        </div>
+    </nav>
 
-const games: Game[] = [
-  { id: 'roblox', name: 'Roblox', image: 'https://images.unsplash.com/photo-1605339396515-41b52bc6647b?q=80&w=500&auto=format&fit=crop', feature: 'Unlimited Robux & Mod Menu', color: 'from-red-600', platform: 'iOS/Android' },
-  { id: 'toca', name: 'Toca Boca', image: 'https://play-lh.googleusercontent.com/9z5jU4-8_h_U-H0G0_0m_2_S1Y_5_9_5_9_5_9_5_9_5_9_5_9_5_9_5_9_5_9_5_9', feature: 'All Worlds & Characters Unlocked', color: 'from-pink-500', platform: 'iOS/Android' },
-  { id: 'spiderman', name: 'Spider-Man Miles', image: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=500&auto=format&fit=crop', feature: 'Spider-Verse Suits Unlocked', color: 'from-blue-600', platform: 'iOS/Android' },
-  { id: 'brawl', name: 'Brawl Stars', image: 'https://images.unsplash.com/photo-1635326444740-482937748839?q=80&w=500&auto=format&fit=crop', feature: 'Max Brawlers & Infinite Gems', color: 'from-yellow-600', platform: 'iOS/Android' },
-  { id: 'rdr', name: 'Red Dead Mobile', image: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=500&auto=format&fit=crop', feature: 'Official Mobile Port Unlocked', color: 'from-amber-800', platform: 'iOS/Android' },
-];
+    <section class="py-16 px-6 text-center">
+        <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-full mb-6">
+            <span class="text-red-500 text-[10px] font-black uppercase tracking-widest animate-pulse-fast">Limited Slots Available</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black gradient-text mb-6 italic leading-tight">DOMINATE THE GAME</h1>
+        <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base">The ultimate vault for premium game modifications. No jailbreak, no root. Instant injection.</p>
+    </section>
 
-export default function GamingHub() {
-  const [timeLeft, setTimeLeft] = useState(1740); // 29 minutes
-  const [showVerification, setShowVerification] = useState(false);
-  const [selectedGame, setSelectedGame] = useState<Game | null>(null);
-  const [isInjecting, setIsInjecting] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const startDownload = (game: Game) => {
-    setSelectedGame(game);
-    setIsInjecting(true);
-    // محاكاة عملية الحقن لزيادة الثقة
-    setTimeout(() => {
-      setIsInjecting(false);
-      setShowVerification(true);
-    }, 2500);
-  };
-
-  return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-purple-500">
-      {/* Premium Navigation */}
-      <nav className="border-b border-white/10 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-tr from-purple-600 to-blue-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20">
-              <Zap className="w-6 h-6 fill-white" />
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        
+        <div class="glass rounded-[32px] overflow-hidden group hover:border-purple-500/50 transition-all duration-500">
+            <div class="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1605339396515-41b52bc6647b?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
             </div>
-            <span className="text-xl font-black tracking-tighter italic">MODSQUAD <span className="text-purple-500">PRO</span></span>
-          </div>
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
-            <span className="hover:text-white cursor-pointer transition-colors">TOP CHARTS</span>
-            <span className="hover:text-white cursor-pointer transition-colors">NEW MODS</span>
-            <span className="flex items-center gap-1 text-green-400 bg-green-400/10 px-3 py-1 rounded-full border border-green-400/20">
-              <CheckCircle className="w-3 h-3" /> SERVERS ONLINE
-            </span>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="pt-20 pb-10 px-4 text-center relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-purple-600/10 blur-[120px] rounded-full -z-10"></div>
-        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-6 animate-bounce">
-          <AlertCircle className="w-4 h-4 text-red-500" />
-          <span className="text-xs font-bold text-gray-300">LIMITED SLOTS AVAILABLE: {Math.floor(timeLeft/60)}m {timeLeft%60}s</span>
-        </div>
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
-          DOMINATE THE <br /> GAME TODAY
-        </h1>
-        <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl mb-10">
-          The ultimate vault for high-end game modifications. <br className="hidden md:block" /> No jailbreak, no root. Just pure power.
-        </p>
-      </section>
-
-      {/* Modern Game Grid */}
-      <section className="container mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {games.map((game) => (
-            <div 
-              key={game.id} 
-              className="group bg-[#111] border border-white/5 rounded-3xl overflow-hidden hover:border-purple-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(168,85,247,0.15)]"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img src={game.image} alt={game.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111] to-transparent"></div>
-                <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold border border-white/10">
-                  {game.platform}
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">{game.name}</h3>
-                <p className="text-purple-400 text-xs font-bold mb-4 flex items-center gap-1">
-                  <Zap className="w-3 h-3 fill-current" /> {game.feature}
-                </p>
-                <button 
-                  onClick={() => startDownload(game)}
-                  className="w-full bg-white text-black font-black py-4 rounded-2xl hover:bg-purple-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 active:scale-95"
-                >
-                  <Download className="w-5 h-5" /> DOWNLOAD NOW
-                </button>
-              </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-1">Roblox Mod Menu</h3>
+                <p class="text-purple-400 text-xs font-black mb-6 uppercase tracking-widest">Unlimited Robux & Fly</p>
+                <button onclick="startInjection('Roblox')" class="w-full bg-white text-black py-4 rounded-2xl font-black hover:bg-purple-600 hover:text-white transition-all">INSTALL NOW</button>
             </div>
-          ))}
         </div>
-      </section>
 
-      {/* Injection Overlay */}
-      {isInjecting && (
-        <div className="fixed inset-0 z-[100] bg-black flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-24 h-24 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-8"></div>
-            <h2 className="text-2xl font-black italic animate-pulse">INJECTING MOD SCRIPTS...</h2>
-            <p className="text-gray-500 mt-2 font-mono">Bypassing security layers for {selectedGame?.name}</p>
-          </div>
-        </div>
-      )}
-
-      {/* Human Verification Modal (The Hook) */}
-      {showVerification && (
-        <div className="fixed inset-0 z-[101] bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4">
-          <div className="bg-[#111] border border-white/10 w-full max-w-lg rounded-[40px] p-10 relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-purple-500/20 rounded-full mb-6">
-                <Lock className="w-10 h-10 text-purple-500" />
-              </div>
-              <h2 className="text-3xl font-black mb-4 tracking-tighter italic">HUMAN VERIFICATION</h2>
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                To prevent automated bots from patching this loophole, please verify your identity. <br /> 
-                <span className="text-white font-bold italic underline">Verification is required only once.</span>
-              </p>
-
-              <div className="space-y-4">
-                <button className="w-full group bg-white text-black py-5 rounded-2xl font-black flex items-center justify-between px-8 hover:bg-purple-500 hover:text-white transition-all">
-                  <div className="flex items-center gap-4">
-                    <Smartphone className="w-6 h-6" />
-                    <span>VERIFY VIA MOBILE DEVICE</span>
-                  </div>
-                  <Download className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                </button>
-                
-                <div className="flex items-center gap-4 py-4">
-                  <div className="h-[1px] bg-white/10 flex-1"></div>
-                  <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">OR USE EXTERNAL SOURCE</span>
-                  <div className="h-[1px] bg-white/10 flex-1"></div>
-                </div>
-
-                <button className="w-full bg-transparent border border-white/10 text-white py-5 rounded-2xl font-black hover:bg-white/5 transition-all text-sm">
-                  RETRY SYSTEM CHECK
-                </button>
-              </div>
-
-              <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-center gap-6">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/McAfee_logo.svg" className="h-6 opacity-30 grayscale" alt="McAfee" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Norton_logo.svg" className="h-6 opacity-30 grayscale" alt="Norton" />
-              </div>
+        <div class="glass rounded-[32px] overflow-hidden group hover:border-purple-500/50 transition-all duration-500">
+            <div class="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1635326444740-482937748839?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
             </div>
-          </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-1">Toca Boca World</h3>
+                <p class="text-purple-400 text-xs font-black mb-6 uppercase tracking-widest">All Maps & Items Unlocked</p>
+                <button onclick="startInjection('Toca Boca')" class="w-full bg-white text-black py-4 rounded-2xl font-black hover:bg-purple-600 hover:text-white transition-all">INSTALL NOW</button>
+            </div>
         </div>
-      )}
+
+        <div class="glass rounded-[32px] overflow-hidden group hover:border-purple-500/50 transition-all duration-500">
+            <div class="h-48 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-1">Spider-Man Mobile</h3>
+                <p class="text-purple-400 text-xs font-black mb-6 uppercase tracking-widest">All Suits & Mission Port</p>
+                <button onclick="startInjection('Spider-Man')" class="w-full bg-white text-black py-4 rounded-2xl font-black hover:bg-purple-600 hover:text-white transition-all">INSTALL NOW</button>
+            </div>
+        </div>
+
     </div>
-  );
-}
+
+    <div id="injection-screen" class="fixed inset-0 bg-black z-[100] hidden flex-col items-center justify-center text-center">
+        <div class="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mb-6"></div>
+        <h2 id="injection-text" class="text-2xl font-black italic animate-pulse">CONNECTING TO SERVER...</h2>
+        <p class="text-gray-500 mt-2 font-mono text-xs">Bypassing security layers...</p>
+    </div>
+
+    <div id="verification-modal" class="fixed inset-0 bg-black/90 backdrop-blur-2xl z-[101] hidden flex items-center justify-center p-6">
+        <div class="glass w-full max-w-md rounded-[40px] p-10 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+            <h2 class="text-3xl font-black mb-4 italic tracking-tighter">VERIFICATION REQUIRED</h2>
+            <p class="text-gray-400 text-sm mb-8 leading-relaxed">To protect this mod from being patched, please verify you are human. This is a one-time process.</p>
+            
+            <div class="space-y-4">
+                <a href="YOUR_CPA_LINK_HERE" class="block w-full bg-white text-black py-5 rounded-2xl font-black hover:bg-purple-600 hover:text-white transition-all text-sm">VERIFY VIA MOBILE</a>
+                <button onclick="window.location.reload()" class="block w-full text-gray-500 font-bold text-xs">RETRY CONNECTION</button>
+            </div>
+
+            <div class="mt-8 flex justify-center gap-4 opacity-30 grayscale">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/McAfee_logo.svg" class="h-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Norton_logo.svg" class="h-4">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startInjection(game) {
+            const screen = document.getElementById('injection-screen');
+            const text = document.getElementById('injection-text');
+            const modal = document.getElementById('verification-modal');
+
+            screen.classList.remove('hidden');
+            screen.classList.add('flex');
+
+            setTimeout(() => { text.innerText = "FINDING EXPLOIT..."; }, 1000);
+            setTimeout(() => { text.innerText = "INJECTING SCRIPTS INTO " + game.toUpperCase() + "..."; }, 2500);
+            
+            setTimeout(() => {
+                screen.classList.remove('flex');
+                screen.classList.add('hidden');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }, 4500);
+        }
+    </script>
+</body>
+</html>
