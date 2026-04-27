@@ -1,4 +1,1041 @@
-const appsData = [
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download Premium Modded Apps & Games for Android & iOS - Dragon Ball Legends Mod, Pokémon UNITE Mod, CupCut Pro, TikTok Mod, Spotify Premium and more. 100% Working Mods.">
+    <meta name="keywords" content="modded apps, modded games, free apps, android mods, ios mods, panda helper, tutuapp, app mod, game mod, cupcut mod, tiktok mod, spotify mod">
+    <meta property="og:title" content="ModHub Pro - Premium Modded Apps & Games Store">
+    <meta property="og:description" content="Download 100% working modded apps and games for Android & iOS.">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230a0a1a' width='32' height='32' rx='8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='%23ff4757' font-size='20' font-weight='bold'%3EMH%3C/text%3E%3C/svg%3E">
+    <title>ModHub Pro - Premium Modded Apps & Games for Android & iOS</title>
+    
+    <style>
+        :root {
+            --bg-primary: #06060e;
+            --bg-secondary: #0c0c1a;
+            --bg-card: #111128;
+            --bg-card-hover: #161638;
+            --accent: #ff4757;
+            --accent2: #ff6b81;
+            --accent-glow: rgba(255,71,87,0.3);
+            --green: #2ed573;
+            --green-glow: rgba(46,213,115,0.3);
+            --blue: #1e90ff;
+            --gold: #ffa502;
+            --text: #e8e8f0;
+            --text2: #9898b0;
+            --text3: #686880;
+            --border: #1a1a30;
+            --border-light: #252545;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 6px;
+            --shadow-card: 0 4px 30px rgba(0,0,0,0.4);
+            --shadow-glow: 0 0 40px rgba(255,71,87,0.15);
+            --font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(ellipse at 20% 20%, rgba(255,71,87,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(30,144,255,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(46,213,115,0.02) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============ ANNOUNCEMENT BAR ============ */
+        .announce-bar {
+            background: linear-gradient(135deg, #0f0f25, #151530);
+            border-bottom: 1px solid var(--border);
+            padding: 8px 0;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+        }
+
+        .announce-bar .pulse-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: var(--green);
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse-dot 1.8s infinite;
+            vertical-align: middle;
+        }
+
+        .announce-bar strong {
+            color: var(--accent2);
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 0 var(--green-glow); }
+            50% { box-shadow: 0 0 0 10px transparent; }
+        }
+
+        /* ============ HEADER ============ */
+        .header {
+            background: rgba(12,12,26,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+            position: sticky;
+            top: 29px;
+            z-index: 999;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent), #ff6b81);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            color: #fff;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            color: var(--text3);
+            font-weight: 400;
+        }
+
+        .search-wrapper {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 30px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(255,71,87,0.08);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--accent2);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-header {
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-vip {
+            background: linear-gradient(135deg, #ffa502, #ff6348);
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255,165,2,0.3);
+        }
+
+        .btn-vip:hover {
+            box-shadow: 0 6px 25px rgba(255,165,2,0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-telegram {
+            background: #1a1a40;
+            color: var(--blue);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-telegram:hover {
+            border-color: var(--blue);
+            background: #1a1a50;
+        }
+
+        /* ============ HERO ============ */
+        .hero-section {
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,71,87,0.1);
+            border: 1px solid rgba(255,71,87,0.2);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-badge .dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        .hero-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent), #ff6b81, #ffa502);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 15px;
+            color: var(--text2);
+            max-width: 550px;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+        }
+
+        /* ============ STATS BAR ============ */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 20px 0 10px;
+        }
+
+        .stat-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            padding: 15px 22px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-value {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stat-value.green { color: var(--green); }
+        .stat-value.gold { color: var(--gold); }
+        .stat-value.blue { color: var(--blue); }
+
+        .stat-label {
+            font-size: 10px;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 3px;
+        }
+
+        /* ============ CATEGORY TABS ============ */
+        .category-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+            justify-content: center;
+        }
+
+        .cat-tab {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text2);
+            white-space: nowrap;
+        }
+
+        .cat-tab:hover {
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .cat-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .cat-tab .tab-icon {
+            margin-right: 5px;
+        }
+
+        /* ============ SECTION HEADERS ============ */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 35px 0 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .icon-box {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .icon-games { background: rgba(255,71,87,0.15); }
+        .icon-apps { background: rgba(30,144,255,0.15); }
+        .icon-trending { background: rgba(255,165,2,0.15); }
+
+        .section-link {
+            font-size: 13px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .section-link:hover {
+            color: var(--accent2);
+        }
+
+        /* ============ APP GRID ============ */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 14px;
+        }
+
+        .app-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 14px;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(255,71,87,0.03));
+            pointer-events: none;
+        }
+
+        .app-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+            background: var(--bg-card-hover);
+        }
+
+        .app-card .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 9px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .badge-hot { background: var(--accent); color: #fff; }
+        .badge-new { background: var(--green); color: #000; }
+        .badge-trending { background: var(--gold); color: #000; }
+        .badge-vip { background: linear-gradient(135deg, #ffa502, #ff6348); color: #000; }
+
+        .app-card .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+        }
+
+        .app-card:hover .card-icon {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(255,71,87,0.2);
+        }
+
+        .app-card .card-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 3px;
+            line-height: 1.2;
+        }
+
+        .app-card .card-version {
+            font-size: 10px;
+            color: var(--text3);
+            margin-bottom: 8px;
+        }
+
+        .app-card .card-meta {
+            font-size: 10px;
+            color: var(--text2);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .card-meta .meta-star { color: var(--gold); }
+
+        .app-card .card-buttons {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .btn-dl {
+            flex: 1;
+            padding: 8px 6px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-android {
+            background: #1a3a1a;
+            color: var(--green);
+            border: 1px solid rgba(46,213,115,0.3);
+        }
+
+        .btn-android:hover {
+            background: #1a4a1a;
+            border-color: var(--green);
+            box-shadow: 0 0 15px var(--green-glow);
+        }
+
+        .btn-ios {
+            background: #1a1a30;
+            color: #aaa;
+            border: 1px solid rgba(170,170,170,0.3);
+        }
+
+        .btn-ios:hover {
+            background: #1a1a40;
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* ============ FEATURED BANNER ============ */
+        .featured-banner {
+            background: linear-gradient(135deg, #151530, #1a1a3a);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin: 25px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .featured-icon {
+            font-size: 50px;
+            flex-shrink: 0;
+        }
+
+        .featured-info h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .featured-info p {
+            font-size: 13px;
+            color: var(--text2);
+            margin-bottom: 12px;
+        }
+
+        .featured-cta {
+            padding: 10px 20px;
+            background: var(--accent);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .featured-cta:hover {
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* ============ CPA LOCKER OVERLAY ============ */
+        .locker-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .locker-overlay.show {
+            display: flex;
+        }
+
+        .locker-dialog {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 30px 25px;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .locker-close {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            color: var(--text2);
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .locker-close:hover {
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .locker-lock-icon {
+            font-size: 60px;
+            margin-bottom: 12px;
+        }
+
+        .locker-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .locker-app-name {
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .locker-desc {
+            font-size: 12px;
+            color: var(--text2);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .locker-offer-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .locker-offer-box .offer-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .locker-offer-box .offer-step {
+            font-size: 11px;
+            color: var(--text2);
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .offer-step .step-num {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .btn-unlock {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--green), #26a95a);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-unlock:hover {
+            box-shadow: 0 0 30px var(--green-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-unlock.done {
+            background: linear-gradient(135deg, var(--blue), #1472c4);
+        }
+
+        .locker-progress {
+            height: 5px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .locker-progress-fill {
+            height: 100%;
+            background: var(--green);
+            width: 0%;
+            transition: width 0.6s ease;
+            border-radius: 3px;
+        }
+
+        .locker-download-link {
+            display: none;
+            padding: 12px;
+            background: #1a2a1a;
+            border: 1px solid var(--green);
+            border-radius: var(--radius-xs);
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .locker-download-link.show {
+            display: block;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text3);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text2);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer p {
+            font-size: 11px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; gap: 10px; }
+            .search-wrapper { max-width: 100%; }
+            .app-grid { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px; }
+            .app-card { padding: 14px 10px; }
+            .app-card .card-icon { width: 50px; height: 50px; font-size: 26px; border-radius: 12px; }
+            .btn-dl { font-size: 9px; padding: 7px 4px; }
+            .category-tabs { gap: 5px; }
+            .cat-tab { padding: 8px 14px; font-size: 11px; }
+            .stats-row { gap: 10px; }
+            .stat-badge { padding: 10px 14px; min-width: 70px; }
+            .stat-value { font-size: 18px; }
+        }
+
+        @media (max-width: 400px) {
+            .app-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .app-card { padding: 10px 6px; }
+            .app-card .card-name { font-size: 11px; }
+            .card-buttons { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+
+    <!-- ============ ANNOUNCEMENT BAR ============ -->
+    <div class="announce-bar">
+        <span class="pulse-dot"></span>
+        <strong>2,847</strong> users online now | 
+        <strong>12</strong> new mods added today | 
+        All mods <strong>100% working</strong> & verified
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo-section">
+                <div class="logo-icon">MH</div>
+                <div>
+                    <div class="logo-text">Mod<span>Hub</span></div>
+                    <div class="logo-sub">Premium Modded Store</div>
+                </div>
+            </a>
+            <div class="search-wrapper">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search modded apps & games...">
+                <button class="search-btn" onclick="searchMods()">🔍</button>
+            </div>
+            <div class="header-actions">
+                <a href="https://t.me/MBMods" class="btn-header btn-telegram" target="_blank">📢 Telegram</a>
+                <a href="#" class="btn-header btn-vip" onclick="alert('VIP access unlocks instant downloads without verification.')">👑 GO VIP</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero-section">
+            <div class="hero-badge"><span class="dot"></span> #1 Trusted Mod Store 2026</div>
+            <h1 class="hero-title">Download <span class="gradient-text">Premium Modded</span> Apps & Games</h1>
+            <p class="hero-desc">Access hundreds of modded apps and games for Android & iOS. Unlock premium features, unlimited resources, and remove ads — all for free.</p>
+        </section>
+
+        <!-- ============ STATS ============ -->
+        <div class="stats-row">
+            <div class="stat-badge">
+                <div class="stat-value green">147,293</div>
+                <div class="stat-label">Total Downloads</div>
+            </div>
+            <div class="stat-badge">
+                <div class="stat-value gold">4.9 ★</div>
+                <div class="stat-label">User Rating</div>
+            </div>
+            <div class="stat-badge">
+                <div class="stat-value blue">320+</div>
+                <div class="stat-label">Mods Available</div>
+            </div>
+            <div class="stat-badge">
+                <div class="stat-value green">24/7</div>
+                <div class="stat-label">Support</div>
+            </div>
+        </div>
+
+        <!-- ============ CATEGORY TABS ============ -->
+        <div class="category-tabs">
+            <div class="cat-tab active" data-cat="all" onclick="filterCategory('all', this)">
+                <span class="tab-icon">🏠</span> All
+            </div>
+            <div class="cat-tab" data-cat="games" onclick="filterCategory('games', this)">
+                <span class="tab-icon">🎮</span> Games
+            </div>
+            <div class="cat-tab" data-cat="apps" onclick="filterCategory('apps', this)">
+                <span class="tab-icon">📱</span> Apps
+            </div>
+            <div class="cat-tab" data-cat="streaming" onclick="filterCategory('streaming', this)">
+                <span class="tab-icon">🎬</span> Streaming
+            </div>
+            <div class="cat-tab" data-cat="social" onclick="filterCategory('social', this)">
+                <span class="tab-icon">💬</span> Social
+            </div>
+            <div class="cat-tab" data-cat="tools" onclick="filterCategory('tools', this)">
+                <span class="tab-icon">🔧</span> Tools
+            </div>
+        </div>
+
+        <!-- ============ FEATURED BANNER ============ -->
+        <div class="featured-banner">
+            <div class="featured-icon">🔥</div>
+            <div class="featured-info">
+                <h3>Dragon Ball Legends Mod v5.10.0</h3>
+                <p>Unlimited Crystals, God Mode, One Hit Kill, All Characters Unlocked. Updated today!</p>
+                <button class="featured-cta" onclick="openLocker('Dragon Ball Legends Mod', 'https://example-download.com/dragonball-legends')">Download Now</button>
+            </div>
+        </div>
+
+        <!-- ============ TRENDING GAMES ============ -->
+        <div class="section-header">
+            <div class="section-title">
+                <span class="icon-box icon-games">🎮</span> Trending Games
+            </div>
+            <a href="#" class="section-link">View All Games →</a>
+        </div>
+
+        <div class="app-grid" id="gamesGrid">
+            <!-- Generated by JS -->
+        </div>
+
+        <!-- ============ TOP APPS ============ -->
+        <div class="section-header">
+            <div class="section-title">
+                <span class="icon-box icon-apps">📱</span> Top Modded Apps
+            </div>
+            <a href="#" class="section-link">View All Apps →</a>
+        </div>
+
+        <div class="app-grid" id="appsGrid">
+            <!-- Generated by JS -->
+        </div>
+
+        <!-- ============ MORE TOOLS ============ -->
+        <div class="section-header">
+            <div class="section-title">
+                <span class="icon-box icon-trending">🔧</span> Essential Tools
+            </div>
+            <a href="#" class="section-link">View All Tools →</a>
+        </div>
+
+        <div class="app-grid" id="toolsGrid">
+            <!-- Generated by JS -->
+        </div>
+
+    </div>
+
+    <!-- ============ CPA LOCKER OVERLAY ============ -->
+    <div class="locker-overlay" id="lockerOverlay">
+        <div class="locker-dialog">
+            <button class="locker-close" onclick="closeLocker()">✕</button>
+            <div class="locker-lock-icon">🔒</div>
+            <div class="locker-title">Content Locked</div>
+            <div class="locker-app-name" id="lockerAppName">App Name</div>
+            <div class="locker-desc">
+                Complete <strong>1 simple verification</strong> to unlock your download link. This helps us keep the mods free and prevent bots.
+            </div>
+
+            <div class="locker-offer-box">
+                <div class="offer-title">📋 Verification Steps:</div>
+                <div class="offer-step">
+                    <span class="step-num">1</span> Click the "Verify & Unlock" button below
+                </div>
+                <div class="offer-step">
+                    <span class="step-num">2</span> Complete the simple offer (email or app install)
+                </div>
+                <div class="offer-step">
+                    <span class="step-num">3</span> Download link will appear automatically
+                </div>
+            </div>
+
+            <div class="locker-progress">
+                <div class="locker-progress-fill" id="lockerProgress"></div>
+            </div>
+
+            <button class="btn-unlock" id="btnUnlock" onclick="startVerification()">
+                🔓 VERIFY & UNLOCK DOWNLOAD
+            </button>
+
+            <a class="locker-download-link" id="lockerDownloadLink" href="#" target="_blank">
+                ✅ DOWNLOAD NOW → (Link Unlocked)
+            </a>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">DMCA</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Telegram</a>
+            </div>
+            <p>© 2026 ModHub Pro. All mods are for educational purposes. We are not affiliated with any game developer.</p>
+            <p style="margin-top:5px; color:#444;">Disclaimer: This is a third-party mod store. Use at your own risk.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ============ APP DATA ============
+       const appsData = [
     // ============ GAMES ============
     { 
         name: 'Dragon Ball Legends', 
@@ -219,3 +1256,163 @@ const appsData = [
         dl: 'https://example-dl.com/lightroom' 
     },
 ];
+        // ============ RENDER FUNCTIONS ============
+        function renderCard(app) {
+            const badgeClass = 'badge-' + app.badge;
+            return `
+                <div class="app-card" data-cat="${app.cat}">
+                    <span class="card-badge ${badgeClass}">${app.badgeText}</span>
+                    <div class="card-icon">${app.icon}</div>
+                    <div class="card-name">${app.name}</div>
+                    <div class="card-version">${app.version}</div>
+                    <div class="card-meta">
+                        <span><span class="meta-star">★</span> ${app.rating}</span>
+                        <span>↓ ${app.downloads}</span>
+                    </div>
+                    <div class="card-buttons">
+                        <button class="btn-dl btn-android" onclick="openLocker('${app.name}', '${app.dl}')">
+                            🤖 Android
+                        </button>
+                        <button class="btn-dl btn-ios" onclick="openLocker('${app.name}', '${app.dl}')">
+                            🍎 iOS
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAll() {
+            const gamesGrid = document.getElementById('gamesGrid');
+            const appsGrid = document.getElementById('appsGrid');
+            const toolsGrid = document.getElementById('toolsGrid');
+
+            const games = appsData.filter(a => a.cat === 'games');
+            const apps = appsData.filter(a => ['apps', 'streaming', 'social'].includes(a.cat));
+            const tools = appsData.filter(a => a.cat === 'tools');
+
+            gamesGrid.innerHTML = games.map(renderCard).join('');
+            appsGrid.innerHTML = apps.map(renderCard).join('');
+            toolsGrid.innerHTML = tools.map(renderCard).join('');
+        }
+
+        // ============ FILTER ============
+        function filterCategory(cat, btn) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.app-card').forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide sections
+            document.getElementById('gamesGrid').parentElement.style.display = (cat === 'all' || cat === 'games') ? '' : 'none';
+            document.getElementById('appsGrid').parentElement.style.display = (cat === 'all' || ['apps', 'streaming', 'social'].includes(cat)) ? '' : 'none';
+            document.getElementById('toolsGrid').parentElement.style.display = (cat === 'all' || cat === 'tools') ? '' : 'none';
+            
+            // Hide section headers when filtering
+            document.querySelectorAll('.section-header').forEach(h => {
+                if (cat === 'all') h.style.display = '';
+                else h.style.display = 'none';
+            });
+        }
+
+        // ============ CPA LOCKER ============
+        function openLocker(appName, downloadUrl) {
+            currentLockerUrl = downloadUrl;
+            document.getElementById('lockerAppName').textContent = appName + ' (' + (downloadUrl.includes('games') ? 'Game' : 'App') + ')';
+            document.getElementById('lockerProgress').style.width = '0%';
+            document.getElementById('btnUnlock').textContent = '🔓 VERIFY & UNLOCK DOWNLOAD';
+            document.getElementById('btnUnlock').classList.remove('done');
+            document.getElementById('lockerDownloadLink').classList.remove('show');
+            document.getElementById('lockerOverlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLocker() {
+            document.getElementById('lockerOverlay').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        function startVerification() {
+            const progressBar = document.getElementById('lockerProgress');
+            const btn = document.getElementById('btnUnlock');
+            const dlLink = document.getElementById('lockerDownloadLink');
+
+            btn.textContent = '⏳ PROCESSING...';
+            btn.classList.add('done');
+            btn.disabled = true;
+
+            let progress = 0;
+            const stages = [
+                { pct: 20, delay: 600 },
+                { pct: 40, delay: 1200 },
+                { pct: 60, delay: 1800 },
+                { pct: 80, delay: 2400 },
+                { pct: 100, delay: 3000 },
+            ];
+
+            stages.forEach(stage => {
+                setTimeout(() => {
+                    progressBar.style.width = stage.pct + '%';
+                }, stage.delay);
+            });
+
+            // Simulate redirect to CPA offer then unlock
+            setTimeout(() => {
+                // In real implementation, redirect to CPA locker URL
+                // window.location.href = 'YOUR_CPA_LOCKER_URL_HERE';
+                
+                // For demo: simulate completion
+                btn.textContent = '✅ VERIFICATION COMPLETE';
+                dlLink.href = currentLockerUrl;
+                dlLink.classList.add('show');
+                progressBar.style.width = '100%';
+            }, 3500);
+        }
+
+        // ============ SEARCH ============
+        function searchMods() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!query) {
+                renderAll();
+                return;
+            }
+            const filtered = appsData.filter(a => 
+                a.name.toLowerCase().includes(query) || 
+                a.mod.toLowerCase().includes(query) ||
+                a.cat.includes(query)
+            );
+            document.getElementById('gamesGrid').innerHTML = filtered.map(renderCard).join('');
+            document.getElementById('appsGrid').innerHTML = '';
+            document.getElementById('toolsGrid').innerHTML = '';
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchMods();
+        });
+
+        // Close locker on overlay click
+        document.getElementById('lockerOverlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('lockerOverlay')) closeLocker();
+        });
+
+        // Close locker on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLocker();
+        });
+
+        // ============ INIT ============
+        renderAll();
+
+        // Console protection
+        console.log('%c⚠️ STOP %cThis browser feature is for developers only.', 'color:red; font-size:24px;', 'color:#ccc; font-size:14px;');
+        console.log('%cModHub Pro v2.0 %c| %c320+ Mods %c| %c100% Working', 'color:#ff4757;', 'color:#ccc;', 'color:#2ed573;', 'color:#ccc;', 'color:#1e90ff;');
+    </script>
+
+</body>
+</html>
