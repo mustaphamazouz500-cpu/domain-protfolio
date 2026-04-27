@@ -47,35 +47,35 @@
         /* Header */
         .header {
             position: sticky; top: 0; z-index: 50; display: flex; align-items: center;
-            justify-content: space-between; padding: 14px 18px; background: var(--header-bg);
+            justify-content: space-between; padding: 12px 16px; background: var(--header-bg);
             backdrop-filter: blur(24px) saturate(1.3); -webkit-backdrop-filter: blur(24px) saturate(1.3);
             border-bottom: 1px solid var(--border); transition: background 0.4s;
         }
-        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; cursor: pointer; letter-spacing: -0.4px; }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 17px; cursor: pointer; letter-spacing: -0.4px; }
         .logo-icon {
-            width: 34px; height: 34px; background: linear-gradient(135deg, #3b82f6, #2563eb);
-            border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            font-size: 16px; color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.4);
+            width: 32px; height: 32px; background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 9px; display: flex; align-items: center; justify-content: center;
+            font-size: 15px; color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.4);
         }
-        .header-actions { display: flex; gap: 10px; }
+        .header-actions { display: flex; gap: 8px; }
         .header-btn {
-            width: 38px; height: 38px; border-radius: 50%; background: var(--surface);
+            width: 36px; height: 36px; border-radius: 50%; background: var(--surface);
             border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
-            color: var(--text); cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; font-size: 16px;
+            color: var(--text); cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; font-size: 15px;
         }
         .header-btn:active { transform: scale(0.9); background: var(--surface-hover); }
-        .header-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .header-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
         /* Views */
-        .view { display: none; animation: viewIn 0.35s cubic-bezier(0.22,1,0.36,1); padding: 0 16px; }
+        .view { display: none; animation: viewIn 0.3s ease; padding: 0 14px; }
         .view.active { display: block; }
-        @keyframes viewIn { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Featured Slider */
-        .featured-wrapper { position: relative; margin-top: 14px; }
+        .featured-wrapper { position: relative; margin-top: 12px; }
         .featured {
-            position: relative; border-radius: 24px; overflow: hidden;
-            height: 260px; cursor: pointer; box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            position: relative; border-radius: 20px; overflow: hidden;
+            height: 200px; cursor: pointer; box-shadow: 0 16px 40px rgba(0,0,0,0.4);
             transition: all 0.4s;
         }
         .featured-bg {
@@ -84,209 +84,213 @@
         }
         .featured-bg::after { content: ''; position: absolute; inset: 0; background: var(--featured-overlay); }
         .featured-app-icon {
-            position: absolute; top: 20px; left: 20px; z-index: 3;
-            width: 56px; height: 56px; border-radius: 16px; overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            position: absolute; top: 12px; left: 14px; z-index: 3;
+            width: 44px; height: 44px; border-radius: 12px; overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 6px 18px rgba(0,0,0,0.4);
             background: #fff;
         }
         .featured-app-icon img { width: 100%; height: 100%; object-fit: cover; }
         .featured-dots {
-            display: flex; gap: 6px; position: absolute; top: 20px; right: 20px; z-index: 3;
+            display: flex; gap: 5px; position: absolute; top: 14px; right: 14px; z-index: 3;
         }
         .featured-dot {
-            width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4);
+            width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4);
             transition: all 0.3s; cursor: pointer;
         }
-        .featured-dot.active { background: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.6); width: 24px; border-radius: 4px; }
-        .featured-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px; z-index: 2; }
+        .featured-dot.active { background: #fff; box-shadow: 0 0 6px rgba(255,255,255,0.6); width: 20px; border-radius: 4px; }
+        .featured-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px; z-index: 2; }
         .mod-badge {
-            display: inline-flex; align-items: center; gap: 4px; background: var(--mod); color: #fff;
-            padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;
-            margin-bottom: 10px; box-shadow: 0 4px 12px rgba(99,102,241,0.35);
+            display: inline-flex; align-items: center; gap: 3px; background: var(--mod); color: #fff;
+            padding: 3px 8px; border-radius: 16px; font-size: 10px; font-weight: 700;
+            margin-bottom: 8px; box-shadow: 0 3px 10px rgba(99,102,241,0.35);
         }
-        .featured-title { font-size: 24px; font-weight: 900; margin-bottom: 6px; letter-spacing: -0.6px; line-height: 1.15; }
-        .featured-desc { font-size: 13px; opacity: 0.85; line-height: 1.5; max-width: 92%; }
-        .featured-meta { display: flex; align-items: center; gap: 14px; margin-top: 12px; font-size: 13px; font-weight: 600; }
-        .stars { color: #fbbf24; letter-spacing: -2px; font-size: 13px; }
+        .featured-title { font-size: 20px; font-weight: 900; margin-bottom: 4px; letter-spacing: -0.5px; line-height: 1.1; }
+        .featured-desc { font-size: 11px; opacity: 0.85; line-height: 1.4; max-width: 92%; }
+        .featured-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 11px; font-weight: 600; }
+        .stars { color: #fbbf24; letter-spacing: -1.5px; font-size: 12px; }
 
         /* Live Proof */
         .live-proof {
-            text-align: center; font-size: 11px; color: var(--text-secondary);
-            margin: 10px 0 4px; font-weight: 500;
+            text-align: center; font-size: 10px; color: var(--text-secondary);
+            margin: 8px 0 4px; font-weight: 500;
         }
-        .live-dot { display: inline-block; width: 6px; height: 6px; background: #22c55e; border-radius: 50%; margin-right: 4px; animation: pulse-dot 1.5s infinite; }
-        @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow: 0 0 0 8px transparent; } }
+        .live-dot { display: inline-block; width: 5px; height: 5px; background: #22c55e; border-radius: 50%; margin-right: 4px; animation: pulse-dot 1.5s infinite; }
+        @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow: 0 0 0 6px transparent; } }
 
         /* Stats Bar */
         .stats-bar {
             display: flex; justify-content: space-around; background: var(--surface);
-            border: 1px solid var(--border); border-radius: 16px; padding: 14px 10px;
-            margin: 14px 0; backdrop-filter: blur(10px);
+            border: 1px solid var(--border); border-radius: 14px; padding: 12px 8px;
+            margin: 10px 0; backdrop-filter: blur(10px);
         }
         .stat-item { text-align: center; }
-        .stat-val { font-size: 18px; font-weight: 800; color: var(--accent-light); }
-        .stat-lbl { font-size: 10px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-val { font-size: 16px; font-weight: 800; color: var(--accent-light); }
+        .stat-lbl { font-size: 9px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; }
 
         /* Section Headers */
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 24px 0 12px; }
-        .section-title { font-size: 19px; font-weight: 800; display: flex; align-items: center; gap: 8px; letter-spacing: -0.3px; }
-        .view-all { font-size: 13px; color: var(--accent-light); text-decoration: none; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
-        .view-all:hover { opacity: 0.8; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 20px 0 10px; }
+        .section-title { font-size: 17px; font-weight: 800; display: flex; align-items: center; gap: 6px; letter-spacing: -0.2px; }
+        .view-all { font-size: 12px; color: var(--accent-light); text-decoration: none; font-weight: 700; cursor: pointer; }
 
-        /* Cards */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        /* Grid Cards */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .card {
             background: var(--surface); border: 1px solid var(--border);
-            border-radius: 20px; padding: 12px; cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.22,1,0.36,1);
-            position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px; padding: 10px; cursor: pointer;
+            transition: all 0.2s; position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         }
-        .card:active { transform: scale(0.96); }
+        .card:active { transform: scale(0.97); }
         .card-icon-wrap {
-            width: 100%; aspect-ratio: 1; border-radius: 16px;
-            position: relative; overflow: hidden; margin-bottom: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25); background: var(--surface);
+            width: 100%; aspect-ratio: 1; border-radius: 14px;
+            position: relative; overflow: hidden; margin-bottom: 8px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25); background: var(--surface);
         }
         .card-icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .card-mod {
-            position: absolute; top: 6px; right: 6px; background: var(--mod); color: #fff;
-            font-size: 9px; font-weight: 800; padding: 3px 7px; border-radius: 8px;
-            text-transform: uppercase; letter-spacing: 0.5px; z-index: 2;
-            box-shadow: 0 2px 8px rgba(99,102,241,0.5);
+            position: absolute; top: 5px; right: 5px; background: var(--mod); color: #fff;
+            font-size: 8px; font-weight: 800; padding: 2px 6px; border-radius: 6px;
+            text-transform: uppercase; letter-spacing: 0.3px; z-index: 2;
+            box-shadow: 0 2px 6px rgba(99,102,241,0.5);
         }
         .card-badge {
-            position: absolute; top: 6px; left: 6px; font-size: 9px; font-weight: 800;
-            padding: 3px 7px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px; z-index: 2;
+            position: absolute; top: 5px; left: 5px; font-size: 8px; font-weight: 800;
+            padding: 2px 6px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.3px; z-index: 2;
         }
-        .badge-hot { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; box-shadow: 0 2px 8px rgba(239,68,68,0.4); }
-        .badge-new { background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; box-shadow: 0 2px 8px rgba(34,197,94,0.4); }
-        .badge-trending { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; box-shadow: 0 2px 8px rgba(245,158,11,0.4); }
-        .badge-vip { background: linear-gradient(135deg, #a855f7, #7c3aed); color: #fff; box-shadow: 0 2px 8px rgba(168,85,247,0.4); }
-        .card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-meta { font-size: 11.5px; color: var(--text-secondary); margin-bottom: 5px; }
-        .card-rating { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; }
+        .badge-hot { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
+        .badge-new { background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; }
+        .badge-trending { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; }
+        .badge-vip { background: linear-gradient(135deg, #a855f7, #7c3aed); color: #fff; }
+        .card-title { font-size: 12px; font-weight: 700; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-meta { font-size: 10px; color: var(--text-secondary); margin-bottom: 4px; }
+        .card-rating { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; }
 
-        /* HScroll */
-        .h-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+        /* HScroll Cards - FIXED SIZE */
+        .h-scroll {
+            display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;
+            scrollbar-width: none; scroll-snap-type: x mandatory;
+        }
         .h-scroll::-webkit-scrollbar { display: none; }
-        .h-scroll .card { min-width: 150px; flex-shrink: 0; }
+        .h-scroll .card {
+            min-width: 125px; max-width: 130px; flex-shrink: 0;
+            scroll-snap-align: start; padding: 8px; border-radius: 14px;
+        }
+        .h-scroll .card .card-icon-wrap {
+            border-radius: 12px; margin-bottom: 6px;
+        }
+        .h-scroll .card .card-title { font-size: 11px; }
 
         /* Bottom Nav */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
-            display: flex; justify-content: center; padding: 10px 20px 28px;
+            display: flex; justify-content: center; padding: 8px 16px 24px;
             background: var(--nav-bg); backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px); border-top: 1px solid var(--border);
-            transition: background 0.4s;
         }
         .nav-inner {
             display: flex; background: var(--surface); border: 1px solid var(--border);
-            border-radius: 24px; padding: 5px; gap: 3px; backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border-radius: 22px; padding: 4px; gap: 2px; backdrop-filter: blur(12px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
         }
         .nav-item {
-            display: flex; flex-direction: column; align-items: center; gap: 3px;
-            padding: 10px 24px; border-radius: 18px; cursor: pointer;
-            font-size: 11px; font-weight: 600; color: var(--text-secondary);
-            transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
-            border: none; background: transparent; font-family: inherit;
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
+            padding: 8px 20px; border-radius: 16px; cursor: pointer;
+            font-size: 10px; font-weight: 600; color: var(--text-secondary);
+            transition: all 0.25s; border: none; background: transparent; font-family: inherit;
         }
         .nav-item.active {
             background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff;
-            box-shadow: 0 4px 18px var(--accent-glow); transform: translateY(-1px);
+            box-shadow: 0 4px 14px var(--accent-glow);
         }
-        .nav-item svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
-        .nav-item.active svg { transform: scale(1.08); }
+        .nav-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
         /* Detail Page */
-        .detail-header { display: flex; gap: 16px; margin-top: 12px; align-items: flex-start; }
+        .detail-header { display: flex; gap: 14px; margin-top: 10px; align-items: flex-start; }
         .detail-icon {
-            width: 88px; height: 88px; border-radius: 22px; overflow: hidden; flex-shrink: 0;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.35); border: 1px solid var(--border);
+            width: 76px; height: 76px; border-radius: 18px; overflow: hidden; flex-shrink: 0;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.35); border: 1px solid var(--border);
         }
         .detail-icon img { width: 100%; height: 100%; object-fit: cover; }
-        .detail-info h1 { font-size: 21px; font-weight: 900; margin-bottom: 4px; letter-spacing: -0.5px; line-height: 1.2; }
-        .detail-info .sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; font-weight: 500; }
-        .detail-meta-row { display: flex; gap: 14px; font-size: 12.5px; color: var(--text-secondary); flex-wrap: wrap; font-weight: 600; }
-        .detail-meta-row span { display: flex; align-items: center; gap: 4px; }
+        .detail-info h1 { font-size: 19px; font-weight: 900; margin-bottom: 3px; letter-spacing: -0.4px; line-height: 1.2; }
+        .detail-info .sub { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500; }
+        .detail-meta-row { display: flex; gap: 12px; font-size: 11px; color: var(--text-secondary); flex-wrap: wrap; font-weight: 600; }
+        .detail-meta-row span { display: flex; align-items: center; gap: 3px; }
         .mod-features {
-            display: inline-flex; align-items: center; gap: 6px;
+            display: inline-flex; align-items: center; gap: 5px;
             background: rgba(99,102,241,0.12); color: var(--mod);
-            padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 700;
-            margin-top: 10px; border: 1px solid rgba(99,102,241,0.2);
+            padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700;
+            margin-top: 8px; border: 1px solid rgba(99,102,241,0.2);
         }
 
         /* Start Now Button */
         .btn-start {
-            width: 100%; margin-top: 20px; padding: 16px;
-            border-radius: 16px; background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: #fff; font-size: 16px; font-weight: 800; border: none; cursor: pointer;
-            box-shadow: 0 8px 28px var(--accent-glow); transition: all 0.15s;
-            letter-spacing: 0.2px; font-family: inherit;
+            width: 100%; margin-top: 18px; padding: 14px;
+            border-radius: 14px; background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff; font-size: 15px; font-weight: 800; border: none; cursor: pointer;
+            box-shadow: 0 6px 22px var(--accent-glow); transition: all 0.15s;
+            letter-spacing: 0.1px; font-family: inherit;
         }
-        .btn-start:active { transform: scale(0.97); box-shadow: 0 4px 14px var(--accent-glow); }
+        .btn-start:active { transform: scale(0.97); }
 
-        .detail-section { margin-top: 26px; }
-        .detail-section h3 { font-size: 16px; font-weight: 800; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-        .detail-section h3 span { color: var(--text-secondary); font-size: 13px; font-weight: 600; }
-        .detail-section p { font-size: 14px; line-height: 1.65; color: var(--text-secondary); }
-        .info-row { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .detail-section { margin-top: 22px; }
+        .detail-section h3 { font-size: 15px; font-weight: 800; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .detail-section p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
+        .info-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
         .info-row:last-child { border-bottom: none; }
-        .info-row span:first-child { color: var(--text-secondary); font-weight: 500; }
+        .info-row span:first-child { color: var(--text-secondary); }
         .info-row span:last-child { font-weight: 700; }
 
         /* Preparing Screen */
         .preparing-screen {
             position: fixed; inset: 0; background: var(--bg); z-index: 200;
             display: none; flex-direction: column; align-items: center;
-            justify-content: center; text-align: center; padding: 40px;
+            justify-content: center; text-align: center; padding: 30px;
         }
         .preparing-screen.active { display: flex; }
         .preparing-app {
-            display: flex; align-items: center; gap: 12px;
-            position: absolute; top: 55px; left: 20px;
+            display: flex; align-items: center; gap: 10px;
+            position: absolute; top: 50px; left: 18px;
         }
         .preparing-app-icon {
-            width: 50px; height: 50px; border-radius: 14px;
-            overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            width: 44px; height: 44px; border-radius: 12px;
+            overflow: hidden; box-shadow: 0 6px 16px rgba(0,0,0,0.3);
             border: 1px solid var(--border);
         }
         .preparing-app-icon img { width: 100%; height: 100%; object-fit: cover; }
         .preparing-app-info { text-align: left; }
-        .preparing-app-info h4 { font-size: 16px; font-weight: 800; }
-        .preparing-app-info p { font-size: 13px; color: var(--text-secondary); margin-top: 2px; font-weight: 500; }
+        .preparing-app-info h4 { font-size: 14px; font-weight: 800; }
+        .preparing-app-info p { font-size: 11px; color: var(--text-secondary); margin-top: 1px; font-weight: 500; }
         .preparing-percent {
-            font-size: 100px; font-weight: 900;
+            font-size: 80px; font-weight: 900;
             background: linear-gradient(to bottom, rgba(59,130,246,0.25), transparent);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            line-height: 1; margin-bottom: 24px; letter-spacing: -4px;
+            line-height: 1; margin-bottom: 18px; letter-spacing: -3px;
         }
         .preparing-circle {
-            width: 90px; height: 90px; border-radius: 50%;
+            width: 70px; height: 70px; border-radius: 50%;
             background: var(--surface); border: 1.5px solid var(--border);
             display: flex; align-items: center; justify-content: center;
-            font-size: 32px; margin-bottom: 24px; position: relative;
+            font-size: 28px; margin-bottom: 18px; position: relative;
         }
         .preparing-circle::after {
-            content: ''; position: absolute; inset: -4px; border-radius: 50%;
-            border: 3.5px solid transparent; border-top-color: var(--accent);
+            content: ''; position: absolute; inset: -3px; border-radius: 50%;
+            border: 3px solid transparent; border-top-color: var(--accent);
             animation: spin 0.85s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
-        .preparing-text { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
-        .preparing-sub { font-size: 13.5px; color: var(--text-secondary); max-width: 280px; font-weight: 500; line-height: 1.5; }
-        .progress-container { position: absolute; bottom: 110px; left: 24px; right: 24px; }
-        .progress-label { display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; color: var(--text-secondary); }
+        .preparing-text { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+        .preparing-sub { font-size: 12px; color: var(--text-secondary); max-width: 260px; font-weight: 500; line-height: 1.4; }
+        .progress-container { position: absolute; bottom: 100px; left: 22px; right: 22px; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.8px; color: var(--text-secondary); }
         .progress-label span:last-child { color: var(--accent-light); }
-        .progress-bar { height: 8px; background: var(--surface); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #a78bfa); border-radius: 4px; width: 0%; transition: width 0.25s ease; }
+        .progress-bar { height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden; border: 1px solid var(--border); }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #a78bfa); border-radius: 3px; width: 0%; transition: width 0.25s ease; }
 
         /* Back to Top */
         .btn-back-top {
-            position: fixed; bottom: 120px; right: 20px; z-index: 90;
-            width: 40px; height: 40px; border-radius: 50%; background: var(--surface);
+            position: fixed; bottom: 110px; right: 16px; z-index: 90;
+            width: 36px; height: 36px; border-radius: 50%; background: var(--surface);
             border: 1px solid var(--border); color: var(--text); cursor: pointer;
-            display: none; align-items: center; justify-content: center; font-size: 18px;
+            display: none; align-items: center; justify-content: center; font-size: 16px;
             backdrop-filter: blur(10px); transition: all 0.3s;
         }
         .btn-back-top.show { display: flex; }
@@ -294,40 +298,51 @@
 
         /* Search */
         .search-bar {
-            margin-top: 14px; background: var(--surface); border: 1px solid var(--border);
-            border-radius: 16px; padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+            margin-top: 12px; background: var(--surface); border: 1px solid var(--border);
+            border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 8px;
             backdrop-filter: blur(10px);
         }
-        .search-bar svg { width: 20px; height: 20px; stroke: var(--text-secondary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        .search-bar svg { width: 18px; height: 18px; stroke: var(--text-secondary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
         .search-bar input {
             flex: 1; background: transparent; border: none; color: var(--text);
-            font-size: 15px; outline: none; font-weight: 500; font-family: inherit;
+            font-size: 14px; outline: none; font-weight: 500; font-family: inherit;
         }
         .search-bar input::placeholder { color: var(--text-secondary); }
-        .search-filters { display: flex; gap: 8px; margin: 14px 0 16px; }
+        .search-filters { display: flex; gap: 6px; margin: 12px 0 14px; }
         .filter-chip {
-            padding: 6px 14px; border-radius: 20px; background: var(--surface);
-            border: 1px solid var(--border); font-size: 13px; cursor: pointer;
+            padding: 5px 12px; border-radius: 18px; background: var(--surface);
+            border: 1px solid var(--border); font-size: 12px; cursor: pointer;
             color: var(--text-secondary); font-weight: 600; transition: all 0.2s; font-family: inherit;
         }
         .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
         .back-btn {
-            display: inline-flex; align-items: center; gap: 6px;
+            display: inline-flex; align-items: center; gap: 5px;
             background: transparent; border: none; color: var(--text);
-            font-size: 15px; cursor: pointer; margin: 10px 0 6px;
-            padding: 8px 0; font-weight: 700; font-family: inherit;
+            font-size: 14px; cursor: pointer; margin: 8px 0 4px;
+            padding: 6px 0; font-weight: 700; font-family: inherit;
         }
-        .back-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-        .page-title { font-size: 28px; font-weight: 900; margin: 14px 0 16px; letter-spacing: -0.8px; }
-        .no-results { text-align: center; color: var(--text-secondary); margin-top: 50px; font-size: 15px; font-weight: 500; }
+        .back-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .page-title { font-size: 24px; font-weight: 900; margin: 12px 0 14px; letter-spacing: -0.6px; }
+        .no-results { text-align: center; color: var(--text-secondary); margin-top: 40px; font-size: 14px; font-weight: 500; }
 
-        @media (max-width: 380px) {
-            .grid { gap: 8px; }
-            .card { padding: 8px; border-radius: 16px; }
-            .card-title { font-size: 12px; }
-            .featured { height: 220px; }
-            .featured-title { font-size: 20px; }
-            .nav-item { padding: 8px 16px; }
+        /* Responsive tweaks */
+        @media (min-width: 420px) {
+            .featured { height: 240px; }
+            .featured-title { font-size: 22px; }
+            .featured-desc { font-size: 12px; }
+            .featured-app-icon { width: 50px; height: 50px; border-radius: 14px; top: 16px; left: 16px; }
+            .h-scroll .card { min-width: 140px; max-width: 145px; }
+            .card-title { font-size: 13px; }
+            .card-meta { font-size: 11px; }
+            .nav-item { padding: 9px 24px; font-size: 11px; }
+        }
+
+        @media (min-width: 500px) {
+            .featured { height: 260px; }
+            .featured-title { font-size: 24px; }
+            .featured-desc { font-size: 13px; }
+            .featured-app-icon { width: 56px; height: 56px; border-radius: 16px; top: 18px; left: 18px; }
+            .h-scroll .card { min-width: 150px; max-width: 155px; }
         }
     </style>
 </head>
@@ -520,7 +535,6 @@
     </div>
 
     <script>
-        // ==================== SLIDE APPS ====================
         const slideApps = [
             {
                 name: 'Pokémon Go Spoofer', cat: 'games', rating: '4.8', downloads: '550k+', size: '762.5MB',
@@ -552,7 +566,6 @@
             }
         ];
 
-        // ==================== ALL APPS DATA ====================
         const appsData = [
             ...slideApps,
             { name: 'Dragon Ball Legends', version: 'v5.10.0 Mod', icon: 'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg', cat: 'games', rating: '4.9', downloads: '124K', mod: 'Unlimited Crystals + God Mode', badge: 'HOT' },
@@ -571,36 +584,25 @@
             { name: 'TikTok Mod', version: 'v36.0.1 Mod', icon: 'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg', cat: 'social', rating: '4.8', downloads: '445K', mod: 'No Ads + Download Videos', badge: 'HOT' },
         ];
 
-        // ==================== STATE ====================
-        let currentApp = null;
-        let currentView = 'discover';
-        let searchFilter = 'all';
-        let slideIndex = 0;
-        let slideInterval = null;
+        let currentApp = null, currentView = 'discover', searchFilter = 'all', slideIndex = 0, slideInterval = null;
 
-        // ==================== RENDER CARD ====================
         function renderCard(app) {
             const badgeClass = app.badge === 'HOT' ? 'badge-hot' : app.badge === 'NEW' ? 'badge-new' : app.badge === 'TRENDING' ? 'badge-trending' : app.badge === 'VIP' ? 'badge-vip' : '';
             const stars = '⭐'.repeat(Math.floor(parseFloat(app.rating)));
-            return `
-                <div class="card" onclick="openAppByName('${app.name.replace(/'/g, "\\'")}')">
-                    <div class="card-icon-wrap">
-                        ${app.badge ? `<div class="card-badge ${badgeClass}">${app.badge}</div>` : ''}
-                        <div class="card-mod">MOD</div>
-                        <img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#3b82f6,#1d4ed8)'">
-                    </div>
-                    <div class="card-title">${app.name}</div>
-                    <div class="card-meta">${app.cat === 'games' ? 'Games' : 'Apps'} · ${app.version}</div>
-                    <div class="card-rating"><span>${stars}</span><span>${app.rating}</span></div>
-                </div>`;
+            return `<div class="card" onclick="openAppByName('${app.name.replace(/'/g, "\\'")}')">
+                <div class="card-icon-wrap">
+                    ${app.badge ? `<div class="card-badge ${badgeClass}">${app.badge}</div>` : ''}
+                    <div class="card-mod">MOD</div>
+                    <img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#3b82f6,#1d4ed8)'">
+                </div>
+                <div class="card-title">${app.name}</div>
+                <div class="card-meta">${app.cat === 'games' ? 'Games' : 'Apps'} · ${app.version}</div>
+                <div class="card-rating"><span>${stars}</span><span>${app.rating}</span></div>
+            </div>`;
         }
 
-        function openAppByName(name) {
-            const app = appsData.find(a => a.name === name);
-            if (app) openApp(app);
-        }
+        function openAppByName(name) { const app = appsData.find(a => a.name === name); if (app) openApp(app); }
 
-        // ==================== FEATURED SLIDER ====================
         function updateSlide() {
             const app = slideApps[slideIndex];
             document.getElementById('featuredBg').style.backgroundImage = `url(${app.cover})`;
@@ -611,31 +613,15 @@
             document.getElementById('featuredRating').textContent = app.rating;
             document.getElementById('featuredCat').textContent = app.cat === 'games' ? 'Games' : 'Apps';
             document.getElementById('featuredDots').innerHTML = slideApps.map((_, i) =>
-                `<div class="featured-dot ${i === slideIndex ? 'active' : ''}" onclick="event.stopPropagation(); goToSlide(${i})"></div>`
-            ).join('');
+                `<div class="featured-dot ${i === slideIndex ? 'active' : ''}" onclick="event.stopPropagation(); goToSlide(${i})"></div>`).join('');
         }
 
-        function goToSlide(i) {
-            slideIndex = i;
-            updateSlide();
-            resetSlideTimer();
-        }
+        function goToSlide(i) { slideIndex = i; updateSlide(); resetSlideTimer(); }
+        function nextSlide() { slideIndex = (slideIndex + 1) % slideApps.length; updateSlide(); }
+        function resetSlideTimer() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 4000); }
 
-        function nextSlide() {
-            slideIndex = (slideIndex + 1) % slideApps.length;
-            updateSlide();
-        }
-
-        function resetSlideTimer() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 4000);
-        }
-
-        // ==================== INIT ====================
         function init() {
-            updateSlide();
-            resetSlideTimer();
-
+            updateSlide(); resetSlideTimer();
             document.getElementById('trending-scroll').innerHTML = appsData.filter(a => a.cat === 'games').slice(0, 6).map(a => renderCard(a)).join('');
             document.getElementById('new-apps-grid').innerHTML = appsData.filter(a => a.cat !== 'games').slice(0, 6).map(a => renderCard(a)).join('');
             document.getElementById('apps-grid').innerHTML = appsData.filter(a => a.cat !== 'games').map(a => renderCard(a)).join('');
@@ -643,51 +629,36 @@
             doSearch();
             updateLiveStats();
             setInterval(updateLiveStats, 5000);
+            updateLiveProof();
             setInterval(updateLiveProof, 8000);
             window.addEventListener('scroll', handleScroll);
         }
 
-        // ==================== LIVE UPDATES ====================
         function updateLiveStats() {
             document.getElementById('statDownloads').textContent = Math.floor(Math.random() * 50000 + 120000).toLocaleString();
             document.getElementById('statUsers').textContent = Math.floor(Math.random() * 2000 + 2000).toLocaleString();
         }
 
-        const liveProofs = [
-            'Someone just downloaded PUBG Mobile', 'Free Fire MAX mod activated 30 sec ago',
-            '8 Ball Pool Mod just got unlocked', 'CapCut Pro downloaded 10 sec ago',
-            'Someone unlocked Genshin Impact Mod', 'Roblox mod activated just now',
-            'Call of Duty Mobile hack downloaded', 'Toca Boca World just got unlocked'
-        ];
+        const liveProofs = ['Someone downloaded PUBG Mobile', 'Free Fire MAX mod activated', '8 Ball Pool Mod unlocked', 'CapCut Pro downloaded', 'Genshin Impact Mod unlocked', 'Roblox mod activated now', 'Call of Duty Mobile downloaded', 'Toca Boca World unlocked'];
         let proofIdx = 0;
-        function updateLiveProof() {
-            document.getElementById('liveText').textContent = liveProofs[proofIdx % liveProofs.length];
-            proofIdx++;
-        }
+        function updateLiveProof() { document.getElementById('liveText').textContent = liveProofs[proofIdx % liveProofs.length]; proofIdx++; }
 
-        function handleScroll() {
-            document.getElementById('btnBackTop').classList.toggle('show', window.scrollY > 300);
-        }
+        function handleScroll() { document.getElementById('btnBackTop').classList.toggle('show', window.scrollY > 300); }
 
-        // ==================== NAVIGATION ====================
         function showView(view) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach((n, i) => n.classList.toggle('active',
-                (view === 'discover' && i === 0) || (view === 'apps' && i === 1) || (view === 'games' && i === 2)
-            ));
-            const map = { discover: 'view-discover', apps: 'view-apps', games: 'view-games', search: 'view-search', detail: 'view-detail' };
-            if (map[view]) document.getElementById(map[view]).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach((n, i) => n.classList.toggle('active', (view==='discover'&&i===0)||(view==='apps'&&i===1)||(view==='games'&&i===2)));
+            const map = { discover:'view-discover', apps:'view-apps', games:'view-games', search:'view-search', detail:'view-detail' };
+            if(map[view]) document.getElementById(map[view]).classList.add('active');
             document.getElementById('mainHeader').style.display = (view === 'detail' || view === 'search') ? 'none' : 'flex';
             document.getElementById('bottomNav').style.display = (view === 'detail' || view === 'search') ? 'none' : 'flex';
-            currentView = view;
-            window.scrollTo(0, 0);
+            currentView = view; window.scrollTo(0,0);
         }
 
         function goHome() { showView('discover'); }
         function showSearch() { showView('search'); setTimeout(() => document.getElementById('searchInput').focus(), 100); }
         function goBack() { showView('discover'); }
 
-        // ==================== DETAIL ====================
         function openApp(app) {
             currentApp = app;
             document.getElementById('detail-img').src = app.icon;
@@ -704,22 +675,17 @@
             document.getElementById('info-category').textContent = app.cat === 'games' ? 'Games' : 'Apps';
             document.getElementById('info-rating').textContent = '⭐ ' + app.rating;
             document.getElementById('info-downloads').textContent = app.downloads;
-
             const related = appsData.filter(a => a.cat === app.cat && a.name !== app.name).slice(0, 5);
-            document.getElementById('related-scroll').innerHTML = related.length
-                ? related.map(a => renderCard(a)).join('')
-                : '<p style="color:var(--text-secondary);font-size:13px;">No related apps</p>';
+            document.getElementById('related-scroll').innerHTML = related.length ? related.map(a => renderCard(a)).join('') : '<p style="color:var(--text-secondary);font-size:13px;">No related apps</p>';
             showView('detail');
         }
 
-        // ==================== PREPARING → CPA ====================
         function startPreparing() {
             const app = currentApp || appsData[0];
             document.getElementById('preparing-img').src = app.icon;
             document.getElementById('preparing-name').textContent = app.name;
             document.getElementById('preparingScreen').classList.add('active');
             document.body.style.overflow = 'hidden';
-
             let progress = 0;
             const msgs = [
                 { p: 0, t: "Sit tight...", s: "Please wait while we prepare your download" },
@@ -729,45 +695,36 @@
                 { p: 78, t: "Loading Download Source...", s: "Please wait while we prepare your download" },
                 { p: 100, t: "Complete!", s: "Redirecting..." }
             ];
-
             const interval = setInterval(() => {
                 progress += Math.random() * 3.2 + 0.9;
-                if (progress > 100) progress = 100;
+                if(progress > 100) progress = 100;
                 const pct = Math.floor(progress);
                 document.getElementById('preparingPercent').textContent = pct + '%';
                 document.getElementById('progressPercent').textContent = pct + '%';
                 document.getElementById('progressFill').style.width = progress + '%';
                 const msg = msgs.slice().reverse().find(m => progress >= m.p);
-                if (msg) { document.getElementById('preparingText').textContent = msg.t; document.getElementById('preparingSub').textContent = msg.s; }
-                if (progress >= 100) {
+                if(msg) { document.getElementById('preparingText').textContent = msg.t; document.getElementById('preparingSub').textContent = msg.s; }
+                if(progress >= 100) {
                     clearInterval(interval);
-                    setTimeout(() => {
-                        // REDIRECT TO CPA CONTENT LOCKER
-                        window.location.href = 'YOUR_CPA_LOCKER_URL_HERE';
-                    }, 400);
+                    setTimeout(() => { window.location.href = 'YOUR_CPA_LOCKER_URL_HERE'; }, 400);
                 }
             }, 85);
         }
 
-        // ==================== SEARCH ====================
         function setFilter(filter, el) {
             searchFilter = filter;
             document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
-            doSearch();
+            el.classList.add('active'); doSearch();
         }
 
         function doSearch() {
             const q = document.getElementById('searchInput').value.toLowerCase();
             let results = appsData.filter(a => a.name.toLowerCase().includes(q));
-            if (searchFilter === 'app') results = results.filter(a => a.cat !== 'games');
-            if (searchFilter === 'game') results = results.filter(a => a.cat === 'games');
-            document.getElementById('search-results').innerHTML = results.length
-                ? results.map(a => renderCard(a)).join('')
-                : '<div class="no-results">No results found</div>';
+            if(searchFilter === 'app') results = results.filter(a => a.cat !== 'games');
+            if(searchFilter === 'game') results = results.filter(a => a.cat === 'games');
+            document.getElementById('search-results').innerHTML = results.length ? results.map(a => renderCard(a)).join('') : '<div class="no-results">No results found</div>';
         }
 
-        // ==================== THEME ====================
         function toggleTheme() {
             const html = document.documentElement;
             const isDark = html.getAttribute('data-theme') === 'dark';
@@ -781,14 +738,6 @@
             document.documentElement.setAttribute('data-theme', t);
             document.getElementById('themeIcon').textContent = t === 'dark' ? '☀️' : '🌙';
         })();
-
-        // ==================== ESCAPE KEY ====================
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const ps = document.getElementById('preparingScreen');
-                if (ps.classList.contains('active')) { ps.classList.remove('active'); document.body.style.overflow = ''; }
-            }
-        });
 
         init();
     </script>
