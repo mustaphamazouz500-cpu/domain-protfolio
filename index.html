@@ -1,5 +1,5 @@
 
-html_content = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -533,35 +533,183 @@ html_content = '''<!DOCTYPE html>
     </div>
 
     <script>
-        const apps = [
-            { id: 1, name: "Pokemon Go Spoofer", category: "Games", rating: 4.8, downloads: "550k+", size: "762.5MB", version: "4.1.5", type: "game", icon: "🎯", mod: true, desc: "Install Pokemon GO Spoofer with our Guide — Teleport, Joystick, Auto Walk and More! Unlock powerful features instantly and play smarter on iOS and Android." },
-            { id: 2, name: "8 Ball Pool Mod", category: "Games", rating: 4.9, downloads: "1M+", size: "55.8MB", version: "55.8.1", type: "game", icon: "🎱", mod: true },
-            { id: 3, name: "BitLife", category: "Games", rating: 4.9, downloads: "2M+", size: "3.14.5", version: "3.14.5", type: "game", icon: "🧬", mod: true },
-            { id: 4, name: "Geode", category: "Games", rating: 4.9, downloads: "500k+", size: "2.2", version: "2.2", type: "game", icon: "⬡", mod: true },
-            { id: 5, name: "Car Parking", category: "Games", rating: 5.0, downloads: "300k+", size: "2.2.5", version: "2.2.5", type: "game", icon: "🚗", mod: true },
-            { id: 6, name: "Poppy Playtime", category: "Games", rating: 4.9, downloads: "800k+", size: "1.2", version: "1.2", type: "game", icon: "🧸", mod: true },
-            { id: 7, name: "Delta Executor", category: "Games", rating: 4.9, downloads: "1.5M+", size: "8.3.1", version: "8.3.1", type: "game", icon: "Δ", mod: true },
-            { id: 8, name: "KRNL Executor", category: "Games", rating: 4.9, downloads: "2M+", size: "9.8.1", version: "9.8.1", type: "game", icon: "🔷", mod: true },
-            { id: 9, name: "COD Mobile Mod", category: "Games", rating: 4.9, downloads: "1M+", size: "26.1.03", version: "26.1.03", type: "game", icon: "🔫", mod: true },
-            { id: 10, name: "Blood Strike Mod", category: "Games", rating: 4.8, downloads: "700k+", size: "1.0.0", version: "1.0.0", type: "game", icon: "🩸", mod: true },
-            { id: 11, name: "FC Mobile Hack", category: "Games", rating: 5.0, downloads: "900k+", size: "26.1.03", version: "26.1.03", type: "game", icon: "⚽", mod: true },
-            { id: 12, name: "The Sims FreePlay", category: "Games", rating: 4.9, downloads: "600k+", size: "5.97.1", version: "5.97.1", type: "game", icon: "👨‍👩‍👧", mod: true },
-            { id: 13, name: "Xbox Game Pass", category: "Apps", rating: 4.9, downloads: "5M+", size: "4.2.1", version: "4.2.1", type: "app", icon: "🎮", mod: true },
-            { id: 14, name: "PS Plus Code", category: "Apps", rating: 5.0, downloads: "3M+", size: "3.7.2", version: "3.7.2", type: "app", icon: "🟦", mod: true },
-            { id: 15, name: "Microsoft Rewards", category: "Apps", rating: 4.9, downloads: "2M+", size: "5.1.4", version: "5.1.4", type: "app", icon: "🏅", mod: true },
-            { id: 16, name: "The Sims 4 DLC", category: "Apps", rating: 4.9, downloads: "1M+", size: "25.1.9", version: "25.1.9", type: "app", icon: "💎", mod: true },
-            { id: 17, name: "HappyMod", category: "Apps", rating: 4.8, downloads: "10M+", size: "3.2.5", version: "3.2.5", type: "app", icon: "😊", mod: true },
-            { id: 18, name: "Unc0ver iOS 26", category: "Apps", rating: 4.9, downloads: "2M+", size: "26", version: "26", type: "app", icon: "🔓", mod: true },
-            { id: 19, name: "PojavLauncher", category: "Apps", rating: 4.9, downloads: "1M+", size: "1.5", version: "1.5", type: "app", icon: "☕", mod: true },
-            { id: 20, name: "AetherSX2", category: "Apps", rating: 4.9, downloads: "800k+", size: "1.5", version: "1.5", type: "app", icon: "🎲", mod: true },
-            { id: 21, name: "CarTube", category: "Apps", rating: 4.9, downloads: "500k+", size: "1.3", version: "1.3", type: "app", icon: "📺", mod: true },
-            { id: 22, name: "Roblox Switch", category: "Apps", rating: 4.9, downloads: "3M+", size: "26.1.03", version: "26.1.03", type: "app", icon: "🟥", mod: true },
-            { id: 23, name: "iRecovery", category: "Apps", rating: 4.9, downloads: "400k+", size: "3.14.5", version: "3.14.5", type: "app", icon: "🔄", mod: true },
-            { id: 24, name: "RPCS3", category: "Apps", rating: 4.9, downloads: "600k+", size: "3.14.5", version: "3.14.5", type: "app", icon: "🎮", mod: true },
-            { id: 25, name: "MelonX", category: "Apps", rating: 4.9, downloads: "700k+", size: "2.1", version: "2.1", type: "app", icon: "🍈", mod: true },
-            { id: 26, name: "Toca Boca World", category: "Games", rating: 4.8, downloads: "1M+", size: "9.8.1", version: "9.8.1", type: "game", icon: "🌍", mod: true },
-            { id: 27, name: "BASEBALL 9", category: "Games", rating: 4.8, downloads: "500k+", size: "1.10.3", version: "1.10.3", type: "game", icon: "⚾", mod: true },
+         const appsData = [
+            // GAMES (11)
+            {
+                name: 'Dragon Ball Legends',
+                version: 'v5.10.0 Mod',
+                icon: 'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg',
+                cat: 'games',
+                rating: '4.9',
+                downloads: '124K',
+                mod: 'Unlimited Crystals + God Mode',
+                badge: 'HOT'
+            },
+            {
+                name: 'Pokémon UNITE',
+                version: 'v2.0.3 Mod',
+                icon: 'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png',
+                cat: 'games',
+                rating: '4.8',
+                downloads: '98K',
+                mod: 'Unlimited Aeos Gems',
+                badge: 'NEW'
+            },
+            {
+                name: 'Baseball 9',
+                version: 'v4.2.8 Mod',
+                icon: 'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg',
+                cat: 'games',
+                rating: '4.7',
+                downloads: '87K',
+                mod: 'Unlimited Gems + Stamina',
+                badge: 'TRENDING'
+            },
+            {
+                name: '8 Ball Pool',
+                version: 'v55.9.0 Mod',
+                icon: 'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg',
+                cat: 'games',
+                rating: '4.9',
+                downloads: '256K',
+                mod: 'Long Line + Auto Win',
+                badge: 'HOT'
+            },
+            {
+                name: 'Free Fire MAX',
+                version: 'v2.103 Mod',
+                icon: 'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg',
+                cat: 'games',
+                rating: '4.6',
+                downloads: '312K',
+                mod: 'ESP Hack + Aimbot',
+                badge: 'HOT'
+            },
+            {
+                name: 'PUBG Mobile',
+                version: 'v3.3.0 Mod',
+                icon: 'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg',
+                cat: 'games',
+                rating: '4.5',
+                downloads: '198K',
+                mod: 'ESP + Wallhack',
+                badge: 'TRENDING'
+            },
+            {
+                name: 'Roblox',
+                version: 'v2.645 Mod',
+                icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg',
+                cat: 'games',
+                rating: '4.3',
+                downloads: '512K',
+                mod: 'Infinite Robux + God Mode',
+                badge: 'TRENDING'
+            },
+            {
+                name: 'Call of Duty Mobile',
+                version: 'v1.25.0 Mod',
+                icon: 'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg',
+                cat: 'games',
+                rating: '4.6',
+                downloads: '156K',
+                mod: 'ESP + Aimbot + Radar',
+                badge: 'HOT'
+            },
+            {
+                name: 'Subway Surfers',
+                version: 'v3.36.0 Mod',
+                icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg',
+                cat: 'games',
+                rating: '4.4',
+                downloads: '420K',
+                mod: 'Unlimited Coins + Keys',
+                badge: 'HOT'
+            },
+            {
+                name: 'Genshin Impact',
+                version: 'v5.3.0 Mod',
+                icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg',
+                cat: 'games',
+                rating: '4.9',
+                downloads: '89K',
+                mod: 'God Mode + Primogems',
+                badge: 'VIP'
+            },
+            {
+                name: 'Clash Royale',
+                version: 'v6.2.1 Mod',
+                icon: 'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg',
+                cat: 'games',
+                rating: '4.8',
+                downloads: '178K',
+                mod: 'Unlimited Gems + Gold',
+                badge: 'HOT'
+            },
+            // APPS (6)
+            {
+                name: 'CapCut Pro',
+                version: 'v13.5.0 Mod',
+                icon: 'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg',
+                cat: 'apps',
+                rating: '4.9',
+                downloads: '234K',
+                mod: 'No Watermark + Pro Unlocked',
+                badge: 'HOT'
+            },
+            {
+                name: 'Instagram Pro',
+                version: 'v350.0 Mod',
+                icon: 'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg',
+                cat: 'social',
+                rating: '4.7',
+                downloads: '378K',
+                mod: 'Download Media + No Ads',
+                badge: 'NEW'
+            },
+            {
+                name: 'PicsArt Gold',
+                version: 'v24.1.0 Mod',
+                icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg',
+                cat: 'apps',
+                rating: '4.6',
+                downloads: '289K',
+                mod: 'Gold Unlocked + No Ads',
+                badge: 'HOT'
+            },
+            {
+                name: 'YouTube Music Premium',
+                version: 'v7.0.3 Mod',
+                icon: 'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg',
+                cat: 'streaming',
+                rating: '4.8',
+                downloads: '523K',
+                mod: 'No Ads + Background Play',
+                badge: 'HOT'
+            },
+            {
+                name: 'Netflix Premium',
+                version: 'v11.2.0 Mod',
+                icon: 'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg',
+                cat: 'streaming',
+                rating: '4.7',
+                downloads: '345K',
+                mod: 'All Regions Unlocked',
+                badge: 'VIP'
+            },
+            {
+                name: 'TikTok Mod',
+                version: 'v36.0.1 Mod',
+                icon: 'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg',
+                cat: 'social',
+                rating: '4.8',
+                downloads: '445K',
+                mod: 'No Ads + Download Videos',
+                badge: 'HOT'
+            }
         ];
+
+        let toastTimerInterval;
+        let currentFilter = 'all';
 
         let currentApp = null;
         let currentView = 'discover';
@@ -707,10 +855,4 @@ html_content = '''<!DOCTYPE html>
         init();
     </script>
 </body>
-</html>'''
-
-with open('/mnt/agents/output/appzenn_landing.html', 'w', encoding='utf-8') as f:
-    f.write(html_content)
-
-print("File saved successfully!")
-print(f"Size: {len(html_content)} characters")
+</html>
