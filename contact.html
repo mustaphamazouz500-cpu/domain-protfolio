@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact - ooQleMod</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root[data-theme="dark"] {
+            --bg: #06080d; --surface: rgba(18,22,32,0.8); --border: rgba(255,255,255,0.05);
+            --border2: rgba(255,255,255,0.08); --text: #e8eaed; --text2: #9aa0b0; --text3: #6b7280;
+            --accent: #3b82f6; --accent2: #60a5fa; --success: #22c55e;
+            --header-bg: rgba(6,8,13,0.85);
+        }
+        :root[data-theme="light"] {
+            --bg: #f0f2f5; --surface: rgba(255,255,255,0.85); --border: rgba(0,0,0,0.06);
+            --border2: rgba(0,0,0,0.1); --text: #0f172a; --text2: #475569; --text3: #94a3b8;
+            --accent: #2563eb; --accent2: #3b82f6; --success: #16a34a;
+            --header-bg: rgba(240,242,245,0.85);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body {
+            font-family:'Inter',-apple-system,sans-serif; background:var(--bg); color:var(--text);
+            min-height:100vh; -webkit-font-smoothing:antialiased; transition:background 0.4s,color 0.4s;
+            display:flex; flex-direction:column; align-items:center;
+        }
+        .bg-mesh {
+            position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;
+            background:radial-gradient(ellipse 80% 50% at 20% 10%, rgba(59,130,246,0.06) 0%, transparent 55%);
+        }
+        .page-container { position:relative; z-index:1; max-width:600px; width:100%; padding:20px 16px 60px; }
+
+        .header {
+            display:flex; align-items:center; justify-content:space-between; padding:12px 0;
+            border-bottom:1px solid var(--border); margin-bottom:20px;
+        }
+        .logo { display:flex; align-items:center; gap:8px; font-weight:900; font-size:18px; text-decoration:none; color:var(--text); }
+        .logo-icon {
+            width:34px; height:34px; background:linear-gradient(135deg,#3b82f6,#2563eb);
+            border-radius:10px; display:flex; align-items:center; justify-content:center;
+            font-size:15px; color:#fff; box-shadow:0 4px 16px rgba(37,99,235,0.4);
+        }
+        .back-link { color:var(--accent2); text-decoration:none; font-weight:600; font-size:14px; }
+        .back-link:hover { text-decoration:underline; }
+
+        h1 { font-size:28px; font-weight:900; margin-bottom:8px; letter-spacing:-0.5px; }
+        .subtitle { color:var(--text2); margin-bottom:24px; font-size:14px; line-height:1.5; }
+
+        .form-group { margin-bottom:16px; }
+        .form-group label { display:block; font-size:13px; font-weight:700; margin-bottom:6px; color:var(--text); }
+        .form-group input, .form-group textarea, .form-group select {
+            width:100%; padding:12px 16px; background:var(--surface); border:1px solid var(--border2);
+            border-radius:12px; color:var(--text); font-size:14px; font-family:inherit;
+            outline:none; transition:all 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color:var(--accent); box-shadow:0 0 0 4px rgba(59,130,246,0.1);
+        }
+        .form-group textarea { min-height:140px; resize:vertical; }
+
+        .btn-submit {
+            width:100%; padding:14px; background:linear-gradient(135deg,#3b82f6,#2563eb);
+            color:#fff; font-size:15px; font-weight:800; border:none; border-radius:12px;
+            cursor:pointer; transition:all 0.3s; font-family:inherit;
+            box-shadow:0 8px 24px rgba(59,130,246,0.3);
+        }
+        .btn-submit:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(59,130,246,0.4); }
+        .btn-submit:active { transform:scale(0.97); }
+
+        .success-msg {
+            display:none; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.3);
+            border-radius:12px; padding:16px; text-align:center; color:var(--success);
+            font-weight:700; margin-top:16px;
+        }
+        .success-msg.show { display:block; }
+
+        .contact-info { margin-top:30px; padding:20px; background:var(--surface); border:1px solid var(--border); border-radius:14px; }
+        .contact-info h3 { font-size:16px; font-weight:800; margin-bottom:12px; }
+        .contact-info p { font-size:13px; color:var(--text2); margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+        .contact-info .icon { font-size:18px; }
+
+        .faq-mini { margin-top:30px; }
+        .faq-mini h3 { font-size:18px; font-weight:800; margin-bottom:16px; }
+        .faq-item { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:8px; cursor:pointer; }
+        .faq-q { font-weight:700; font-size:14px; display:flex; justify-content:space-between; align-items:center; }
+        .faq-a { display:none; font-size:13px; color:var(--text2); margin-top:8px; line-height:1.6; }
+        .faq-item.open .faq-a { display:block; }
+
+        .footer { text-align:center; margin-top:30px; padding-top:20px; border-top:1px solid var(--border); font-size:11px; color:var(--text3); }
+        .footer a { color:var(--text2); text-decoration:none; }
+        .footer a:hover { color:var(--accent2); }
+
+        @media (max-width:400px) { h1 { font-size:24px; } }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    <div class="page-container">
+        <div class="header">
+            <a href="index.html" class="logo"><div class="logo-icon">oo</div><span>ooQleMod</span></a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+
+        <h1>📬 Contact Us</h1>
+        <p class="subtitle">Have a question, suggestion, or need help with a mod? Fill out the form below and we'll get back to you within 24 hours.</p>
+
+        <form id="contactForm" action="https://formspree.io/f/xdaypkly" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Select a topic...</option>
+                    <option value="mod-request">Mod Request</option>
+                    <option value="download-issue">Download Issue</option>
+                    <option value="app-not-working">App Not Working</option>
+                    <option value="account-help">Account / License Help</option>
+                    <option value="dmca">DMCA / Copyright</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea id="message" name="message" placeholder="Describe your issue or question in detail..." required></textarea>
+            </div>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://yourdomain.com/contact.html?sent=1">
+            <button type="submit" class="btn-submit">✉️ Send Message</button>
+            <div class="success-msg" id="successMsg">✅ Your message has been sent successfully! We'll reply within 24 hours.</div>
+        </form>
+
+        <div class="contact-info">
+            <h3>📋 Other Ways to Reach Us</h3>
+            <p><span class="icon">📧</span> Email: support@ooqlemod.com</p>
+            <p><span class="icon">⏰</span> Response Time: Within 24 hours</p>
+            <p><span class="icon">🌍</span> Available: Monday - Saturday</p>
+            <p style="margin-top:8px;font-size:12px;color:var(--text3);">For DMCA takedown requests, please use our <a href="dmca.html" style="color:var(--accent2);">DMCA page</a>.</p>
+        </div>
+
+        <div class="faq-mini">
+            <h3>🙋 Quick Answers</h3>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">How long does it take to get a reply? <span>▼</span></div>
+                <div class="faq-a">We typically respond within 12-24 hours. During peak times, it may take up to 48 hours.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">Can I request a specific mod? <span>▼</span></div>
+                <div class="faq-a">Yes! Select "Mod Request" in the subject and tell us what you're looking for. We'll try our best to find it.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What if my download doesn't work? <span>▼</span></div>
+                <div class="faq-a">Select "Download Issue" and describe the problem. Include your device model and Android/iOS version for faster help.</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 ooQleMod. All rights reserved.</p>
+            <p><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="faq.html">FAQ</a> · <a href="dmca.html">DMCA</a></p>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if(urlParams.get('sent') === '1') {
+            document.getElementById('successMsg').classList.add('show');
+            document.getElementById('contactForm').style.display = 'none';
+        }
+
+        (function(){
+            const t = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+</body>
+</html>
