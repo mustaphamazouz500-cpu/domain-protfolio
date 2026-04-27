@@ -1,544 +1,716 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+
+html_content = '''<!DOCTYPE html>
+<html lang="ar" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download Premium Modded Apps & Games for Android & iOS. Free Fire, PUBG, Roblox, CapCut, TikTok and more.">
-    <meta property="og:title" content="ModHub Pro - Premium Modded Apps & Games Store">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230a0a1a' width='32' height='32' rx='8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='%23ff4757' font-size='20' font-weight='bold'%3EMH%3C/text%3E%3C/svg%3E">
-    <title>ModHub Pro - Premium Modded Apps & Games</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AppZENN</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         :root {
-            --bg-primary: #06060e;
-            --bg-secondary: #0c0c1a;
-            --bg-card: #111128;
-            --accent: #ff4757;
-            --accent2: #ff6b81;
-            --green: #2ed573;
-            --gold: #ffa502;
-            --blue: #1e90ff;
-            --text: #e8e8f0;
-            --text2: #9898b0;
-            --text3: #686880;
-            --border: #1a1a30;
-            --border-light: #252545;
-            --radius: 16px;
-            --font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --bg: #0B0E14;
+            --surface: rgba(30, 35, 48, 0.55);
+            --surface-solid: #1e2330;
+            --border: rgba(255,255,255,0.07);
+            --text: #ffffff;
+            --text-secondary: #94a3b8;
+            --accent: #60a5fa;
+            --accent-glow: rgba(96, 165, 250, 0.35);
+            --mod: #6366f1;
+            --success: #4ade80;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
+        body.light {
+            --bg: #f8fafc;
+            --surface: rgba(255, 255, 255, 0.75);
+            --surface-solid: #ffffff;
+            --border: rgba(0,0,0,0.06);
+            --text: #0f172a;
+            --text-secondary: #64748b;
+            --accent-glow: rgba(59, 130, 246, 0.25);
+        }
         body {
-            font-family: var(--font);
-            background: var(--bg-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
             color: var(--text);
+            overflow-x: hidden;
             min-height: 100vh;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            transition: background 0.4s, color 0.4s;
         }
-
-        .bg-pattern {
+        .bg-mesh {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(ellipse at 20% 20%, rgba(255,71,87,0.04) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 10%, rgba(96,165,250,0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(99,102,241,0.08) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(59,130,246,0.03) 0%, transparent 60%);
             pointer-events: none; z-index: 0;
         }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
-
-        /* Announcement Bar */
-        .announce-bar {
-            background: #0f0f25; border-bottom: 1px solid var(--border);
-            padding: 8px 0; text-align: center; font-size: 12px; color: var(--text2);
-            position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(20px);
+        .app {
+            position: relative; z-index: 1;
+            max-width: 520px; margin: 0 auto;
+            min-height: 100vh;
+            padding-bottom: 100px;
         }
-        .pulse-dot { display: inline-block; width: 7px; height: 7px; background: var(--green); border-radius: 50%; margin-right: 6px; animation: pulse 1.8s infinite; vertical-align: middle; }
-        @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(46,213,115,0.4); } 50% { box-shadow: 0 0 0 10px transparent; } }
-
-        /* Header */
         .header {
-            background: rgba(12,12,26,0.85); backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border); padding: 15px 0;
-            position: sticky; top: 29px; z-index: 999;
+            position: sticky; top: 0; z-index: 50;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 20px;
+            background: rgba(11, 14, 20, 0.75);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.4s;
         }
-        .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
-        .logo-section { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-icon { width: 42px; height: 42px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; color: #fff; }
-        .logo-text { font-size: 22px; font-weight: 800; color: #fff; } .logo-text span { color: var(--accent); }
-        .search-wrapper { flex: 1; max-width: 400px; position: relative; }
-        .search-input { width: 100%; padding: 12px 45px 12px 18px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 30px; color: #fff; font-size: 13px; outline: none; transition: 0.3s; }
-        .search-input:focus { border-color: var(--accent); }
-        .search-btn { position: absolute; right: 5px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: var(--accent); border: none; color: #fff; cursor: pointer; }
-        .btn-header { padding: 10px 18px; border-radius: 25px; font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; }
-        .btn-telegram { background: #1a1a40; color: var(--blue); border: 1px solid var(--border-light); }
-        .btn-vip { background: linear-gradient(135deg, #ffa502, #ff6348); color: #000; font-weight: 700; }
-
-        /* Hero */
-        .hero-section { padding: 40px 0 20px; text-align: center; }
-        .hero-title { font-size: clamp(28px, 5vw, 44px); font-weight: 900; color: #fff; margin-bottom: 12px; }
-        .gradient-text { background: linear-gradient(135deg, var(--accent), #ffa502); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-desc { font-size: 15px; color: var(--text2); max-width: 550px; margin: 0 auto 25px; }
-
-        /* Stats */
-        .stats-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 15px 0; }
-        .stat-badge { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 12px 18px; text-align: center; min-width: 80px; }
-        .stat-value { font-size: 20px; font-weight: 800; color: #fff; } .stat-value.green { color: var(--green); } .stat-value.gold { color: var(--gold); }
-        .stat-label { font-size: 10px; color: var(--text3); text-transform: uppercase; }
-
-        /* Category Tabs */
-        .category-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
-        .cat-tab { padding: 10px 20px; border-radius: 25px; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text2); transition: 0.3s; }
-        .cat-tab:hover, .cat-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-
-        /* Section Header */
-        .section-header { display: flex; align-items: center; justify-content: space-between; margin: 30px 0 15px; }
-        .section-title { font-size: 20px; font-weight: 800; color: #fff; }
-
-        /* App Grid */
-        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; margin-bottom: 20px; }
-        .app-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 14px; text-align: center; transition: 0.3s; position: relative; cursor: pointer; }
-        .app-card:hover { border-color: var(--accent); transform: translateY(-5px); background: #161638; }
-        .card-badge { position: absolute; top: 10px; left: 10px; font-size: 9px; padding: 3px 10px; border-radius: 12px; font-weight: 700; color: #fff; background: var(--accent); z-index: 2; }
-        .card-icon { width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; background: var(--bg-secondary); border: 1px solid var(--border-light); overflow: hidden; }
-        .card-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
-        .card-name { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 3px; line-height: 1.2; }
-        .card-version { font-size: 10px; color: var(--text3); margin-bottom: 8px; }
-        .card-meta { font-size: 10px; color: var(--text2); margin-bottom: 10px; display: flex; justify-content: center; gap: 8px; }
-        .card-buttons { display: flex; gap: 5px; justify-content: center; }
-        .btn-dl { flex: 1; padding: 8px 4px; border-radius: 20px; font-size: 10px; font-weight: 700; cursor: pointer; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
-        .btn-android { background: #1a3a1a; color: var(--green); border: 1px solid #1a4a1a; }
-        .btn-android:hover { background: #1a5a1a; }
-        .btn-ios { background: #1a1a30; color: #aaa; border: 1px solid #1a1a40; }
-        .btn-ios:hover { background: #1a1a50; color: #fff; }
-
-        /* Notification Toast */
-        .toast-overlay {
+        body.light .header { background: rgba(248, 250, 252, 0.75); }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -0.3px; }
+        .logo-icon {
+            width: 34px; height: 34px;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; box-shadow: 0 4px 12px rgba(59,130,246,0.35);
+        }
+        .header-actions { display: flex; gap: 12px; }
+        .header-btn {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--surface); border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text); cursor: pointer; font-size: 17px;
+            backdrop-filter: blur(10px); transition: transform 0.15s;
+        }
+        .header-btn:active { transform: scale(0.9); }
+        .view {
             display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 3000;
-            justify-content: center;
-            align-items: center;
+            animation: viewIn 0.35s cubic-bezier(0.22,1,0.36,1);
+            padding: 0 16px;
         }
-        .toast-overlay.show { display: flex; }
-        .toast-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius);
-            padding: 25px 30px;
-            text-align: center;
-            max-width: 380px;
-            width: 90%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        .view.active { display: block; }
+        @keyframes viewIn {
+            from { opacity: 0; transform: translateY(18px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
-        .toast-icon { font-size: 50px; margin-bottom: 10px; animation: bounce 0.6s ease infinite alternate; }
-        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
-        .toast-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 5px; }
-        .toast-app { font-size: 13px; color: var(--accent); margin-bottom: 5px; }
-        .toast-status { font-size: 12px; color: var(--text2); margin-bottom: 20px; }
-        .toast-timer { font-size: 28px; font-weight: 900; color: var(--gold); margin: 10px 0; font-family: monospace; }
-        .btn-toast { width: 100%; padding: 14px; border-radius: 30px; font-size: 15px; font-weight: 800; cursor: pointer; border: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-waiting { background: #1a1a30; color: var(--text2); cursor: not-allowed; pointer-events: none; }
-        .btn-ready { background: var(--green); color: #fff; animation: pulse-btn 1.5s infinite; display: none; }
-        @keyframes pulse-btn { 0%,100% { box-shadow: 0 0 0 0 rgba(46,213,115,0.5); } 50% { box-shadow: 0 0 0 15px rgba(46,213,115,0); } }
-        .btn-close-toast { background: transparent; border: 1px solid #444; color: #888; margin-top: 10px; padding: 8px 20px; border-radius: 20px; font-size: 11px; cursor: pointer; }
-
-        /* Footer */
-        .footer { text-align: center; padding: 30px; font-size: 12px; color: var(--text3); border-top: 1px solid var(--border); margin-top: 40px; }
-
-        @media (max-width: 600px) {
-            .app-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-            .header-inner { flex-direction: column; }
-            .search-wrapper { max-width: 100%; }
-            .app-card { padding: 12px 8px; }
-            .card-icon { width: 50px; height: 50px; }
-            .btn-dl { font-size: 9px; padding: 6px 3px; }
+        .featured {
+            position: relative; border-radius: 24px; overflow: hidden;
+            margin-top: 16px; height: 240px; cursor: pointer;
+            background: linear-gradient(135deg, #1e3a8a, #0f172a);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
         }
+        .featured-bg {
+            position: absolute; inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220"><rect fill="%231e3a8a" width="400" height="220"/><circle cx="320" cy="40" r="90" fill="%233b82f6" opacity="0.25"/><circle cx="80" cy="160" r="70" fill="%236366f1" opacity="0.2"/></svg>') center/cover;
+        }
+        .featured-content {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 22px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+        }
+        .mod-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: var(--mod); color: white;
+            padding: 4px 10px; border-radius: 20px;
+            font-size: 11px; font-weight: 700; margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(99,102,241,0.35);
+        }
+        .featured-title { font-size: 24px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; }
+        .featured-desc { font-size: 13.5px; opacity: 0.9; line-height: 1.45; max-width: 90%; }
+        .featured-meta { display: flex; align-items: center; gap: 14px; margin-top: 12px; font-size: 13px; font-weight: 500; }
+        .stars { color: #fbbf24; letter-spacing: -2px; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 26px 0 14px; }
+        .section-title { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; letter-spacing: -0.3px; }
+        .view-all { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px; padding: 12px; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative; backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .card:active { transform: scale(0.96); }
+        .card-icon {
+            width: 100%; aspect-ratio: 1; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 42px; margin-bottom: 10px; position: relative;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .card-mod {
+            position: absolute; top: 8px; right: 8px;
+            background: var(--mod); color: white; font-size: 10px;
+            font-weight: 800; padding: 3px 8px; border-radius: 10px;
+            text-transform: uppercase; letter-spacing: 0.3px;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.4);
+        }
+        .card-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-meta { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
+        .card-rating { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; }
+        .h-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+        .h-scroll::-webkit-scrollbar { display: none; }
+        .h-scroll .card { min-width: 156px; }
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+            display: flex; justify-content: center;
+            padding: 10px 20px 28px;
+            background: rgba(11, 14, 20, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-top: 1px solid var(--border);
+            transition: background 0.4s;
+        }
+        body.light .bottom-nav { background: rgba(248, 250, 252, 0.85); }
+        .nav-inner {
+            display: flex; background: var(--surface);
+            border: 1px solid var(--border); border-radius: 24px;
+            padding: 5px; gap: 4px; backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 3px;
+            padding: 10px 26px; border-radius: 18px; cursor: pointer;
+            font-size: 11px; font-weight: 600; color: var(--text-secondary);
+            transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
+            border: none; background: transparent;
+        }
+        .nav-item.active {
+            background: var(--accent); color: white;
+            box-shadow: 0 4px 18px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+        .nav-item span { font-size: 20px; transition: transform 0.2s; }
+        .nav-item.active span { transform: scale(1.1); }
+        .detail-header { display: flex; gap: 16px; margin-top: 12px; }
+        .detail-icon {
+            width: 84px; height: 84px; border-radius: 22px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 42px; flex-shrink: 0;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+        }
+        .detail-info h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.4px; }
+        .detail-info .sub { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; }
+        .detail-meta-row { display: flex; gap: 14px; font-size: 13px; color: var(--text-secondary); flex-wrap: wrap; }
+        .detail-meta-row span { display: flex; align-items: center; gap: 4px; font-weight: 600; }
+        .btn-primary {
+            width: 100%; margin-top: 22px; padding: 16px;
+            border-radius: 16px; background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            color: white; font-size: 16px; font-weight: 700;
+            border: none; cursor: pointer;
+            box-shadow: 0 8px 24px var(--accent-glow);
+            transition: transform 0.15s, box-shadow 0.2s;
+            letter-spacing: 0.2px;
+        }
+        .btn-primary:active { transform: scale(0.97); box-shadow: 0 4px 12px var(--accent-glow); }
+        .detail-section { margin-top: 28px; }
+        .detail-section h3 {
+            font-size: 16px; font-weight: 800; margin-bottom: 12px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .detail-section h3 span { color: var(--text-secondary); font-size: 13px; font-weight: 600; }
+        .detail-section p { font-size: 14.5px; line-height: 1.65; color: var(--text-secondary); }
+        .info-row { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .info-row:last-child { border-bottom: none; }
+        .info-row span:first-child { color: var(--text-secondary); font-weight: 500; }
+        .info-row span:last-child { font-weight: 600; }
+        .loading-screen {
+            position: fixed; inset: 0; background: var(--bg); z-index: 200;
+            display: none; flex-direction: column; align-items: center;
+            justify-content: center; text-align: center; padding: 40px;
+        }
+        .loading-screen.active { display: flex; }
+        .loading-app {
+            display: flex; align-items: center; gap: 12px;
+            position: absolute; top: 60px; left: 20px;
+        }
+        .loading-app-icon {
+            width: 50px; height: 50px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .loading-app-info { text-align: left; }
+        .loading-app-info h4 { font-size: 16px; font-weight: 700; }
+        .loading-app-info p { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+        .loading-percent {
+            font-size: 90px; font-weight: 900;
+            background: linear-gradient(to bottom, rgba(96,165,250,0.25), transparent);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            line-height: 1; margin-bottom: 24px; letter-spacing: -3px;
+        }
+        .loading-circle {
+            width: 88px; height: 88px; border-radius: 50%;
+            background: var(--surface); border: 1.5px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 34px; margin-bottom: 24px; position: relative;
+        }
+        .loading-circle::after {
+            content: ''; position: absolute; inset: -4px; border-radius: 50%;
+            border: 3.5px solid transparent; border-top-color: var(--accent);
+            animation: spin 0.9s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .loading-sub { font-size: 13.5px; color: var(--text-secondary); max-width: 260px; }
+        .progress-container { position: absolute; bottom: 110px; left: 24px; right: 24px; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 11.5px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.8px; color: var(--text-secondary); }
+        .progress-label span:last-child { color: var(--accent); }
+        .progress-bar { height: 8px; background: var(--surface); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #a78bfa); border-radius: 4px; width: 0%; transition: width 0.25s ease; }
+        .locker-screen {
+            position: fixed; inset: 0; background: #080a0f; z-index: 300;
+            display: none; overflow-y: auto;
+        }
+        .locker-screen.active { display: block; }
+        .locker-top {
+            background: linear-gradient(180deg, rgba(96,165,250,0.08), transparent);
+            padding: 30px 20px 20px; text-align: center;
+        }
+        .locker-progress-bar {
+            background: linear-gradient(90deg, #f97316, #fb923c);
+            color: white; text-align: center; padding: 7px;
+            font-size: 12px; font-weight: 800; letter-spacing: 0.5px;
+            margin: -30px -20px 20px;
+        }
+        .locker-title { font-size: 22px; font-weight: 900; color: #4ade80; margin-bottom: 10px; text-shadow: 0 0 25px rgba(74,222,128,0.25); letter-spacing: -0.3px; }
+        .locker-sub { font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.5; }
+        .locker-step {
+            border: 1.5px solid rgba(74,222,128,0.35); border-radius: 14px;
+            padding: 16px; margin: 0 auto 16px; max-width: 340px;
+            color: #4ade80; font-weight: 800; font-size: 16px;
+            background: rgba(74,222,128,0.05); backdrop-filter: blur(8px);
+        }
+        .locker-stats {
+            background: linear-gradient(90deg, rgba(30,58,138,0.6), rgba(15,23,42,0.6));
+            border-radius: 12px; padding: 12px 16px;
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 13.5px; color: #60a5fa; font-weight: 600;
+            border: 1px solid rgba(96,165,250,0.15);
+        }
+        .offer-card {
+            background: rgba(20, 24, 35, 0.7);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 14px;
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 12px; backdrop-filter: blur(10px);
+            transition: transform 0.15s;
+        }
+        .offer-card:active { transform: scale(0.98); }
+        .offer-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            background: rgba(255,255,255,0.06);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; flex-shrink: 0;
+        }
+        .offer-info { flex: 1; text-align: left; }
+        .offer-info h4 { font-size: 14px; margin-bottom: 3px; font-weight: 700; }
+        .offer-info p { font-size: 12px; color: #94a3b8; line-height: 1.4; }
+        .offer-tag {
+            background: #3b82f6; color: white;
+            padding: 5px 10px; border-radius: 8px;
+            font-size: 11px; font-weight: 800; flex-shrink: 0;
+        }
+        .btn-locker {
+            display: block; width: calc(100% - 40px); margin: 24px auto;
+            padding: 18px; border-radius: 16px;
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: #052e16; font-size: 16px; font-weight: 900;
+            text-align: center; text-decoration: none; border: none;
+            cursor: pointer; box-shadow: 0 0 35px rgba(74,222,128,0.25);
+            transition: transform 0.15s, box-shadow 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .btn-locker:active { transform: scale(0.97); }
+        .locker-footer { text-align: center; padding: 10px 20px 40px; font-size: 12.5px; color: #64748b; line-height: 1.7; }
+        .search-bar {
+            margin-top: 16px; background: var(--surface);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .search-bar input {
+            flex: 1; background: transparent; border: none;
+            color: var(--text); font-size: 15px; outline: none; font-weight: 500;
+        }
+        .search-bar input::placeholder { color: var(--text-secondary); }
+        .search-filters { display: flex; gap: 8px; margin: 14px 0 18px; }
+        .filter-chip {
+            padding: 6px 14px; border-radius: 20px;
+            background: var(--surface); border: 1px solid var(--border);
+            font-size: 13px; cursor: pointer; color: var(--text-secondary);
+            font-weight: 600; transition: all 0.2s;
+        }
+        .filter-chip.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: transparent; border: none; color: var(--text);
+            font-size: 16px; cursor: pointer; margin: 12px 0 8px;
+            padding: 8px 0; font-weight: 600;
+        }
+        .page-title { font-size: 30px; font-weight: 900; margin: 16px 0 18px; letter-spacing: -0.8px; }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
+    <div class="bg-mesh"></div>
+    <div class="app">
+        <div class="header" id="mainHeader">
+            <div class="logo">
+                <div class="logo-icon">🚀</div>
+                <span>AppZENN</span>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" onclick="showSearch()" aria-label="Search">🔍</button>
+                <button class="header-btn" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">☀️</button>
+            </div>
+        </div>
 
-    <div class="announce-bar">
-        <span class="pulse-dot"></span> <strong>2,847</strong> users online | <strong>17</strong> mods available | All mods verified & working
-    </div>
-
-    <header class="header">
-        <div class="container header-inner">
-            <a href="#" class="logo-section">
-                <div class="logo-icon">MH</div>
-                <div>
-                    <div class="logo-text">Mod<span>Hub</span></div>
-                    <div style="font-size:10px;color:var(--text3);">Premium Store</div>
+        <div class="view active" id="view-discover">
+            <div class="featured" onclick="openApp(apps[0])">
+                <div class="featured-bg"></div>
+                <div class="featured-content">
+                    <div class="mod-badge">⭐ Mod</div>
+                    <div class="featured-title">Pokemon Go Spoofer</div>
+                    <div class="featured-desc">Install Pokemon GO Spoofer with our Guide — Teleport, Joystick, Auto Walk and More!</div>
+                    <div class="featured-meta">
+                        <span class="stars">⭐⭐⭐⭐½</span>
+                        <span>4.8</span>
+                        <span>Games</span>
+                    </div>
                 </div>
-            </a>
-            <div class="search-wrapper">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search mods..." oninput="searchMods()">
-                <button class="search-btn" onclick="searchMods()">🔍</button>
             </div>
-            <div style="display:flex;gap:10px;">
-                <a href="https://t.me/MBMods" target="_blank" class="btn-header btn-telegram">📢 Telegram</a>
-                <a href="#" class="btn-header btn-vip" onclick="alert('VIP access unlocks instant downloads.')">👑 GO VIP</a>
+            <div class="section-header">
+                <div class="section-title">🔥 Trending Now</div>
+                <a href="#" class="view-all" onclick="showView('games')">View all →</a>
+            </div>
+            <div class="h-scroll" id="trending-scroll"></div>
+            <div class="section-header">
+                <div class="section-title">✨ New Apps</div>
+                <a href="#" class="view-all" onclick="showView('apps')">View all →</a>
+            </div>
+            <div class="grid" id="new-apps-grid"></div>
+        </div>
+
+        <div class="view" id="view-apps">
+            <h2 class="page-title">Apps</h2>
+            <div class="grid" id="apps-grid"></div>
+        </div>
+
+        <div class="view" id="view-games">
+            <h2 class="page-title">Games</h2>
+            <div class="grid" id="games-grid"></div>
+        </div>
+
+        <div class="view" id="view-search">
+            <h2 class="page-title">Search</h2>
+            <div class="search-bar">
+                <span>🔍</span>
+                <input type="text" placeholder="Search apps & games..." id="searchInput" oninput="doSearch()">
+            </div>
+            <div class="search-filters">
+                <div class="filter-chip active" onclick="setFilter('all', this)">All</div>
+                <div class="filter-chip" onclick="setFilter('app', this)">📱 Apps</div>
+                <div class="filter-chip" onclick="setFilter('game', this)">🎮 Games</div>
+            </div>
+            <div class="grid" id="search-results"></div>
+        </div>
+
+        <div class="view" id="view-detail">
+            <button class="back-btn" onclick="goBack()">← Back</button>
+            <div class="detail-header">
+                <div class="detail-icon" id="detail-icon">🎮</div>
+                <div class="detail-info">
+                    <h1 id="detail-name">App Name</h1>
+                    <div class="sub" id="detail-category">Category</div>
+                    <div class="detail-meta-row">
+                        <span id="detail-rating">⭐ 4.8</span>
+                        <span id="detail-downloads">⬇️ 550k+</span>
+                        <span id="detail-size">💾 762MB</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="startDownload()">Start Now</button>
+            <div class="detail-section">
+                <h3>What's New <span id="detail-version">4.1.5</span></h3>
+                <p>Latest version with performance improvements and bug fixes.</p>
+            </div>
+            <div class="detail-section">
+                <h3>About</h3>
+                <p id="detail-about">Description goes here...</p>
+            </div>
+            <div class="detail-section">
+                <h3>Information</h3>
+                <div class="info-row"><span>Version</span><span id="info-version">4.1.5</span></div>
+                <div class="info-row"><span>Size</span><span id="info-size">762.5MB</span></div>
+                <div class="info-row"><span>Category</span><span id="info-category">Games</span></div>
+                <div class="info-row"><span>Rating</span><span id="info-rating">⭐ 4.8</span></div>
+            </div>
+            <div class="detail-section">
+                <h3>You Might Also Like</h3>
+                <div class="h-scroll" id="related-scroll"></div>
             </div>
         </div>
-    </header>
-
-    <div class="container">
-        <div class="hero-section">
-            <h1 class="hero-title">Download <span class="gradient-text">Premium Modded</span> Apps</h1>
-            <p class="hero-desc">Hundreds of modded games & apps for Android/iOS. Unlimited resources, no ads, pro unlocked.</p>
-        </div>
-
-        <div class="stats-row">
-            <div class="stat-badge"><div class="stat-value green">147K</div><div class="stat-label">Downloads</div></div>
-            <div class="stat-badge"><div class="stat-value gold">4.9 ★</div><div class="stat-label">Rating</div></div>
-            <div class="stat-badge"><div class="stat-value">17</div><div class="stat-label">Mods</div></div>
-        </div>
-
-        <div class="category-tabs">
-            <div class="cat-tab active" onclick="filterMods('all', this)">🏠 All</div>
-            <div class="cat-tab" onclick="filterMods('games', this)">🎮 Games</div>
-            <div class="cat-tab" onclick="filterMods('apps', this)">📱 Apps</div>
-            <div class="cat-tab" onclick="filterMods('streaming', this)">🎬 Streaming</div>
-            <div class="cat-tab" onclick="filterMods('social', this)">💬 Social</div>
-        </div>
-
-        <div class="section-header">
-            <div class="section-title">🔥 Trending Now</div>
-        </div>
-        <div class="app-grid" id="mainGrid"></div>
     </div>
 
-    <!-- CPA Toast Notification -->
-    <div class="toast-overlay" id="toastOverlay">
-        <div class="toast-box">
-            <div class="toast-icon" id="toastIcon">⏳</div>
-            <div class="toast-title" id="toastTitle">Preparing Download...</div>
-            <div class="toast-app" id="toastApp">App Name</div>
-            <div class="toast-status" id="toastStatus">Please wait, generating your secure download link</div>
-            <div class="toast-timer" id="toastTimer">5</div>
-            <button class="btn-toast btn-waiting" id="btnWaiting" disabled>⏳ PLEASE WAIT...</button>
-            <button class="btn-toast btn-ready" id="btnReady" onclick="redirectToCPA()">✅ CONTINUE TO DOWNLOAD</button>
-            <button class="btn-close-toast" onclick="closeToast()">Cancel</button>
+    <div class="bottom-nav" id="bottomNav">
+        <div class="nav-inner">
+            <button class="nav-item active" onclick="showView('discover')">
+                <span>🏠</span>
+                Discover
+            </button>
+            <button class="nav-item" onclick="showView('apps')">
+                <span>📱</span>
+                Apps
+            </button>
+            <button class="nav-item" onclick="showView('games')">
+                <span>🎮</span>
+                Games
+            </button>
         </div>
     </div>
 
-    <div class="footer">
-        <p>© 2026 ModHub Pro. All mods are for educational purposes.</p>
-        <p><a href="#" style="color:var(--text3);">DMCA</a> · <a href="#" style="color:var(--text3);">Privacy</a> · <a href="#" style="color:var(--text3);">Contact</a></p>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-app">
+            <div class="loading-app-icon" id="loading-icon">🎮</div>
+            <div class="loading-app-info">
+                <h4 id="loading-name">App</h4>
+                <p>Getting ready to download</p>
+            </div>
+        </div>
+        <div class="loading-percent" id="loadingPercent">0%</div>
+        <div class="loading-circle">☁️</div>
+        <div class="loading-text" id="loadingText">Sit tight...</div>
+        <div class="loading-sub" id="loadingSub">Please wait while we prepare your download</div>
+        <div class="progress-container">
+            <div class="progress-label">
+                <span>Processing</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="locker-screen" id="lockerScreen">
+        <div class="locker-progress-bar">96% COMPLETE — UNLOCK NOW</div>
+        <div class="locker-top">
+            <div style="font-size: 44px; margin-bottom: 14px;">🎁</div>
+            <div class="locker-title">FINAL STEP TO ACTIVATE YOUR MOD</div>
+            <div class="locker-sub">Your MOD is <strong style="color:white">READY</strong> — complete 3 setup to unlock all features ⚡</div>
+            <div class="locker-step">TRAVEL TOWN: Reach Level 10</div>
+            <div class="locker-stats">
+                <span>👥</span>
+                <span>21,184 users completed setup today ⚡</span>
+            </div>
+        </div>
+        <div style="padding: 0 20px;">
+            <div class="offer-card" onclick="alert('Offer wall would open here')">
+                <div class="offer-icon">💬</div>
+                <div class="offer-info">
+                    <h4>Complete surveys and win rewards!</h4>
+                    <p>Easy, register your email, complete surveys on the easiest way to get your rewards</p>
+                </div>
+                <div class="offer-tag">Free</div>
+            </div>
+            <div class="offer-card" onclick="alert('Offer wall would open here')">
+                <div class="offer-icon">📱</div>
+                <div class="offer-info">
+                    <h4>Download the new content here!</h4>
+                    <p>Send the personal identification number now to download new content</p>
+                </div>
+                <div class="offer-tag">Free</div>
+            </div>
+            <div class="offer-card" onclick="alert('Offer wall would open here')">
+                <div class="offer-icon">🎁</div>
+                <div class="offer-info">
+                    <h4>Claim your exclusive bonus now!</h4>
+                    <p>Answer a few questions and win amazing prizes instantly</p>
+                </div>
+                <div class="offer-tag">Free</div>
+            </div>
+            <button class="btn-locker" onclick="alert('Redirecting to offer wall...')">Start Download</button>
+            <div class="locker-footer">
+                <strong>Final Step - Beginners Guide</strong><br>
+                <small>Powered by iTweaked · Reply in 5-30 min</small>
+            </div>
+        </div>
     </div>
 
     <script>
-        // ==================== APP DATA ====================
-        // أرسل لي رابط CPA Locker الخاص بك لاستبداله في المتغير أدناه
-        const CPA_LOCKER_URL = "https://YOUR_CPA_LOCKER_URL_HERE"; // ← استبدل هذا برابط CPA Locker الخاص بك
-
-        const appsData = [
-            // GAMES (11)
-            {
-                name: 'Dragon Ball Legends',
-                version: 'v5.10.0 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg',
-                cat: 'games',
-                rating: '4.9',
-                downloads: '124K',
-                mod: 'Unlimited Crystals + God Mode',
-                badge: 'HOT'
-            },
-            {
-                name: 'Pokémon UNITE',
-                version: 'v2.0.3 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png',
-                cat: 'games',
-                rating: '4.8',
-                downloads: '98K',
-                mod: 'Unlimited Aeos Gems',
-                badge: 'NEW'
-            },
-            {
-                name: 'Baseball 9',
-                version: 'v4.2.8 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg',
-                cat: 'games',
-                rating: '4.7',
-                downloads: '87K',
-                mod: 'Unlimited Gems + Stamina',
-                badge: 'TRENDING'
-            },
-            {
-                name: '8 Ball Pool',
-                version: 'v55.9.0 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg',
-                cat: 'games',
-                rating: '4.9',
-                downloads: '256K',
-                mod: 'Long Line + Auto Win',
-                badge: 'HOT'
-            },
-            {
-                name: 'Free Fire MAX',
-                version: 'v2.103 Mod',
-                icon: 'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg',
-                cat: 'games',
-                rating: '4.6',
-                downloads: '312K',
-                mod: 'ESP Hack + Aimbot',
-                badge: 'HOT'
-            },
-            {
-                name: 'PUBG Mobile',
-                version: 'v3.3.0 Mod',
-                icon: 'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg',
-                cat: 'games',
-                rating: '4.5',
-                downloads: '198K',
-                mod: 'ESP + Wallhack',
-                badge: 'TRENDING'
-            },
-            {
-                name: 'Roblox',
-                version: 'v2.645 Mod',
-                icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg',
-                cat: 'games',
-                rating: '4.3',
-                downloads: '512K',
-                mod: 'Infinite Robux + God Mode',
-                badge: 'TRENDING'
-            },
-            {
-                name: 'Call of Duty Mobile',
-                version: 'v1.25.0 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg',
-                cat: 'games',
-                rating: '4.6',
-                downloads: '156K',
-                mod: 'ESP + Aimbot + Radar',
-                badge: 'HOT'
-            },
-            {
-                name: 'Subway Surfers',
-                version: 'v3.36.0 Mod',
-                icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg',
-                cat: 'games',
-                rating: '4.4',
-                downloads: '420K',
-                mod: 'Unlimited Coins + Keys',
-                badge: 'HOT'
-            },
-            {
-                name: 'Genshin Impact',
-                version: 'v5.3.0 Mod',
-                icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg',
-                cat: 'games',
-                rating: '4.9',
-                downloads: '89K',
-                mod: 'God Mode + Primogems',
-                badge: 'VIP'
-            },
-            {
-                name: 'Clash Royale',
-                version: 'v6.2.1 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg',
-                cat: 'games',
-                rating: '4.8',
-                downloads: '178K',
-                mod: 'Unlimited Gems + Gold',
-                badge: 'HOT'
-            },
-            // APPS (6)
-            {
-                name: 'CapCut Pro',
-                version: 'v13.5.0 Mod',
-                icon: 'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg',
-                cat: 'apps',
-                rating: '4.9',
-                downloads: '234K',
-                mod: 'No Watermark + Pro Unlocked',
-                badge: 'HOT'
-            },
-            {
-                name: 'Instagram Pro',
-                version: 'v350.0 Mod',
-                icon: 'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg',
-                cat: 'social',
-                rating: '4.7',
-                downloads: '378K',
-                mod: 'Download Media + No Ads',
-                badge: 'NEW'
-            },
-            {
-                name: 'PicsArt Gold',
-                version: 'v24.1.0 Mod',
-                icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg',
-                cat: 'apps',
-                rating: '4.6',
-                downloads: '289K',
-                mod: 'Gold Unlocked + No Ads',
-                badge: 'HOT'
-            },
-            {
-                name: 'YouTube Music Premium',
-                version: 'v7.0.3 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg',
-                cat: 'streaming',
-                rating: '4.8',
-                downloads: '523K',
-                mod: 'No Ads + Background Play',
-                badge: 'HOT'
-            },
-            {
-                name: 'Netflix Premium',
-                version: 'v11.2.0 Mod',
-                icon: 'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg',
-                cat: 'streaming',
-                rating: '4.7',
-                downloads: '345K',
-                mod: 'All Regions Unlocked',
-                badge: 'VIP'
-            },
-            {
-                name: 'TikTok Mod',
-                version: 'v36.0.1 Mod',
-                icon: 'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg',
-                cat: 'social',
-                rating: '4.8',
-                downloads: '445K',
-                mod: 'No Ads + Download Videos',
-                badge: 'HOT'
-            }
+        const apps = [
+            { id: 1, name: "Pokemon Go Spoofer", category: "Games", rating: 4.8, downloads: "550k+", size: "762.5MB", version: "4.1.5", type: "game", icon: "🎯", mod: true, desc: "Install Pokemon GO Spoofer with our Guide — Teleport, Joystick, Auto Walk and More! Unlock powerful features instantly and play smarter on iOS and Android." },
+            { id: 2, name: "8 Ball Pool Mod", category: "Games", rating: 4.9, downloads: "1M+", size: "55.8MB", version: "55.8.1", type: "game", icon: "🎱", mod: true },
+            { id: 3, name: "BitLife", category: "Games", rating: 4.9, downloads: "2M+", size: "3.14.5", version: "3.14.5", type: "game", icon: "🧬", mod: true },
+            { id: 4, name: "Geode", category: "Games", rating: 4.9, downloads: "500k+", size: "2.2", version: "2.2", type: "game", icon: "⬡", mod: true },
+            { id: 5, name: "Car Parking", category: "Games", rating: 5.0, downloads: "300k+", size: "2.2.5", version: "2.2.5", type: "game", icon: "🚗", mod: true },
+            { id: 6, name: "Poppy Playtime", category: "Games", rating: 4.9, downloads: "800k+", size: "1.2", version: "1.2", type: "game", icon: "🧸", mod: true },
+            { id: 7, name: "Delta Executor", category: "Games", rating: 4.9, downloads: "1.5M+", size: "8.3.1", version: "8.3.1", type: "game", icon: "Δ", mod: true },
+            { id: 8, name: "KRNL Executor", category: "Games", rating: 4.9, downloads: "2M+", size: "9.8.1", version: "9.8.1", type: "game", icon: "🔷", mod: true },
+            { id: 9, name: "COD Mobile Mod", category: "Games", rating: 4.9, downloads: "1M+", size: "26.1.03", version: "26.1.03", type: "game", icon: "🔫", mod: true },
+            { id: 10, name: "Blood Strike Mod", category: "Games", rating: 4.8, downloads: "700k+", size: "1.0.0", version: "1.0.0", type: "game", icon: "🩸", mod: true },
+            { id: 11, name: "FC Mobile Hack", category: "Games", rating: 5.0, downloads: "900k+", size: "26.1.03", version: "26.1.03", type: "game", icon: "⚽", mod: true },
+            { id: 12, name: "The Sims FreePlay", category: "Games", rating: 4.9, downloads: "600k+", size: "5.97.1", version: "5.97.1", type: "game", icon: "👨‍👩‍👧", mod: true },
+            { id: 13, name: "Xbox Game Pass", category: "Apps", rating: 4.9, downloads: "5M+", size: "4.2.1", version: "4.2.1", type: "app", icon: "🎮", mod: true },
+            { id: 14, name: "PS Plus Code", category: "Apps", rating: 5.0, downloads: "3M+", size: "3.7.2", version: "3.7.2", type: "app", icon: "🟦", mod: true },
+            { id: 15, name: "Microsoft Rewards", category: "Apps", rating: 4.9, downloads: "2M+", size: "5.1.4", version: "5.1.4", type: "app", icon: "🏅", mod: true },
+            { id: 16, name: "The Sims 4 DLC", category: "Apps", rating: 4.9, downloads: "1M+", size: "25.1.9", version: "25.1.9", type: "app", icon: "💎", mod: true },
+            { id: 17, name: "HappyMod", category: "Apps", rating: 4.8, downloads: "10M+", size: "3.2.5", version: "3.2.5", type: "app", icon: "😊", mod: true },
+            { id: 18, name: "Unc0ver iOS 26", category: "Apps", rating: 4.9, downloads: "2M+", size: "26", version: "26", type: "app", icon: "🔓", mod: true },
+            { id: 19, name: "PojavLauncher", category: "Apps", rating: 4.9, downloads: "1M+", size: "1.5", version: "1.5", type: "app", icon: "☕", mod: true },
+            { id: 20, name: "AetherSX2", category: "Apps", rating: 4.9, downloads: "800k+", size: "1.5", version: "1.5", type: "app", icon: "🎲", mod: true },
+            { id: 21, name: "CarTube", category: "Apps", rating: 4.9, downloads: "500k+", size: "1.3", version: "1.3", type: "app", icon: "📺", mod: true },
+            { id: 22, name: "Roblox Switch", category: "Apps", rating: 4.9, downloads: "3M+", size: "26.1.03", version: "26.1.03", type: "app", icon: "🟥", mod: true },
+            { id: 23, name: "iRecovery", category: "Apps", rating: 4.9, downloads: "400k+", size: "3.14.5", version: "3.14.5", type: "app", icon: "🔄", mod: true },
+            { id: 24, name: "RPCS3", category: "Apps", rating: 4.9, downloads: "600k+", size: "3.14.5", version: "3.14.5", type: "app", icon: "🎮", mod: true },
+            { id: 25, name: "MelonX", category: "Apps", rating: 4.9, downloads: "700k+", size: "2.1", version: "2.1", type: "app", icon: "🍈", mod: true },
+            { id: 26, name: "Toca Boca World", category: "Games", rating: 4.8, downloads: "1M+", size: "9.8.1", version: "9.8.1", type: "game", icon: "🌍", mod: true },
+            { id: 27, name: "BASEBALL 9", category: "Games", rating: 4.8, downloads: "500k+", size: "1.10.3", version: "1.10.3", type: "game", icon: "⚾", mod: true },
         ];
 
-        let toastTimerInterval;
-        let currentFilter = 'all';
+        let currentApp = null;
+        let currentView = 'discover';
+        let searchFilter = 'all';
 
-        // ==================== RENDER ====================
-        function renderMods(filter = 'all') {
-            const grid = document.getElementById('mainGrid');
-            const filtered = filter === 'all' ? appsData : appsData.filter(app => app.cat === filter);
-            
-            grid.innerHTML = filtered.map(app => `
-                <div class="app-card" data-cat="${app.cat}">
-                    <span class="card-badge">${app.badge}</span>
-                    <div class="card-icon">
-                        <img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.parentElement.innerHTML='🎮'">
+        const gradients = [
+            'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+            'linear-gradient(135deg, #8b5cf6, #6d28d9)',
+            'linear-gradient(135deg, #ec4899, #be185d)',
+            'linear-gradient(135deg, #f59e0b, #b45309)',
+            'linear-gradient(135deg, #10b981, #047857)',
+            'linear-gradient(135deg, #06b6d4, #0e7490)',
+            'linear-gradient(135deg, #f97316, #c2410c)',
+            'linear-gradient(135deg, #6366f1, #4338ca)',
+        ];
+
+        function getGradient(id) { return gradients[id % gradients.length]; }
+
+        function renderCard(app, small=false) {
+            const stars = '⭐'.repeat(Math.floor(app.rating)) + (app.rating % 1 >= 0.5 ? '½' : '');
+            return `
+                <div class="card" onclick="openAppById(${app.id})">
+                    <div class="card-icon" style="background: ${getGradient(app.id)}">
+                        ${app.mod ? '<div class="card-mod">MOD</div>' : ''}
+                        <span style="font-size:${small?32:42}px">${app.icon}</span>
                     </div>
-                    <div class="card-name">${app.name}</div>
-                    <div class="card-version">${app.version}</div>
-                    <div class="card-meta">
-                        <span>★ ${app.rating}</span>
-                        <span>↓ ${app.downloads}</span>
-                    </div>
-                    <div class="card-buttons">
-                        <button class="btn-dl btn-android" onclick="openToast('${app.name}', '🤖 Android')">🤖 Android</button>
-                        <button class="btn-dl btn-ios" onclick="openToast('${app.name}', '🍎 iOS')">🍎 iOS</button>
+                    <div class="card-title">${app.name}</div>
+                    <div class="card-meta">${app.category} · ${app.version}</div>
+                    <div class="card-rating">
+                        <span class="stars">${stars}</span>
+                        <span>${app.rating}</span>
                     </div>
                 </div>
-            `).join('');
+            `;
         }
 
-        function filterMods(cat, btn) {
-            currentFilter = cat;
-            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-            btn.classList.add('active');
-            renderMods(cat);
+        function openAppById(id) { openApp(apps.find(a => a.id === id)); }
+
+        function init() {
+            const trending = apps.filter(a => a.type === 'game').slice(0, 6);
+            document.getElementById('trending-scroll').innerHTML = trending.map(a => renderCard(a, true)).join('');
+            const newApps = apps.slice(13, 19);
+            document.getElementById('new-apps-grid').innerHTML = newApps.map(a => renderCard(a)).join('');
+            document.getElementById('apps-grid').innerHTML = apps.filter(a => a.type === 'app').map(a => renderCard(a)).join('');
+            document.getElementById('games-grid').innerHTML = apps.filter(a => a.type === 'game').map(a => renderCard(a)).join('');
+            doSearch();
         }
 
-        function searchMods() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-            document.querySelector('.cat-tab[onclick*="all"]').classList.add('active');
-            
-            if (!query) { renderMods('all'); return; }
-            
-            const results = appsData.filter(app => 
-                app.name.toLowerCase().includes(query) || 
-                app.mod.toLowerCase().includes(query) ||
-                app.cat.includes(query)
-            );
-            
-            document.getElementById('mainGrid').innerHTML = results.length ? 
-                results.map(app => `
-                    <div class="app-card" data-cat="${app.cat}">
-                        <span class="card-badge">${app.badge}</span>
-                        <div class="card-icon"><img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.parentElement.innerHTML='🎮'"></div>
-                        <div class="card-name">${app.name}</div>
-                        <div class="card-version">${app.version}</div>
-                        <div class="card-meta"><span>★ ${app.rating}</span><span>↓ ${app.downloads}</span></div>
-                        <div class="card-buttons">
-                            <button class="btn-dl btn-android" onclick="openToast('${app.name}', '🤖 Android')">🤖 Android</button>
-                            <button class="btn-dl btn-ios" onclick="openToast('${app.name}', '🍎 iOS')">🍎 iOS</button>
-                        </div>
-                    </div>
-                `).join('') 
-                : '<div style="text-align:center;padding:40px;color:var(--text3);grid-column:1/-1;">No mods found for "' + query + '"</div>';
+        function showView(view) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach((n, i) => {
+                n.classList.toggle('active', (view==='discover'&&i===0)||(view==='apps'&&i===1)||(view==='games'&&i===2));
+            });
+            const viewMap = { discover: 'view-discover', apps: 'view-apps', games: 'view-games', search: 'view-search', detail: 'view-detail' };
+            if(viewMap[view]) document.getElementById(viewMap[view]).classList.add('active');
+            document.getElementById('mainHeader').style.display = (view === 'detail' || view === 'search') ? 'none' : 'flex';
+            document.getElementById('bottomNav').style.display = (view === 'detail' || view === 'search') ? 'none' : 'flex';
+            currentView = view;
+            window.scrollTo(0,0);
         }
 
-        // ==================== TOAST / CPA LOGIC ====================
-        function openToast(appName, deviceType) {
-            // Reset UI
-            document.getElementById('toastIcon').textContent = '⏳';
-            document.getElementById('toastTitle').textContent = 'Preparing Download...';
-            document.getElementById('toastApp').textContent = appName + ' (' + deviceType + ')';
-            document.getElementById('toastStatus').textContent = 'Generating secure download link...';
-            document.getElementById('toastTimer').textContent = '5';
-            document.getElementById('btnWaiting').style.display = 'block';
-            document.getElementById('btnReady').style.display = 'none';
-            
-            // Show overlay
-            document.getElementById('toastOverlay').classList.add('show');
+        function showSearch() { showView('search'); document.getElementById('searchInput').focus(); }
+
+        function openApp(app) {
+            currentApp = app;
+            document.getElementById('detail-icon').textContent = app.icon;
+            document.getElementById('detail-icon').style.background = getGradient(app.id);
+            document.getElementById('detail-name').textContent = app.name;
+            document.getElementById('detail-category').textContent = app.category;
+            document.getElementById('detail-rating').textContent = '⭐ ' + app.rating;
+            document.getElementById('detail-downloads').textContent = '⬇️ ' + app.downloads;
+            document.getElementById('detail-size').textContent = '💾 ' + app.size;
+            document.getElementById('detail-version').textContent = app.version;
+            document.getElementById('detail-about').textContent = app.desc || `${app.name} is a groundbreaking app. Install now with our guide and unlock powerful features instantly on iOS and Android.`;
+            document.getElementById('info-version').textContent = app.version;
+            document.getElementById('info-size').textContent = app.size;
+            document.getElementById('info-category').textContent = app.category;
+            document.getElementById('info-rating').textContent = '⭐ ' + app.rating;
+            const related = apps.filter(a => a.type === app.type && a.id !== app.id).slice(0, 5);
+            document.getElementById('related-scroll').innerHTML = related.map(a => renderCard(a, true)).join('');
+            showView('detail');
+        }
+
+        function goBack() { showView('discover'); }
+
+        function setFilter(filter, el) {
+            searchFilter = filter;
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            doSearch();
+        }
+
+        function doSearch() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            let results = apps.filter(a => a.name.toLowerCase().includes(q));
+            if(searchFilter !== 'all') results = results.filter(a => a.type === searchFilter);
+            document.getElementById('search-results').innerHTML = results.length ? results.map(a => renderCard(a)).join('') : '<p style="text-align:center;color:var(--text-secondary);margin-top:40px;">No results found</p>';
+        }
+
+        function startDownload() {
+            const app = currentApp || apps[0];
+            document.getElementById('loading-icon').textContent = app.icon;
+            document.getElementById('loading-icon').style.background = getGradient(app.id);
+            document.getElementById('loading-name').textContent = app.name;
+            document.getElementById('loadingScreen').classList.add('active');
             document.body.style.overflow = 'hidden';
-            
-            // Start countdown
-            let timeLeft = 5;
-            document.getElementById('toastTimer').textContent = timeLeft;
-            
-            clearInterval(toastTimerInterval);
-            toastTimerInterval = setInterval(() => {
-                timeLeft--;
-                document.getElementById('toastTimer').textContent = timeLeft;
-                
-                if (timeLeft <= 0) {
-                    clearInterval(toastTimerInterval);
-                    document.getElementById('toastIcon').textContent = '✅';
-                    document.getElementById('toastTitle').textContent = 'Download Ready!';
-                    document.getElementById('toastStatus').textContent = 'Your secure download link is ready. Click below to continue.';
-                    document.getElementById('toastTimer').textContent = '0';
-                    document.getElementById('btnWaiting').style.display = 'none';
-                    document.getElementById('btnReady').style.display = 'block';
+
+            let progress = 0;
+            const msgs = [
+                { p: 0, t: "Sit tight...", s: "Please wait while we prepare your download" },
+                { p: 20, t: "Looking for download source..", s: "Please wait while we prepare your download" },
+                { p: 40, t: "Source found!", s: "Please wait while we prepare your download" },
+                { p: 60, t: "Source updated 14 minutes ago..", s: "Please wait while we prepare your download" },
+                { p: 80, t: "Loading Download Source...", s: "Please wait while we prepare your download" },
+                { p: 100, t: "Complete!", s: "Redirecting..." }
+            ];
+
+            const interval = setInterval(() => {
+                progress += Math.random() * 3.5 + 0.8;
+                if(progress > 100) progress = 100;
+                const pct = Math.floor(progress);
+                document.getElementById('loadingPercent').textContent = pct + '%';
+                document.getElementById('progressPercent').textContent = pct + '%';
+                document.getElementById('progressFill').style.width = progress + '%';
+                const msg = msgs.slice().reverse().find(m => progress >= m.p);
+                if(msg) { document.getElementById('loadingText').textContent = msg.t; document.getElementById('loadingSub').textContent = msg.s; }
+                if(progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        document.getElementById('loadingScreen').classList.remove('active');
+                        document.getElementById('lockerScreen').classList.add('active');
+                    }, 600);
                 }
-            }, 1000);
+            }, 90);
         }
 
-        function redirectToCPA() {
-            // Close toast
-            closeToast();
-            // Redirect to CPA Locker
-            if (CPA_LOCKER_URL.includes('YOUR_CPA_LOCKER_URL_HERE')) {
-                alert('⚠️ الرجاء استبدال رابط CPA Locker في الكود\nابحث عن المتغير: CPA_LOCKER_URL');
-            } else {
-                window.location.href = CPA_LOCKER_URL;
-            }
+        function toggleTheme() {
+            document.body.classList.toggle('light');
+            const isLight = document.body.classList.contains('light');
+            document.getElementById('themeBtn').textContent = isLight ? '🌙' : '☀️';
         }
 
-        function closeToast() {
-            clearInterval(toastTimerInterval);
-            document.getElementById('toastOverlay').classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        // Close on overlay click
-        document.getElementById('toastOverlay').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('toastOverlay')) closeToast();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeToast();
-        });
-
-        // ==================== INIT ====================
-        renderMods('all');
-        console.log('%cModHub Pro v2.0 %c| %c17 Mods Loaded %c| %cReady', 'color:#ff4757;', 'color:#ccc;', 'color:#2ed573;', 'color:#ccc;', 'color:#1e90ff;');
+        init();
     </script>
 </body>
-</html>
+</html>'''
+
+with open('/mnt/agents/output/appzenn_landing.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("File saved successfully!")
+print(f"Size: {len(html_content)} characters")
