@@ -1,83 +1,81 @@
 
 <!DOCTYPE html>
-<html lang="ar" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AppZENN</title>
+    <title>AppZENN - Mods & Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         :root {
-            --bg: #0B0E14;
-            --surface: rgba(30, 35, 48, 0.55);
-            --surface-solid: #1e2330;
-            --border: rgba(255,255,255,0.07);
-            --text: #ffffff;
+            --bg: #0a0d14;
+            --surface: rgba(22, 26, 38, 0.7);
+            --surface-hover: rgba(30, 35, 52, 0.85);
+            --border: rgba(255,255,255,0.06);
+            --text: #f1f5f9;
             --text-secondary: #94a3b8;
-            --accent: #60a5fa;
-            --accent-glow: rgba(96, 165, 250, 0.35);
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --accent-glow: rgba(59, 130, 246, 0.3);
             --mod: #6366f1;
-            --success: #4ade80;
-        }
-        body.light {
-            --bg: #f8fafc;
-            --surface: rgba(255, 255, 255, 0.75);
-            --surface-solid: #ffffff;
-            --border: rgba(0,0,0,0.06);
-            --text: #0f172a;
-            --text-secondary: #64748b;
-            --accent-glow: rgba(59, 130, 246, 0.25);
+            --success: #22c55e;
+            --danger: #ef4444;
+            --warning: #f59e0b;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
             min-height: 100vh;
-            transition: background 0.4s, color 0.4s;
+            -webkit-font-smoothing: antialiased;
         }
         .bg-mesh {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 20% 10%, rgba(96,165,250,0.12) 0%, transparent 45%),
-                radial-gradient(circle at 85% 80%, rgba(99,102,241,0.08) 0%, transparent 45%),
-                radial-gradient(circle at 50% 50%, rgba(59,130,246,0.03) 0%, transparent 60%);
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 10%, rgba(59,130,246,0.08) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 40% at 85% 80%, rgba(99,102,241,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 50% 50%, rgba(30,58,138,0.04) 0%, transparent 60%);
             pointer-events: none; z-index: 0;
         }
         .app {
             position: relative; z-index: 1;
             max-width: 520px; margin: 0 auto;
             min-height: 100vh;
-            padding-bottom: 100px;
+            padding-bottom: 110px;
         }
+        /* Header */
         .header {
             position: sticky; top: 0; z-index: 50;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 14px 20px;
-            background: rgba(11, 14, 20, 0.75);
-            backdrop-filter: blur(24px) saturate(1.4);
-            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            padding: 14px 18px;
+            background: rgba(10, 13, 20, 0.82);
+            backdrop-filter: blur(24px) saturate(1.3);
+            -webkit-backdrop-filter: blur(24px) saturate(1.3);
             border-bottom: 1px solid var(--border);
-            transition: background 0.4s;
         }
-        body.light .header { background: rgba(248, 250, 252, 0.75); }
-        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -0.3px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -0.4px; }
         .logo-icon {
             width: 34px; height: 34px;
-            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 18px; box-shadow: 0 4px 12px rgba(59,130,246,0.35);
+            font-size: 18px;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.4);
         }
-        .header-actions { display: flex; gap: 12px; }
+        .header-actions { display: flex; gap: 10px; }
         .header-btn {
-            width: 36px; height: 36px; border-radius: 50%;
+            width: 38px; height: 38px; border-radius: 50%;
             background: var(--surface); border: 1px solid var(--border);
             display: flex; align-items: center; justify-content: center;
-            color: var(--text); cursor: pointer; font-size: 17px;
-            backdrop-filter: blur(10px); transition: transform 0.15s;
+            color: var(--text); cursor: pointer;
+            backdrop-filter: blur(10px); transition: all 0.2s;
         }
-        .header-btn:active { transform: scale(0.9); }
+        .header-btn:active { transform: scale(0.9); background: var(--surface-hover); }
+        .header-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        /* Views */
         .view {
             display: none;
             animation: viewIn 0.35s cubic-bezier(0.22,1,0.36,1);
@@ -85,23 +83,26 @@
         }
         .view.active { display: block; }
         @keyframes viewIn {
-            from { opacity: 0; transform: translateY(18px) scale(0.98); }
+            from { opacity: 0; transform: translateY(14px) scale(0.98); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
+        /* Featured Hero */
         .featured {
             position: relative; border-radius: 24px; overflow: hidden;
-            margin-top: 16px; height: 240px; cursor: pointer;
-            background: linear-gradient(135deg, #1e3a8a, #0f172a);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+            margin-top: 14px; height: 260px; cursor: pointer;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
         .featured-bg {
             position: absolute; inset: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220"><rect fill="%231e3a8a" width="400" height="220"/><circle cx="320" cy="40" r="90" fill="%233b82f6" opacity="0.25"/><circle cx="80" cy="160" r="70" fill="%236366f1" opacity="0.2"/></svg>') center/cover;
+            background: url('https://images.unsplash.com/photo-1614726365723-49cfae92782f?w=600&h=350&fit=crop') center/cover;
+        }
+        .featured-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(10,13,20,0.95) 0%, rgba(10,13,20,0.5) 45%, rgba(10,13,20,0.2) 100%);
         }
         .featured-content {
             position: absolute; bottom: 0; left: 0; right: 0;
             padding: 22px;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
         }
         .mod-badge {
             display: inline-flex; align-items: center; gap: 4px;
@@ -110,105 +111,130 @@
             font-size: 11px; font-weight: 700; margin-bottom: 10px;
             box-shadow: 0 4px 12px rgba(99,102,241,0.35);
         }
-        .featured-title { font-size: 24px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; }
-        .featured-desc { font-size: 13.5px; opacity: 0.9; line-height: 1.45; max-width: 90%; }
-        .featured-meta { display: flex; align-items: center; gap: 14px; margin-top: 12px; font-size: 13px; font-weight: 500; }
-        .stars { color: #fbbf24; letter-spacing: -2px; }
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 26px 0 14px; }
-        .section-title { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; letter-spacing: -0.3px; }
-        .view-all { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+        .featured-title { font-size: 24px; font-weight: 900; margin-bottom: 6px; letter-spacing: -0.6px; line-height: 1.15; }
+        .featured-desc { font-size: 13px; opacity: 0.85; line-height: 1.5; max-width: 92%; }
+        .featured-meta { display: flex; align-items: center; gap: 14px; margin-top: 12px; font-size: 13px; font-weight: 600; }
+        .stars { color: #fbbf24; letter-spacing: -2px; font-size: 13px; }
+        /* Section Headers */
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 24px 0 12px; }
+        .section-title { font-size: 19px; font-weight: 800; display: flex; align-items: center; gap: 8px; letter-spacing: -0.3px; }
+        .view-all { font-size: 13px; color: var(--accent-light); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 3px; transition: opacity 0.2s; }
+        .view-all:hover { opacity: 0.8; }
+        /* Cards */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 20px; padding: 12px; cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.2s cubic-bezier(0.22,1,0.36,1);
             position: relative; backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+        .card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.12); }
         .card:active { transform: scale(0.96); }
-        .card-icon {
+        .card-icon-wrap {
             width: 100%; aspect-ratio: 1; border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 42px; margin-bottom: 10px; position: relative;
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 8px 16px rgba(0,0,0,0.2);
+            position: relative; overflow: hidden;
+            margin-bottom: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .card-icon-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block;
         }
         .card-mod {
-            position: absolute; top: 8px; right: 8px;
-            background: var(--mod); color: white; font-size: 10px;
-            font-weight: 800; padding: 3px 8px; border-radius: 10px;
-            text-transform: uppercase; letter-spacing: 0.3px;
-            box-shadow: 0 2px 8px rgba(99,102,241,0.4);
+            position: absolute; top: 6px; right: 6px;
+            background: var(--mod); color: white; font-size: 9px;
+            font-weight: 800; padding: 3px 7px; border-radius: 8px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.5);
+            z-index: 2;
         }
-        .card-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-meta { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
-        .card-rating { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; }
+        .card-badge {
+            position: absolute; top: 6px; left: 6px;
+            font-size: 9px; font-weight: 800; padding: 3px 7px; border-radius: 8px;
+            text-transform: uppercase; letter-spacing: 0.5px; z-index: 2;
+        }
+        .badge-hot { background: linear-gradient(135deg, #ef4444, #dc2626); color: white; box-shadow: 0 2px 8px rgba(239,68,68,0.4); }
+        .badge-new { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; box-shadow: 0 2px 8px rgba(34,197,94,0.4); }
+        .badge-trending { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; box-shadow: 0 2px 8px rgba(245,158,11,0.4); }
+        .badge-vip { background: linear-gradient(135deg, #a855f7, #7c3aed); color: white; box-shadow: 0 2px 8px rgba(168,85,247,0.4); }
+        .card-title { font-size: 13.5px; font-weight: 700; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-meta { font-size: 11.5px; color: var(--text-secondary); margin-bottom: 5px; }
+        .card-rating { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; }
+        /* Horizontal Scroll */
         .h-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
         .h-scroll::-webkit-scrollbar { display: none; }
-        .h-scroll .card { min-width: 156px; }
+        .h-scroll .card { min-width: 150px; }
+        /* Bottom Nav */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
             display: flex; justify-content: center;
             padding: 10px 20px 28px;
-            background: rgba(11, 14, 20, 0.85);
+            background: rgba(10, 13, 20, 0.88);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border-top: 1px solid var(--border);
-            transition: background 0.4s;
         }
-        body.light .bottom-nav { background: rgba(248, 250, 252, 0.85); }
         .nav-inner {
             display: flex; background: var(--surface);
             border: 1px solid var(--border); border-radius: 24px;
-            padding: 5px; gap: 4px; backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            padding: 5px; gap: 3px; backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
         .nav-item {
             display: flex; flex-direction: column; align-items: center; gap: 3px;
-            padding: 10px 26px; border-radius: 18px; cursor: pointer;
+            padding: 10px 24px; border-radius: 18px; cursor: pointer;
             font-size: 11px; font-weight: 600; color: var(--text-secondary);
             transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
             border: none; background: transparent;
+            font-family: inherit;
         }
         .nav-item.active {
-            background: var(--accent); color: white;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
             box-shadow: 0 4px 18px var(--accent-glow);
             transform: translateY(-1px);
         }
-        .nav-item span { font-size: 20px; transition: transform 0.2s; }
-        .nav-item.active span { transform: scale(1.1); }
-        .detail-header { display: flex; gap: 16px; margin-top: 12px; }
+        .nav-item svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
+        .nav-item.active svg { transform: scale(1.08); }
+        /* Detail Page */
+        .detail-header { display: flex; gap: 16px; margin-top: 12px; align-items: flex-start; }
         .detail-icon {
-            width: 84px; height: 84px; border-radius: 22px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 42px; flex-shrink: 0;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+            width: 88px; height: 88px; border-radius: 22px;
+            overflow: hidden; flex-shrink: 0;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+            border: 1px solid var(--border);
         }
-        .detail-info h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.4px; }
-        .detail-info .sub { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; }
-        .detail-meta-row { display: flex; gap: 14px; font-size: 13px; color: var(--text-secondary); flex-wrap: wrap; }
-        .detail-meta-row span { display: flex; align-items: center; gap: 4px; font-weight: 600; }
+        .detail-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .detail-info h1 { font-size: 21px; font-weight: 900; margin-bottom: 4px; letter-spacing: -0.5px; line-height: 1.2; }
+        .detail-info .sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; font-weight: 500; }
+        .detail-meta-row { display: flex; gap: 14px; font-size: 12.5px; color: var(--text-secondary); flex-wrap: wrap; font-weight: 600; }
+        .detail-meta-row span { display: flex; align-items: center; gap: 4px; }
         .btn-primary {
-            width: 100%; margin-top: 22px; padding: 16px;
-            border-radius: 16px; background: linear-gradient(135deg, #60a5fa, #3b82f6);
-            color: white; font-size: 16px; font-weight: 700;
+            width: 100%; margin-top: 20px; padding: 16px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white; font-size: 16px; font-weight: 800;
             border: none; cursor: pointer;
-            box-shadow: 0 8px 24px var(--accent-glow);
-            transition: transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 8px 28px var(--accent-glow);
+            transition: all 0.15s;
             letter-spacing: 0.2px;
+            font-family: inherit;
         }
-        .btn-primary:active { transform: scale(0.97); box-shadow: 0 4px 12px var(--accent-glow); }
-        .detail-section { margin-top: 28px; }
+        .btn-primary:active { transform: scale(0.97); box-shadow: 0 4px 14px var(--accent-glow); }
+        .detail-section { margin-top: 26px; }
         .detail-section h3 {
             font-size: 16px; font-weight: 800; margin-bottom: 12px;
             display: flex; justify-content: space-between; align-items: center;
         }
         .detail-section h3 span { color: var(--text-secondary); font-size: 13px; font-weight: 600; }
-        .detail-section p { font-size: 14.5px; line-height: 1.65; color: var(--text-secondary); }
+        .detail-section p { font-size: 14px; line-height: 1.65; color: var(--text-secondary); }
         .info-row { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
         .info-row:last-child { border-bottom: none; }
         .info-row span:first-child { color: var(--text-secondary); font-weight: 500; }
-        .info-row span:last-child { font-weight: 600; }
+        .info-row span:last-child { font-weight: 700; }
+        /* Loading Screen */
         .loading-screen {
             position: fixed; inset: 0; background: var(--bg); z-index: 200;
             display: none; flex-direction: column; align-items: center;
@@ -217,83 +243,84 @@
         .loading-screen.active { display: flex; }
         .loading-app {
             display: flex; align-items: center; gap: 12px;
-            position: absolute; top: 60px; left: 20px;
+            position: absolute; top: 55px; left: 20px;
         }
         .loading-app-icon {
             width: 50px; height: 50px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 26px; box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
         }
+        .loading-app-icon img { width: 100%; height: 100%; object-fit: cover; }
         .loading-app-info { text-align: left; }
-        .loading-app-info h4 { font-size: 16px; font-weight: 700; }
-        .loading-app-info p { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+        .loading-app-info h4 { font-size: 16px; font-weight: 800; }
+        .loading-app-info p { font-size: 13px; color: var(--text-secondary); margin-top: 2px; font-weight: 500; }
         .loading-percent {
-            font-size: 90px; font-weight: 900;
-            background: linear-gradient(to bottom, rgba(96,165,250,0.25), transparent);
+            font-size: 100px; font-weight: 900;
+            background: linear-gradient(to bottom, rgba(59,130,246,0.2), transparent);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            line-height: 1; margin-bottom: 24px; letter-spacing: -3px;
+            line-height: 1; margin-bottom: 24px; letter-spacing: -4px;
         }
         .loading-circle {
-            width: 88px; height: 88px; border-radius: 50%;
+            width: 90px; height: 90px; border-radius: 50%;
             background: var(--surface); border: 1.5px solid var(--border);
             display: flex; align-items: center; justify-content: center;
-            font-size: 34px; margin-bottom: 24px; position: relative;
+            font-size: 32px; margin-bottom: 24px; position: relative;
         }
         .loading-circle::after {
             content: ''; position: absolute; inset: -4px; border-radius: 50%;
             border: 3.5px solid transparent; border-top-color: var(--accent);
-            animation: spin 0.9s linear infinite;
+            animation: spin 0.85s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
-        .loading-text { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
-        .loading-sub { font-size: 13.5px; color: var(--text-secondary); max-width: 260px; }
+        .loading-text { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+        .loading-sub { font-size: 13.5px; color: var(--text-secondary); max-width: 260px; font-weight: 500; line-height: 1.5; }
         .progress-container { position: absolute; bottom: 110px; left: 24px; right: 24px; }
-        .progress-label { display: flex; justify-content: space-between; font-size: 11.5px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.8px; color: var(--text-secondary); }
-        .progress-label span:last-child { color: var(--accent); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; color: var(--text-secondary); }
+        .progress-label span:last-child { color: var(--accent-light); }
         .progress-bar { height: 8px; background: var(--surface); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #a78bfa); border-radius: 4px; width: 0%; transition: width 0.25s ease; }
+        /* Locker Screen */
         .locker-screen {
             position: fixed; inset: 0; background: #080a0f; z-index: 300;
             display: none; overflow-y: auto;
         }
         .locker-screen.active { display: block; }
-        .locker-top {
-            background: linear-gradient(180deg, rgba(96,165,250,0.08), transparent);
-            padding: 30px 20px 20px; text-align: center;
-        }
         .locker-progress-bar {
             background: linear-gradient(90deg, #f97316, #fb923c);
-            color: white; text-align: center; padding: 7px;
-            font-size: 12px; font-weight: 800; letter-spacing: 0.5px;
-            margin: -30px -20px 20px;
+            color: white; text-align: center; padding: 8px;
+            font-size: 12px; font-weight: 900; letter-spacing: 0.5px;
         }
-        .locker-title { font-size: 22px; font-weight: 900; color: #4ade80; margin-bottom: 10px; text-shadow: 0 0 25px rgba(74,222,128,0.25); letter-spacing: -0.3px; }
-        .locker-sub { font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.5; }
+        .locker-top {
+            background: linear-gradient(180deg, rgba(59,130,246,0.06), transparent);
+            padding: 28px 20px 18px; text-align: center;
+        }
+        .locker-title { font-size: 20px; font-weight: 900; color: #4ade80; margin-bottom: 10px; text-shadow: 0 0 25px rgba(74,222,128,0.2); letter-spacing: -0.3px; }
+        .locker-sub { font-size: 13.5px; color: #94a3b8; margin-bottom: 18px; line-height: 1.5; font-weight: 500; }
         .locker-step {
-            border: 1.5px solid rgba(74,222,128,0.35); border-radius: 14px;
-            padding: 16px; margin: 0 auto 16px; max-width: 340px;
-            color: #4ade80; font-weight: 800; font-size: 16px;
-            background: rgba(74,222,128,0.05); backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(74,222,128,0.3); border-radius: 14px;
+            padding: 14px; margin: 0 auto 14px; max-width: 340px;
+            color: #4ade80; font-weight: 800; font-size: 15px;
+            background: rgba(74,222,128,0.04); backdrop-filter: blur(8px);
         }
         .locker-stats {
-            background: linear-gradient(90deg, rgba(30,58,138,0.6), rgba(15,23,42,0.6));
-            border-radius: 12px; padding: 12px 16px;
+            background: linear-gradient(90deg, rgba(30,58,138,0.5), rgba(15,23,42,0.5));
+            border-radius: 12px; padding: 10px 16px;
             display: inline-flex; align-items: center; gap: 8px;
-            font-size: 13.5px; color: #60a5fa; font-weight: 600;
-            border: 1px solid rgba(96,165,250,0.15);
+            font-size: 13px; color: #60a5fa; font-weight: 700;
+            border: 1px solid rgba(96,165,250,0.12);
         }
         .offer-card {
-            background: rgba(20, 24, 35, 0.7);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(18, 22, 32, 0.7);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 16px; padding: 14px;
             display: flex; align-items: center; gap: 14px;
             margin-bottom: 12px; backdrop-filter: blur(10px);
-            transition: transform 0.15s;
+            transition: all 0.15s; cursor: pointer;
         }
         .offer-card:active { transform: scale(0.98); }
         .offer-icon {
             width: 48px; height: 48px; border-radius: 12px;
-            background: rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.05);
             display: flex; align-items: center; justify-content: center;
             font-size: 24px; flex-shrink: 0;
         }
@@ -311,39 +338,51 @@
             background: linear-gradient(135deg, #4ade80, #22c55e);
             color: #052e16; font-size: 16px; font-weight: 900;
             text-align: center; text-decoration: none; border: none;
-            cursor: pointer; box-shadow: 0 0 35px rgba(74,222,128,0.25);
-            transition: transform 0.15s, box-shadow 0.2s;
+            cursor: pointer; box-shadow: 0 0 35px rgba(74,222,128,0.2);
+            transition: all 0.15s; font-family: inherit;
             letter-spacing: 0.3px;
         }
         .btn-locker:active { transform: scale(0.97); }
         .locker-footer { text-align: center; padding: 10px 20px 40px; font-size: 12.5px; color: #64748b; line-height: 1.7; }
+        /* Search */
         .search-bar {
-            margin-top: 16px; background: var(--surface);
+            margin-top: 14px; background: var(--surface);
             border: 1px solid var(--border); border-radius: 16px;
             padding: 12px 16px; display: flex; align-items: center; gap: 10px;
             backdrop-filter: blur(10px);
         }
+        .search-bar svg { width: 20px; height: 20px; stroke: var(--text-secondary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
         .search-bar input {
             flex: 1; background: transparent; border: none;
-            color: var(--text); font-size: 15px; outline: none; font-weight: 500;
+            color: var(--text); font-size: 15px; outline: none; font-weight: 500; font-family: inherit;
         }
         .search-bar input::placeholder { color: var(--text-secondary); }
-        .search-filters { display: flex; gap: 8px; margin: 14px 0 18px; }
+        .search-filters { display: flex; gap: 8px; margin: 14px 0 16px; }
         .filter-chip {
             padding: 6px 14px; border-radius: 20px;
             background: var(--surface); border: 1px solid var(--border);
             font-size: 13px; cursor: pointer; color: var(--text-secondary);
-            font-weight: 600; transition: all 0.2s;
+            font-weight: 600; transition: all 0.2s; font-family: inherit;
         }
         .filter-chip.active { background: var(--accent); color: white; border-color: var(--accent); }
         .back-btn {
             display: inline-flex; align-items: center; gap: 6px;
             background: transparent; border: none; color: var(--text);
-            font-size: 16px; cursor: pointer; margin: 12px 0 8px;
-            padding: 8px 0; font-weight: 600;
+            font-size: 15px; cursor: pointer; margin: 10px 0 6px;
+            padding: 8px 0; font-weight: 700; font-family: inherit;
         }
-        .page-title { font-size: 30px; font-weight: 900; margin: 16px 0 18px; letter-spacing: -0.8px; }
+        .back-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .page-title { font-size: 28px; font-weight: 900; margin: 14px 0 16px; letter-spacing: -0.8px; }
         .hidden { display: none !important; }
+        .no-results { text-align: center; color: var(--text-secondary); margin-top: 50px; font-size: 15px; font-weight: 500; }
+        /* Mod features tag on detail */
+        .mod-features {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(99,102,241,0.12); color: var(--mod);
+            padding: 6px 12px; border-radius: 10px;
+            font-size: 12px; font-weight: 700; margin-top: 10px;
+            border: 1px solid rgba(99,102,241,0.2);
+        }
     </style>
 </head>
 <body>
@@ -355,33 +394,34 @@
                 <span>AppZENN</span>
             </div>
             <div class="header-actions">
-                <button class="header-btn" onclick="showSearch()" aria-label="Search">🔍</button>
-                <button class="header-btn" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">☀️</button>
+                <button class="header-btn" onclick="showSearch()" aria-label="Search">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </button>
             </div>
         </div>
 
         <div class="view active" id="view-discover">
-            <div class="featured" onclick="openApp(apps[0])">
+            <div class="featured" onclick="openApp(appsData[0])">
                 <div class="featured-bg"></div>
                 <div class="featured-content">
                     <div class="mod-badge">⭐ Mod</div>
-                    <div class="featured-title">Pokemon Go Spoofer</div>
-                    <div class="featured-desc">Install Pokemon GO Spoofer with our Guide — Teleport, Joystick, Auto Walk and More!</div>
+                    <div class="featured-title">Dragon Ball Legends</div>
+                    <div class="featured-desc">Unlimited Crystals + God Mode. Install now and dominate the battlefield!</div>
                     <div class="featured-meta">
-                        <span class="stars">⭐⭐⭐⭐½</span>
-                        <span>4.8</span>
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span>4.9</span>
                         <span>Games</span>
                     </div>
                 </div>
             </div>
             <div class="section-header">
                 <div class="section-title">🔥 Trending Now</div>
-                <a href="#" class="view-all" onclick="showView('games')">View all →</a>
+                <a href="#" class="view-all" onclick="showView('games'); return false;">View all →</a>
             </div>
             <div class="h-scroll" id="trending-scroll"></div>
             <div class="section-header">
                 <div class="section-title">✨ New Apps</div>
-                <a href="#" class="view-all" onclick="showView('apps')">View all →</a>
+                <a href="#" class="view-all" onclick="showView('apps'); return false;">View all →</a>
             </div>
             <div class="grid" id="new-apps-grid"></div>
         </div>
@@ -399,7 +439,7 @@
         <div class="view" id="view-search">
             <h2 class="page-title">Search</h2>
             <div class="search-bar">
-                <span>🔍</span>
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                 <input type="text" placeholder="Search apps & games..." id="searchInput" oninput="doSearch()">
             </div>
             <div class="search-filters">
@@ -411,9 +451,14 @@
         </div>
 
         <div class="view" id="view-detail">
-            <button class="back-btn" onclick="goBack()">← Back</button>
+            <button class="back-btn" onclick="goBack()">
+                <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                Back
+            </button>
             <div class="detail-header">
-                <div class="detail-icon" id="detail-icon">🎮</div>
+                <div class="detail-icon" id="detail-icon">
+                    <img src="" alt="" id="detail-img">
+                </div>
                 <div class="detail-info">
                     <h1 id="detail-name">App Name</h1>
                     <div class="sub" id="detail-category">Category</div>
@@ -422,12 +467,13 @@
                         <span id="detail-downloads">⬇️ 550k+</span>
                         <span id="detail-size">💾 762MB</span>
                     </div>
+                    <div class="mod-features" id="detail-mod">✨ Mod Features</div>
                 </div>
             </div>
             <button class="btn-primary" onclick="startDownload()">Start Now</button>
             <div class="detail-section">
-                <h3>What's New <span id="detail-version">4.1.5</span></h3>
-                <p>Latest version with performance improvements and bug fixes.</p>
+                <h3>What's New <span id="detail-version">v1.0</span></h3>
+                <p>Latest version with performance improvements, bug fixes, and new mod features unlocked.</p>
             </div>
             <div class="detail-section">
                 <h3>About</h3>
@@ -435,10 +481,11 @@
             </div>
             <div class="detail-section">
                 <h3>Information</h3>
-                <div class="info-row"><span>Version</span><span id="info-version">4.1.5</span></div>
-                <div class="info-row"><span>Size</span><span id="info-size">762.5MB</span></div>
+                <div class="info-row"><span>Version</span><span id="info-version">v1.0</span></div>
+                <div class="info-row"><span>Size</span><span id="info-size">100MB</span></div>
                 <div class="info-row"><span>Category</span><span id="info-category">Games</span></div>
                 <div class="info-row"><span>Rating</span><span id="info-rating">⭐ 4.8</span></div>
+                <div class="info-row"><span>Downloads</span><span id="info-downloads">100K</span></div>
             </div>
             <div class="detail-section">
                 <h3>You Might Also Like</h3>
@@ -450,23 +497,26 @@
     <div class="bottom-nav" id="bottomNav">
         <div class="nav-inner">
             <button class="nav-item active" onclick="showView('discover')">
-                <span>🏠</span>
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 Discover
             </button>
             <button class="nav-item" onclick="showView('apps')">
-                <span>📱</span>
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                 Apps
             </button>
             <button class="nav-item" onclick="showView('games')">
-                <span>🎮</span>
+                <svg viewBox="0 0 24 24"><path d="M6 11h4M8 9v4"/><path d="M15 12h.01"/><path d="M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258a4 4 0 0 0-3.995-3.742z"/></svg>
                 Games
             </button>
         </div>
     </div>
 
+    <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-app">
-            <div class="loading-app-icon" id="loading-icon">🎮</div>
+            <div class="loading-app-icon" id="loading-icon">
+                <img src="" alt="" id="loading-img">
+            </div>
             <div class="loading-app-info">
                 <h4 id="loading-name">App</h4>
                 <p>Getting ready to download</p>
@@ -487,10 +537,11 @@
         </div>
     </div>
 
+    <!-- CPA Locker -->
     <div class="locker-screen" id="lockerScreen">
         <div class="locker-progress-bar">96% COMPLETE — UNLOCK NOW</div>
         <div class="locker-top">
-            <div style="font-size: 44px; margin-bottom: 14px;">🎁</div>
+            <div style="font-size: 42px; margin-bottom: 12px;">🎁</div>
             <div class="locker-title">FINAL STEP TO ACTIVATE YOUR MOD</div>
             <div class="locker-sub">Your MOD is <strong style="color:white">READY</strong> — complete 3 setup to unlock all features ⚡</div>
             <div class="locker-step">TRAVEL TOWN: Reach Level 10</div>
@@ -500,7 +551,7 @@
             </div>
         </div>
         <div style="padding: 0 20px;">
-            <div class="offer-card" onclick="alert('Offer wall would open here')">
+            <div class="offer-card" onclick="alert('Offer wall redirect')">
                 <div class="offer-icon">💬</div>
                 <div class="offer-info">
                     <h4>Complete surveys and win rewards!</h4>
@@ -508,7 +559,7 @@
                 </div>
                 <div class="offer-tag">Free</div>
             </div>
-            <div class="offer-card" onclick="alert('Offer wall would open here')">
+            <div class="offer-card" onclick="alert('Offer wall redirect')">
                 <div class="offer-icon">📱</div>
                 <div class="offer-info">
                     <h4>Download the new content here!</h4>
@@ -516,7 +567,7 @@
                 </div>
                 <div class="offer-tag">Free</div>
             </div>
-            <div class="offer-card" onclick="alert('Offer wall would open here')">
+            <div class="offer-card" onclick="alert('Offer wall redirect')">
                 <div class="offer-icon">🎁</div>
                 <div class="offer-info">
                     <h4>Claim your exclusive bonus now!</h4>
@@ -527,217 +578,48 @@
             <button class="btn-locker" onclick="alert('Redirecting to offer wall...')">Start Download</button>
             <div class="locker-footer">
                 <strong>Final Step - Beginners Guide</strong><br>
-                <small>Powered by iTweaked · Reply in 5-30 min</small>
+                <small>Powered by AppZENN · Reply in 5-30 min</small>
             </div>
         </div>
     </div>
 
     <script>
-         const appsData = [
-            // GAMES (11)
-            {
-                name: 'Dragon Ball Legends',
-                version: 'v5.10.0 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg',
-                cat: 'games',
-                rating: '4.9',
-                downloads: '124K',
-                mod: 'Unlimited Crystals + God Mode',
-                badge: 'HOT'
-            },
-            {
-                name: 'Pokémon UNITE',
-                version: 'v2.0.3 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png',
-                cat: 'games',
-                rating: '4.8',
-                downloads: '98K',
-                mod: 'Unlimited Aeos Gems',
-                badge: 'NEW'
-            },
-            {
-                name: 'Baseball 9',
-                version: 'v4.2.8 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg',
-                cat: 'games',
-                rating: '4.7',
-                downloads: '87K',
-                mod: 'Unlimited Gems + Stamina',
-                badge: 'TRENDING'
-            },
-            {
-                name: '8 Ball Pool',
-                version: 'v55.9.0 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg',
-                cat: 'games',
-                rating: '4.9',
-                downloads: '256K',
-                mod: 'Long Line + Auto Win',
-                badge: 'HOT'
-            },
-            {
-                name: 'Free Fire MAX',
-                version: 'v2.103 Mod',
-                icon: 'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg',
-                cat: 'games',
-                rating: '4.6',
-                downloads: '312K',
-                mod: 'ESP Hack + Aimbot',
-                badge: 'HOT'
-            },
-            {
-                name: 'PUBG Mobile',
-                version: 'v3.3.0 Mod',
-                icon: 'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg',
-                cat: 'games',
-                rating: '4.5',
-                downloads: '198K',
-                mod: 'ESP + Wallhack',
-                badge: 'TRENDING'
-            },
-            {
-                name: 'Roblox',
-                version: 'v2.645 Mod',
-                icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg',
-                cat: 'games',
-                rating: '4.3',
-                downloads: '512K',
-                mod: 'Infinite Robux + God Mode',
-                badge: 'TRENDING'
-            },
-            {
-                name: 'Call of Duty Mobile',
-                version: 'v1.25.0 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg',
-                cat: 'games',
-                rating: '4.6',
-                downloads: '156K',
-                mod: 'ESP + Aimbot + Radar',
-                badge: 'HOT'
-            },
-            {
-                name: 'Subway Surfers',
-                version: 'v3.36.0 Mod',
-                icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg',
-                cat: 'games',
-                rating: '4.4',
-                downloads: '420K',
-                mod: 'Unlimited Coins + Keys',
-                badge: 'HOT'
-            },
-            {
-                name: 'Genshin Impact',
-                version: 'v5.3.0 Mod',
-                icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg',
-                cat: 'games',
-                rating: '4.9',
-                downloads: '89K',
-                mod: 'God Mode + Primogems',
-                badge: 'VIP'
-            },
-            {
-                name: 'Clash Royale',
-                version: 'v6.2.1 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg',
-                cat: 'games',
-                rating: '4.8',
-                downloads: '178K',
-                mod: 'Unlimited Gems + Gold',
-                badge: 'HOT'
-            },
-            // APPS (6)
-            {
-                name: 'CapCut Pro',
-                version: 'v13.5.0 Mod',
-                icon: 'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg',
-                cat: 'apps',
-                rating: '4.9',
-                downloads: '234K',
-                mod: 'No Watermark + Pro Unlocked',
-                badge: 'HOT'
-            },
-            {
-                name: 'Instagram Pro',
-                version: 'v350.0 Mod',
-                icon: 'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg',
-                cat: 'social',
-                rating: '4.7',
-                downloads: '378K',
-                mod: 'Download Media + No Ads',
-                badge: 'NEW'
-            },
-            {
-                name: 'PicsArt Gold',
-                version: 'v24.1.0 Mod',
-                icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg',
-                cat: 'apps',
-                rating: '4.6',
-                downloads: '289K',
-                mod: 'Gold Unlocked + No Ads',
-                badge: 'HOT'
-            },
-            {
-                name: 'YouTube Music Premium',
-                version: 'v7.0.3 Mod',
-                icon: 'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg',
-                cat: 'streaming',
-                rating: '4.8',
-                downloads: '523K',
-                mod: 'No Ads + Background Play',
-                badge: 'HOT'
-            },
-            {
-                name: 'Netflix Premium',
-                version: 'v11.2.0 Mod',
-                icon: 'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg',
-                cat: 'streaming',
-                rating: '4.7',
-                downloads: '345K',
-                mod: 'All Regions Unlocked',
-                badge: 'VIP'
-            },
-            {
-                name: 'TikTok Mod',
-                version: 'v36.0.1 Mod',
-                icon: 'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg',
-                cat: 'social',
-                rating: '4.8',
-                downloads: '445K',
-                mod: 'No Ads + Download Videos',
-                badge: 'HOT'
-            }
+        const appsData = [
+            { name: 'Dragon Ball Legends', version: 'v5.10.0 Mod', icon: 'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg', cat: 'games', rating: '4.9', downloads: '124K', mod: 'Unlimited Crystals + God Mode', badge: 'HOT' },
+            { name: 'Pokémon UNITE', version: 'v2.0.3 Mod', icon: 'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png', cat: 'games', rating: '4.8', downloads: '98K', mod: 'Unlimited Aeos Gems', badge: 'NEW' },
+            { name: 'Baseball 9', version: 'v4.2.8 Mod', icon: 'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg', cat: 'games', rating: '4.7', downloads: '87K', mod: 'Unlimited Gems + Stamina', badge: 'TRENDING' },
+            { name: '8 Ball Pool', version: 'v55.9.0 Mod', icon: 'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg', cat: 'games', rating: '4.9', downloads: '256K', mod: 'Long Line + Auto Win', badge: 'HOT' },
+            { name: 'Free Fire MAX', version: 'v2.103 Mod', icon: 'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg', cat: 'games', rating: '4.6', downloads: '312K', mod: 'ESP Hack + Aimbot', badge: 'HOT' },
+            { name: 'PUBG Mobile', version: 'v3.3.0 Mod', icon: 'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg', cat: 'games', rating: '4.5', downloads: '198K', mod: 'ESP + Wallhack', badge: 'TRENDING' },
+            { name: 'Roblox', version: 'v2.645 Mod', icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg', cat: 'games', rating: '4.3', downloads: '512K', mod: 'Infinite Robux + God Mode', badge: 'TRENDING' },
+            { name: 'Call of Duty Mobile', version: 'v1.25.0 Mod', icon: 'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg', cat: 'games', rating: '4.6', downloads: '156K', mod: 'ESP + Aimbot + Radar', badge: 'HOT' },
+            { name: 'Subway Surfers', version: 'v3.36.0 Mod', icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg', cat: 'games', rating: '4.4', downloads: '420K', mod: 'Unlimited Coins + Keys', badge: 'HOT' },
+            { name: 'Genshin Impact', version: 'v5.3.0 Mod', icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg', cat: 'games', rating: '4.9', downloads: '89K', mod: 'God Mode + Primogems', badge: 'VIP' },
+            { name: 'Clash Royale', version: 'v6.2.1 Mod', icon: 'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg', cat: 'games', rating: '4.8', downloads: '178K', mod: 'Unlimited Gems + Gold', badge: 'HOT' },
+            { name: 'CapCut Pro', version: 'v13.5.0 Mod', icon: 'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg', cat: 'apps', rating: '4.9', downloads: '234K', mod: 'No Watermark + Pro Unlocked', badge: 'HOT' },
+            { name: 'Instagram Pro', version: 'v350.0 Mod', icon: 'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg', cat: 'social', rating: '4.7', downloads: '378K', mod: 'Download Media + No Ads', badge: 'NEW' },
+            { name: 'PicsArt Gold', version: 'v24.1.0 Mod', icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg', cat: 'apps', rating: '4.6', downloads: '289K', mod: 'Gold Unlocked + No Ads', badge: 'HOT' },
+            { name: 'YouTube Music Premium', version: 'v7.0.3 Mod', icon: 'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg', cat: 'streaming', rating: '4.8', downloads: '523K', mod: 'No Ads + Background Play', badge: 'HOT' },
+            { name: 'Netflix Premium', version: 'v11.2.0 Mod', icon: 'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg', cat: 'streaming', rating: '4.7', downloads: '345K', mod: 'All Regions Unlocked', badge: 'VIP' },
+            { name: 'TikTok Mod', version: 'v36.0.1 Mod', icon: 'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg', cat: 'social', rating: '4.8', downloads: '445K', mod: 'No Ads + Download Videos', badge: 'HOT' },
         ];
-
-        let toastTimerInterval;
-        let currentFilter = 'all';
 
         let currentApp = null;
         let currentView = 'discover';
         let searchFilter = 'all';
 
-        const gradients = [
-            'linear-gradient(135deg, #3b82f6, #1d4ed8)',
-            'linear-gradient(135deg, #8b5cf6, #6d28d9)',
-            'linear-gradient(135deg, #ec4899, #be185d)',
-            'linear-gradient(135deg, #f59e0b, #b45309)',
-            'linear-gradient(135deg, #10b981, #047857)',
-            'linear-gradient(135deg, #06b6d4, #0e7490)',
-            'linear-gradient(135deg, #f97316, #c2410c)',
-            'linear-gradient(135deg, #6366f1, #4338ca)',
-        ];
-
-        function getGradient(id) { return gradients[id % gradients.length]; }
-
         function renderCard(app, small=false) {
-            const stars = '⭐'.repeat(Math.floor(app.rating)) + (app.rating % 1 >= 0.5 ? '½' : '');
+            const badgeClass = app.badge === 'HOT' ? 'badge-hot' : app.badge === 'NEW' ? 'badge-new' : app.badge === 'TRENDING' ? 'badge-trending' : app.badge === 'VIP' ? 'badge-vip' : '';
+            const stars = '⭐'.repeat(Math.floor(parseFloat(app.rating))) + (parseFloat(app.rating) % 1 >= 0.5 ? '½' : '');
             return `
-                <div class="card" onclick="openAppById(${app.id})">
-                    <div class="card-icon" style="background: ${getGradient(app.id)}">
-                        ${app.mod ? '<div class="card-mod">MOD</div>' : ''}
-                        <span style="font-size:${small?32:42}px">${app.icon}</span>
+                <div class="card" onclick="openAppByName('${app.name.replace(/'/g, "\\'")}')">
+                    <div class="card-icon-wrap">
+                        ${app.badge ? `<div class="card-badge ${badgeClass}">${app.badge}</div>` : ''}
+                        <div class="card-mod">MOD</div>
+                        <img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#3b82f6,#1d4ed8)'">
                     </div>
                     <div class="card-title">${app.name}</div>
-                    <div class="card-meta">${app.category} · ${app.version}</div>
+                    <div class="card-meta">${app.cat === 'games' ? 'Games' : 'Apps'} · ${app.version}</div>
                     <div class="card-rating">
                         <span class="stars">${stars}</span>
                         <span>${app.rating}</span>
@@ -746,15 +628,21 @@
             `;
         }
 
-        function openAppById(id) { openApp(apps.find(a => a.id === id)); }
+        function openAppByName(name) {
+            const app = appsData.find(a => a.name === name);
+            if(app) openApp(app);
+        }
 
         function init() {
-            const trending = apps.filter(a => a.type === 'game').slice(0, 6);
+            const trending = appsData.filter(a => a.cat === 'games').slice(0, 6);
             document.getElementById('trending-scroll').innerHTML = trending.map(a => renderCard(a, true)).join('');
-            const newApps = apps.slice(13, 19);
+
+            const newApps = appsData.filter(a => a.cat !== 'games').slice(0, 6);
             document.getElementById('new-apps-grid').innerHTML = newApps.map(a => renderCard(a)).join('');
-            document.getElementById('apps-grid').innerHTML = apps.filter(a => a.type === 'app').map(a => renderCard(a)).join('');
-            document.getElementById('games-grid').innerHTML = apps.filter(a => a.type === 'game').map(a => renderCard(a)).join('');
+
+            document.getElementById('apps-grid').innerHTML = appsData.filter(a => a.cat !== 'games').map(a => renderCard(a)).join('');
+            document.getElementById('games-grid').innerHTML = appsData.filter(a => a.cat === 'games').map(a => renderCard(a)).join('');
+
             doSearch();
         }
 
@@ -771,25 +659,29 @@
             window.scrollTo(0,0);
         }
 
-        function showSearch() { showView('search'); document.getElementById('searchInput').focus(); }
+        function showSearch() { showView('search'); setTimeout(() => document.getElementById('searchInput').focus(), 100); }
 
         function openApp(app) {
             currentApp = app;
-            document.getElementById('detail-icon').textContent = app.icon;
-            document.getElementById('detail-icon').style.background = getGradient(app.id);
+            document.getElementById('detail-img').src = app.icon;
             document.getElementById('detail-name').textContent = app.name;
-            document.getElementById('detail-category').textContent = app.category;
+            document.getElementById('detail-category').textContent = app.cat === 'games' ? 'Games' : 'Apps';
             document.getElementById('detail-rating').textContent = '⭐ ' + app.rating;
             document.getElementById('detail-downloads').textContent = '⬇️ ' + app.downloads;
-            document.getElementById('detail-size').textContent = '💾 ' + app.size;
+            document.getElementById('detail-size').textContent = '💾 ' + app.version;
             document.getElementById('detail-version').textContent = app.version;
-            document.getElementById('detail-about').textContent = app.desc || `${app.name} is a groundbreaking app. Install now with our guide and unlock powerful features instantly on iOS and Android.`;
+            document.getElementById('detail-mod').textContent = '✨ ' + app.mod;
+            document.getElementById('detail-about').textContent = `${app.name} ${app.mod}. Install now with our guide and unlock powerful features instantly on iOS and Android. This modded version gives you unlimited access to premium features without any restrictions.`;
             document.getElementById('info-version').textContent = app.version;
-            document.getElementById('info-size').textContent = app.size;
-            document.getElementById('info-category').textContent = app.category;
+            document.getElementById('info-size').textContent = app.version;
+            document.getElementById('info-category').textContent = app.cat === 'games' ? 'Games' : 'Apps';
             document.getElementById('info-rating').textContent = '⭐ ' + app.rating;
-            const related = apps.filter(a => a.type === app.type && a.id !== app.id).slice(0, 5);
-            document.getElementById('related-scroll').innerHTML = related.map(a => renderCard(a, true)).join('');
+            document.getElementById('info-downloads').textContent = app.downloads;
+
+            const related = appsData.filter(a => a.cat === app.cat && a.name !== app.name).slice(0, 5);
+            document.getElementById('related-scroll').innerHTML = related.length
+                ? related.map(a => renderCard(a, true)).join('')
+                : '<p style="color:var(--text-secondary);font-size:13px;">No related apps</p>';
             showView('detail');
         }
 
@@ -804,15 +696,18 @@
 
         function doSearch() {
             const q = document.getElementById('searchInput').value.toLowerCase();
-            let results = apps.filter(a => a.name.toLowerCase().includes(q));
-            if(searchFilter !== 'all') results = results.filter(a => a.type === searchFilter);
-            document.getElementById('search-results').innerHTML = results.length ? results.map(a => renderCard(a)).join('') : '<p style="text-align:center;color:var(--text-secondary);margin-top:40px;">No results found</p>';
+            let results = appsData.filter(a => a.name.toLowerCase().includes(q));
+            if(searchFilter === 'app') results = results.filter(a => a.cat !== 'games');
+            if(searchFilter === 'game') results = results.filter(a => a.cat === 'games');
+            const container = document.getElementById('search-results');
+            container.innerHTML = results.length
+                ? results.map(a => renderCard(a)).join('')
+                : '<div class="no-results">No results found</div>';
         }
 
         function startDownload() {
-            const app = currentApp || apps[0];
-            document.getElementById('loading-icon').textContent = app.icon;
-            document.getElementById('loading-icon').style.background = getGradient(app.id);
+            const app = currentApp || appsData[0];
+            document.getElementById('loading-img').src = app.icon;
             document.getElementById('loading-name').textContent = app.name;
             document.getElementById('loadingScreen').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -820,15 +715,15 @@
             let progress = 0;
             const msgs = [
                 { p: 0, t: "Sit tight...", s: "Please wait while we prepare your download" },
-                { p: 20, t: "Looking for download source..", s: "Please wait while we prepare your download" },
-                { p: 40, t: "Source found!", s: "Please wait while we prepare your download" },
-                { p: 60, t: "Source updated 14 minutes ago..", s: "Please wait while we prepare your download" },
-                { p: 80, t: "Loading Download Source...", s: "Please wait while we prepare your download" },
+                { p: 18, t: "Looking for download source..", s: "Please wait while we prepare your download" },
+                { p: 38, t: "Source found!", s: "Please wait while we prepare your download" },
+                { p: 58, t: "Source updated 14 minutes ago..", s: "Please wait while we prepare your download" },
+                { p: 78, t: "Loading Download Source...", s: "Please wait while we prepare your download" },
                 { p: 100, t: "Complete!", s: "Redirecting..." }
             ];
 
             const interval = setInterval(() => {
-                progress += Math.random() * 3.5 + 0.8;
+                progress += Math.random() * 3.2 + 0.9;
                 if(progress > 100) progress = 100;
                 const pct = Math.floor(progress);
                 document.getElementById('loadingPercent').textContent = pct + '%';
@@ -841,18 +736,25 @@
                     setTimeout(() => {
                         document.getElementById('loadingScreen').classList.remove('active');
                         document.getElementById('lockerScreen').classList.add('active');
-                    }, 600);
+                    }, 500);
                 }
-            }, 90);
+            }, 85);
         }
 
-        function toggleTheme() {
-            document.body.classList.toggle('light');
-            const isLight = document.body.classList.contains('light');
-            document.getElementById('themeBtn').textContent = isLight ? '🌙' : '☀️';
-        }
+        // Close locker on back button simulation
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape') {
+                const locker = document.getElementById('lockerScreen');
+                if(locker.classList.contains('active')) {
+                    locker.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
 
         init();
     </script>
 </body>
 </html>
+print("✅ File saved: appzenn_pro.html")
+print(f"📏 Size: {len(html):,} characters")
