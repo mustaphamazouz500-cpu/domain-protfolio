@@ -1,1089 +1,1230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download the ultimate Gaming Mode Injector with ESP Hack, Aimbot, and Wallhack for Free Fire, PUBG Mobile, and COD Mobile.">
-    <meta name="keywords" content="gaming mode, esp hack, injector, free fire hack, pubg mobile hack, cod mobile hack, wallhack, aimbot">
-    <meta property="og:title" content="Gaming Mode Pro v9.0 - ESP Hack + Aimbot Injector 2026">
-    <meta property="og:description" content="Unlock ESP Hack, Aimbot, Wallhack for your favorite games. 100% Undetected. No root required.">
-    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23000' width='32' height='32' rx='6'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%230f0' font-size='20'%3EGM%3C/text%3E%3C/svg%3E">
-    <title>Gaming Mode Pro v9.0 - Injector ESP Hack 2026</title>
+    <meta name="description" content="Download Premium Modded Apps & Games for Android & iOS - Dragon Ball Legends Mod, Pokémon UNITE Mod, CupCut Pro, TikTok Mod, Spotify Premium and more. 100% Working Mods.">
+    <meta name="keywords" content="modded apps, modded games, free apps, android mods, ios mods, panda helper, tutuapp, app mod, game mod, cupcut mod, tiktok mod, spotify mod">
+    <meta property="og:title" content="ModHub Pro - Premium Modded Apps & Games Store">
+    <meta property="og:description" content="Download 100% working modded apps and games for Android & iOS.">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230a0a1a' width='32' height='32' rx='8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='%23ff4757' font-size='20' font-weight='bold'%3EMH%3C/text%3E%3C/svg%3E">
+    <title>ModHub Pro - Premium Modded Apps & Games for Android & iOS</title>
     
     <style>
         :root {
-            --bg: #000000;
-            --bg2: #0a0a0a;
-            --bg3: #111111;
-            --neon: #00ff41;
-            --neon2: #39ff14;
-            --red: #ff0040;
-            --blue: #00bfff;
-            --text: #cccccc;
-            --text2: #777777;
-            --border: #1a1a1a;
-            --card: #0d0d0d;
+            --bg-primary: #06060e;
+            --bg-secondary: #0c0c1a;
+            --bg-card: #111128;
+            --bg-card-hover: #161638;
+            --accent: #ff4757;
+            --accent2: #ff6b81;
+            --accent-glow: rgba(255,71,87,0.3);
+            --green: #2ed573;
+            --green-glow: rgba(46,213,115,0.3);
+            --blue: #1e90ff;
+            --gold: #ffa502;
+            --text: #e8e8f0;
+            --text2: #9898b0;
+            --text3: #686880;
+            --border: #1a1a30;
+            --border-light: #252545;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 6px;
+            --shadow-card: 0 4px 30px rgba(0,0,0,0.4);
+            --shadow-glow: 0 0 40px rgba(255,71,87,0.15);
+            --font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        @font-face {
-            font-family: 'Mono';
-            src: local('Courier New');
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg);
+            font-family: var(--font);
+            background: var(--bg-primary);
             color: var(--text);
             min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .bg-grid {
+        .bg-pattern {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             background-image: 
-                linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+                radial-gradient(ellipse at 20% 20%, rgba(255,71,87,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(30,144,255,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(46,213,115,0.02) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 15px;
+            padding: 0 20px;
             position: relative;
             z-index: 1;
         }
 
-        /* Alert Bar */
-        .alert-bar {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
-            padding: 10px 15px;
+        /* ============ ANNOUNCEMENT BAR ============ */
+        .announce-bar {
+            background: linear-gradient(135deg, #0f0f25, #151530);
+            border-bottom: 1px solid var(--border);
+            padding: 8px 0;
             text-align: center;
             font-size: 12px;
-            color: var(--neon);
-            font-family: 'Mono', monospace;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            color: var(--text2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
         }
 
-        .blink {
-            animation: blink 1.2s infinite;
+        .announce-bar .pulse-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: var(--green);
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse-dot 1.8s infinite;
+            vertical-align: middle;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.2; }
+        .announce-bar strong {
+            color: var(--accent2);
         }
 
-        /* Header */
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 0 var(--green-glow); }
+            50% { box-shadow: 0 0 0 10px transparent; }
+        }
+
+        /* ============ HEADER ============ */
         .header {
+            background: rgba(12,12,26,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+            position: sticky;
+            top: 29px;
+            z-index: 999;
+        }
+
+        .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 20px;
+            gap: 15px;
             flex-wrap: wrap;
-            gap: 10px;
         }
 
-        .logo {
+        .logo-section {
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: #000;
-            border: 2px solid var(--neon);
-            border-radius: 8px;
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent), #ff6b81);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Mono', monospace;
-            color: var(--neon);
             font-weight: 900;
-            font-size: 14px;
-            box-shadow: 0 0 15px rgba(0,255,65,0.2);
+            font-size: 18px;
+            color: #fff;
+            box-shadow: 0 4px 15px var(--accent-glow);
         }
 
         .logo-text {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 800;
             color: #fff;
+            line-height: 1;
         }
 
         .logo-text span {
-            color: var(--neon);
+            color: var(--accent);
         }
 
-        .version-badge {
-            background: #000;
-            border: 1px solid var(--neon);
-            color: var(--neon);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-family: 'Mono', monospace;
+        .logo-sub {
+            font-size: 10px;
+            color: var(--text3);
+            font-weight: 400;
         }
 
-        .status-dots {
-            display: flex;
-            gap: 10px;
-            font-size: 11px;
-            color: var(--text2);
-        }
-
-        .status-dot {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .status-dot .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-        }
-
-        .dot.green { background: var(--neon); box-shadow: 0 0 8px var(--neon); }
-        .dot.yellow { background: #ffaa00; box-shadow: 0 0 8px #ffaa00; }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .hero h1 {
-            font-size: 32px;
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
-
-        .hero h1 .green {
-            color: var(--neon);
-            text-shadow: 0 0 20px rgba(0,255,65,0.3);
-        }
-
-        .hero-sub {
-            font-size: 14px;
-            color: var(--text2);
-            max-width: 500px;
-            margin: 0 auto 15px;
-        }
-
-        /* Feature Chips */
-        .feature-chips {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 15px 0;
-        }
-
-        .chip {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .chip i { color: var(--neon); }
-
-        /* Main Section */
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 20px;
-            background: var(--neon);
-            border-radius: 2px;
-        }
-
-        /* Game Cards */
-        .game-select {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        @media (max-width: 480px) {
-            .game-select { grid-template-columns: repeat(2, 1fr); }
-            .hero h1 { font-size: 24px; }
-        }
-
-        .game-option {
-            background: var(--card);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 18px 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
+        .search-wrapper {
+            flex: 1;
+            max-width: 400px;
             position: relative;
         }
 
-        .game-option:hover {
-            border-color: #333;
-        }
-
-        .game-option.selected {
-            border-color: var(--neon);
-            background: #0a1a0a;
-            box-shadow: 0 0 20px rgba(0,255,65,0.1);
-        }
-
-        .game-option .hot-tag {
-            position: absolute;
-            top: -8px;
-            right: 10px;
-            background: var(--red);
-            color: #fff;
-            font-size: 9px;
-            padding: 2px 10px;
-            border-radius: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .game-option .icon {
-            font-size: 36px;
-            margin-bottom: 8px;
-        }
-
-        .game-option .name {
-            font-size: 13px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .game-option .hack-type {
-            font-size: 10px;
-            color: var(--neon);
-            font-family: 'Mono', monospace;
-        }
-
-        /* Hack Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .feature-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            border-color: #333;
-        }
-
-        .feature-card.selected {
-            border-color: var(--neon);
-            background: #0a1a0a;
-        }
-
-        .feature-icon {
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .feature-info h4 {
-            font-size: 13px;
-            color: #fff;
-            margin-bottom: 3px;
-        }
-
-        .feature-info p {
-            font-size: 10px;
-            color: var(--text2);
-            line-height: 1.4;
-        }
-
-        .feature-check {
-            margin-left: auto;
-            color: var(--neon);
-            font-size: 18px;
-            display: none;
-        }
-
-        .feature-card.selected .feature-check {
-            display: block;
-        }
-
-        /* Device Select */
-        .device-select {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .device-opt {
-            flex: 1;
-            background: var(--card);
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .device-opt.selected {
-            border-color: var(--neon);
-            background: #0a1a0a;
-        }
-
-        .device-opt .dev-icon { font-size: 30px; margin-bottom: 5px; }
-        .device-opt .dev-name { font-size: 12px; font-weight: 600; color: #fff; }
-        .device-opt .dev-sub { font-size: 10px; color: var(--text2); }
-
-        /* Email Input */
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #ccc;
-            margin-bottom: 8px;
-        }
-
-        .input-group input {
+        .search-input {
             width: 100%;
-            padding: 14px 16px;
-            background: #000;
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            padding: 12px 45px 12px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 30px;
             color: #fff;
-            font-size: 14px;
-            font-family: 'Mono', monospace;
+            font-size: 13px;
             outline: none;
             transition: all 0.3s;
         }
 
-        .input-group input:focus {
-            border-color: var(--neon);
-            box-shadow: 0 0 0 3px rgba(0,255,65,0.05);
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(255,71,87,0.08);
         }
 
-        .input-hint {
-            font-size: 10px;
-            color: var(--text2);
-            margin-top: 5px;
-            font-family: 'Mono', monospace;
-        }
-
-        /* CTA Button */
-        .btn-download {
-            width: 100%;
-            padding: 18px;
-            background: var(--neon);
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
             border: none;
-            border-radius: 8px;
-            color: #000;
-            font-size: 16px;
-            font-weight: 900;
+            color: #fff;
             cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: 'Mono', monospace;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
         }
 
-        .btn-download:hover {
-            box-shadow: 0 0 40px rgba(0,255,65,0.4);
+        .search-btn:hover {
+            background: var(--accent2);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-header {
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-vip {
+            background: linear-gradient(135deg, #ffa502, #ff6348);
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255,165,2,0.3);
+        }
+
+        .btn-vip:hover {
+            box-shadow: 0 6px 25px rgba(255,165,2,0.5);
             transform: translateY(-2px);
         }
 
-        .btn-download:active {
-            transform: scale(0.97);
+        .btn-telegram {
+            background: #1a1a40;
+            color: var(--blue);
+            border: 1px solid var(--border-light);
         }
 
-        .btn-download.downloading {
-            pointer-events: none;
-            opacity: 0.6;
+        .btn-telegram:hover {
+            border-color: var(--blue);
+            background: #1a1a50;
         }
 
-        /* Trust Strip */
-        .trust-strip {
+        /* ============ HERO ============ */
+        .hero-section {
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,71,87,0.1);
+            border: 1px solid rgba(255,71,87,0.2);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-badge .dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        .hero-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent), #ff6b81, #ffa502);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 15px;
+            color: var(--text2);
+            max-width: 550px;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+        }
+
+        /* ============ STATS BAR ============ */
+        .stats-row {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
-            margin: 20px 0;
-            font-size: 11px;
-            color: var(--text2);
+            margin: 20px 0 10px;
         }
 
-        .trust-strip span {
+        .stat-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            padding: 15px 22px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-value {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stat-value.green { color: var(--green); }
+        .stat-value.gold { color: var(--gold); }
+        .stat-value.blue { color: var(--blue); }
+
+        .stat-label {
+            font-size: 10px;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 3px;
+        }
+
+        /* ============ CATEGORY TABS ============ */
+        .category-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+            justify-content: center;
+        }
+
+        .cat-tab {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text2);
+            white-space: nowrap;
+        }
+
+        .cat-tab:hover {
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .cat-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .cat-tab .tab-icon {
+            margin-right: 5px;
+        }
+
+        /* ============ SECTION HEADERS ============ */
+        .section-header {
             display: flex;
             align-items: center;
-            gap: 5px;
-        }
-
-        .trust-strip .trust-icon { color: var(--neon); }
-
-        /* Stats */
-        .stats-bar {
-            display: flex;
-            justify-content: space-around;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 18px;
-            margin: 20px 0;
+            justify-content: space-between;
+            margin: 35px 0 15px;
             flex-wrap: wrap;
             gap: 10px;
         }
 
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 22px;
+        .section-title {
+            font-size: 20px;
             font-weight: 800;
-            color: var(--neon);
-            font-family: 'Mono', monospace;
-        }
-
-        .stat-label {
-            font-size: 10px;
-            color: var(--text2);
-            margin-top: 3px;
-        }
-
-        /* Warning Box */
-        .warning-box {
-            background: #0a0a00;
-            border: 1px solid #3a3a00;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-            font-size: 11px;
-            color: #aaaa00;
-        }
-
-        .warning-box strong {
-            color: #ffaa00;
-        }
-
-        /* Steps */
-        .steps-vertical {
-            margin: 20px 0;
-        }
-
-        .step-item {
+            color: #fff;
             display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
+            align-items: center;
+            gap: 10px;
         }
 
-        .step-num {
-            width: 30px;
-            height: 30px;
-            background: #000;
-            border: 1px solid var(--neon);
-            border-radius: 50%;
+        .section-title .icon-box {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            color: var(--neon);
-            flex-shrink: 0;
-            font-size: 13px;
+            font-size: 16px;
         }
 
-        .step-content h4 {
+        .icon-games { background: rgba(255,71,87,0.15); }
+        .icon-apps { background: rgba(30,144,255,0.15); }
+        .icon-trending { background: rgba(255,165,2,0.15); }
+
+        .section-link {
             font-size: 13px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .section-link:hover {
+            color: var(--accent2);
+        }
+
+        /* ============ APP GRID ============ */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 14px;
+        }
+
+        .app-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 14px;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(255,71,87,0.03));
+            pointer-events: none;
+        }
+
+        .app-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+            background: var(--bg-card-hover);
+        }
+
+        .app-card .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 9px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .badge-hot { background: var(--accent); color: #fff; }
+        .badge-new { background: var(--green); color: #000; }
+        .badge-trending { background: var(--gold); color: #000; }
+        .badge-vip { background: linear-gradient(135deg, #ffa502, #ff6348); color: #000; }
+
+        .app-card .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+        }
+
+        .app-card:hover .card-icon {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(255,71,87,0.2);
+        }
+
+        .app-card .card-name {
+            font-size: 13px;
+            font-weight: 700;
             color: #fff;
             margin-bottom: 3px;
+            line-height: 1.2;
         }
 
-        .step-content p {
-            font-size: 11px;
+        .app-card .card-version {
+            font-size: 10px;
+            color: var(--text3);
+            margin-bottom: 8px;
+        }
+
+        .app-card .card-meta {
+            font-size: 10px;
             color: var(--text2);
-        }
-
-        /* Discord Style Comments */
-        .live-feed {
-            margin-top: 25px;
-        }
-
-        .live-feed-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
-            align-items: center;
+            justify-content: center;
             gap: 8px;
         }
 
-        .feed-item {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 12px 15px;
-            margin-bottom: 8px;
+        .card-meta span {
             display: flex;
-            gap: 12px;
-            align-items: flex-start;
+            align-items: center;
+            gap: 3px;
         }
 
-        .feed-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            flex-shrink: 0;
+        .card-meta .meta-star { color: var(--gold); }
+
+        .app-card .card-buttons {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .btn-dl {
+            flex: 1;
+            padding: 8px 6px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
+            gap: 4px;
         }
 
-        .feed-body {
-            flex: 1;
+        .btn-android {
+            background: #1a3a1a;
+            color: var(--green);
+            border: 1px solid rgba(46,213,115,0.3);
         }
 
-        .feed-user {
-            font-size: 12px;
-            font-weight: 600;
+        .btn-android:hover {
+            background: #1a4a1a;
+            border-color: var(--green);
+            box-shadow: 0 0 15px var(--green-glow);
+        }
+
+        .btn-ios {
+            background: #1a1a30;
+            color: #aaa;
+            border: 1px solid rgba(170,170,170,0.3);
+        }
+
+        .btn-ios:hover {
+            background: #1a1a40;
+            border-color: #fff;
             color: #fff;
+        }
+
+        /* ============ FEATURED BANNER ============ */
+        .featured-banner {
+            background: linear-gradient(135deg, #151530, #1a1a3a);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin: 25px 0;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .feed-badge {
-            font-size: 9px;
-            background: var(--neon);
-            color: #000;
-            padding: 1px 8px;
-            border-radius: 10px;
+        .featured-icon {
+            font-size: 50px;
+            flex-shrink: 0;
+        }
+
+        .featured-info h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .featured-info p {
+            font-size: 13px;
+            color: var(--text2);
+            margin-bottom: 12px;
+        }
+
+        .featured-cta {
+            padding: 10px 20px;
+            background: var(--accent);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
             font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .feed-time {
-            font-size: 10px;
-            color: var(--text2);
+        .featured-cta:hover {
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-2px);
         }
 
-        .feed-text {
-            font-size: 12px;
-            color: #aaa;
-            margin-top: 4px;
-        }
-
-        .feed-game {
-            display: inline-block;
-            font-size: 9px;
-            background: #000;
-            border: 1px solid #333;
-            color: var(--text2);
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-top: 5px;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 10px;
-            color: #444;
-            border-top: 1px solid var(--border);
-            margin-top: 30px;
-        }
-
-        .footer a { color: #555; text-decoration: none; margin: 0 8px; }
-
-        /* Overlay */
-        .overlay {
+        /* ============ CPA LOCKER OVERLAY ============ */
+        .locker-overlay {
             display: none;
             position: fixed;
             inset: 0;
             background: rgba(0,0,0,0.92);
-            z-index: 99;
+            z-index: 2000;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            padding: 20px;
         }
 
-        .overlay.show {
+        .locker-overlay.show {
             display: flex;
         }
 
-        .overlay-box {
-            background: #0d0d0d;
-            border: 1px solid var(--neon);
-            border-radius: 12px;
-            padding: 30px;
+        .locker-dialog {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 30px 25px;
+            max-width: 440px;
+            width: 100%;
             text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 0 60px rgba(0,255,65,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            position: relative;
         }
 
-        .overlay-icon { font-size: 50px; margin-bottom: 15px; }
-        .overlay-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-        .overlay-sub { font-size: 12px; color: var(--text2); margin-bottom: 20px; }
+        .locker-close {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            color: var(--text2);
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
 
-        .overlay-progress {
-            height: 4px;
-            background: #1a1a1a;
-            border-radius: 2px;
+        .locker-close:hover {
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .locker-lock-icon {
+            font-size: 60px;
+            margin-bottom: 12px;
+        }
+
+        .locker-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .locker-app-name {
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .locker-desc {
+            font-size: 12px;
+            color: var(--text2);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .locker-offer-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .locker-offer-box .offer-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .locker-offer-box .offer-step {
+            font-size: 11px;
+            color: var(--text2);
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .offer-step .step-num {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .btn-unlock {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--green), #26a95a);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-unlock:hover {
+            box-shadow: 0 0 30px var(--green-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-unlock.done {
+            background: linear-gradient(135deg, var(--blue), #1472c4);
+        }
+
+        .locker-progress {
+            height: 5px;
+            background: var(--bg-secondary);
+            border-radius: 3px;
             overflow: hidden;
             margin: 15px 0;
         }
 
-        .overlay-progress-fill {
+        .locker-progress-fill {
             height: 100%;
-            background: var(--neon);
+            background: var(--green);
             width: 0%;
-            transition: width 0.3s;
-            box-shadow: 0 0 10px var(--neon);
+            transition: width 0.6s ease;
+            border-radius: 3px;
         }
 
-        .overlay-log {
-            text-align: left;
-            font-family: 'Mono', monospace;
-            font-size: 10px;
-            color: var(--neon);
-            background: #000;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            max-height: 120px;
-            overflow-y: auto;
-            line-height: 1.8;
+        .locker-download-link {
+            display: none;
+            padding: 12px;
+            background: #1a2a1a;
+            border: 1px solid var(--green);
+            border-radius: var(--radius-xs);
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 10px;
         }
 
-        .overlay-log .line { opacity: 0; animation: fadeIn 0.3s forwards; }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        .locker-download-link.show {
+            display: block;
         }
 
-        /* Glitch Effect */
-        .glitch {
-            position: relative;
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text3);
         }
 
-        .glitch:hover {
-            animation: glitch 0.3s ease;
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
         }
 
-        @keyframes glitch {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(2px, -2px); }
-            60% { transform: translate(-1px, -1px); }
-            80% { transform: translate(1px, 1px); }
+        .footer-links a {
+            color: var(--text2);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer p {
+            font-size: 11px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; gap: 10px; }
+            .search-wrapper { max-width: 100%; }
+            .app-grid { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px; }
+            .app-card { padding: 14px 10px; }
+            .app-card .card-icon { width: 50px; height: 50px; font-size: 26px; border-radius: 12px; }
+            .btn-dl { font-size: 9px; padding: 7px 4px; }
+            .category-tabs { gap: 5px; }
+            .cat-tab { padding: 8px 14px; font-size: 11px; }
+            .stats-row { gap: 10px; }
+            .stat-badge { padding: 10px 14px; min-width: 70px; }
+            .stat-value { font-size: 18px; }
+        }
+
+        @media (max-width: 400px) {
+            .app-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .app-card { padding: 10px 6px; }
+            .app-card .card-name { font-size: 11px; }
+            .card-buttons { flex-direction: column; gap: 4px; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
+
+    <div class="bg-pattern"></div>
+
+    <!-- ============ ANNOUNCEMENT BAR ============ -->
+    <div class="announce-bar">
+        <span class="pulse-dot"></span>
+        <strong>2,847</strong> users online now | 
+        <strong>12</strong> new mods added today | 
+        All mods <strong>100% working</strong> & verified
+    </div>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo-section">
+                <div class="logo-icon">MH</div>
+                <div>
+                    <div class="logo-text">Mod<span>Hub</span></div>
+                    <div class="logo-sub">Premium Modded Store</div>
+                </div>
+            </a>
+            <div class="search-wrapper">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search modded apps & games...">
+                <button class="search-btn" onclick="searchMods()">🔍</button>
+            </div>
+            <div class="header-actions">
+                <a href="https://t.me/MBMods" class="btn-header btn-telegram" target="_blank">📢 Telegram</a>
+                <a href="#" class="btn-header btn-vip" onclick="alert('VIP access unlocks instant downloads without verification.')">👑 GO VIP</a>
+            </div>
+        </div>
+    </header>
 
     <div class="container">
 
-        <!-- Alert Bar -->
-        <div class="alert-bar">
-            <span class="blink">●</span>
-            <span>[ SYSTEM ] INJECTOR v9.0 STATUS: <strong>UNDETECTED</strong> | LAST UPDATED: <span id="currentDate"></span></span>
-        </div>
+        <!-- ============ HERO ============ -->
+        <section class="hero-section">
+            <div class="hero-badge"><span class="dot"></span> #1 Trusted Mod Store 2026</div>
+            <h1 class="hero-title">Download <span class="gradient-text">Premium Modded</span> Apps & Games</h1>
+            <p class="hero-desc">Access hundreds of modded apps and games for Android & iOS. Unlock premium features, unlimited resources, and remove ads — all for free.</p>
+        </section>
 
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <div class="logo-icon glitch">GM</div>
-                <div class="logo-text">Gaming<span>Mode</span></div>
-            </div>
-            <div class="status-dots">
-                <span class="status-dot"><span class="dot green"></span> Injector Online</span>
-                <span class="status-dot"><span class="dot yellow"></span> <span id="onlineNow">2,384</span> Users</span>
-            </div>
-            <span class="version-badge">v9.0.1 BETA</span>
-        </header>
-
-        <!-- Hero -->
-        <div class="hero">
-            <h1>Unlock <span class="green">ESP Hack</span> + Aimbot Injector</h1>
-            <p class="hero-sub">Dominate Free Fire, PUBG Mobile, and COD Mobile with undetected ESP, Aimbot, and Wallhack.</p>
-            <div class="feature-chips">
-                <span class="chip"><i>●</i> ESP Line</span>
-                <span class="chip"><i>●</i> Aimbot</span>
-                <span class="chip"><i>●</i> Wallhack</span>
-                <span class="chip"><i>●</i> No Recoil</span>
-                <span class="chip"><i>●</i> Anti-Ban</span>
-            </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-number">147,293</div>
+        <!-- ============ STATS ============ -->
+        <div class="stats-row">
+            <div class="stat-badge">
+                <div class="stat-value green">147,293</div>
                 <div class="stat-label">Total Downloads</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">92,841</div>
-                <div class="stat-label">Active Users</div>
+            <div class="stat-badge">
+                <div class="stat-value gold">4.9 ★</div>
+                <div class="stat-label">User Rating</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">0</div>
-                <div class="stat-label">Bans Reported</div>
+            <div class="stat-badge">
+                <div class="stat-value blue">320+</div>
+                <div class="stat-label">Mods Available</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">99.3%</div>
-                <div class="stat-label">Undetection Rate</div>
-            </div>
-        </div>
-
-        <!-- Step 1: Game -->
-        <div class="section-title">① SELECT YOUR GAME</div>
-        <div class="game-select">
-            <div class="game-option selected" data-game="freefire" onclick="selectGame(this)">
-                <span class="hot-tag">POPULAR</span>
-                <div class="icon">🔥</div>
-                <div class="name">Free Fire</div>
-                <div class="hack-type">ESP + AIMBOT</div>
-            </div>
-            <div class="game-option" data-game="pubg" onclick="selectGame(this)">
-                <div class="icon">🔫</div>
-                <div class="name">PUBG Mobile</div>
-                <div class="hack-type">ESP + WH</div>
-            </div>
-            <div class="game-option" data-game="codm" onclick="selectGame(this)">
-                <div class="icon">💀</div>
-                <div class="name">COD Mobile</div>
-                <div class="hack-type">AIMBOT + ESP</div>
+            <div class="stat-badge">
+                <div class="stat-value green">24/7</div>
+                <div class="stat-label">Support</div>
             </div>
         </div>
 
-        <!-- Step 2: Features -->
-        <div class="section-title">② SELECT HACK FEATURES</div>
-        <div class="features-grid">
-            <div class="feature-card selected" data-feature="esp" onclick="toggleFeature(this)">
-                <div class="feature-icon">👁️</div>
-                <div class="feature-info">
-                    <h4>ESP Hack (See Through Walls)</h4>
-                    <p>See enemy location, health, name, and distance through any obstacle.</p>
-                </div>
-                <div class="feature-check">✓</div>
+        <!-- ============ CATEGORY TABS ============ -->
+        <div class="category-tabs">
+            <div class="cat-tab active" data-cat="all" onclick="filterCategory('all', this)">
+                <span class="tab-icon">🏠</span> All
             </div>
-            <div class="feature-card selected" data-feature="aimbot" onclick="toggleFeature(this)">
-                <div class="feature-icon">🎯</div>
-                <div class="feature-info">
-                    <h4>Auto Aimbot</h4>
-                    <p>Auto-lock on enemy heads. Adjustable FOV and smoothness.</p>
-                </div>
-                <div class="feature-check">✓</div>
+            <div class="cat-tab" data-cat="games" onclick="filterCategory('games', this)">
+                <span class="tab-icon">🎮</span> Games
             </div>
-            <div class="feature-card" data-feature="wallhack" onclick="toggleFeature(this)">
-                <div class="feature-icon">🧱</div>
-                <div class="feature-info">
-                    <h4>Wallhack (No Clip)</h4>
-                    <p>Shoot through walls. Bypass any obstacle on the map.</p>
-                </div>
-                <div class="feature-check">✓</div>
+            <div class="cat-tab" data-cat="apps" onclick="filterCategory('apps', this)">
+                <span class="tab-icon">📱</span> Apps
             </div>
-            <div class="feature-card" data-feature="antiban" onclick="toggleFeature(this)">
-                <div class="feature-icon">🛡️</div>
-                <div class="feature-info">
-                    <h4>Anti-Ban Shield</h4>
-                    <p>Spoof device ID and bypass game's anti-cheat detection system.</p>
-                </div>
-                <div class="feature-check">✓</div>
+            <div class="cat-tab" data-cat="streaming" onclick="filterCategory('streaming', this)">
+                <span class="tab-icon">🎬</span> Streaming
+            </div>
+            <div class="cat-tab" data-cat="social" onclick="filterCategory('social', this)">
+                <span class="tab-icon">💬</span> Social
+            </div>
+            <div class="cat-tab" data-cat="tools" onclick="filterCategory('tools', this)">
+                <span class="tab-icon">🔧</span> Tools
             </div>
         </div>
 
-        <!-- Step 3: Device -->
-        <div class="section-title">③ YOUR DEVICE</div>
-        <div class="device-select">
-            <div class="device-opt selected" data-device="android" onclick="selectDevice(this)">
-                <div class="dev-icon">🤖</div>
-                <div class="dev-name">Android</div>
-                <div class="dev-sub">APK + OBB</div>
-            </div>
-            <div class="device-opt" data-device="ios" onclick="selectDevice(this)">
-                <div class="dev-icon">🍎</div>
-                <div class="dev-name">iOS</div>
-                <div class="dev-sub">IPA (No JB)</div>
+        <!-- ============ FEATURED BANNER ============ -->
+        <div class="featured-banner">
+            <div class="featured-icon">🔥</div>
+            <div class="featured-info">
+                <h3>Dragon Ball Legends Mod v5.10.0</h3>
+                <p>Unlimited Crystals, God Mode, One Hit Kill, All Characters Unlocked. Updated today!</p>
+                <button class="featured-cta" onclick="openLocker('Dragon Ball Legends Mod', 'https://example-download.com/dragonball-legends')">Download Now</button>
             </div>
         </div>
 
-        <!-- Step 4: Email -->
-        <div class="section-title">④ VERIFY & DOWNLOAD</div>
-        <div class="input-group">
-            <label>Email Address (Required for License Key)</label>
-            <input type="email" id="emailInput" placeholder="your@email.com">
-            <div class="input-hint">▸ We'll send your <strong>unique license key</strong> + download link to this email.</div>
+        <!-- ============ TRENDING GAMES ============ -->
+        <div class="section-header">
+            <div class="section-title">
+                <span class="icon-box icon-games">🎮</span> Trending Games
+            </div>
+            <a href="#" class="section-link">View All Games →</a>
         </div>
 
-        <button class="btn-download glitch" id="btnDownload" onclick="startDownload()">
-            ⚡ GENERATE INJECTOR + LICENSE KEY ⚡
-        </button>
-
-        <!-- Trust Strip -->
-        <div class="trust-strip">
-            <span><span class="trust-icon">●</span> Undetected v9.0</span>
-            <span><span class="trust-icon">●</span> No Root/JB</span>
-            <span><span class="trust-icon">●</span> Free Updates</span>
-            <span><span class="trust-icon">●</span> 24/7 Support</span>
+        <div class="app-grid" id="gamesGrid">
+            <!-- Generated by JS -->
         </div>
 
-        <!-- Warning -->
-        <div class="warning-box">
-            <strong>⚠ IMPORTANT:</strong> This injector is for <strong>educational purposes only</strong>. Using hacks may violate the game's Terms of Service. Use at your own risk. We recommend using a <strong>guest account</strong> first to test functionality.
+        <!-- ============ TOP APPS ============ -->
+        <div class="section-header">
+            <div class="section-title">
+                <span class="icon-box icon-apps">📱</span> Top Modded Apps
+            </div>
+            <a href="#" class="section-link">View All Apps →</a>
         </div>
 
-        <!-- How It Works -->
-        <div class="section-title">📋 HOW IT WORKS</div>
-        <div class="steps-vertical">
-            <div class="step-item">
-                <div class="step-num">1</div>
-                <div class="step-content">
-                    <h4>Select your game & features</h4>
-                    <p>Choose which hacks you want activated. Our injector builds a custom version for you.</p>
-                </div>
-            </div>
-            <div class="step-item">
-                <div class="step-num">2</div>
-                <div class="step-content">
-                    <h4>Verify your email</h4>
-                    <p>We send a unique license key to your email. This binds the injector to your device.</p>
-                </div>
-            </div>
-            <div class="step-item">
-                <div class="step-num">3</div>
-                <div class="step-content">
-                    <h4>Download & install</h4>
-                    <p>Get the APK/IPA file, install, enter your license key, and activate the hacks.</p>
-                </div>
-            </div>
-            <div class="step-item">
-                <div class="step-num">4</div>
-                <div class="step-content">
-                    <h4>Launch game & dominate</h4>
-                    <p>Open the game through the injector. ESP and Aimbot activate automatically.</p>
-                </div>
-            </div>
+        <div class="app-grid" id="appsGrid">
+            <!-- Generated by JS -->
         </div>
 
-        <!-- Live Feed - Fake Recent Activations -->
-        <div class="live-feed">
-            <div class="live-feed-title">🟢 LIVE ACTIVATIONS</div>
-            <div id="liveFeed">
-                <!-- Populated by JS -->
+        <!-- ============ MORE TOOLS ============ -->
+        <div class="section-header">
+            <div class="section-title">
+                <span class="icon-box icon-trending">🔧</span> Essential Tools
             </div>
+            <a href="#" class="section-link">View All Tools →</a>
+        </div>
+
+        <div class="app-grid" id="toolsGrid">
+            <!-- Generated by JS -->
         </div>
 
     </div>
 
-    <!-- Processing Overlay -->
-    <div class="overlay" id="overlay">
-        <div class="overlay-box">
-            <div class="overlay-icon" id="ovIcon">⚙️</div>
-            <div class="overlay-title" id="ovTitle">Building Your Injector...</div>
-            <div class="overlay-sub" id="ovSub">This will take a few moments</div>
-            <div class="overlay-progress">
-                <div class="overlay-progress-fill" id="ovProgress"></div>
+    <!-- ============ CPA LOCKER OVERLAY ============ -->
+    <div class="locker-overlay" id="lockerOverlay">
+        <div class="locker-dialog">
+            <button class="locker-close" onclick="closeLocker()">✕</button>
+            <div class="locker-lock-icon">🔒</div>
+            <div class="locker-title">Content Locked</div>
+            <div class="locker-app-name" id="lockerAppName">App Name</div>
+            <div class="locker-desc">
+                Complete <strong>1 simple verification</strong> to unlock your download link. This helps us keep the mods free and prevent bots.
             </div>
-            <div class="overlay-log" id="ovLog">
-                <div class="line">$ init injector_builder v9.0.1</div>
+
+            <div class="locker-offer-box">
+                <div class="offer-title">📋 Verification Steps:</div>
+                <div class="offer-step">
+                    <span class="step-num">1</span> Click the "Verify & Unlock" button below
+                </div>
+                <div class="offer-step">
+                    <span class="step-num">2</span> Complete the simple offer (email or app install)
+                </div>
+                <div class="offer-step">
+                    <span class="step-num">3</span> Download link will appear automatically
+                </div>
             </div>
+
+            <div class="locker-progress">
+                <div class="locker-progress-fill" id="lockerProgress"></div>
+            </div>
+
+            <button class="btn-unlock" id="btnUnlock" onclick="startVerification()">
+                🔓 VERIFY & UNLOCK DOWNLOAD
+            </button>
+
+            <a class="locker-download-link" id="lockerDownloadLink" href="#" target="_blank">
+                ✅ DOWNLOAD NOW → (Link Unlocked)
+            </a>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>© 2026 GamingMode. All rights reserved. | Not affiliated with Garena, Tencent, or Activision.</p>
-        <p><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">DMCA</a> · <a href="#">Contact</a></p>
-    </div>
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">DMCA</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Telegram</a>
+            </div>
+            <p>© 2026 ModHub Pro. All mods are for educational purposes. We are not affiliated with any game developer.</p>
+            <p style="margin-top:5px; color:#444;">Disclaimer: This is a third-party mod store. Use at your own risk.</p>
+        </div>
+    </footer>
 
     <script>
-        const state = {
-            game: 'freefire',
-            features: ['esp', 'aimbot'],
-            device: 'android',
-            email: ''
-        };
+        // ============ APP DATA ============
+        const appsData = [
+            // GAMES
+            { name: 'Dragon Ball Legends', version: 'v5.10.0 Mod', icon: '🐉', cat: 'games', badge: 'hot', badgeText: 'HOT', rating: '4.9', downloads: '124K', mod: 'Unlimited Crystals + God Mode', dl: 'https://example-dl.com/dragonball-legends' },
+            { name: 'Pokémon UNITE', version: 'v2.0.3 Mod', icon: '⚡', cat: 'games', badge: 'new', badgeText: 'NEW', rating: '4.8', downloads: '98K', mod: 'Unlimited Aeos Gems', dl: 'https://example-dl.com/pokemon-unite' },
+            { name: 'Baseball 9', version: 'v4.2.8 Mod', icon: '⚾', cat: 'games', badge: 'trending', badgeText: 'TRENDING', rating: '4.7', downloads: '87K', mod: 'Unlimited Gems + Stamina', dl: 'https://example-dl.com/baseball9' },
+            { name: '8 Ball Pool', version: 'v55.9.0 Mod', icon: '🎱', cat: 'games', badge: 'hot', badgeText: 'HOT', rating: '4.9', downloads: '256K', mod: 'Long Line + Auto Win', dl: 'https://example-dl.com/8ballpool' },
+            { name: 'Free Fire MAX', version: 'v2.103.1 Mod', icon: '🔥', cat: 'games', badge: 'hot', badgeText: 'HOT', rating: '4.6', downloads: '312K', mod: 'ESP Hack + Aimbot', dl: 'https://example-dl.com/freefire' },
+            { name: 'PUBG Mobile', version: 'v3.3.0 Mod', icon: '🔫', cat: 'games', badge: 'trending', badgeText: 'TRENDING', rating: '4.5', downloads: '198K', mod: 'ESP + Wallhack + Aimbot', dl: 'https://example-dl.com/pubgm' },
+            { name: 'Mobile Legends', version: 'v1.8.9 Mod', icon: '⚔️', cat: 'games', badge: 'new', badgeText: 'NEW', rating: '4.7', downloads: '145K', mod: 'Map Hack + Unlock Skins', dl: 'https://example-dl.com/mlbb' },
+            { name: 'Clash Royale', version: 'v6.2.1 Mod', icon: '👑', cat: 'games', badge: 'hot', badgeText: 'HOT', rating: '4.8', downloads: '178K', mod: 'Unlimited Gems + Gold', dl: 'https://example-dl.com/clashroyale' },
+            { name: 'Subway Surfers', version: 'v3.36.0 Mod', icon: '🏃', cat: 'games', badge: 'trending', badgeText: 'TRENDING', rating: '4.4', downloads: '420K', mod: 'Unlimited Coins + Keys', dl: 'https://example-dl.com/subwaysurfers' },
+            { name: 'Genshin Impact', version: 'v5.3.0 Mod', icon: '🗡️', cat: 'games', badge: 'vip', badgeText: 'VIP', rating: '4.9', downloads: '89K', mod: 'God Mode + Unlimited Primogems', dl: 'https://example-dl.com/genshin' },
+            { name: 'Call of Duty Mobile', version: 'v1.25.0 Mod', icon: '💀', cat: 'games', badge: 'hot', badgeText: 'HOT', rating: '4.6', downloads: '156K', mod: 'ESP + Aimbot + Radar', dl: 'https://example-dl.com/codm' },
+            { name: 'Roblox', version: 'v2.645.0 Mod', icon: '🎮', cat: 'games', badge: 'trending', badgeText: 'TRENDING', rating: '4.3', downloads: '512K', mod: 'Infinite Robux + God Mode', dl: 'https://example-dl.com/roblox' },
 
-        document.getElementById('currentDate').textContent = new Date().toISOString().split('T')[0];
-
-        // Game Selection
-        function selectGame(el) {
-            document.querySelectorAll('.game-option').forEach(g => g.classList.remove('selected'));
-            el.classList.add('selected');
-            state.game = el.dataset.game;
-        }
-
-        // Feature Toggle
-        function toggleFeature(el) {
-            const feat = el.dataset.feature;
-            if (state.features.includes(feat)) {
-                state.features = state.features.filter(f => f !== feat);
-                el.classList.remove('selected');
-            } else {
-                state.features.push(feat);
-                el.classList.add('selected');
-            }
-        }
-
-        // Device Selection
-        function selectDevice(el) {
-            document.querySelectorAll('.device-opt').forEach(d => d.classList.remove('selected'));
-            el.classList.add('selected');
-            state.device = el.dataset.device;
-        }
-
-        // Download Process
-        function startDownload() {
-            state.email = document.getElementById('emailInput').value.trim();
-            
-            if (!state.email) {
-                alert('Please enter your email address to receive the license key.');
-                document.getElementById('emailInput').focus();
-                return;
-            }
-            
-            if (!state.email.includes('@') || !state.email.includes('.')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // Show overlay
-            document.getElementById('overlay').classList.add('show');
-            document.getElementById('btnDownload').classList.add('downloading');
-            
-            const logs = [
-                { time: 300, msg: '$ initializing build environment...' },
-                { time: 800, msg: '$ fetching latest game offsets for ' + state.game + '...' },
-                { time: 1500, msg: '$ offset found: 0x7F4A2B1C - ' + state.game.toUpperCase() + ' v2.103.1' },
-                { time: 2200, msg: '$ injecting ESP Hook into libil2cpp.so...' },
-                { time: 2900, msg: '$ patching Aimbot function at 0x3B9D4E2A...' },
-                { time: 3500, msg: '$ applying Anti-Ban shield module...' },
-                { time: 4100, msg: '$ generating unique license key: GM-' + Math.random().toString(36).substring(2,10).toUpperCase() + '-2026' },
-                { time: 4800, msg: '$ building ' + (state.device === 'android' ? 'APK' : 'IPA') + ' package...' },
-                { time: 5500, msg: '$ compression complete. Size: 47.3 MB' },
-                { time: 6200, msg: '$ ✓ BUILD SUCCESSFUL. License sent to ' + state.email },
-                { time: 6500, msg: '$ redirecting to download portal...' }
-            ];
-
-            logs.forEach(log => {
-                setTimeout(() => {
-                    const logEl = document.getElementById('ovLog');
-                    const line = document.createElement('div');
-                    line.className = 'line';
-                    line.textContent = log.msg;
-                    logEl.appendChild(line);
-                    logEl.scrollTop = logEl.scrollHeight;
-                    document.getElementById('ovProgress').style.width = (logs.indexOf(log) / logs.length * 100) + '%';
-                    
-                    if (logs.indexOf(log) === logs.length - 1) {
-                        document.getElementById('ovIcon').textContent = '✅';
-                        document.getElementById('ovTitle').textContent = 'License Key Sent!';
-                        document.getElementById('ovSub').textContent = 'Check your email: ' + state.email;
-                    }
-                }, log.time);
-            });
-
-            // Close overlay
-            setTimeout(() => {
-                document.getElementById('overlay').classList.remove('show');
-                document.getElementById('btnDownload').textContent = '✅ LICENSE SENT - CHECK EMAIL';
-                document.getElementById('btnDownload').style.background = '#00aa30';
-                document.getElementById('btnDownload').disabled = true;
-            }, 7000);
-        }
-
-        // Live Feed Data
-        const feedData = [
-            { user: 'NightHawk_FF', game: 'Free Fire', text: 'ESP working perfectly! Getting consistent Booyahs 🔥', time: 'just now', color: '#ff6d00' },
-            { user: 'SniperKing99', game: 'PUBG Mobile', text: 'Wallhack is insane bro. Chicken dinner every game', time: '1 min ago', color: '#ffaa00' },
-            { user: 'CODBeast_YT', game: 'COD Mobile', text: 'Aimbot is smooth af. No ban after 2 weeks', time: '2 min ago', color: '#00bfff' },
-            { user: 'xXDarkWolfXx', game: 'Free Fire', text: 'Finally an injector that actually works. ESP is 🔥', time: '4 min ago', color: '#ff6d00' },
-            { user: 'ProGamer_Alex', game: 'PUBG Mobile', text: 'v9.0 fixed the crash issue. Perfect now!', time: '5 min ago', color: '#ffaa00' },
-            { user: 'iosHackMaster', game: 'Free Fire', text: 'Works on iOS 18 without jailbreak!! Finally!', time: '7 min ago', color: '#ff6d00' },
-            { user: 'YT_ShadowClaw', game: 'COD Mobile', text: 'Just reached Legendary rank with this 💀', time: '10 min ago', color: '#00bfff' },
+            // APPS
+            { name: 'CupCut Pro', version: 'v13.5.0 Mod', icon: '✂️', cat: 'apps', badge: 'hot', badgeText: 'HOT', rating: '4.9', downloads: '234K', mod: 'No Watermark + Pro Unlocked', dl: 'https://example-dl.com/cupcut' },
+            { name: 'TikTok Mod', version: 'v36.0.1 Mod', icon: '🎵', cat: 'social', badge: 'hot', badgeText: 'HOT', rating: '4.8', downloads: '445K', mod: 'No Ads + Download Videos', dl: 'https://example-dl.com/tiktok' },
+            { name: 'Spotify Premium', version: 'v9.0.2 Mod', icon: '🎧', cat: 'streaming', badge: 'vip', badgeText: 'VIP', rating: '4.9', downloads: '678K', mod: 'Premium Unlocked + No Ads', dl: 'https://example-dl.com/spotify' },
+            { name: 'YouTube Premium', version: 'v20.08 Mod', icon: '▶️', cat: 'streaming', badge: 'hot', badgeText: 'HOT', rating: '4.8', downloads: '523K', mod: 'No Ads + Background Play', dl: 'https://example-dl.com/youtube' },
+            { name: 'Netflix Premium', version: 'v11.2.0 Mod', icon: '🎬', cat: 'streaming', badge: 'vip', badgeText: 'VIP', rating: '4.7', downloads: '345K', mod: 'All Regions Unlocked', dl: 'https://example-dl.com/netflix' },
+            { name: 'CapCut Pro', version: 'v13.5.0 Mod', icon: '🎞️', cat: 'apps', badge: 'new', badgeText: 'NEW', rating: '4.8', downloads: '198K', mod: 'Pro Features Unlocked', dl: 'https://example-dl.com/capcut' },
+            { name: 'Alight Motion Pro', version: 'v5.6.0 Mod', icon: '🎬', cat: 'apps', badge: 'trending', badgeText: 'TRENDING', rating: '4.7', downloads: '167K', mod: 'Pro Unlocked + No Watermark', dl: 'https://example-dl.com/alightmotion' },
+            { name: 'PicsArt Gold', version: 'v24.1.0 Mod', icon: '🎨', cat: 'apps', badge: 'hot', badgeText: 'HOT', rating: '4.6', downloads: '289K', mod: 'Gold Unlocked + No Ads', dl: 'https://example-dl.com/picsart' },
+            { name: 'Instagram Pro', version: 'v350.0 Mod', icon: '📷', cat: 'social', badge: 'new', badgeText: 'NEW', rating: '4.7', downloads: '378K', mod: 'Download Media + No Ads', dl: 'https://example-dl.com/instagram' },
+            { name: 'WhatsApp Plus', version: 'v17.88 Mod', icon: '💬', cat: 'social', badge: 'trending', badgeText: 'TRENDING', rating: '4.5', downloads: '456K', mod: 'Anti-Delete + Themes', dl: 'https://example-dl.com/whatsapp' },
+            { name: 'ExpressVPN Premium', version: 'v12.4.0 Mod', icon: '🔒', cat: 'tools', badge: 'vip', badgeText: 'VIP', rating: '4.8', downloads: '234K', mod: 'Premium Unlocked', dl: 'https://example-dl.com/expressvpn' },
+            { name: 'Adobe Lightroom', version: 'v9.0.1 Mod', icon: '📸', cat: 'apps', badge: 'hot', badgeText: 'HOT', rating: '4.9', downloads: '312K', mod: 'Premium Presets Unlocked', dl: 'https://example-dl.com/lightroom' },
         ];
 
-        function buildFeed() {
-            const container = document.getElementById('liveFeed');
-            feedData.forEach(f => {
-                const div = document.createElement('div');
-                div.className = 'feed-item';
-                div.innerHTML = `
-                    <div class="feed-avatar" style="background:#111; color:${f.color};">${f.user[0]}</div>
-                    <div class="feed-body">
-                        <div class="feed-user">${f.user} <span class="feed-badge">VERIFIED</span> <span class="feed-time">· ${f.time}</span></div>
-                        <div class="feed-text">${f.text}</div>
-                        <span class="feed-game">${f.game}</span>
+        let currentCategory = 'all';
+        let currentLockerUrl = '';
+
+        // ============ RENDER FUNCTIONS ============
+        function renderCard(app) {
+            const badgeClass = 'badge-' + app.badge;
+            return `
+                <div class="app-card" data-cat="${app.cat}">
+                    <span class="card-badge ${badgeClass}">${app.badgeText}</span>
+                    <div class="card-icon">${app.icon}</div>
+                    <div class="card-name">${app.name}</div>
+                    <div class="card-version">${app.version}</div>
+                    <div class="card-meta">
+                        <span><span class="meta-star">★</span> ${app.rating}</span>
+                        <span>↓ ${app.downloads}</span>
                     </div>
-                `;
-                container.appendChild(div);
+                    <div class="card-buttons">
+                        <button class="btn-dl btn-android" onclick="openLocker('${app.name}', '${app.dl}')">
+                            🤖 Android
+                        </button>
+                        <button class="btn-dl btn-ios" onclick="openLocker('${app.name}', '${app.dl}')">
+                            🍎 iOS
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAll() {
+            const gamesGrid = document.getElementById('gamesGrid');
+            const appsGrid = document.getElementById('appsGrid');
+            const toolsGrid = document.getElementById('toolsGrid');
+
+            const games = appsData.filter(a => a.cat === 'games');
+            const apps = appsData.filter(a => ['apps', 'streaming', 'social'].includes(a.cat));
+            const tools = appsData.filter(a => a.cat === 'tools');
+
+            gamesGrid.innerHTML = games.map(renderCard).join('');
+            appsGrid.innerHTML = apps.map(renderCard).join('');
+            toolsGrid.innerHTML = tools.map(renderCard).join('');
+        }
+
+        // ============ FILTER ============
+        function filterCategory(cat, btn) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.app-card').forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide sections
+            document.getElementById('gamesGrid').parentElement.style.display = (cat === 'all' || cat === 'games') ? '' : 'none';
+            document.getElementById('appsGrid').parentElement.style.display = (cat === 'all' || ['apps', 'streaming', 'social'].includes(cat)) ? '' : 'none';
+            document.getElementById('toolsGrid').parentElement.style.display = (cat === 'all' || cat === 'tools') ? '' : 'none';
+            
+            // Hide section headers when filtering
+            document.querySelectorAll('.section-header').forEach(h => {
+                if (cat === 'all') h.style.display = '';
+                else h.style.display = 'none';
             });
         }
-        buildFeed();
 
-        // Rotate online counter
-        setInterval(() => {
-            const el = document.getElementById('onlineNow');
-            if (el) el.textContent = Math.floor(Math.random() * 1500 + 1800).toLocaleString();
-        }, 6000);
+        // ============ CPA LOCKER ============
+        function openLocker(appName, downloadUrl) {
+            currentLockerUrl = downloadUrl;
+            document.getElementById('lockerAppName').textContent = appName + ' (' + (downloadUrl.includes('games') ? 'Game' : 'App') + ')';
+            document.getElementById('lockerProgress').style.width = '0%';
+            document.getElementById('btnUnlock').textContent = '🔓 VERIFY & UNLOCK DOWNLOAD';
+            document.getElementById('btnUnlock').classList.remove('done');
+            document.getElementById('lockerDownloadLink').classList.remove('show');
+            document.getElementById('lockerOverlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
 
-        // Console Warning
-        console.log('%c⚠ STOP %cThis is a developer console. Do not paste anything here.', 'color:red; font-size:20px;', 'color:#ccc;');
+        function closeLocker() {
+            document.getElementById('lockerOverlay').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        function startVerification() {
+            const progressBar = document.getElementById('lockerProgress');
+            const btn = document.getElementById('btnUnlock');
+            const dlLink = document.getElementById('lockerDownloadLink');
+
+            btn.textContent = '⏳ PROCESSING...';
+            btn.classList.add('done');
+            btn.disabled = true;
+
+            let progress = 0;
+            const stages = [
+                { pct: 20, delay: 600 },
+                { pct: 40, delay: 1200 },
+                { pct: 60, delay: 1800 },
+                { pct: 80, delay: 2400 },
+                { pct: 100, delay: 3000 },
+            ];
+
+            stages.forEach(stage => {
+                setTimeout(() => {
+                    progressBar.style.width = stage.pct + '%';
+                }, stage.delay);
+            });
+
+            // Simulate redirect to CPA offer then unlock
+            setTimeout(() => {
+                // In real implementation, redirect to CPA locker URL
+                // window.location.href = 'YOUR_CPA_LOCKER_URL_HERE';
+                
+                // For demo: simulate completion
+                btn.textContent = '✅ VERIFICATION COMPLETE';
+                dlLink.href = currentLockerUrl;
+                dlLink.classList.add('show');
+                progressBar.style.width = '100%';
+            }, 3500);
+        }
+
+        // ============ SEARCH ============
+        function searchMods() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!query) {
+                renderAll();
+                return;
+            }
+            const filtered = appsData.filter(a => 
+                a.name.toLowerCase().includes(query) || 
+                a.mod.toLowerCase().includes(query) ||
+                a.cat.includes(query)
+            );
+            document.getElementById('gamesGrid').innerHTML = filtered.map(renderCard).join('');
+            document.getElementById('appsGrid').innerHTML = '';
+            document.getElementById('toolsGrid').innerHTML = '';
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchMods();
+        });
+
+        // Close locker on overlay click
+        document.getElementById('lockerOverlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('lockerOverlay')) closeLocker();
+        });
+
+        // Close locker on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLocker();
+        });
+
+        // ============ INIT ============
+        renderAll();
+
+        // Console protection
+        console.log('%c⚠️ STOP %cThis browser feature is for developers only.', 'color:red; font-size:24px;', 'color:#ccc; font-size:14px;');
+        console.log('%cModHub Pro v2.0 %c| %c320+ Mods %c| %c100% Working', 'color:#ff4757;', 'color:#ccc;', 'color:#2ed573;', 'color:#ccc;', 'color:#1e90ff;');
     </script>
+
 </body>
 </html>
