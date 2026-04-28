@@ -1,19 +1,19 @@
 <!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>FAQ - ooQleMod</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>
-:root[data-theme="dark"]{--bg:#06080d;--surface:rgba(18,22,32,0.8);--border:rgba(255,255,255,0.05);--border2:rgba(255,255,255,0.08);--text:#e8eaed;--text2:#9aa0b0;--text3:#6b7280;--accent:#3b82f6;--accent2:#60a5fa;--success:#22c55e}
-:root[data-theme="light"]{--bg:#f0f2f5;--surface:rgba(255,255,255,0.85);--border:rgba(0,0,0,0.06);--border2:rgba(0,0,0,0.1);--text:#0f172a;--text2:#475569;--text3:#94a3b8;--accent:#2563eb;--accent2:#3b82f6;--success:#16a34a}
+:root[data-theme="dark"]{--bg:#0a0e27;--surface:rgba(20,25,55,0.85);--border:rgba(255,255,255,0.05);--border2:rgba(255,255,255,0.08);--text:#fff;--text2:#b0b8d0;--text3:#6e7590;--accent:#FF3B30;--accent2:#ff5a4f;--success:#00C853}
+:root[data-theme="light"]{--bg:#f2f3f7;--surface:rgba(255,255,255,0.9);--border:rgba(0,0,0,0.05);--border2:rgba(0,0,0,0.08);--text:#0a0e27;--text2:#3d4560;--text3:#7c83a0;--accent:#d6302b;--accent2:#e8403b;--success:#00a844}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background 0.4s,color 0.4s}
 .page-container{max-width:700px;margin:0 auto;padding:20px 16px 60px;position:relative;z-index:1}
 .header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);margin-bottom:20px}
 .logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px;text-decoration:none;color:var(--text)}
-.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#3b82f6,#2563eb);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#FF3B30,#d6302b);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;font-weight:800}
 .back-link{color:var(--accent2);text-decoration:none;font-weight:600;font-size:14px}
 h1{font-size:28px;font-weight:900;margin-bottom:6px}
 .subtitle{color:var(--text2);margin-bottom:24px;font-size:14px}
 .categories{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .cat-btn{padding:6px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border2);color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s}
 .cat-btn.active,.cat-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:8px;overflow:hidden;transition:all 0.3s}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:8px;overflow:hidden}
 .faq-q{padding:16px 18px;font-weight:700;font-size:14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
 .faq-q:hover{color:var(--accent2)}
 .faq-q .arrow{transition:transform 0.3s;font-size:12px;color:var(--text3)}
@@ -26,49 +26,29 @@ h1{font-size:28px;font-weight:900;margin-bottom:6px}
 </style></head><body><div class="page-container">
 <div class="header"><a href="index.html" class="logo"><div class="logo-icon">oo</div><span>ooQleMod</span></a><a href="index.html" class="back-link">← Back</a></div>
 <h1>🙋 Frequently Asked Questions</h1><p class="subtitle">Find answers to the most common questions about our modded apps and games.</p>
-
 <div class="categories">
 <div class="cat-btn active" onclick="filterFAQ('all',this)">All</div>
 <div class="cat-btn" onclick="filterFAQ('download',this)">📥 Download</div>
 <div class="cat-btn" onclick="filterFAQ('install',this)">📱 Install</div>
 <div class="cat-btn" onclick="filterFAQ('safety',this)">🛡️ Safety</div>
-<div class="cat-btn" onclick="filterFAQ('account',this)">👤 Account</div>
 <div class="cat-btn" onclick="filterFAQ('other',this)">📋 Other</div>
 </div>
-
 <div id="faqContainer">
-<div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I download a modded app? <span class="arrow">▼</span></div><div class="faq-a">Navigate to the app or game you want, tap the download button, complete the verification step, and the download link will be provided. The verification helps us keep the service free.</div></div>
-<div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why do I need to complete a verification? <span class="arrow">▼</span></div><div class="faq-a">Verification helps prevent bots and abuse, ensuring that real users get access. It also supports our service so we can continue providing free mods.</div></div>
-<div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a direct download without verification? <span class="arrow">▼</span></div><div class="faq-a">Currently, all downloads require verification. This is standard practice among mod stores to maintain the service. VIP users may get priority access in the future.</div></div>
-<div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I install an APK on Android? <span class="arrow">▼</span></div><div class="faq-a">1. Download the APK file.<br>2. Go to Settings > Security > Enable "Unknown Sources".<br>3. Open the downloaded APK and tap "Install".<br>4. If there's an OBB file, extract it to Android/obb/[package-name]/.</div></div>
-<div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I install on iOS (iPhone/iPad)? <span class="arrow">▼</span></div><div class="faq-a">iOS mods typically require a third-party installer like AltStore, Sideloadly, or Scarlet. Follow the specific guide provided with each app. No jailbreak is required for most mods.</div></div>
-<div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">The app won't install — what should I do? <span class="arrow">▼</span></div><div class="faq-a">• Ensure "Unknown Sources" is enabled (Android).<br>• Check you have enough storage space.<br>• Disable Play Protect temporarily.<br>• Make sure you downloaded the correct version for your device.<br>• Try clearing cache and restarting your device.</div></div>
-<div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are these mods safe to use? <span class="arrow">▼</span></div><div class="faq-a">All mods on ooQleMod are tested before being listed. However, mods are third-party modifications and come with inherent risks. We recommend using a secondary account for testing first.</div></div>
-<div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I get banned for using mods? <span class="arrow">▼</span></div><div class="faq-a">Yes, there is always a risk of account bans when using modified applications. We recommend using guest/alt accounts for mods, especially in online multiplayer games. ooQleMod is not responsible for any bans.</div></div>
-<div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do these mods contain viruses? <span class="arrow">▼</span></div><div class="faq-a">We scan all files before listing. However, some antivirus programs may flag modded APKs as "riskware" because they are modified. This is usually a false positive. Always download from trusted sources.</div></div>
-<div class="faq-item" data-cat="account"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need an account to download? <span class="arrow">▼</span></div><div class="faq-a">No account is required. Simply browse, select your mod, complete the verification, and download. We don't require registration.</div></div>
-<div class="faq-item" data-cat="account"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the VIP membership? <span class="arrow">▼</span></div><div class="faq-a">VIP membership is coming soon! It will offer priority downloads, no verification steps, exclusive mods, and faster support. Stay tuned for updates.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How often are mods updated? <span class="arrow">▼</span></div><div class="faq-a">We update mods as soon as new versions are available. Check back regularly or look for the "NEW" badge on recently updated apps. Most mods are updated within 48 hours of the official release.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I request a specific mod? <span class="arrow">▼</span></div><div class="faq-a">Yes! Use our <a href="contact.html" style="color:var(--accent2)">Contact page</a> and select "Mod Request" as the subject. Tell us what you're looking for and we'll try to find it.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">The mod is not working — what now? <span class="arrow">▼</span></div><div class="faq-a">1. Ensure you have the latest version.<br>2. Check if the game itself has been updated (which may break the mod).<br>3. Restart your device.<br>4. Contact us via the Contact page with details about your device and the issue.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is ooQleMod free to use? <span class="arrow">▼</span></div><div class="faq-a">Yes! ooQleMod is completely free. We are supported by the verification offers you complete before downloading. You never pay us directly.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What devices are supported? <span class="arrow">▼</span></div><div class="faq-a">Most mods support Android 6.0+ and iOS 14+. Some mods may require higher versions. Check the specific app page for device requirements. We support phones and tablets.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use these mods offline? <span class="arrow">▼</span></div><div class="faq-a">It depends on the game. Offline games work perfectly. Online multiplayer games require an internet connection, and mod features may be limited when the game server detects modifications.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I report a broken link? <span class="arrow">▼</span></div><div class="faq-a">Use our Contact page and select "Download Issue" as the subject. Include the name of the app and the broken link. We'll fix it within 24 hours.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do you have a Telegram channel? <span class="arrow">▼</span></div><div class="faq-a">Yes! Join our Telegram channel for instant updates on new mods, fixes, and exclusive content. Check the header of our main page for the link.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How can I support ooQleMod? <span class="arrow">▼</span></div><div class="faq-a">The best way to support us is by sharing our site with friends, joining our Telegram, and completing the verification offers when downloading. This keeps the service free for everyone!</div></div>
+<div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I download a modded app? <span class="arrow">▼</span></div><div class="faq-a">Navigate to the app, tap download, complete verification, and get your link.</div></div>
+<div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is verification required? <span class="arrow">▼</span></div><div class="faq-a">It prevents bots and keeps the service free for real users.</div></div>
+<div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How to install APK on Android? <span class="arrow">▼</span></div><div class="faq-a">Enable "Unknown Sources" in Settings, open the APK, tap Install.</div></div>
+<div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How to install on iOS? <span class="arrow">▼</span></div><div class="faq-a">Use AltStore, Sideloadly, or Scarlet. No jailbreak required.</div></div>
+<div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are mods safe? <span class="arrow">▼</span></div><div class="faq-a">All mods are tested. We recommend using a guest account first.</div></div>
+<div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I get banned? <span class="arrow">▼</span></div><div class="faq-a">There's always a risk with mods in online games. Use alt accounts.</div></div>
+<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How often are mods updated? <span class="arrow">▼</span></div><div class="faq-a">Within 48 hours of official release.</div></div>
+<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I request a specific mod? <span class="arrow">▼</span></div><div class="faq-a">Yes! Use our <a href="contact.html" style="color:var(--accent2)">Contact page</a>.</div></div>
+<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is ooQleMod free? <span class="arrow">▼</span></div><div class="faq-a">Yes! Completely free. Supported by verification offers.</div></div>
+<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What devices are supported? <span class="arrow">▼</span></div><div class="faq-a">Android 6.0+ and iOS 14+. Phones and tablets.</div></div>
 </div>
-
-<div class="footer"><p>© 2026 ooQleMod. All rights reserved.</p><p><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="dmca.html">DMCA</a> · <a href="contact.html">Contact</a></p></div>
+<div class="footer"><p>© 2026 ooQleMod.</p><p><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="dmca.html">DMCA</a> · <a href="contact.html">Contact</a></p></div>
 </div>
 <script>
-function filterFAQ(cat,btn){
-    document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.faq-item').forEach(item=>{
-        item.style.display=(cat==='all'||item.dataset.cat===cat)?'':'none';
-    });
-}
+function filterFAQ(cat,btn){document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.faq-item').forEach(item=>{item.style.display=(cat==='all'||item.dataset.cat===cat)?'':'none'});}
 (function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark')})()
 </script>
 </body></html>
