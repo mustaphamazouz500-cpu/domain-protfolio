@@ -3,279 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="ooQleMod - Download Premium Modded Apps & Games. Pokémon Go Spoofer, 8 Ball Pool Mod, Baseball 9, Toca Boca World and more. 100% working mods.">
+    <meta name="description" content="ooQleMod - Download Premium Modded Apps & Games. Pokémon Go Spoofer, 8 Ball Pool Mod, Baseball 9, Toca Boca World and more.">
     <meta property="og:title" content="ooQleMod - Premium Modded Apps & Games">
-    <meta property="og:description" content="Download 100% working modded apps and games for Android & iOS. All mods verified and safe.">
-    <meta property="og:type" content="website">
+    <meta property="og:description" content="Download 100% working modded apps and games for Android & iOS.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230a0d14' width='32' height='32' rx='8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='%2360a5fa' font-size='18' font-weight='bold'%3Eoo%3C/text%3E%3C/svg%3E">
-    <title>ooQleMod X - Premium Modded Apps & Games | 100% Working</title>
+    <title>ooQleMod - Premium Modded Apps & Games</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ============ CSS VARIABLES ============ */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
         :root[data-theme="dark"] {
-            --bg: #06080d; --bg2: #0a0d14; --surface: rgba(18, 22, 32, 0.8);
-            --surface2: rgba(24, 28, 40, 0.9); --border: rgba(255,255,255,0.05);
-            --border2: rgba(255,255,255,0.08); --text: #e8eaed; --text2: #9aa0b0;
-            --text3: #6b7280; --accent: #3b82f6; --accent2: #60a5fa;
-            --accent-glow: rgba(59,130,246,0.25); --mod: #6366f1; --mod-glow: rgba(99,102,241,0.4);
-            --success: #22c55e; --warning: #f59e0b; --danger: #ef4444;
-            --header-bg: rgba(6,8,13,0.85); --nav-bg: rgba(6,8,13,0.9);
-            --overlay: linear-gradient(to top, rgba(6,8,13,0.97) 0%, rgba(6,8,13,0.3) 50%, rgba(6,8,13,0.05) 100%);
-            --card-shadow: 0 4px 24px rgba(0,0,0,0.5);
-            --featured-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            --bg: #0a0d14; --surface: rgba(22, 26, 38, 0.7); --surface-hover: rgba(30, 35, 52, 0.85);
+            --border: rgba(255,255,255,0.06); --text: #f1f5f9; --text-secondary: #94a3b8;
+            --accent: #3b82f6; --accent-light: #60a5fa; --accent-glow: rgba(59,130,246,0.3);
+            --mod: #6366f1; --header-bg: rgba(10,13,20,0.82); --nav-bg: rgba(10,13,20,0.88);
+            --featured-overlay: linear-gradient(to top, rgba(10,13,20,0.96) 0%, rgba(10,13,20,0.4) 50%, rgba(10,13,20,0.1) 100%);
         }
         :root[data-theme="light"] {
-            --bg: #f0f2f5; --bg2: #f8fafc; --surface: rgba(255,255,255,0.85);
-            --surface2: rgba(255,255,255,0.95); --border: rgba(0,0,0,0.06);
-            --border2: rgba(0,0,0,0.1); --text: #0f172a; --text2: #475569;
-            --text3: #94a3b8; --accent: #2563eb; --accent2: #3b82f6;
-            --accent-glow: rgba(37,99,235,0.2); --mod: #4f46e5; --mod-glow: rgba(79,70,229,0.3);
-            --success: #16a34a; --warning: #d97706; --danger: #dc2626;
-            --header-bg: rgba(240,242,245,0.85); --nav-bg: rgba(240,242,245,0.9);
-            --overlay: linear-gradient(to top, rgba(240,242,245,0.97) 0%, rgba(240,242,245,0.3) 50%, rgba(240,242,245,0.05) 100%);
-            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            --featured-shadow: 0 16px 48px rgba(0,0,0,0.15);
+            --bg: #f1f5f9; --surface: rgba(255,255,255,0.8); --surface-hover: rgba(255,255,255,0.95);
+            --border: rgba(0,0,0,0.06); --text: #0f172a; --text-secondary: #475569;
+            --accent: #2563eb; --accent-light: #3b82f6; --accent-glow: rgba(37,99,235,0.2);
+            --mod: #4f46e5; --header-bg: rgba(241,245,249,0.82); --nav-bg: rgba(241,245,249,0.88);
+            --featured-overlay: linear-gradient(to top, rgba(241,245,249,0.96) 0%, rgba(241,245,249,0.4) 50%, rgba(241,245,249,0.1) 100%);
         }
 
-        /* ============ RESET & BASE ============ */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; font-size: 16px; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); overflow-x: hidden; min-height: 100vh;
-            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-            transition: background 0.4s, color 0.4s; line-height: 1.5;
+            -webkit-font-smoothing: antialiased; transition: background 0.4s, color 0.4s;
         }
         .bg-mesh {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;
-            background:
-                radial-gradient(ellipse 80% 50% at 20% 10%, rgba(59,130,246,0.06) 0%, transparent 55%),
-                radial-gradient(ellipse 60% 40% at 85% 75%, rgba(99,102,241,0.04) 0%, transparent 50%),
-                radial-gradient(ellipse 50% 50% at 50% 50%, rgba(37,99,235,0.02) 0%, transparent 60%);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse 80% 50% at 20% 10%, rgba(59,130,246,0.08) 0%, transparent 55%),
+                        radial-gradient(ellipse 60% 40% at 85% 80%, rgba(99,102,241,0.06) 0%, transparent 50%);
+            pointer-events: none; z-index: 0;
         }
-        .app-container { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 130px; }
+        .app {
+            position: relative; z-index: 1; max-width: 540px; margin: 0 auto;
+            min-height: 100vh; padding-bottom: 120px;
+        }
 
-        /* ============ HEADER ============ */
+        /* Header */
         .header {
-            position: sticky; top: 0; z-index: 100; display: flex; align-items: center;
-            justify-content: space-between; padding: 10px 16px; background: var(--header-bg);
-            backdrop-filter: blur(28px) saturate(1.5); -webkit-backdrop-filter: blur(28px) saturate(1.5);
+            position: sticky; top: 0; z-index: 50; display: flex; align-items: center;
+            justify-content: space-between; padding: 12px 16px; background: var(--header-bg);
+            backdrop-filter: blur(24px) saturate(1.3); -webkit-backdrop-filter: blur(24px) saturate(1.3);
             border-bottom: 1px solid var(--border); transition: background 0.4s;
         }
-        .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 18px; cursor: pointer; letter-spacing: -0.5px; text-decoration: none; color: var(--text); }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 17px; cursor: pointer; letter-spacing: -0.4px; }
         .logo-icon {
-            width: 34px; height: 34px; background: linear-gradient(135deg, #3b82f6, #2563eb);
-            border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            font-size: 15px; color: #fff; font-weight: 800; box-shadow: 0 4px 16px rgba(37,99,235,0.4);
+            width: 32px; height: 32px; background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 9px; display: flex; align-items: center; justify-content: center;
+            font-size: 15px; color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.4);
         }
-        .header-actions { display: flex; gap: 8px; align-items: center; }
+        .header-actions { display: flex; gap: 8px; }
         .header-btn {
             width: 36px; height: 36px; border-radius: 50%; background: var(--surface);
-            border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
             color: var(--text); cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; font-size: 15px;
-            text-decoration: none;
         }
-        .header-btn:active { transform: scale(0.9); background: var(--surface2); }
+        .header-btn:active { transform: scale(0.9); background: var(--surface-hover); }
         .header-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-        /* ============ LIVE TICKER ============ */
-        .live-ticker {
-            background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15);
-            border-radius: 8px; padding: 8px 14px; margin: 10px 14px 0;
-            font-size: 11px; color: var(--success); text-align: center; font-weight: 600;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-        }
-        .live-dot { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse-dot 1.5s infinite; flex-shrink: 0; }
-        @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow: 0 0 0 10px transparent; } }
-        .live-ticker-text { overflow: hidden; white-space: nowrap; }
-
-        /* ============ VIEWS ============ */
-        .view { display: none; animation: viewIn 0.35s cubic-bezier(0.22,1,0.36,1); padding: 0 14px; }
+        /* Views */
+        .view { display: none; animation: viewIn 0.3s ease; padding: 0 14px; }
         .view.active { display: block; }
-        @keyframes viewIn { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ============ FEATURED MEGA CARD ============ */
+        /* Featured Slider */
         .featured-wrapper { position: relative; margin-top: 12px; }
         .featured {
-            position: relative; border-radius: 22px; overflow: hidden;
-            height: 260px; cursor: pointer; box-shadow: var(--featured-shadow);
-            transition: all 0.4s; border: 1px solid var(--border2);
+            position: relative; border-radius: 20px; overflow: hidden;
+            height: 200px; cursor: pointer; box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+            transition: all 0.4s;
         }
         .featured-bg {
             position: absolute; inset: 0; background-size: cover; background-position: center;
-            transition: background-image 0.6s ease;
+            transition: background-image 0.5s ease;
         }
-        .featured-bg::after { content: ''; position: absolute; inset: 0; background: var(--overlay); }
+        .featured-bg::after { content: ''; position: absolute; inset: 0; background: var(--featured-overlay); }
         .featured-app-icon {
-            position: absolute; top: 16px; left: 16px; z-index: 3;
-            width: 52px; height: 52px; border-radius: 14px; overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            position: absolute; top: 12px; left: 14px; z-index: 3;
+            width: 44px; height: 44px; border-radius: 12px; overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 6px 18px rgba(0,0,0,0.4);
             background: #fff;
         }
         .featured-app-icon img { width: 100%; height: 100%; object-fit: cover; }
-        .featured-rank {
-            position: absolute; top: 16px; right: 16px; z-index: 3;
-            background: linear-gradient(135deg, #f59e0b, #d97706); color: #000;
-            font-size: 10px; font-weight: 900; padding: 5px 10px; border-radius: 6px;
-            letter-spacing: 0.5px; text-transform: uppercase;
-        }
-        .featured-progress {
-            position: absolute; z-index: 3;
-            bottom: 100px; left: 16px; right: 16px;
-            background: rgba(0,0,0,0.4); border-radius: 6px; height: 8px; overflow: hidden;
-            backdrop-filter: blur(4px);
-        }
-        .featured-progress-fill {
-            height: 100%; background: linear-gradient(90deg, #f59e0b, #ef4444);
-            border-radius: 6px; width: 85%; transition: width 0.5s;
-        }
-        .featured-progress-text {
-            position: absolute; z-index: 3; bottom: 112px; right: 16px;
-            font-size: 10px; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        }
-        .featured-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px 18px; z-index: 2; }
-        .featured-badge {
-            display: inline-flex; align-items: center; gap: 4px; background: var(--mod); color: #fff;
-            padding: 3px 9px; border-radius: 14px; font-size: 10px; font-weight: 700;
-            margin-bottom: 8px; box-shadow: 0 4px 12px var(--mod-glow);
-        }
-        .featured-title { font-size: 22px; font-weight: 900; margin-bottom: 4px; letter-spacing: -0.5px; line-height: 1.1; }
-        .featured-desc { font-size: 12px; opacity: 0.85; line-height: 1.4; max-width: 90%; }
-        .featured-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 11px; font-weight: 600; }
-        .featured-scarcity {
-            display: inline-flex; align-items: center; gap: 5px;
-            background: rgba(239,68,68,0.15); color: #ef4444;
-            padding: 3px 9px; border-radius: 12px; font-size: 10px; font-weight: 700;
-            margin-left: auto; animation: pulse-bg 2s infinite;
-        }
-        @keyframes pulse-bg { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
         .featured-dots {
-            display: flex; gap: 5px; position: absolute; top: 80px; right: 16px; z-index: 3;
+            display: flex; gap: 5px; position: absolute; top: 14px; right: 14px; z-index: 3;
         }
         .featured-dot {
-            width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.3);
-            transition: all 0.4s; cursor: pointer;
+            width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4);
+            transition: all 0.3s; cursor: pointer;
         }
-        .featured-dot.active { background: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.7); width: 22px; border-radius: 4px; }
+        .featured-dot.active { background: #fff; box-shadow: 0 0 6px rgba(255,255,255,0.6); width: 20px; border-radius: 4px; }
+        .featured-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px; z-index: 2; }
+        .mod-badge {
+            display: inline-flex; align-items: center; gap: 3px; background: var(--mod); color: #fff;
+            padding: 3px 8px; border-radius: 16px; font-size: 10px; font-weight: 700;
+            margin-bottom: 8px; box-shadow: 0 3px 10px rgba(99,102,241,0.35);
+        }
+        .featured-title { font-size: 20px; font-weight: 900; margin-bottom: 4px; letter-spacing: -0.5px; line-height: 1.1; }
+        .featured-desc { font-size: 11px; opacity: 0.85; line-height: 1.4; max-width: 92%; }
+        .featured-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 11px; font-weight: 600; }
+        .stars { color: #fbbf24; letter-spacing: -1.5px; font-size: 12px; }
 
-        /* ============ LIVE ACTIVITY FEED ============ */
-        .activity-feed {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: 14px; padding: 12px 14px; margin: 14px 0;
-            backdrop-filter: blur(10px);
+        /* Live Proof */
+        .live-proof {
+            text-align: center; font-size: 10px; color: var(--text-secondary);
+            margin: 8px 0 4px; font-weight: 500;
         }
-        .activity-title {
-            font-size: 12px; font-weight: 700; color: var(--text2); margin-bottom: 10px;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .activity-list { max-height: 120px; overflow: hidden; }
-        .activity-item {
-            display: flex; align-items: center; gap: 8px; padding: 6px 0;
-            font-size: 11px; border-bottom: 1px solid var(--border);
-            animation: slideUp 0.4s ease;
-        }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .activity-item:last-child { border-bottom: none; }
-        .activity-flag { font-size: 16px; flex-shrink: 0; }
-        .activity-info { flex: 1; color: var(--text); }
-        .activity-info strong { font-weight: 700; }
-        .activity-time { font-size: 10px; color: var(--text3); flex-shrink: 0; }
+        .live-dot { display: inline-block; width: 5px; height: 5px; background: #22c55e; border-radius: 50%; margin-right: 4px; animation: pulse-dot 1.5s infinite; }
+        @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow: 0 0 0 6px transparent; } }
 
-        /* ============ STATS BAR ============ */
+        /* Stats Bar */
         .stats-bar {
             display: flex; justify-content: space-around; background: var(--surface);
-            border: 1px solid var(--border); border-radius: 14px; padding: 14px 8px;
+            border: 1px solid var(--border); border-radius: 14px; padding: 12px 8px;
             margin: 10px 0; backdrop-filter: blur(10px);
         }
-        .stat-val { font-size: 17px; font-weight: 800; color: var(--accent2); }
-        .stat-lbl { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+        .stat-item { text-align: center; }
+        .stat-val { font-size: 16px; font-weight: 800; color: var(--accent-light); }
+        .stat-lbl { font-size: 9px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; }
 
-        /* ============ SECTION HEADERS ============ */
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 22px 0 10px; }
+        /* Section Headers */
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 20px 0 10px; }
         .section-title { font-size: 17px; font-weight: 800; display: flex; align-items: center; gap: 6px; letter-spacing: -0.2px; }
-        .section-link { font-size: 12px; color: var(--accent2); text-decoration: none; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
-        .section-link:hover { opacity: 0.8; }
+        .view-all { font-size: 12px; color: var(--accent-light); text-decoration: none; font-weight: 700; cursor: pointer; }
 
-        /* ============ CARDS ============ */
+        /* Grid Cards */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .card {
             background: var(--surface); border: 1px solid var(--border);
             border-radius: 16px; padding: 10px; cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
-            position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            box-shadow: var(--card-shadow);
+            transition: all 0.2s; position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
         }
-        .card:hover { transform: translateY(-3px); border-color: var(--border2); }
-        .card:active { transform: scale(0.96); }
+        .card:active { transform: scale(0.97); }
         .card-icon-wrap {
             width: 100%; aspect-ratio: 1; border-radius: 14px;
             position: relative; overflow: hidden; margin-bottom: 8px;
-            background: var(--bg2);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25); background: var(--surface);
         }
-        .card-icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
-        .card:hover .card-icon-wrap img { transform: scale(1.05); }
-        .card-mod, .card-badge {
-            position: absolute; top: 5px; font-size: 8px; font-weight: 800;
-            padding: 2px 6px; border-radius: 5px; text-transform: uppercase;
-            letter-spacing: 0.3px; z-index: 2;
+        .card-icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .card-mod {
+            position: absolute; top: 5px; right: 5px; background: var(--mod); color: #fff;
+            font-size: 8px; font-weight: 800; padding: 2px 6px; border-radius: 6px;
+            text-transform: uppercase; letter-spacing: 0.3px; z-index: 2;
+            box-shadow: 0 2px 6px rgba(99,102,241,0.5);
         }
-        .card-mod { right: 5px; background: var(--mod); color: #fff; box-shadow: 0 2px 8px var(--mod-glow); }
-        .card-badge { left: 5px; }
+        .card-badge {
+            position: absolute; top: 5px; left: 5px; font-size: 8px; font-weight: 800;
+            padding: 2px 6px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.3px; z-index: 2;
+        }
         .badge-hot { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
         .badge-new { background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; }
-        .badge-trending { background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; }
+        .badge-trending { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; }
         .badge-vip { background: linear-gradient(135deg, #a855f7, #7c3aed); color: #fff; }
-        .card-viewers {
-            position: absolute; bottom: 8px; left: 8px;
-            background: rgba(0,0,0,0.6); color: #fff; font-size: 9px;
-            font-weight: 600; padding: 2px 6px; border-radius: 4px;
-            display: flex; align-items: center; gap: 3px;
-        }
-        .card-viewers .eye-dot { width: 5px; height: 5px; background: var(--success); border-radius: 50%; animation: pulse-dot 1.5s infinite; }
         .card-title { font-size: 12px; font-weight: 700; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-meta { font-size: 10px; color: var(--text2); margin-bottom: 4px; }
+        .card-meta { font-size: 10px; color: var(--text-secondary); margin-bottom: 4px; }
         .card-rating { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; }
 
-        /* HSCROLL */
+        /* HScroll Cards - FIXED SIZE */
         .h-scroll {
             display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;
             scrollbar-width: none; scroll-snap-type: x mandatory;
         }
         .h-scroll::-webkit-scrollbar { display: none; }
         .h-scroll .card {
-            min-width: 130px; max-width: 135px; flex-shrink: 0;
+            min-width: 125px; max-width: 130px; flex-shrink: 0;
             scroll-snap-align: start; padding: 8px; border-radius: 14px;
+        }
+        .h-scroll .card .card-icon-wrap {
+            border-radius: 12px; margin-bottom: 6px;
         }
         .h-scroll .card .card-title { font-size: 11px; }
 
-        /* ============ BOTTOM NAV ============ */
+        /* Bottom Nav */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
-            display: flex; justify-content: center; padding: 8px 16px 22px;
-            background: var(--nav-bg); backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px); border-top: 1px solid var(--border);
-            transition: background 0.4s;
+            display: flex; justify-content: center; padding: 8px 16px 24px;
+            background: var(--nav-bg); backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px); border-top: 1px solid var(--border);
         }
         .nav-inner {
-            display: flex; background: var(--surface); border: 1px solid var(--border2);
-            border-radius: 24px; padding: 4px; gap: 2px; backdrop-filter: blur(14px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+            display: flex; background: var(--surface); border: 1px solid var(--border);
+            border-radius: 22px; padding: 4px; gap: 2px; backdrop-filter: blur(12px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
         }
         .nav-item {
             display: flex; flex-direction: column; align-items: center; gap: 2px;
-            padding: 8px 20px; border-radius: 18px; cursor: pointer;
-            font-size: 10px; font-weight: 600; color: var(--text2);
-            transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
-            border: none; background: transparent; font-family: inherit; text-decoration: none;
+            padding: 8px 20px; border-radius: 16px; cursor: pointer;
+            font-size: 10px; font-weight: 600; color: var(--text-secondary);
+            transition: all 0.25s; border: none; background: transparent; font-family: inherit;
         }
         .nav-item.active {
             background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff;
-            box-shadow: 0 4px 16px var(--accent-glow);
+            box-shadow: 0 4px 14px var(--accent-glow);
         }
         .nav-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-        /* ============ DETAIL VIEW ============ */
+        /* Detail Page */
+        .detail-header { display: flex; gap: 14px; margin-top: 10px; align-items: flex-start; }
+        .detail-icon {
+            width: 76px; height: 76px; border-radius: 18px; overflow: hidden; flex-shrink: 0;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.35); border: 1px solid var(--border);
+        }
+        .detail-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .detail-info h1 { font-size: 19px; font-weight: 900; margin-bottom: 3px; letter-spacing: -0.4px; line-height: 1.2; }
+        .detail-info .sub { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500; }
+        .detail-meta-row { display: flex; gap: 12px; font-size: 11px; color: var(--text-secondary); flex-wrap: wrap; font-weight: 600; }
+        .detail-meta-row span { display: flex; align-items: center; gap: 3px; }
+        .mod-features {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: rgba(99,102,241,0.12); color: var(--mod);
+            padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700;
+            margin-top: 8px; border: 1px solid rgba(99,102,241,0.2);
+        }
+
+        /* Start Now Button */
+        .btn-start {
+            width: 100%; margin-top: 18px; padding: 14px;
+            border-radius: 14px; background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff; font-size: 15px; font-weight: 800; border: none; cursor: pointer;
+            box-shadow: 0 6px 22px var(--accent-glow); transition: all 0.15s;
+            letter-spacing: 0.1px; font-family: inherit;
+        }
+        .btn-start:active { transform: scale(0.97); }
+
+        .detail-section { margin-top: 22px; }
+        .detail-section h3 { font-size: 15px; font-weight: 800; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .detail-section p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
+        .info-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+        .info-row:last-child { border-bottom: none; }
+        .info-row span:first-child { color: var(--text-secondary); }
+        .info-row span:last-child { font-weight: 700; }
+
+        /* Preparing Screen */
+        .preparing-screen {
+            position: fixed; inset: 0; background: var(--bg); z-index: 200;
+            display: none; flex-direction: column; align-items: center;
+            justify-content: center; text-align: center; padding: 30px;
+        }
+        .preparing-screen.active { display: flex; }
+        .preparing-app {
+            display: flex; align-items: center; gap: 10px;
+            position: absolute; top: 50px; left: 18px;
+        }
+        .preparing-app-icon {
+            width: 44px; height: 44px; border-radius: 12px;
+            overflow: hidden; box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+        }
+        .preparing-app-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .preparing-app-info { text-align: left; }
+        .preparing-app-info h4 { font-size: 14px; font-weight: 800; }
+        .preparing-app-info p { font-size: 11px; color: var(--text-secondary); margin-top: 1px; font-weight: 500; }
+        .preparing-percent {
+            font-size: 80px; font-weight: 900;
+            background: linear-gradient(to bottom, rgba(59,130,246,0.25), transparent);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            line-height: 1; margin-bottom: 18px; letter-spacing: -3px;
+        }
+        .preparing-circle {
+            width: 70px; height: 70px; border-radius: 50%;
+            background: var(--surface); border: 1.5px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin-bottom: 18px; position: relative;
+        }
+        .preparing-circle::after {
+            content: ''; position: absolute; inset: -3px; border-radius: 50%;
+            border: 3px solid transparent; border-top-color: var(--accent);
+            animation: spin 0.85s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .preparing-text { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+        .preparing-sub { font-size: 12px; color: var(--text-secondary); max-width: 260px; font-weight: 500; line-height: 1.4; }
+        .progress-container { position: absolute; bottom: 100px; left: 22px; right: 22px; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.8px; color: var(--text-secondary); }
+        .progress-label span:last-child { color: var(--accent-light); }
+        .progress-bar { height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden; border: 1px solid var(--border); }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #a78bfa); border-radius: 3px; width: 0%; transition: width 0.25s ease; }
+
+        /* Back to Top */
+        .btn-back-top {
+            position: fixed; bottom: 110px; right: 16px; z-index: 90;
+            width: 36px; height: 36px; border-radius: 50%; background: var(--surface);
+            border: 1px solid var(--border); color: var(--text); cursor: pointer;
+            display: none; align-items: center; justify-content: center; font-size: 16px;
+            backdrop-filter: blur(10px); transition: all 0.3s;
+        }
+        .btn-back-top.show { display: flex; }
+        .btn-back-top:active { transform: scale(0.9); }
+
+        /* Search */
+        .search-bar {
+            margin-top: 12px; background: var(--surface); border: 1px solid var(--border);
+            border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 8px;
+            backdrop-filter: blur(10px);
+        }
+        .search-bar svg { width: 18px; height: 18px; stroke: var(--text-secondary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        .search-bar input {
+            flex: 1; background: transparent; border: none; color: var(--text);
+            font-size: 14px; outline: none; font-weight: 500; font-family: inherit;
+        }
+        .search-bar input::placeholder { color: var(--text-secondary); }
+        .search-filters { display: flex; gap: 6px; margin: 12px 0 14px; }
+        .filter-chip {
+            padding: 5px 12px; border-radius: 18px; background: var(--surface);
+            border: 1px solid var(--border); font-size: 12px; cursor: pointer;
+            color: var(--text-secondary); font-weight: 600; transition: all 0.2s; font-family: inherit;
+        }
+        .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
         .back-btn {
             display: inline-flex; align-items: center; gap: 5px;
             background: transparent; border: none; color: var(--text);
@@ -283,220 +322,124 @@
             padding: 6px 0; font-weight: 700; font-family: inherit;
         }
         .back-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-        .detail-header { display: flex; gap: 14px; margin-top: 8px; align-items: flex-start; }
-        .detail-icon { width: 76px; height: 76px; border-radius: 18px; overflow: hidden; flex-shrink: 0; box-shadow: 0 10px 28px rgba(0,0,0,0.4); border: 1px solid var(--border2); }
-        .detail-icon img { width: 100%; height: 100%; object-fit: cover; }
-        .detail-info h1 { font-size: 19px; font-weight: 900; margin-bottom: 3px; letter-spacing: -0.4px; }
-        .detail-info .sub { font-size: 12px; color: var(--text2); margin-bottom: 8px; font-weight: 500; }
-        .detail-meta-row { display: flex; gap: 12px; font-size: 11px; color: var(--text2); flex-wrap: wrap; font-weight: 600; }
-        .mod-features { display: inline-flex; align-items: center; gap: 5px; background: rgba(99,102,241,0.12); color: var(--mod); padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; margin-top: 8px; border: 1px solid rgba(99,102,241,0.2); }
+        .page-title { font-size: 24px; font-weight: 900; margin: 12px 0 14px; letter-spacing: -0.6px; }
+        .no-results { text-align: center; color: var(--text-secondary); margin-top: 40px; font-size: 14px; font-weight: 500; }
 
-        .btn-start {
-            width: 100%; margin-top: 18px; padding: 15px; border-radius: 14px;
-            background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff;
-            font-size: 15px; font-weight: 800; border: none; cursor: pointer;
-            box-shadow: 0 6px 24px rgba(239,68,68,0.3);
-            transition: all 0.15s; letter-spacing: 0.2px; font-family: inherit;
-            animation: pulse-btn 2s infinite; position: relative; overflow: hidden;
-        }
-        @keyframes pulse-btn { 0%,100% { box-shadow: 0 6px 24px rgba(239,68,68,0.3); } 50% { box-shadow: 0 6px 36px rgba(239,68,68,0.55); } }
-        .btn-start:active { transform: scale(0.97); }
-        .btn-start::after {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
-            animation: shimmer-btn 3s infinite;
-        }
-        @keyframes shimmer-btn { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-
-        .detail-section { margin-top: 22px; }
-        .detail-section h3 { font-size: 15px; font-weight: 800; margin-bottom: 10px; display: flex; justify-content: space-between; }
-        .detail-section p { font-size: 13px; line-height: 1.6; color: var(--text2); }
-        .info-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-        .info-row:last-child { border-bottom: none; }
-        .info-row span:first-child { color: var(--text2); }
-        .info-row span:last-child { font-weight: 700; }
-
-        /* ============ PREPARING SCREEN ============ */
-        .preparing-screen {
-            position: fixed; inset: 0; background: var(--bg); z-index: 200;
-            display: none; flex-direction: column; align-items: center;
-            justify-content: center; text-align: center; padding: 30px;
-        }
-        .preparing-screen.active { display: flex; }
-        .preparing-app { display: flex; align-items: center; gap: 10px; position: absolute; top: 50px; left: 18px; }
-        .preparing-app-icon { width: 44px; height: 44px; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(0,0,0,0.3); border: 1px solid var(--border); }
-        .preparing-app-icon img { width: 100%; height: 100%; object-fit: cover; }
-        .preparing-app-info { text-align: left; }
-        .preparing-app-info h4 { font-size: 14px; font-weight: 800; }
-        .preparing-app-info p { font-size: 11px; color: var(--text2); margin-top: 1px; font-weight: 500; }
-        .preparing-percent { font-size: 90px; font-weight: 900; background: linear-gradient(to bottom, rgba(59,130,246,0.25), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 18px; letter-spacing: -4px; }
-        .preparing-circle { width: 70px; height: 70px; border-radius: 50%; background: var(--surface); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 18px; position: relative; }
-        .preparing-circle::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 3px solid transparent; border-top-color: var(--accent); animation: spin 0.85s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .preparing-text { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-        .preparing-sub { font-size: 13px; color: var(--text2); max-width: 280px; font-weight: 500; line-height: 1.4; }
-        .progress-container { position: absolute; bottom: 100px; left: 22px; right: 22px; }
-        .progress-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 1px; color: var(--text2); }
-        .progress-label span:last-child { color: var(--accent2); }
-        .progress-bar { height: 7px; background: var(--surface); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #a78bfa); border-radius: 4px; width: 0%; transition: width 0.25s ease; }
-
-        /* ============ BACK TO TOP ============ */
-        .btn-back-top {
-            position: fixed; bottom: 110px; right: 16px; z-index: 90;
-            width: 38px; height: 38px; border-radius: 50%; background: var(--surface);
-            border: 1px solid var(--border2); color: var(--text); cursor: pointer;
-            display: none; align-items: center; justify-content: center; font-size: 16px;
-            backdrop-filter: blur(10px); transition: all 0.3s; box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-        }
-        .btn-back-top.show { display: flex; }
-        .btn-back-top:active { transform: scale(0.9); }
-
-        /* ============ SEARCH ============ */
-        .search-bar { margin-top: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); }
-        .search-bar svg { width: 18px; height: 18px; stroke: var(--text2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-        .search-bar input { flex: 1; background: transparent; border: none; color: var(--text); font-size: 14px; outline: none; font-weight: 500; font-family: inherit; }
-        .search-bar input::placeholder { color: var(--text3); }
-        .search-filters { display: flex; gap: 6px; margin: 12px 0 14px; }
-        .filter-chip { padding: 5px 12px; border-radius: 18px; background: var(--surface); border: 1px solid var(--border); font-size: 12px; cursor: pointer; color: var(--text2); font-weight: 600; transition: all 0.2s; font-family: inherit; }
-        .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-
-        /* ============ FOOTER ============ */
-        .footer { text-align: center; padding: 20px 14px 40px; font-size: 11px; color: var(--text3); border-top: 1px solid var(--border); margin-top: 20px; }
-        .footer-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
-        .footer-links a { color: var(--text2); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--accent2); }
-        .footer p { margin-top: 6px; font-size: 10px; }
-
-        /* ============ RESPONSIVE ============ */
+        /* Responsive tweaks */
         @media (min-width: 420px) {
-            .featured { height: 280px; }
-            .featured-title { font-size: 24px; }
+            .featured { height: 240px; }
+            .featured-title { font-size: 22px; }
+            .featured-desc { font-size: 12px; }
+            .featured-app-icon { width: 50px; height: 50px; border-radius: 14px; top: 16px; left: 16px; }
             .h-scroll .card { min-width: 140px; max-width: 145px; }
-        }
-        @media (min-width: 500px) {
-            .featured { height: 300px; }
-            .featured-title { font-size: 26px; }
-            .h-scroll .card { min-width: 150px; max-width: 155px; }
             .card-title { font-size: 13px; }
+            .card-meta { font-size: 11px; }
+            .nav-item { padding: 9px 24px; font-size: 11px; }
         }
-        @media (max-width: 360px) {
-            .featured { height: 220px; }
-            .featured-title { font-size: 18px; }
-            .h-scroll .card { min-width: 115px; max-width: 120px; }
-            .card-title { font-size: 11px; }
-            .nav-item { padding: 7px 14px; font-size: 9px; }
+
+        @media (min-width: 500px) {
+            .featured { height: 260px; }
+            .featured-title { font-size: 24px; }
+            .featured-desc { font-size: 13px; }
+            .featured-app-icon { width: 56px; height: 56px; border-radius: 16px; top: 18px; left: 18px; }
+            .h-scroll .card { min-width: 150px; max-width: 155px; }
         }
     </style>
 </head>
 <body>
     <div class="bg-mesh"></div>
-    <div class="app-container">
+    <div class="app">
         <!-- HEADER -->
         <header class="header" id="mainHeader">
-            <a href="index.html" class="logo">
+            <div class="logo" onclick="goHome()">
                 <div class="logo-icon">oo</div>
                 <span>ooQleMod</span>
-            </a>
+            </div>
             <div class="header-actions">
-                <a href="contact.html" class="header-btn" title="Contact">
-                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </a>
-                <button class="header-btn" onclick="showView('search')" title="Search">
+                <button class="header-btn" onclick="showSearch()" aria-label="Search">
                     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                 </button>
-                <button class="header-btn" onclick="toggleTheme()" title="Toggle theme" id="themeBtn">
+                <button class="header-btn" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">
                     <span id="themeIcon">☀️</span>
                 </button>
             </div>
         </header>
 
-        <!-- LIVE TICKER -->
-        <div class="live-ticker">
-            <span class="live-dot"></span>
-            <span class="live-ticker-text" id="liveTickerText">⚡ 3,247 downloads happening right now — 127 people claimed their mod in the last hour</span>
-        </div>
-
         <!-- DISCOVER VIEW -->
         <div class="view active" id="view-discover">
-            <!-- Featured Mega Card -->
+            <!-- Featured Slider -->
             <div class="featured-wrapper">
                 <div class="featured" id="featuredBanner" onclick="openApp(slideApps[slideIndex])">
                     <div class="featured-bg" id="featuredBg"></div>
-                    <div class="featured-app-icon"><img src="" alt="" id="featuredIconImg"></div>
-                    <div class="featured-rank">👑 #1 This Week</div>
-                    <div class="featured-dots" id="featuredDots"></div>
-                    <div class="featured-progress">
-                        <div class="featured-progress-fill" id="featuredProgressFill"></div>
+                    <div class="featured-app-icon" id="featuredAppIcon">
+                        <img src="" alt="" id="featuredIconImg">
                     </div>
-                    <div class="featured-progress-text" id="featuredProgressText">87% claimed</div>
+                    <div class="featured-dots" id="featuredDots"></div>
                     <div class="featured-content">
-                        <div class="featured-badge">⭐ Mod</div>
+                        <div class="mod-badge">⭐ Mod</div>
                         <div class="featured-title" id="featuredTitle"></div>
                         <div class="featured-desc" id="featuredDesc"></div>
                         <div class="featured-meta">
+                            <span class="stars" id="featuredStars"></span>
                             <span id="featuredRating"></span>
                             <span id="featuredCat"></span>
-                            <span class="featured-scarcity" id="featuredScarcity">⚡ Only 3 left</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Live Activity Feed -->
-            <div class="activity-feed">
-                <div class="activity-title">🟢 LIVE ACTIVITY — People downloading right now</div>
-                <div class="activity-list" id="activityList"></div>
+            <!-- Live Proof -->
+            <div class="live-proof">
+                <span class="live-dot"></span> <span id="liveText">Someone just downloaded 8 Ball Pool Mod</span>
             </div>
 
             <!-- Stats Bar -->
             <div class="stats-bar">
-                <div style="text-align:center;"><div class="stat-val" id="statDownloads">147K</div><div class="stat-lbl">Downloads</div></div>
-                <div style="text-align:center;"><div class="stat-val">4.9 ★</div><div class="stat-lbl">Rating</div></div>
-                <div style="text-align:center;"><div class="stat-val" id="statUsers">2.8K</div><div class="stat-lbl">Online Now</div></div>
-                <div style="text-align:center;"><div class="stat-val">99.3%</div><div class="stat-lbl">Safe Rate</div></div>
+                <div class="stat-item"><div class="stat-val" id="statDownloads">147K</div><div class="stat-lbl">Downloads</div></div>
+                <div class="stat-item"><div class="stat-val">4.9 ★</div><div class="stat-lbl">Rating</div></div>
+                <div class="stat-item"><div class="stat-val" id="statUsers">2.8K</div><div class="stat-lbl">Online</div></div>
+                <div class="stat-item"><div class="stat-val">24/7</div><div class="stat-lbl">Support</div></div>
             </div>
 
             <!-- Trending Now -->
             <div class="section-header">
                 <div class="section-title">🔥 Trending Now</div>
-                <a href="index.html" class="section-link" onclick="showView('games'); return false;">View all →</a>
+                <span class="view-all" onclick="showView('games')">View all →</span>
             </div>
             <div class="h-scroll" id="trending-scroll"></div>
 
-            <!-- New Releases -->
+            <!-- New Apps -->
             <div class="section-header">
-                <div class="section-title">✨ New Releases</div>
-                <a href="index.html" class="section-link" onclick="showView('apps'); return false;">View all →</a>
+                <div class="section-title">✨ New Apps</div>
+                <span class="view-all" onclick="showView('apps')">View all →</span>
             </div>
             <div class="grid" id="new-apps-grid"></div>
-
-            <!-- Premium Mods -->
-            <div class="section-header">
-                <div class="section-title">💎 Premium Mods</div>
-                <a href="index.html" class="section-link" onclick="showView('apps'); return false;">View all →</a>
-            </div>
-            <div class="h-scroll" id="premium-scroll"></div>
-        </div>
-
-        <!-- GAMES VIEW -->
-        <div class="view" id="view-games">
-            <button class="back-btn" onclick="goHome()"><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Back</button>
-            <h2 style="font-size:24px;font-weight:900;margin:12px 0 14px;">🎮 Games</h2>
-            <div class="grid" id="games-grid"></div>
         </div>
 
         <!-- APPS VIEW -->
         <div class="view" id="view-apps">
-            <button class="back-btn" onclick="goHome()"><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Back</button>
-            <h2 style="font-size:24px;font-weight:900;margin:12px 0 14px;">📱 Apps</h2>
+            <button class="back-btn" onclick="goHome()">
+                <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Back
+            </button>
+            <h2 class="page-title">Apps</h2>
             <div class="grid" id="apps-grid"></div>
+        </div>
+
+        <!-- GAMES VIEW -->
+        <div class="view" id="view-games">
+            <button class="back-btn" onclick="goHome()">
+                <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Back
+            </button>
+            <h2 class="page-title">Games</h2>
+            <div class="grid" id="games-grid"></div>
         </div>
 
         <!-- SEARCH VIEW -->
         <div class="view" id="view-search">
-            <button class="back-btn" onclick="goHome()"><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Back</button>
-            <h2 style="font-size:24px;font-weight:900;margin:12px 0 14px;">🔍 Search</h2>
+            <button class="back-btn" onclick="goHome()">
+                <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Back
+            </button>
+            <h2 class="page-title">Search</h2>
             <div class="search-bar">
                 <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                 <input type="text" placeholder="Search apps & games..." id="searchInput" oninput="doSearch()">
@@ -511,7 +454,9 @@
 
         <!-- DETAIL VIEW -->
         <div class="view" id="view-detail">
-            <button class="back-btn" onclick="goBack()"><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Back</button>
+            <button class="back-btn" onclick="goBack()">
+                <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> Back
+            </button>
             <div class="detail-header">
                 <div class="detail-icon"><img src="" alt="" id="detail-img"></div>
                 <div class="detail-info">
@@ -525,30 +470,27 @@
                     <div class="mod-features" id="detail-mod">✨ Mod Features</div>
                 </div>
             </div>
-            <button class="btn-start" onclick="startPreparing()">⚡ Start Now — Free Download</button>
-            <div class="detail-section"><h3>What's New <span id="detail-version">v1.0</span></h3><p>Latest version with performance improvements and new mod features.</p></div>
-            <div class="detail-section"><h3>About</h3><p id="detail-about">Description here...</p></div>
-            <div class="detail-section"><h3>Information</h3>
+            <button class="btn-start" onclick="startPreparing()">Start Now</button>
+            <div class="detail-section">
+                <h3>What's New <span id="detail-version">v1.0</span></h3>
+                <p>Latest version with performance improvements, bug fixes, and new mod features unlocked.</p>
+            </div>
+            <div class="detail-section">
+                <h3>About</h3>
+                <p id="detail-about">Description goes here...</p>
+            </div>
+            <div class="detail-section">
+                <h3>Information</h3>
                 <div class="info-row"><span>Version</span><span id="info-version">v1.0</span></div>
                 <div class="info-row"><span>Size</span><span id="info-size">100MB</span></div>
                 <div class="info-row"><span>Category</span><span id="info-category">Games</span></div>
                 <div class="info-row"><span>Rating</span><span id="info-rating">⭐ 4.8</span></div>
                 <div class="info-row"><span>Downloads</span><span id="info-downloads">100K</span></div>
             </div>
-            <div class="detail-section"><h3>You Might Also Like</h3><div class="h-scroll" id="related-scroll"></div></div>
-        </div>
-
-        <!-- FOOTER (Home) -->
-        <div class="footer" id="homeFooter">
-            <div class="footer-links">
-                <a href="contact.html">Contact</a> ·
-                <a href="terms.html">Terms</a> ·
-                <a href="privacy.html">Privacy</a> ·
-                <a href="faq.html">FAQ</a> ·
-                <a href="dmca.html">DMCA</a>
+            <div class="detail-section">
+                <h3>You Might Also Like</h3>
+                <div class="h-scroll" id="related-scroll"></div>
             </div>
-            <p>© 2026 ooQleMod. All mods are for educational purposes. We are not affiliated with any game developer.</p>
-            <p style="color:#555; margin-top:4px;">ooQleMod X — Built with Precision</p>
         </div>
     </div>
 
@@ -559,13 +501,16 @@
     <div class="bottom-nav" id="bottomNav">
         <div class="nav-inner">
             <button class="nav-item active" onclick="showView('discover')">
-                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Discover
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Discover
             </button>
             <button class="nav-item" onclick="showView('apps')">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Apps
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Apps
             </button>
             <button class="nav-item" onclick="showView('games')">
-                <svg viewBox="0 0 24 24"><path d="M6 11h4M8 9v4"/><path d="M15 12h.01"/><path d="M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258a4 4 0 0 0-3.995-3.742z"/></svg> Games
+                <svg viewBox="0 0 24 24"><path d="M6 11h4M8 9v4"/><path d="M15 12h.01"/><path d="M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258a4 4 0 0 0-3.995-3.742z"/></svg>
+                Games
             </button>
         </div>
     </div>
@@ -574,7 +519,10 @@
     <div class="preparing-screen" id="preparingScreen">
         <div class="preparing-app">
             <div class="preparing-app-icon"><img src="" alt="" id="preparing-img"></div>
-            <div class="preparing-app-info"><h4 id="preparing-name">App</h4><p>Getting ready to download</p></div>
+            <div class="preparing-app-info">
+                <h4 id="preparing-name">App</h4>
+                <p>Getting ready to download</p>
+            </div>
         </div>
         <div class="preparing-percent" id="preparingPercent">0%</div>
         <div class="preparing-circle">☁️</div>
@@ -588,182 +536,208 @@
 
     <script>
         const slideApps = [
-            { name:'Pokémon Go Spoofer', cat:'games', rating:'4.8', downloads:'550k+', size:'762.5MB', version:'v4.1.5', icon:'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png', cover:'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/pokemon-go-characters-logo.jpg', mod:'Teleport + Joystick + Auto Walk', badge:'HOT', claimed:87, scarcity:3, desc:'Install Pokémon GO Spoofer with our Guide — Teleport, Joystick, Auto Walk and More! Unlock powerful features instantly.' },
-            { name:'8 Ball Pool Mod', cat:'games', rating:'4.9', downloads:'1M+', size:'55.8MB', version:'v55.9.0', icon:'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg', cover:'https://i2.kknews.cc/RdIP7Ts-99-OvrUyhJF_xH_vafs4n2M/0.jpg', mod:'Long Line + Auto Win', badge:'HOT', claimed:92, scarcity:2, desc:'8 Ball Pool Mod with Guideline Tool — iOS and Android, No Jailbreak or Root Needed!' },
-            { name:'Baseball 9', cat:'games', rating:'4.7', downloads:'87K', size:'650MB', version:'v4.2.8', icon:'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg', cover:'https://i.ytimg.com/vi/14-IZpn1J-A/maxresdefault.jpg', mod:'Unlimited Gems + Stamina', badge:'TRENDING', claimed:78, scarcity:5, desc:'Baseball 9 Mod with Unlimited Gems and Stamina. Build the ultimate team.' },
-            { name:'Toca Boca World', cat:'games', rating:'4.8', downloads:'1.2M+', size:'980MB', version:'v9.8.1', icon:'https://appzenn.com/assets/img/app_images/whKzcdW512x512bb2112.jpg', cover:'https://i.pinimg.com/1200x/fb/45/ea/fb45eac770317c165615e7bc0191a798.jpg', mod:'All Worlds Unlocked + Unlimited Money', badge:'VIP', claimed:95, scarcity:1, desc:'Toca Boca World Hack — All Worlds Unlocked, Unlimited Money, All Characters.' }
+            {
+                name: 'Pokémon Go Spoofer', cat: 'games', rating: '4.8', downloads: '550k+', size: '762.5MB',
+                version: 'v4.1.5', icon: 'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png',
+                cover: 'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/pokemon-go-characters-logo.jpg',
+                mod: 'Teleport + Joystick + Auto Walk', badge: 'HOT',
+                desc: 'Install Pokémon GO Spoofer with our Guide — Teleport, Joystick, Auto Walk and More! Unlock powerful features instantly and play smarter on iOS and Android.'
+            },
+            {
+                name: '8 Ball Pool Mod', cat: 'games', rating: '4.9', downloads: '1M+', size: '55.8MB',
+                version: 'v55.9.0', icon: 'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg',
+                cover: 'https://i2.kknews.cc/RdIP7Ts-99-OvrUyhJF_xH_vafs4n2M/0.jpg',
+                mod: 'Long Line + Auto Win', badge: 'HOT',
+                desc: '8 Ball Pool Mod with Guideline Tool — iOS and Android, No Jailbreak or Root Needed! Enhance your game with precision aiming and never lose a match again.'
+            },
+            {
+                name: 'Baseball 9', cat: 'games', rating: '4.7', downloads: '87K', size: '650MB',
+                version: 'v4.2.8', icon: 'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg',
+                cover: 'https://i.ytimg.com/vi/14-IZpn1J-A/maxresdefault.jpg',
+                mod: 'Unlimited Gems + Stamina', badge: 'TRENDING',
+                desc: 'Baseball 9 Mod with Unlimited Gems and Stamina. Build the ultimate baseball team and dominate every league without spending a dime.'
+            },
+            {
+                name: 'Toca Boca World', cat: 'games', rating: '4.8', downloads: '1.2M+', size: '980MB',
+                version: 'v9.8.1', icon: 'https://appzenn.com/assets/img/app_images/whKzcdW512x512bb2112.jpg',
+                cover: 'https://i.pinimg.com/1200x/fb/45/ea/fb45eac770317c165615e7bc0191a798.jpg',
+                mod: 'All Worlds Unlocked + Unlimited Money', badge: 'VIP',
+                desc: 'Toca Boca World Hack — All Worlds Unlocked, Unlimited Money, All Characters & Items. Create your own world without limits.'
+            }
         ];
 
         const appsData = [
             ...slideApps,
-            { name:'Dragon Ball Legends', version:'v5.10.0 Mod', icon:'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg', cat:'games', rating:'4.9', downloads:'124K', mod:'Unlimited Crystals + God Mode', badge:'HOT' },
-            { name:'Free Fire MAX', version:'v2.103 Mod', icon:'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg', cat:'games', rating:'4.6', downloads:'312K', mod:'ESP Hack + Aimbot', badge:'HOT' },
-            { name:'PUBG Mobile', version:'v3.3.0 Mod', icon:'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg', cat:'games', rating:'4.5', downloads:'198K', mod:'ESP + Wallhack + Aimbot', badge:'TRENDING' },
-            { name:'Roblox', version:'v2.645 Mod', icon:'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg', cat:'games', rating:'4.3', downloads:'512K', mod:'Infinite Robux + God Mode', badge:'TRENDING' },
-            { name:'Call of Duty Mobile', version:'v1.25.0 Mod', icon:'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg', cat:'games', rating:'4.6', downloads:'156K', mod:'ESP + Aimbot + Radar', badge:'HOT' },
-            { name:'Subway Surfers', version:'v3.36.0 Mod', icon:'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg', cat:'games', rating:'4.4', downloads:'420K', mod:'Unlimited Coins + Keys', badge:'HOT' },
-            { name:'Genshin Impact', version:'v5.3.0 Mod', icon:'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg', cat:'games', rating:'4.9', downloads:'89K', mod:'God Mode + Primogems', badge:'VIP' },
-            { name:'Clash Royale', version:'v6.2.1 Mod', icon:'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg', cat:'games', rating:'4.8', downloads:'178K', mod:'Unlimited Gems + Gold', badge:'HOT' },
-            { name:'CapCut Pro', version:'v13.5.0 Mod', icon:'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg', cat:'apps', rating:'4.9', downloads:'234K', mod:'No Watermark + Pro Unlocked', badge:'HOT' },
-            { name:'Instagram Pro', version:'v350.0 Mod', icon:'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg', cat:'social', rating:'4.7', downloads:'378K', mod:'Download Media + No Ads', badge:'NEW' },
-            { name:'PicsArt Gold', version:'v24.1.0 Mod', icon:'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg', cat:'apps', rating:'4.6', downloads:'289K', mod:'Gold Unlocked', badge:'HOT' },
-            { name:'YouTube Music Premium', version:'v7.0.3 Mod', icon:'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg', cat:'streaming', rating:'4.8', downloads:'523K', mod:'No Ads + BG Play', badge:'HOT' },
-            { name:'Netflix Premium', version:'v11.2.0 Mod', icon:'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg', cat:'streaming', rating:'4.7', downloads:'345K', mod:'All Regions Unlocked', badge:'VIP' },
-            { name:'TikTok Mod', version:'v36.0.1 Mod', icon:'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg', cat:'social', rating:'4.8', downloads:'445K', mod:'No Ads + Download', badge:'HOT' },
+            { name: 'Dragon Ball Legends', version: 'v5.10.0 Mod', icon: 'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg', cat: 'games', rating: '4.9', downloads: '124K', mod: 'Unlimited Crystals + God Mode', badge: 'HOT' },
+            { name: 'Free Fire MAX', version: 'v2.103 Mod', icon: 'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg', cat: 'games', rating: '4.6', downloads: '312K', mod: 'ESP Hack + Aimbot', badge: 'HOT' },
+            { name: 'PUBG Mobile', version: 'v3.3.0 Mod', icon: 'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg', cat: 'games', rating: '4.5', downloads: '198K', mod: 'ESP + Wallhack', badge: 'TRENDING' },
+            { name: 'Roblox', version: 'v2.645 Mod', icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg', cat: 'games', rating: '4.3', downloads: '512K', mod: 'Infinite Robux + God Mode', badge: 'TRENDING' },
+            { name: 'Call of Duty Mobile', version: 'v1.25.0 Mod', icon: 'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg', cat: 'games', rating: '4.6', downloads: '156K', mod: 'ESP + Aimbot + Radar', badge: 'HOT' },
+            { name: 'Subway Surfers', version: 'v3.36.0 Mod', icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg', cat: 'games', rating: '4.4', downloads: '420K', mod: 'Unlimited Coins + Keys', badge: 'HOT' },
+            { name: 'Genshin Impact', version: 'v5.3.0 Mod', icon: 'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg', cat: 'games', rating: '4.9', downloads: '89K', mod: 'God Mode + Primogems', badge: 'VIP' },
+            { name: 'Clash Royale', version: 'v6.2.1 Mod', icon: 'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg', cat: 'games', rating: '4.8', downloads: '178K', mod: 'Unlimited Gems + Gold', badge: 'HOT' },
+            { name: 'CapCut Pro', version: 'v13.5.0 Mod', icon: 'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg', cat: 'apps', rating: '4.9', downloads: '234K', mod: 'No Watermark + Pro Unlocked', badge: 'HOT' },
+            { name: 'Instagram Pro', version: 'v350.0 Mod', icon: 'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg', cat: 'social', rating: '4.7', downloads: '378K', mod: 'Download Media + No Ads', badge: 'NEW' },
+            { name: 'PicsArt Gold', version: 'v24.1.0 Mod', icon: 'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg', cat: 'apps', rating: '4.6', downloads: '289K', mod: 'Gold Unlocked + No Ads', badge: 'HOT' },
+            { name: 'YouTube Music Premium', version: 'v7.0.3 Mod', icon: 'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg', cat: 'streaming', rating: '4.8', downloads: '523K', mod: 'No Ads + Background Play', badge: 'HOT' },
+            { name: 'Netflix Premium', version: 'v11.2.0 Mod', icon: 'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg', cat: 'streaming', rating: '4.7', downloads: '345K', mod: 'All Regions Unlocked', badge: 'VIP' },
+            { name: 'TikTok Mod', version: 'v36.0.1 Mod', icon: 'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg', cat: 'social', rating: '4.8', downloads: '445K', mod: 'No Ads + Download Videos', badge: 'HOT' },
         ];
 
-        let currentApp=null, currentView='discover', searchFilter='all', slideIndex=0, slideInterval=null;
+        let currentApp = null, currentView = 'discover', searchFilter = 'all', slideIndex = 0, slideInterval = null;
 
-        function renderCard(app, showViewers=false) {
-            const badgeClass = app.badge==='HOT'?'badge-hot':app.badge==='NEW'?'badge-new':app.badge==='TRENDING'?'badge-trending':app.badge==='VIP'?'badge-vip':'';
+        function renderCard(app) {
+            const badgeClass = app.badge === 'HOT' ? 'badge-hot' : app.badge === 'NEW' ? 'badge-new' : app.badge === 'TRENDING' ? 'badge-trending' : app.badge === 'VIP' ? 'badge-vip' : '';
             const stars = '⭐'.repeat(Math.floor(parseFloat(app.rating)));
-            const viewers = Math.floor(Math.random()*20+5);
-            return `<div class="card" onclick="openAppByName('${app.name.replace(/'/g,"\\'")}')">
+            return `<div class="card" onclick="openAppByName('${app.name.replace(/'/g, "\\'")}')">
                 <div class="card-icon-wrap">
-                    ${app.badge?`<div class="card-badge ${badgeClass}">${app.badge}</div>`:''}
+                    ${app.badge ? `<div class="card-badge ${badgeClass}">${app.badge}</div>` : ''}
                     <div class="card-mod">MOD</div>
-                    ${showViewers?`<div class="card-viewers"><span class="eye-dot"></span> ${viewers} viewing</div>`:''}
                     <img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#3b82f6,#1d4ed8)'">
                 </div>
                 <div class="card-title">${app.name}</div>
-                <div class="card-meta">${app.cat==='games'?'Games':'Apps'} · ${app.version}</div>
+                <div class="card-meta">${app.cat === 'games' ? 'Games' : 'Apps'} · ${app.version}</div>
                 <div class="card-rating"><span>${stars}</span><span>${app.rating}</span></div>
             </div>`;
         }
 
-        function openAppByName(name){ const app=appsData.find(a=>a.name===name); if(app) openApp(app); }
+        function openAppByName(name) { const app = appsData.find(a => a.name === name); if (app) openApp(app); }
 
-        function updateSlide(){
-            const app=slideApps[slideIndex];
-            document.getElementById('featuredBg').style.backgroundImage=`url(${app.cover})`;
-            document.getElementById('featuredIconImg').src=app.icon;
-            document.getElementById('featuredTitle').textContent=app.name;
-            document.getElementById('featuredDesc').textContent=app.mod;
-            document.getElementById('featuredRating').textContent='⭐ '+app.rating;
-            document.getElementById('featuredCat').textContent=app.cat==='games'?'Games':'Apps';
-            document.getElementById('featuredProgressFill').style.width=app.claimed+'%';
-            document.getElementById('featuredProgressText').textContent=app.claimed+'% claimed';
-            document.getElementById('featuredScarcity').textContent='⚡ Only '+app.scarcity+' left';
-            document.getElementById('featuredDots').innerHTML=slideApps.map((_,i)=>`<div class="featured-dot ${i===slideIndex?'active':''}" onclick="event.stopPropagation();goToSlide(${i})"></div>`).join('');
+        function updateSlide() {
+            const app = slideApps[slideIndex];
+            document.getElementById('featuredBg').style.backgroundImage = `url(${app.cover})`;
+            document.getElementById('featuredIconImg').src = app.icon;
+            document.getElementById('featuredTitle').textContent = app.name;
+            document.getElementById('featuredDesc').textContent = app.mod;
+            document.getElementById('featuredStars').textContent = '⭐'.repeat(Math.floor(parseFloat(app.rating)));
+            document.getElementById('featuredRating').textContent = app.rating;
+            document.getElementById('featuredCat').textContent = app.cat === 'games' ? 'Games' : 'Apps';
+            document.getElementById('featuredDots').innerHTML = slideApps.map((_, i) =>
+                `<div class="featured-dot ${i === slideIndex ? 'active' : ''}" onclick="event.stopPropagation(); goToSlide(${i})"></div>`).join('');
         }
 
-        function goToSlide(i){ slideIndex=i; updateSlide(); resetSlideTimer(); }
-        function nextSlide(){ slideIndex=(slideIndex+1)%slideApps.length; updateSlide(); }
-        function resetSlideTimer(){ clearInterval(slideInterval); slideInterval=setInterval(nextSlide,4500); }
+        function goToSlide(i) { slideIndex = i; updateSlide(); resetSlideTimer(); }
+        function nextSlide() { slideIndex = (slideIndex + 1) % slideApps.length; updateSlide(); }
+        function resetSlideTimer() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 4000); }
 
-        function initActivityFeed(){
-            const activities=[
-                {flag:'🇧🇷', name:'Carlos M.', action:'unlocked Pokémon Go Spoofer', time:'just now'},
-                {flag:'🇸🇦', name:'Ahmed K.', action:'activated 8 Ball Pool Mod', time:'30 sec ago'},
-                {flag:'🇺🇸', name:'Sarah J.', action:'downloaded Toca Boca World', time:'1 min ago'},
-                {flag:'🇮🇩', name:'Budi S.', action:'claimed Baseball 9 Mod', time:'2 min ago'},
-                {flag:'🇪🇬', name:'Omar H.', action:'got PUBG Mobile Hack', time:'3 min ago'},
-                {flag:'🇧🇷', name:'Ana P.', action:'unlocked CapCut Pro', time:'4 min ago'},
-            ];
-            const list=document.getElementById('activityList');
-            list.innerHTML=activities.map(a=>`<div class="activity-item"><span class="activity-flag">${a.flag}</span><span class="activity-info"><strong>${a.name}</strong> ${a.action}</span><span class="activity-time">${a.time}</span></div>`).join('');
-            setInterval(()=>{
-                const newAct=activities[Math.floor(Math.random()*activities.length)];
-                newAct.time='just now';
-                list.insertAdjacentHTML('afterbegin',`<div class="activity-item"><span class="activity-flag">${newAct.flag}</span><span class="activity-info"><strong>${newAct.name}</strong> ${newAct.action}</span><span class="activity-time">${newAct.time}</span></div>`);
-                if(list.children.length>8) list.lastElementChild.remove();
-            },6000);
+        function init() {
+            updateSlide(); resetSlideTimer();
+            document.getElementById('trending-scroll').innerHTML = appsData.filter(a => a.cat === 'games').slice(0, 6).map(a => renderCard(a)).join('');
+            document.getElementById('new-apps-grid').innerHTML = appsData.filter(a => a.cat !== 'games').slice(0, 6).map(a => renderCard(a)).join('');
+            document.getElementById('apps-grid').innerHTML = appsData.filter(a => a.cat !== 'games').map(a => renderCard(a)).join('');
+            document.getElementById('games-grid').innerHTML = appsData.filter(a => a.cat === 'games').map(a => renderCard(a)).join('');
+            doSearch();
+            updateLiveStats();
+            setInterval(updateLiveStats, 5000);
+            updateLiveProof();
+            setInterval(updateLiveProof, 8000);
+            window.addEventListener('scroll', handleScroll);
         }
 
-        function init(){
-            updateSlide(); resetSlideTimer(); initActivityFeed();
-            document.getElementById('trending-scroll').innerHTML=appsData.filter(a=>a.cat==='games').slice(0,6).map(a=>renderCard(a,true)).join('');
-            document.getElementById('new-apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').slice(0,4).map(a=>renderCard(a)).join('');
-            document.getElementById('premium-scroll').innerHTML=appsData.filter(a=>a.badge==='VIP'||a.badge==='HOT').slice(0,6).map(a=>renderCard(a,true)).join('');
-            document.getElementById('apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').map(a=>renderCard(a)).join('');
-            document.getElementById('games-grid').innerHTML=appsData.filter(a=>a.cat==='games').map(a=>renderCard(a,true)).join('');
-            doSearch(); updateLiveStats(); setInterval(updateLiveStats,5000);
-            updateTicker(); setInterval(updateTicker,8000);
-            window.addEventListener('scroll',()=>document.getElementById('btnBackTop').classList.toggle('show',window.scrollY>300));
+        function updateLiveStats() {
+            document.getElementById('statDownloads').textContent = Math.floor(Math.random() * 50000 + 120000).toLocaleString();
+            document.getElementById('statUsers').textContent = Math.floor(Math.random() * 2000 + 2000).toLocaleString();
         }
 
-        function updateLiveStats(){
-            document.getElementById('statDownloads').textContent=Math.floor(Math.random()*50000+120000).toLocaleString();
-            document.getElementById('statUsers').textContent=Math.floor(Math.random()*2000+2000).toLocaleString();
-        }
+        const liveProofs = ['Someone downloaded PUBG Mobile', 'Free Fire MAX mod activated', '8 Ball Pool Mod unlocked', 'CapCut Pro downloaded', 'Genshin Impact Mod unlocked', 'Roblox mod activated now', 'Call of Duty Mobile downloaded', 'Toca Boca World unlocked'];
+        let proofIdx = 0;
+        function updateLiveProof() { document.getElementById('liveText').textContent = liveProofs[proofIdx % liveProofs.length]; proofIdx++; }
 
-        const tickers=['⚡ 3,247 downloads happening right now','🔥 127 people claimed their mod in the last hour','💎 VIP mods restocked — limited availability','🎮 New mods added every 24 hours','⭐ 99.3% safe rate — all mods verified'];
-        let tickIdx=0;
-        function updateTicker(){ document.getElementById('liveTickerText').textContent=tickers[tickIdx%tickers.length]; tickIdx++; }
+        function handleScroll() { document.getElementById('btnBackTop').classList.toggle('show', window.scrollY > 300); }
 
-        function showView(view){
-            document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach((n,i)=>n.classList.toggle('active',(view==='discover'&&i===0)||(view==='apps'&&i===1)||(view==='games'&&i===2)));
-            const map={discover:'view-discover',apps:'view-apps',games:'view-games',search:'view-search',detail:'view-detail'};
+        function showView(view) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach((n, i) => n.classList.toggle('active', (view==='discover'&&i===0)||(view==='apps'&&i===1)||(view==='games'&&i===2)));
+            const map = { discover:'view-discover', apps:'view-apps', games:'view-games', search:'view-search', detail:'view-detail' };
             if(map[view]) document.getElementById(map[view]).classList.add('active');
-            document.getElementById('mainHeader').style.display=(view==='detail'||view==='search')?'none':'flex';
-            document.getElementById('bottomNav').style.display=(view==='detail'||view==='search')?'none':'flex';
-            document.getElementById('homeFooter').style.display=(view==='detail'||view==='search')?'none':'block';
-            currentView=view; window.scrollTo(0,0);
+            document.getElementById('mainHeader').style.display = (view === 'detail' || view === 'search') ? 'none' : 'flex';
+            document.getElementById('bottomNav').style.display = (view === 'detail' || view === 'search') ? 'none' : 'flex';
+            currentView = view; window.scrollTo(0,0);
         }
 
-        function goHome(){ showView('discover'); }
-        function goBack(){ showView('discover'); }
+        function goHome() { showView('discover'); }
+        function showSearch() { showView('search'); setTimeout(() => document.getElementById('searchInput').focus(), 100); }
+        function goBack() { showView('discover'); }
 
-        function openApp(app){
-            currentApp=app;
-            document.getElementById('detail-img').src=app.icon;
-            document.getElementById('detail-name').textContent=app.name;
-            document.getElementById('detail-category').textContent=app.cat==='games'?'Games':'Apps';
-            document.getElementById('detail-rating').textContent='⭐ '+app.rating;
-            document.getElementById('detail-downloads').textContent='⬇️ '+app.downloads;
-            document.getElementById('detail-size').textContent='💾 '+(app.size||app.version);
-            document.getElementById('detail-version').textContent=app.version;
-            document.getElementById('detail-mod').textContent='✨ '+app.mod;
-            document.getElementById('detail-about').textContent=app.desc||`${app.name} ${app.mod}. Install now and unlock powerful features instantly.`;
-            document.getElementById('info-version').textContent=app.version;
-            document.getElementById('info-size').textContent=app.size||app.version;
-            document.getElementById('info-category').textContent=app.cat==='games'?'Games':'Apps';
-            document.getElementById('info-rating').textContent='⭐ '+app.rating;
-            document.getElementById('info-downloads').textContent=app.downloads;
-            const related=appsData.filter(a=>a.cat===app.cat&&a.name!==app.name).slice(0,5);
-            document.getElementById('related-scroll').innerHTML=related.length?related.map(a=>renderCard(a)).join(''):'<p style="color:var(--text2);font-size:13px;">No related apps</p>';
+        function openApp(app) {
+            currentApp = app;
+            document.getElementById('detail-img').src = app.icon;
+            document.getElementById('detail-name').textContent = app.name;
+            document.getElementById('detail-category').textContent = app.cat === 'games' ? 'Games' : 'Apps';
+            document.getElementById('detail-rating').textContent = '⭐ ' + app.rating;
+            document.getElementById('detail-downloads').textContent = '⬇️ ' + app.downloads;
+            document.getElementById('detail-size').textContent = '💾 ' + (app.size || app.version);
+            document.getElementById('detail-version').textContent = app.version;
+            document.getElementById('detail-mod').textContent = '✨ ' + app.mod;
+            document.getElementById('detail-about').textContent = app.desc || `${app.name} ${app.mod}. Install now with our guide and unlock powerful features instantly on iOS and Android.`;
+            document.getElementById('info-version').textContent = app.version;
+            document.getElementById('info-size').textContent = app.size || app.version;
+            document.getElementById('info-category').textContent = app.cat === 'games' ? 'Games' : 'Apps';
+            document.getElementById('info-rating').textContent = '⭐ ' + app.rating;
+            document.getElementById('info-downloads').textContent = app.downloads;
+            const related = appsData.filter(a => a.cat === app.cat && a.name !== app.name).slice(0, 5);
+            document.getElementById('related-scroll').innerHTML = related.length ? related.map(a => renderCard(a)).join('') : '<p style="color:var(--text-secondary);font-size:13px;">No related apps</p>';
             showView('detail');
         }
 
-        function startPreparing(){
-            const app=currentApp||appsData[0];
-            document.getElementById('preparing-img').src=app.icon;
-            document.getElementById('preparing-name').textContent=app.name;
+        function startPreparing() {
+            const app = currentApp || appsData[0];
+            document.getElementById('preparing-img').src = app.icon;
+            document.getElementById('preparing-name').textContent = app.name;
             document.getElementById('preparingScreen').classList.add('active');
-            document.body.style.overflow='hidden';
-            let progress=0;
-            const msgs=[{p:0,t:"Sit tight...",s:"Preparing your download"},{p:18,t:"Looking for download source..",s:"Connecting to server"},{p:38,t:"Source found!",s:"Verifying file integrity"},{p:58,t:"Source updated 14 minutes ago..",s:"Preparing your mod"},{p:78,t:"Loading Download Source...",s:"Almost ready"},{p:100,t:"Complete!",s:"Redirecting to download..."}];
-            const interval=setInterval(()=>{
-                progress+=Math.random()*3.2+0.9; if(progress>100) progress=100;
-                const pct=Math.floor(progress);
-                document.getElementById('preparingPercent').textContent=pct+'%';
-                document.getElementById('progressPercent').textContent=pct+'%';
-                document.getElementById('progressFill').style.width=progress+'%';
-                const msg=msgs.slice().reverse().find(m=>progress>=m.p);
-                if(msg){ document.getElementById('preparingText').textContent=msg.t; document.getElementById('preparingSub').textContent=msg.s; }
-                if(progress>=100){ clearInterval(interval); setTimeout(()=>{ window.location.href='YOUR_CPA_LOCKER_URL_HERE'; },500); }
-            },85);
+            document.body.style.overflow = 'hidden';
+            let progress = 0;
+            const msgs = [
+                { p: 0, t: "Sit tight...", s: "Please wait while we prepare your download" },
+                { p: 18, t: "Looking for download source..", s: "Please wait while we prepare your download" },
+                { p: 38, t: "Source found!", s: "Please wait while we prepare your download" },
+                { p: 58, t: "Source updated 14 minutes ago..", s: "Please wait while we prepare your download" },
+                { p: 78, t: "Loading Download Source...", s: "Please wait while we prepare your download" },
+                { p: 100, t: "Complete!", s: "Redirecting..." }
+            ];
+            const interval = setInterval(() => {
+                progress += Math.random() * 3.2 + 0.9;
+                if(progress > 100) progress = 100;
+                const pct = Math.floor(progress);
+                document.getElementById('preparingPercent').textContent = pct + '%';
+                document.getElementById('progressPercent').textContent = pct + '%';
+                document.getElementById('progressFill').style.width = progress + '%';
+                const msg = msgs.slice().reverse().find(m => progress >= m.p);
+                if(msg) { document.getElementById('preparingText').textContent = msg.t; document.getElementById('preparingSub').textContent = msg.s; }
+                if(progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => { window.location.href = 'YOUR_CPA_LOCKER_URL_HERE'; }, 400);
+                }
+            }, 85);
         }
 
-        function setFilter(filter,el){ searchFilter=filter; document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); doSearch(); }
-        function doSearch(){
-            const q=document.getElementById('searchInput').value.toLowerCase();
-            let results=appsData.filter(a=>a.name.toLowerCase().includes(q));
-            if(searchFilter==='app') results=results.filter(a=>a.cat!=='games');
-            if(searchFilter==='game') results=results.filter(a=>a.cat==='games');
-            document.getElementById('search-results').innerHTML=results.length?results.map(a=>renderCard(a)).join(''):'<div style="text-align:center;color:var(--text2);margin-top:40px;">No results found</div>';
+        function setFilter(filter, el) {
+            searchFilter = filter;
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active'); doSearch();
         }
 
-        function toggleTheme(){
-            const html=document.documentElement;
-            const isDark=html.getAttribute('data-theme')==='dark';
-            html.setAttribute('data-theme',isDark?'light':'dark');
-            document.getElementById('themeIcon').textContent=isDark?'🌙':'☀️';
-            localStorage.setItem('theme',isDark?'light':'dark');
+        function doSearch() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            let results = appsData.filter(a => a.name.toLowerCase().includes(q));
+            if(searchFilter === 'app') results = results.filter(a => a.cat !== 'games');
+            if(searchFilter === 'game') results = results.filter(a => a.cat === 'games');
+            document.getElementById('search-results').innerHTML = results.length ? results.map(a => renderCard(a)).join('') : '<div class="no-results">No results found</div>';
         }
-        (function(){ const t=localStorage.getItem('theme')||'dark'; document.documentElement.setAttribute('data-theme',t); document.getElementById('themeIcon').textContent=t==='dark'?'☀️':'🌙'; })();
-        document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ const ps=document.getElementById('preparingScreen'); if(ps.classList.contains('active')){ ps.classList.remove('active'); document.body.style.overflow=''; } } });
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            document.getElementById('themeIcon').textContent = isDark ? '🌙' : '☀️';
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        }
+
+        (function() {
+            const t = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+            document.getElementById('themeIcon').textContent = t === 'dark' ? '☀️' : '🌙';
+        })();
 
         init();
     </script>
