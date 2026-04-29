@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ============ COLOR PSYCHOLOGY PALETTE ============ */
         :root[data-theme="dark"] {
             --bg: #0a0e27; --bg2: #0f1335; --surface: rgba(20, 25, 55, 0.85);
             --surface2: rgba(30, 36, 70, 0.9); --border: rgba(255,255,255,0.04);
@@ -24,19 +23,6 @@
             --card-shadow: 0 4px 24px rgba(0,0,0,0.6);
             --featured-shadow: 0 20px 60px rgba(0,0,0,0.7);
         }
-        :root[data-theme="light"] {
-            --bg: #f2f3f7; --bg2: #f8f9fc; --surface: rgba(255,255,255,0.9);
-            --surface2: rgba(255,255,255,0.95); --border: rgba(0,0,0,0.05);
-            --border2: rgba(0,0,0,0.08); --text: #0a0e27; --text2: #3d4560;
-            --text3: #7c83a0; --accent: #d6302b; --accent2: #e8403b;
-            --accent-glow: rgba(214,48,43,0.25); --mod: #4f46e5; --mod-glow: rgba(79,70,229,0.3);
-            --success: #00a844; --warning: #e68600; --danger: #d6302b;
-            --gold: #d4b000; --header-bg: rgba(242,243,247,0.88); --nav-bg: rgba(242,243,247,0.92);
-            --overlay: linear-gradient(to top, rgba(242,243,247,0.98) 0%, rgba(242,243,247,0.35) 50%, rgba(242,243,247,0.05) 100%);
-            --card-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            --featured-shadow: 0 16px 40px rgba(0,0,0,0.1);
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; font-size: 16px; }
         body {
@@ -53,7 +39,6 @@
         }
         .app-container { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 160px; }
 
-        /* HEADER + LIVE TICKER */
         .header {
             position: sticky; top: 0; z-index: 100; display: flex; align-items: center;
             justify-content: space-between; padding: 10px 16px; background: var(--header-bg);
@@ -74,7 +59,6 @@
         .live-counter .pulse-dot { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse-dot 1.5s infinite; }
         @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(0,200,83,0.6); } 50% { box-shadow: 0 0 0 10px transparent; } }
 
-        /* COUNTDOWN BAR */
         .countdown-bar {
             background: linear-gradient(90deg, #FF3B30, #FF9500); color: #fff; text-align: center;
             padding: 8px 14px; font-size: 12px; font-weight: 800; letter-spacing: 0.5px;
@@ -82,7 +66,6 @@
         }
         .countdown-bar .timer { background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px; font-size: 13px; }
 
-        /* TOAST NOTIFICATIONS */
         .toast-container {
             position: fixed; bottom: 150px; left: 10px; z-index: 300;
             display: flex; flex-direction: column; gap: 8px; pointer-events: none;
@@ -99,12 +82,10 @@
         .toast-flag { font-size: 20px; flex-shrink: 0; }
         .toast-info strong { color: var(--success); }
 
-        /* VIEWS */
         .view { display: none; animation: viewIn 0.35s ease; padding: 0 14px; }
         .view.active { display: block; }
         @keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* FEATURED MEGA CARD */
         .featured-wrapper { position: relative; margin-top: 10px; }
         .featured {
             position: relative; border-radius: 22px; overflow: hidden;
@@ -140,7 +121,6 @@
         }
         @keyframes pulse-bg { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
-        /* PROGRESS CLAIM BAR */
         .claim-bar {
             background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
             padding: 10px 14px; margin: 10px 0; backdrop-filter: blur(10px);
@@ -150,7 +130,6 @@
         .claim-bar-fill { flex: 1; height: 7px; background: var(--border); border-radius: 4px; overflow: hidden; }
         .claim-bar-fill-inner { height: 100%; background: linear-gradient(90deg, #FF9500, #FF3B30); border-radius: 4px; width: 83%; transition: width 0.5s; }
 
-        /* ACTIVITY FEED */
         .activity-feed {
             background: var(--surface); border: 1px solid var(--border);
             border-radius: 14px; padding: 10px 14px; margin: 10px 0; backdrop-filter: blur(10px);
@@ -162,17 +141,14 @@
         .activity-flag { font-size: 16px; }
         .activity-time { font-size: 9px; color: var(--text3); margin-left: auto; }
 
-        /* STATS BAR */
         .stats-bar { display: flex; justify-content: space-around; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px 8px; margin: 8px 0; backdrop-filter: blur(10px); }
         .stat-val { font-size: 16px; font-weight: 800; color: var(--accent); }
         .stat-lbl { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 
-        /* SECTION HEADERS */
         .section-header { display: flex; justify-content: space-between; align-items: center; margin: 20px 0 8px; }
         .section-title { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
         .section-link { font-size: 12px; color: var(--accent2); text-decoration: none; font-weight: 700; cursor: pointer; }
 
-        /* CARDS */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .card {
             background: var(--surface); border: 1px solid var(--border);
@@ -205,7 +181,6 @@
         .h-scroll::-webkit-scrollbar { display: none; }
         .h-scroll .card { min-width: 125px; max-width: 130px; flex-shrink: 0; scroll-snap-align: start; }
 
-        /* BOTTOM NAV */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
             display: flex; justify-content: center; padding: 6px 14px 18px;
@@ -217,7 +192,6 @@
         .nav-item.active { background: #FF3B30; color: #fff; box-shadow: 0 4px 14px rgba(255,59,48,0.3); }
         .nav-item svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-        /* DETAIL */
         .back-btn { display: inline-flex; align-items: center; gap: 5px; background: transparent; border: none; color: var(--text); font-size: 13px; cursor: pointer; margin: 6px 0 2px; padding: 5px 0; font-weight: 700; font-family: inherit; }
         .detail-header { display: flex; gap: 12px; margin-top: 6px; align-items: flex-start; }
         .detail-icon { width: 70px; height: 70px; border-radius: 16px; overflow: hidden; flex-shrink: 0; box-shadow: 0 8px 20px rgba(0,0,0,0.4); border: 1px solid var(--border2); }
@@ -227,7 +201,6 @@
         .detail-meta-row { display: flex; gap: 10px; font-size: 10px; color: var(--text2); font-weight: 600; }
         .mod-features { display: inline-flex; align-items: center; gap: 4px; background: rgba(99,102,241,0.12); color: var(--mod); padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; margin-top: 6px; }
 
-        /* CTA BUTTON */
         .btn-start {
             width: 100%; margin-top: 16px; padding: 14px; border-radius: 12px;
             background: linear-gradient(135deg, #FF3B30, #d6302b); color: #fff;
@@ -239,7 +212,6 @@
         @keyframes pulse-btn { 0%,100% { box-shadow: 0 6px 24px rgba(255,59,48,0.35); } 50% { box-shadow: 0 6px 38px rgba(255,59,48,0.6); } }
         .btn-start:active { transform: scale(0.97); }
 
-        /* SAFETY BADGES */
         .safety-badges { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
         .safety-badge {
             font-size: 10px; color: var(--success); font-weight: 600;
@@ -247,7 +219,6 @@
             background: rgba(0,200,83,0.08); padding: 4px 8px; border-radius: 6px;
         }
 
-        /* STICKY CTA BAR */
         .sticky-cta {
             position: fixed; bottom: 70px; left: 0; right: 0; z-index: 99;
             background: var(--nav-bg); backdrop-filter: blur(28px);
@@ -257,7 +228,6 @@
         .sticky-cta.show { display: flex; }
         .sticky-cta .btn-start { margin: 0; flex: 1; padding: 12px; font-size: 13px; }
 
-        /* PREPARING SCREEN */
         .preparing-screen { position: fixed; inset: 0; background: var(--bg); z-index: 200; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; }
         .preparing-screen.active { display: flex; }
         .preparing-percent { font-size: 80px; font-weight: 900; background: linear-gradient(to bottom, rgba(255,59,48,0.3), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 16px; }
@@ -271,11 +241,9 @@
         .progress-bar { height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, #FF3B30, #FF9500); border-radius: 3px; width: 0%; transition: width 0.25s ease; }
 
-        /* BACK TO TOP */
         .btn-back-top { position: fixed; bottom: 140px; right: 14px; z-index: 90; width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border2); color: var(--text); cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 15px; }
         .btn-back-top.show { display: flex; }
 
-        /* SEARCH */
         .search-bar { margin-top: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
         .search-bar input { flex: 1; background: transparent; border: none; color: var(--text); font-size: 13px; outline: none; font-family: inherit; }
         .search-bar input::placeholder { color: var(--text3); }
@@ -283,34 +251,139 @@
         .filter-chip { padding: 5px 10px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); font-size: 11px; cursor: pointer; color: var(--text2); font-weight: 600; font-family: inherit; }
         .filter-chip.active { background: #FF3B30; color: #fff; border-color: #FF3B30; }
 
-        /* FOOTER */
         .footer { text-align: center; padding: 20px 14px 30px; font-size: 10px; color: var(--text3); border-top: 1px solid var(--border); margin-top: 16px; }
         .footer-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 6px; }
         .footer-links a { color: var(--text2); text-decoration: none; font-weight: 500; }
+
+        /* ============ GHOSTFLOW + MODPROOF + TIMEWARP STYLES ============ */
+        .ghost-ecosystem { margin: 14px 0; }
+        .live-indicator-ghost {
+            display: flex; align-items: center; gap: 10px;
+            background: var(--surface); padding: 10px 14px; border-radius: 10px;
+            margin-bottom: 8px; font-size: 12px; font-weight: 600;
+            border: 1px solid var(--border);
+        }
+        .live-dot-ghost {
+            width: 9px; height: 9px; background: #ff0000;
+            border-radius: 50%; display: inline-block;
+        }
+        .live-dot-ghost.pulse-active { animation: dotPulseGhost 1.2s infinite; }
+        @keyframes dotPulseGhost { 0%,100% { box-shadow: 0 0 0 0 rgba(255,0,0,0.8); } 50% { box-shadow: 0 0 18px 8px rgba(255,0,0,0); } }
+        .stock-indicator-ghost { margin: 10px 0; }
+        .stock-bar-ghost { height: 8px; background: #1a1a2e; border-radius: 4px; overflow: hidden; }
+        .stock-bar-fill-ghost { height: 100%; width: 100%; background: #00ff66; transition: width 0.7s ease, background 0.4s ease; border-radius: 4px; }
+        .stock-text-ghost { margin-top: 5px; font-size: 11px; color: #ff6666; font-weight: 600; }
+        .urgency-message-ghost { display: none; background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.3); border-radius: 8px; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #ff4444; font-weight: 700; }
+        .sales-feed-ghost { background: var(--surface); border-radius: 10px; padding: 10px; max-height: 200px; overflow-y: auto; font-size: 10px; border: 1px solid var(--border); margin-top: 8px; }
+        .ghost-sale-item { padding: 6px 4px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 7px; font-weight: 500; }
+        .sale-time-ghost { color: var(--text3); margin-left: auto; font-size: 9px; }
+        .sale-icon-ghost { font-size: 7px; color: #00ff66; }
+
+        /* mod-proof styles */
+        .mod-proof-container { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px; margin: 14px 0; }
+        .mod-proof-header { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; font-weight: 700; color: #00ff66; font-size: 12px; }
+        .proof-badge-mod { background: #00ff66; color: #000; padding: 1px 8px; border-radius: 12px; font-size: 9px; font-weight: 700; margin-left: auto; animation: badgePulseMod 2s infinite; }
+        @keyframes badgePulseMod { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .mod-proof-item { background: rgba(0,255,100,0.03); border-left: 2px solid #00ff66; padding: 8px 10px; margin-bottom: 6px; border-radius: 0 6px 6px 0; font-size: 11px; color: #ccc; animation: slideInMod 0.35s ease-out; }
+        @keyframes slideInMod { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+        .proof-item-name-mod { color: #00ff66; font-weight: 700; display: block; margin-bottom: 2px; }
+        .proof-item-detail-mod { color: #888; font-size: 9px; display: flex; justify-content: space-between; margin-top: 3px; }
+        .proof-item-status-mod { color: #00ff66; font-size: 9px; }
+        .proof-item-time-mod { color: #555; font-size: 9px; }
+
+        /* TikTok + Desktop Block Styles */
+        .tiktok-blocked body > *:not(#tiktok-tutorial-overlay):not(#mobile-guard-overlay) { display: none !important; }
+        #tiktok-tutorial-overlay, #mobile-guard-overlay {
+            position: fixed; inset: 0; z-index: 1000000; background: #000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 25px 20px; box-sizing: border-box; animation: fadeInOverlay 0.35s ease-out;
+        }
+        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+        .browser-mockup { width: 100%; max-width: 380px; background: #1c1c1e; border-radius: 12px 12px 0 0; padding: 10px 14px; margin-bottom: 22px; border: 1px solid #333; }
+        .browser-dots { display: flex; gap: 5px; margin-bottom: 8px; }
+        .browser-dot { width: 9px; height: 9px; border-radius: 50%; background: #444; }
+        .browser-dot.red { background: #ff5f57; } .browser-dot.yellow { background: #ffbd2e; } .browser-dot.green { background: #28c840; }
+        .browser-url-bar { background: #2c2c2e; border-radius: 6px; padding: 6px 10px; color: #8e8e93; font-size: 11px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tutorial-title-tt { color: #fff; font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 6px; }
+        .tutorial-subtitle-tt { color: #999; font-size: 14px; text-align: center; margin-bottom: 30px; line-height: 1.5; max-width: 280px; }
+        .tutorial-steps-tt { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 25px; }
+        .tutorial-step-tt { display: flex; align-items: flex-start; gap: 14px; padding: 16px 14px; background: #111; border-radius: 12px; border: 1px solid #222; animation: slideStepIn 0.5s ease-out forwards; opacity: 0; }
+        .tutorial-step-tt:nth-child(1) { animation-delay: 0.2s; } .tutorial-step-tt:nth-child(2) { animation-delay: 0.55s; } .tutorial-step-tt:nth-child(3) { animation-delay: 0.9s; }
+        @keyframes slideStepIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .tutorial-step-number-tt { width: 34px; height: 34px; background: #007AFF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; box-shadow: 0 0 16px rgba(0,122,255,0.4); }
+        .tutorial-step-text-tt { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .tutorial-step-hint-tt { color: #888; font-size: 11px; line-height: 1.3; }
+        .tutorial-arrow-indicator-tt { position: fixed; top: 16px; right: 18px; z-index: 1000001; animation: bounceArrow 1s infinite; pointer-events: none; }
+        @keyframes bounceArrow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .tutorial-action-circle-tt { position: fixed; top: 10px; right: 14px; width: 40px; height: 40px; border: 2px solid rgba(255,255,255,0.7); border-radius: 50%; z-index: 1000000; animation: circleHighlight 1.5s infinite; pointer-events: none; }
+        @keyframes circleHighlight { 0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.5); } 50% { box-shadow: 0 0 22px 7px rgba(255,255,255,0); } }
+        .menu-dots-indicator-tt { position: fixed; top: 17px; right: 26px; color: #fff; font-size: 20px; font-weight: 700; z-index: 1000002; animation: fadeDots 2s infinite; pointer-events: none; }
+        @keyframes fadeDots { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+        .tutorial-retry-btn-tt { width: 100%; max-width: 360px; padding: 14px; background: #007AFF; color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
+        .tutorial-retry-btn-tt:active { background: #0056b3; transform: scale(0.97); }
+        .tutorial-footer-tt { margin-top: 15px; color: #666; font-size: 11px; text-align: center; }
+        .tutorial-footer-tt a { color: #007AFF; text-decoration: none; }
+
+        /* Mobile Guard (Desktop Block) */
+        .mobile-guard-icon-outer { width: 80px; height: 80px; border: 3px solid #333; border-radius: 16px; display: flex; align-items: center; justify-content: center; animation: pulseIcon 2s infinite; margin-bottom: 25px; }
+        @keyframes pulseIcon { 0%,100% { transform: scale(1); border-color: #333; } 50% { transform: scale(1.05); border-color: #555; } }
+        .mobile-guard-icon-inner { width: 32px; height: 50px; border: 3px solid #007AFF; border-radius: 5px; position: relative; }
+        .mobile-guard-icon-inner::after { content: ''; position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border: 3px solid #007AFF; border-radius: 50%; animation: tapPulse 1.5s infinite; }
+        @keyframes tapPulse { 0%,100% { transform: translateX(-50%) scale(1); opacity: 1; } 50% { transform: translateX(-50%) scale(0.7); opacity: 0.5; } }
+        .mobile-guard-title-mg { color: #fff; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; }
+        .mobile-guard-message-mg { color: #999; font-size: 14px; text-align: center; margin-bottom: 30px; line-height: 1.6; max-width: 320px; }
+        .mobile-guard-access-title-mg { color: #fff; font-size: 16px; font-weight: 700; text-align: center; margin-bottom: 16px; }
+        .mobile-guard-step-mg { display: flex; align-items: center; gap: 12px; padding: 12px 14px; margin-bottom: 8px; background: #111; border-radius: 10px; border: 1px solid #222; width: 100%; max-width: 340px; }
+        .mobile-guard-step-num-mg { width: 28px; height: 28px; background: #007AFF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+        .mobile-guard-step-text-mg { color: #ccc; font-size: 13px; }
+        .mobile-guard-app-note-mg { color: #666; font-size: 12px; text-align: center; margin-top: 5px; font-style: italic; }
+
+        /* CTA Magnetic Glow */
+        .cta-magnetic-glow { position: absolute; inset: -8px; border-radius: inherit; background: radial-gradient(circle at center, rgba(255,59,48,0.4) 0%, rgba(255,100,0,0.08) 50%, transparent 70%); opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: -1; }
+        .cta-magnetic-glow.active { opacity: 1; }
+
+        /* Particle Canvas */
+        #scroll-seducer-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9997; }
 
         @media (min-width: 420px) { .featured { height: 280px; } .h-scroll .card { min-width: 140px; max-width: 145px; } }
     </style>
 </head>
 <body>
     <div class="bg-mesh"></div>
-    <div class="app-container">
-        <!-- HEADER -->
+    <div class="app-container" id="mainAppContainer">
         <header class="header" id="mainHeader">
             <a href="index.html" class="logo"><div class="logo-icon">oo</div><span>ooQleMod</span></a>
             <div class="live-counter"><span class="pulse-dot"></span> <span id="liveCount">2,847</span> online</div>
         </header>
 
-        <!-- COUNTDOWN BAR -->
-        <div class="countdown-bar">
+        <div class="countdown-bar" id="countdownBar">
             ⚡ LIMITED ACCESS — <span class="timer" id="countdownTimer">04:32:17</span> remaining until slots reset
         </div>
 
-        <!-- TOAST CONTAINER -->
         <div class="toast-container" id="toastContainer"></div>
 
-        <!-- DISCOVER VIEW -->
+        <!-- ============ GHOSTFLOW ECOSYSTEM ============ -->
+        <div class="ghost-ecosystem" id="ghostEcosystem" style="padding: 0 14px;">
+            <div class="live-indicator-ghost">
+                <span id="live-dot-ghost" class="live-dot-ghost"></span>
+                <span id="viewer-count-ghost">24</span> players viewing now
+            </div>
+            <div class="stock-indicator-ghost">
+                <div class="stock-bar-ghost">
+                    <div id="stock-bar-fill-ghost" class="stock-bar-fill-ghost"></div>
+                </div>
+                <p class="stock-text-ghost">
+                    ⚠️ Only <span id="stock-counter-ghost">34</span> download slots left
+                </p>
+            </div>
+            <div id="urgency-message-ghost" class="urgency-message-ghost"></div>
+            <div id="recent-sales-feed-ghost" class="sales-feed-ghost"></div>
+        </div>
+
+        <!-- ============ MODPROOF FEED ============ -->
+        <div id="mod-proof-feed" style="padding: 0 14px;"></div>
+
         <div class="view active" id="view-discover">
-            <!-- Featured -->
             <div class="featured-wrapper">
                 <div class="featured" id="featuredBanner" onclick="openApp(slideApps[slideIndex])">
                     <div class="featured-bg" id="featuredBg"></div>
@@ -328,20 +401,17 @@
                 </div>
             </div>
 
-            <!-- Claim Bar -->
-            <div class="claim-bar">
+            <div class="claim-bar" id="claimBar">
                 <span>🔥 87% of today's licenses claimed</span>
                 <div class="claim-bar-fill"><div class="claim-bar-fill-inner" id="claimBarFill"></div></div>
                 <span id="claimBarText">87%</span>
             </div>
 
-            <!-- Live Activity -->
             <div class="activity-feed">
                 <div class="activity-title">🟢 LIVE — Real people downloading</div>
                 <div class="activity-list" id="activityList"></div>
             </div>
 
-            <!-- Stats -->
             <div class="stats-bar">
                 <div style="text-align:center;"><div class="stat-val" id="statDownloads">147K</div><div class="stat-lbl">Downloads</div></div>
                 <div style="text-align:center;"><div class="stat-val">4.9 ★</div><div class="stat-lbl">Rating</div></div>
@@ -349,30 +419,25 @@
                 <div style="text-align:center;"><div class="stat-val">24/7</div><div class="stat-lbl">Support</div></div>
             </div>
 
-            <!-- Trending -->
             <div class="section-header"><div class="section-title">🔥 Trending Now</div><span class="section-link" onclick="showView('games')">View all →</span></div>
             <div class="h-scroll" id="trending-scroll"></div>
 
-            <!-- New -->
             <div class="section-header"><div class="section-title">✨ New Releases</div><span class="section-link" onclick="showView('apps')">View all →</span></div>
             <div class="grid" id="new-apps-grid"></div>
         </div>
 
-        <!-- GAMES VIEW -->
         <div class="view" id="view-games">
             <button class="back-btn" onclick="goHome()">← Back</button>
             <h2 style="font-size:22px;font-weight:900;margin:10px 0 12px;">🎮 Games</h2>
             <div class="grid" id="games-grid"></div>
         </div>
 
-        <!-- APPS VIEW -->
         <div class="view" id="view-apps">
             <button class="back-btn" onclick="goHome()">← Back</button>
             <h2 style="font-size:22px;font-weight:900;margin:10px 0 12px;">📱 Apps</h2>
             <div class="grid" id="apps-grid"></div>
         </div>
 
-        <!-- SEARCH VIEW -->
         <div class="view" id="view-search">
             <button class="back-btn" onclick="goHome()">← Back</button>
             <h2 style="font-size:22px;font-weight:900;margin:10px 0 12px;">🔍 Search</h2>
@@ -388,7 +453,6 @@
             <div class="grid" id="search-results"></div>
         </div>
 
-        <!-- DETAIL VIEW -->
         <div class="view" id="view-detail">
             <button class="back-btn" onclick="goBack()">← Back</button>
             <div class="detail-header">
@@ -403,13 +467,16 @@
                     <div class="mod-features" id="detail-mod">✨ Mod Features</div>
                 </div>
             </div>
-            <button class="btn-start" onclick="startPreparing()">⚡ Get My Download Now</button>
+            <button class="btn-start" id="detailCtaBtn" onclick="startPreparing()" style="position:relative;">
+                <span class="cta-magnetic-glow"></span>
+                ⚡ Get My Download Now
+            </button>
             <div class="safety-badges" id="safetyBadges">
                 <span class="safety-badge">✅ Verified Safe</span>
                 <span class="safety-badge">🛡️ No Password</span>
                 <span class="safety-badge">🔒 SSL Secure</span>
             </div>
-            <div class="detail-section" style="margin-top:18px;">
+            <div style="margin-top:18px;">
                 <h3 style="font-size:14px;font-weight:800;">About</h3>
                 <p style="font-size:12px;color:var(--text2);line-height:1.6;" id="detail-about">Description here...</p>
             </div>
@@ -419,7 +486,6 @@
             </div>
         </div>
 
-        <!-- FOOTER -->
         <div class="footer" id="homeFooter">
             <div class="footer-links">
                 <a href="contact.html">Contact</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="faq.html">FAQ</a> · <a href="dmca.html">DMCA</a>
@@ -428,16 +494,13 @@
         </div>
     </div>
 
-    <!-- STICKY CTA -->
     <div class="sticky-cta" id="stickyCta">
         <span style="font-size:11px;color:var(--text2);">👇 Your download is ready</span>
         <button class="btn-start" onclick="startPreparing()">⚡ COMPLETE NOW</button>
     </div>
 
-    <!-- BACK TO TOP -->
     <button class="btn-back-top" id="btnBackTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-    <!-- BOTTOM NAV -->
     <div class="bottom-nav" id="bottomNav">
         <div class="nav-inner">
             <button class="nav-item active" onclick="showView('discover')"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Discover</button>
@@ -446,7 +509,6 @@
         </div>
     </div>
 
-    <!-- PREPARING SCREEN -->
     <div class="preparing-screen" id="preparingScreen">
         <div class="preparing-percent" id="preparingPercent">0%</div>
         <div class="preparing-circle">☁️</div>
@@ -458,211 +520,628 @@
         </div>
     </div>
 
+    <!-- Particle Canvas for ScrollSeducer -->
+    <canvas id="scroll-seducer-canvas"></canvas>
+
     <script>
-        const slideApps = [
-            { name:'Pokémon Go Spoofer', cat:'games', rating:'4.8', downloads:'550k+', version:'v4.1.5', icon:'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png', cover:'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/pokemon-go-characters-logo.jpg', mod:'Teleport + Joystick', badge:'HOT', claimed:87, scarcity:3, desc:'Install Pokémon GO Spoofer — Teleport, Joystick, Auto Walk. Works iOS & Android.' },
-            { name:'8 Ball Pool Mod', cat:'games', rating:'4.9', downloads:'1M+', version:'v55.9.0', icon:'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg', cover:'https://i2.kknews.cc/RdIP7Ts-99-OvrUyhJF_xH_vafs4n2M/0.jpg', mod:'Long Line + Auto Win', badge:'HOT', claimed:92, scarcity:2, desc:'8 Ball Pool Mod with Guideline Tool. No Jailbreak Needed.' },
-            { name:'Baseball 9', cat:'games', rating:'4.7', downloads:'87K', version:'v4.2.8', icon:'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg', cover:'https://i.ytimg.com/vi/14-IZpn1J-A/maxresdefault.jpg', mod:'Unlimited Gems + Stamina', badge:'TRENDING', claimed:78, scarcity:5, desc:'Baseball 9 Mod with Unlimited Gems. Build the ultimate team.' },
-            { name:'Toca Boca World', cat:'games', rating:'4.8', downloads:'1.2M+', version:'v9.8.1', icon:'https://appzenn.com/assets/img/app_images/whKzcdW512x512bb2112.jpg', cover:'https://i.pinimg.com/1200x/fb/45/ea/fb45eac770317c165615e7bc0191a798.jpg', mod:'All Worlds Unlocked', badge:'VIP', claimed:95, scarcity:1, desc:'Toca Boca World Hack — All Worlds, Unlimited Money.' }
-        ];
+    // ==================== DATA ====================
+    const slideApps = [
+        { name:'Pokémon Go Spoofer', cat:'games', rating:'4.8', downloads:'550k+', version:'v4.1.5', icon:'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png', cover:'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/pokemon-go-characters-logo.jpg', mod:'Teleport + Joystick', badge:'HOT', claimed:87, scarcity:3, desc:'Install Pokémon GO Spoofer — Teleport, Joystick, Auto Walk. Works iOS & Android.' },
+        { name:'8 Ball Pool Mod', cat:'games', rating:'4.9', downloads:'1M+', version:'v55.9.0', icon:'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg', cover:'https://i2.kknews.cc/RdIP7Ts-99-OvrUyhJF_xH_vafs4n2M/0.jpg', mod:'Long Line + Auto Win', badge:'HOT', claimed:92, scarcity:2, desc:'8 Ball Pool Mod with Guideline Tool. No Jailbreak Needed.' },
+        { name:'Baseball 9', cat:'games', rating:'4.7', downloads:'87K', version:'v4.2.8', icon:'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg', cover:'https://i.ytimg.com/vi/14-IZpn1J-A/maxresdefault.jpg', mod:'Unlimited Gems + Stamina', badge:'TRENDING', claimed:78, scarcity:5, desc:'Baseball 9 Mod with Unlimited Gems. Build the ultimate team.' },
+        { name:'Toca Boca World', cat:'games', rating:'4.8', downloads:'1.2M+', version:'v9.8.1', icon:'https://appzenn.com/assets/img/app_images/whKzcdW512x512bb2112.jpg', cover:'https://i.pinimg.com/1200x/fb/45/ea/fb45eac770317c165615e7bc0191a798.jpg', mod:'All Worlds Unlocked', badge:'VIP', claimed:95, scarcity:1, desc:'Toca Boca World Hack — All Worlds, Unlimited Money.' }
+    ];
 
-        const appsData = [
-            ...slideApps,
-            { name:'Dragon Ball Legends', version:'v5.10.0', icon:'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg', cat:'games', rating:'4.9', downloads:'124K', mod:'Unlimited Crystals + God Mode', badge:'HOT' },
-            { name:'Free Fire MAX', version:'v2.103', icon:'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg', cat:'games', rating:'4.6', downloads:'312K', mod:'ESP Hack + Aimbot', badge:'HOT' },
-            { name:'PUBG Mobile', version:'v3.3.0', icon:'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg', cat:'games', rating:'4.5', downloads:'198K', mod:'ESP + Wallhack', badge:'TRENDING' },
-            { name:'Roblox', version:'v2.645', icon:'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg', cat:'games', rating:'4.3', downloads:'512K', mod:'Infinite Robux', badge:'TRENDING' },
-            { name:'Call of Duty Mobile', version:'v1.25.0', icon:'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg', cat:'games', rating:'4.6', downloads:'156K', mod:'ESP + Aimbot', badge:'HOT' },
-            { name:'Subway Surfers', version:'v3.36.0', icon:'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg', cat:'games', rating:'4.4', downloads:'420K', mod:'Unlimited Coins', badge:'HOT' },
-            { name:'Genshin Impact', version:'v5.3.0', icon:'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg', cat:'games', rating:'4.9', downloads:'89K', mod:'God Mode + Primogems', badge:'VIP' },
-            { name:'Clash Royale', version:'v6.2.1', icon:'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg', cat:'games', rating:'4.8', downloads:'178K', mod:'Unlimited Gems', badge:'HOT' },
-            { name:'CapCut Pro', version:'v13.5.0', icon:'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg', cat:'apps', rating:'4.9', downloads:'234K', mod:'No Watermark', badge:'HOT' },
-            { name:'Instagram Pro', version:'v350.0', icon:'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg', cat:'social', rating:'4.7', downloads:'378K', mod:'Download Media', badge:'NEW' },
-            { name:'PicsArt Gold', version:'v24.1.0', icon:'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg', cat:'apps', rating:'4.6', downloads:'289K', mod:'Gold Unlocked', badge:'HOT' },
-            { name:'YouTube Music', version:'v7.0.3', icon:'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg', cat:'streaming', rating:'4.8', downloads:'523K', mod:'No Ads', badge:'HOT' },
-            { name:'Netflix Premium', version:'v11.2.0', icon:'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg', cat:'streaming', rating:'4.7', downloads:'345K', mod:'All Regions', badge:'VIP' },
-            { name:'TikTok Mod', version:'v36.0.1', icon:'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg', cat:'social', rating:'4.8', downloads:'445K', mod:'No Ads + Download', badge:'HOT' },
-        ];
+    const appsData = [
+        ...slideApps,
+        { name:'Dragon Ball Legends', version:'v5.10.0', icon:'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg', cat:'games', rating:'4.9', downloads:'124K', mod:'Unlimited Crystals + God Mode', badge:'HOT' },
+        { name:'Free Fire MAX', version:'v2.103', icon:'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg', cat:'games', rating:'4.6', downloads:'312K', mod:'ESP Hack + Aimbot', badge:'HOT' },
+        { name:'PUBG Mobile', version:'v3.3.0', icon:'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg', cat:'games', rating:'4.5', downloads:'198K', mod:'ESP + Wallhack', badge:'TRENDING' },
+        { name:'Roblox', version:'v2.645', icon:'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg', cat:'games', rating:'4.3', downloads:'512K', mod:'Infinite Robux', badge:'TRENDING' },
+        { name:'Call of Duty Mobile', version:'v1.25.0', icon:'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg', cat:'games', rating:'4.6', downloads:'156K', mod:'ESP + Aimbot', badge:'HOT' },
+        { name:'Subway Surfers', version:'v3.36.0', icon:'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg', cat:'games', rating:'4.4', downloads:'420K', mod:'Unlimited Coins', badge:'HOT' },
+        { name:'Genshin Impact', version:'v5.3.0', icon:'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg', cat:'games', rating:'4.9', downloads:'89K', mod:'God Mode + Primogems', badge:'VIP' },
+        { name:'Clash Royale', version:'v6.2.1', icon:'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg', cat:'games', rating:'4.8', downloads:'178K', mod:'Unlimited Gems', badge:'HOT' },
+        { name:'CapCut Pro', version:'v13.5.0', icon:'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg', cat:'apps', rating:'4.9', downloads:'234K', mod:'No Watermark', badge:'HOT' },
+        { name:'Instagram Pro', version:'v350.0', icon:'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg', cat:'social', rating:'4.7', downloads:'378K', mod:'Download Media', badge:'NEW' },
+        { name:'PicsArt Gold', version:'v24.1.0', icon:'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg', cat:'apps', rating:'4.6', downloads:'289K', mod:'Gold Unlocked', badge:'HOT' },
+        { name:'YouTube Music', version:'v7.0.3', icon:'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg', cat:'streaming', rating:'4.8', downloads:'523K', mod:'No Ads', badge:'HOT' },
+        { name:'Netflix Premium', version:'v11.2.0', icon:'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg', cat:'streaming', rating:'4.7', downloads:'345K', mod:'All Regions', badge:'VIP' },
+        { name:'TikTok Mod', version:'v36.0.1', icon:'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg', cat:'social', rating:'4.8', downloads:'445K', mod:'No Ads + Download', badge:'HOT' },
+    ];
 
-        let currentApp=null, currentView='discover', searchFilter='all', slideIndex=0, slideInterval=null, toastInterval=null;
+    let currentApp=null, currentView='discover', searchFilter='all', slideIndex=0, slideInterval=null, toastInterval=null;
 
-        // ============ TOAST NOTIFICATIONS (USA/UK/AUS/GER/CAN) ============
-        const toastData = [
-            { flag:'🇺🇸', name:'James A.', city:'New York, USA', action:'downloaded Pokémon Go Spoofer' },
-            { flag:'🇬🇧', name:'Emily T.', city:'London, UK', action:'unlocked 8 Ball Pool Mod' },
-            { flag:'🇦🇺', name:'Liam W.', city:'Sydney, AUS', action:'activated Free Fire MAX' },
-            { flag:'🇩🇪', name:'Sophia M.', city:'Berlin, GER', action:'claimed PUBG Mobile' },
-            { flag:'🇨🇦', name:'Noah B.', city:'Toronto, CAN', action:'downloaded Toca Boca World' },
-            { flag:'🇺🇸', name:'Ava M.', city:'Los Angeles, USA', action:'got CapCut Pro' },
-            { flag:'🇬🇧', name:'Ethan T.', city:'Manchester, UK', action:'installed Baseball 9' },
-            { flag:'🇦🇺', name:'Mia J.', city:'Melbourne, AUS', action:'unlocked Roblox Mod' },
-            { flag:'🇩🇪', name:'Lucas S.', city:'Hamburg, GER', action:'downloaded Genshin Impact' },
-            { flag:'🇨🇦', name:'Olivia W.', city:'Vancouver, CAN', action:'activated Subway Surfers' },
-            { flag:'🇺🇸', name:'Benjamin D.', city:'Chicago, USA', action:'claimed Clash Royale' },
-            { flag:'🇬🇧', name:'Charlotte B.', city:'Birmingham, UK', action:'installed Netflix Mod' },
-        ];
+    const toastData = [
+        { flag:'🇺🇸', name:'James A.', city:'New York, USA', action:'downloaded Pokémon Go Spoofer' },
+        { flag:'🇬🇧', name:'Emily T.', city:'London, UK', action:'unlocked 8 Ball Pool Mod' },
+        { flag:'🇦🇺', name:'Liam W.', city:'Sydney, AUS', action:'activated Free Fire MAX' },
+        { flag:'🇩🇪', name:'Sophia M.', city:'Berlin, GER', action:'claimed PUBG Mobile' },
+        { flag:'🇨🇦', name:'Noah B.', city:'Toronto, CAN', action:'downloaded Toca Boca World' },
+        { flag:'🇺🇸', name:'Ava M.', city:'Los Angeles, USA', action:'got CapCut Pro' },
+        { flag:'🇬🇧', name:'Ethan T.', city:'Manchester, UK', action:'installed Baseball 9' },
+        { flag:'🇦🇺', name:'Mia J.', city:'Melbourne, AUS', action:'unlocked Roblox Mod' },
+        { flag:'🇩🇪', name:'Lucas S.', city:'Hamburg, GER', action:'downloaded Genshin Impact' },
+        { flag:'🇨🇦', name:'Olivia W.', city:'Vancouver, CAN', action:'activated Subway Surfers' },
+        { flag:'🇺🇸', name:'Benjamin D.', city:'Chicago, USA', action:'claimed Clash Royale' },
+        { flag:'🇬🇧', name:'Charlotte B.', city:'Birmingham, UK', action:'installed Netflix Mod' },
+    ];
 
-        function showToast() {
-            const toast = toastData[Math.floor(Math.random()*toastData.length)];
-            const container = document.getElementById('toastContainer');
-            const div = document.createElement('div');
-            div.className = 'toast';
-            div.innerHTML = `<span class="toast-flag">${toast.flag}</span><span class="toast-info"><strong>${toast.name}</strong> from ${toast.city} ${toast.action}</span>`;
-            container.appendChild(div);
-            setTimeout(() => div.remove(), 5000);
-            if(container.children.length > 3) container.firstElementChild.remove();
+    function showToast() {
+        const toast = toastData[Math.floor(Math.random()*toastData.length)];
+        const container = document.getElementById('toastContainer');
+        const div = document.createElement('div'); div.className = 'toast';
+        div.innerHTML = `<span class="toast-flag">${toast.flag}</span><span class="toast-info"><strong>${toast.name}</strong> from ${toast.city} ${toast.action}</span>`;
+        container.appendChild(div); setTimeout(() => div.remove(), 5000);
+        if(container.children.length > 3) container.firstElementChild.remove();
+    }
+    function startToasts() { toastInterval = setInterval(showToast, 5000); showToast(); }
+
+    function updateCountdown() {
+        const now = new Date(); const end = new Date(now); end.setHours(23,59,59,999);
+        const diff = end - now; if(diff <= 0) return;
+        const h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+        document.getElementById('countdownTimer').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+
+    function renderCard(app, showViewers=false) {
+        const badgeClass = app.badge==='HOT'?'badge-hot':app.badge==='NEW'?'badge-new':app.badge==='TRENDING'?'badge-trending':app.badge==='VIP'?'badge-vip':'';
+        const stars = '⭐'.repeat(Math.floor(parseFloat(app.rating)));
+        const viewers = Math.floor(Math.random()*20+5);
+        return `<div class="card" onclick="openAppByName('${app.name.replace(/'/g,"\\'")}')">
+            <div class="card-icon-wrap">
+                ${app.badge?`<div class="card-badge ${badgeClass}">${app.badge}</div>`:''}
+                <div class="card-mod">MOD</div>
+                ${showViewers?`<div class="card-viewers"><span class="eye-dot"></span> ${viewers} viewing</div>`:''}
+                <img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#FF3B30,#d6302b)'">
+            </div>
+            <div class="card-title">${app.name}</div>
+            <div class="card-meta">${app.cat==='games'?'Games':'Apps'} · ${app.version}</div>
+            <div class="card-rating"><span>${stars}</span><span>${app.rating}</span></div>
+        </div>`;
+    }
+
+    function openAppByName(name){ const app=appsData.find(a=>a.name===name); if(app) openApp(app); }
+
+    function updateSlide(){
+        const app=slideApps[slideIndex];
+        document.getElementById('featuredBg').style.backgroundImage=`url(${app.cover})`;
+        document.getElementById('featuredIconImg').src=app.icon;
+        document.getElementById('featuredTitle').textContent=app.name;
+        document.getElementById('featuredDesc').textContent=app.mod;
+        document.getElementById('featuredRating').textContent='⭐ '+app.rating;
+        document.getElementById('featuredScarcity').textContent='⚡ Only '+app.scarcity+' left';
+        document.getElementById('claimBarFill').style.width=app.claimed+'%';
+        document.getElementById('claimBarText').textContent=app.claimed+'%';
+        document.getElementById('featuredDots').innerHTML=slideApps.map((_,i)=>`<div class="featured-dot ${i===slideIndex?'active':''}" onclick="event.stopPropagation();goToSlide(${i})"></div>`).join('');
+    }
+    function goToSlide(i){ slideIndex=i; updateSlide(); resetSlideTimer(); }
+    function nextSlide(){ slideIndex=(slideIndex+1)%slideApps.length; updateSlide(); }
+    function resetSlideTimer(){ clearInterval(slideInterval); slideInterval=setInterval(nextSlide,4500); }
+
+    function initActivityFeed(){
+        const list=document.getElementById('activityList');
+        list.innerHTML=toastData.slice(0,6).map(a=>`<div class="activity-item"><span class="activity-flag">${a.flag}</span><span class="activity-info"><strong>${a.name}</strong> ${a.action}</span><span class="activity-time">just now</span></div>`).join('');
+        setInterval(()=>{
+            const a=toastData[Math.floor(Math.random()*toastData.length)];
+            list.insertAdjacentHTML('afterbegin',`<div class="activity-item"><span class="activity-flag">${a.flag}</span><span class="activity-info"><strong>${a.name}</strong> ${a.action}</span><span class="activity-time">just now</span></div>`);
+            if(list.children.length>8) list.lastElementChild.remove();
+        },4000);
+    }
+
+    function updateLiveStats(){
+        document.getElementById('statDownloads').textContent=Math.floor(Math.random()*50000+120000).toLocaleString();
+        document.getElementById('liveCount').textContent=Math.floor(Math.random()*2000+2000).toLocaleString();
+    }
+
+    function showView(view){
+        document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach((n,i)=>n.classList.toggle('active',(view==='discover'&&i===0)||(view==='apps'&&i===1)||(view==='games'&&i===2)));
+        const map={discover:'view-discover',apps:'view-apps',games:'view-games',search:'view-search',detail:'view-detail'};
+        if(map[view]) document.getElementById(map[view]).classList.add('active');
+        document.getElementById('mainHeader').style.display=(view==='detail'||view==='search')?'none':'flex';
+        document.getElementById('bottomNav').style.display=(view==='detail'||view==='search')?'none':'flex';
+        document.getElementById('homeFooter').style.display=(view==='detail'||view==='search')?'none':'block';
+        document.getElementById('stickyCta').classList.remove('show');
+        // Show/hide ghost ecosystem on detail
+        document.getElementById('ghostEcosystem').style.display = (view==='detail') ? 'block' : 'none';
+        document.getElementById('mod-proof-feed').style.display = (view==='detail') ? 'block' : 'none';
+        document.getElementById('countdownBar').style.display = (view==='detail') ? 'flex' : 'flex';
+        currentView=view; window.scrollTo(0,0);
+    }
+    function goHome(){ showView('discover'); }
+    function goBack(){ showView('discover'); }
+
+    function openApp(app){
+        currentApp=app;
+        document.getElementById('detail-img').src=app.icon;
+        document.getElementById('detail-name').textContent=app.name;
+        document.getElementById('detail-category').textContent=app.cat==='games'?'Games':'Apps';
+        document.getElementById('detail-rating').textContent='⭐ '+app.rating;
+        document.getElementById('detail-downloads').textContent='⬇️ '+app.downloads;
+        document.getElementById('detail-mod').textContent='✨ '+app.mod;
+        document.getElementById('detail-about').textContent=app.desc||`${app.name} ${app.mod}. Install now with our guide and unlock powerful features instantly on iOS and Android. 100% working and verified safe.`;
+        const related=appsData.filter(a=>a.cat===app.cat&&a.name!==app.name).slice(0,5);
+        document.getElementById('related-scroll').innerHTML=related.length?related.map(a=>renderCard(a)).join(''):'';
+        showView('detail');
+    }
+
+    function startPreparing(){
+        const app=currentApp||appsData[0];
+        document.getElementById('preparingScreen').classList.add('active');
+        document.body.style.overflow='hidden';
+        document.getElementById('stickyCta').classList.remove('show');
+        let progress=0;
+        const msgs=[{p:0,t:"Looking for download source..",s:"Connecting to server"},{p:35,t:"Source found!",s:"Generating your mod"},{p:65,t:"Source updated 14 minutes ago..",s:"Almost ready"},{p:100,t:"Complete!",s:"Redirecting..."}];
+        const interval=setInterval(()=>{
+            progress+=Math.random()*3.5+1; if(progress>100) progress=100;
+            const pct=Math.floor(progress);
+            document.getElementById('preparingPercent').textContent=pct+'%';
+            document.getElementById('progressPercent').textContent=pct+'%';
+            document.getElementById('progressFill').style.width=progress+'%';
+            const msg=msgs.slice().reverse().find(m=>progress>=m.p);
+            if(msg){ document.getElementById('preparingText').textContent=msg.t; document.getElementById('preparingSub').textContent=msg.s; }
+            if(progress>=100){ clearInterval(interval); setTimeout(()=>{ window.location.href='YOUR_CPA_LOCKER_URL_HERE'; },600); }
+        },80);
+    }
+
+    function setFilter(filter,el){ searchFilter=filter; document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); doSearch(); }
+    function doSearch(){
+        const q=document.getElementById('searchInput').value.toLowerCase();
+        let results=appsData.filter(a=>a.name.toLowerCase().includes(q));
+        if(searchFilter==='app') results=results.filter(a=>a.cat!=='games');
+        if(searchFilter==='game') results=results.filter(a=>a.cat==='games');
+        document.getElementById('search-results').innerHTML=results.length?results.map(a=>renderCard(a)).join(''):'<div style="text-align:center;color:var(--text2);margin-top:40px;">No results found</div>';
+    }
+
+    // ==================== GHOSTFLOW (CPA Gaming Edition) ====================
+    class GhostFlow {
+        constructor(config={}) {
+            this.config = {
+                productName: config.productName || "Premium Mod",
+                stockInitial: config.stockInitial || 34,
+                viewersMin: config.viewersMin || 18,
+                viewersMax: config.viewersMax || 45,
+                salesIntervalMin: config.salesIntervalMin || 12000,
+                salesIntervalMax: config.salesIntervalMax || 50000,
+                ...config
+            };
+            this.state = { stockRemaining: this.config.stockInitial, currentViewers: 0, salesToday: 0, lastInteraction: Date.now(), userEngagementLevel: 0, isUserActive: true };
+            this.elements = {};
+            this.init();
         }
-
-        function startToasts() { toastInterval = setInterval(showToast, 5000); showToast(); }
-
-        // ============ COUNTDOWN TIMER ============
-        function updateCountdown() {
-            const now = new Date();
-            const end = new Date(now); end.setHours(23,59,59,999);
-            const diff = end - now;
-            if(diff <= 0) return;
-            const h = Math.floor(diff/3600000);
-            const m = Math.floor((diff%3600000)/60000);
-            const s = Math.floor((diff%60000)/1000);
-            document.getElementById('countdownTimer').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        init() {
+            this.cacheDomElements();
+            this.startViewerFluctuation();
+            this.startSalesSimulation();
+            this.startStockDepletion();
+            this.trackUserEngagement();
+            this.activateExitIntentTrigger();
+            console.log('👻 GhostFlow activated');
         }
-
-        // ============ CARDS ============
-        function renderCard(app, showViewers=false) {
-            const badgeClass = app.badge==='HOT'?'badge-hot':app.badge==='NEW'?'badge-new':app.badge==='TRENDING'?'badge-trending':app.badge==='VIP'?'badge-vip':'';
-            const stars = '⭐'.repeat(Math.floor(parseFloat(app.rating)));
-            const viewers = Math.floor(Math.random()*20+5);
-            return `<div class="card" onclick="openAppByName('${app.name.replace(/'/g,"\\'")}')">
-                <div class="card-icon-wrap">
-                    ${app.badge?`<div class="card-badge ${badgeClass}">${app.badge}</div>`:''}
-                    <div class="card-mod">MOD</div>
-                    ${showViewers?`<div class="card-viewers"><span class="eye-dot"></span> ${viewers} viewing</div>`:''}
-                    <img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#FF3B30,#d6302b)'">
-                </div>
-                <div class="card-title">${app.name}</div>
-                <div class="card-meta">${app.cat==='games'?'Games':'Apps'} · ${app.version}</div>
-                <div class="card-rating"><span>${stars}</span><span>${app.rating}</span></div>
-            </div>`;
+        cacheDomElements() {
+            this.elements.stockCounter = document.getElementById('stock-counter-ghost');
+            this.elements.stockBar = document.getElementById('stock-bar-fill-ghost');
+            this.elements.viewerCount = document.getElementById('viewer-count-ghost');
+            this.elements.urgencyMessage = document.getElementById('urgency-message-ghost');
+            this.elements.recentSales = document.getElementById('recent-sales-feed-ghost');
+            this.elements.liveDot = document.getElementById('live-dot-ghost');
         }
-
-        function openAppByName(name){ const app=appsData.find(a=>a.name===name); if(app) openApp(app); }
-
-        // ============ FEATURED SLIDER ============
-        function updateSlide(){
-            const app=slideApps[slideIndex];
-            document.getElementById('featuredBg').style.backgroundImage=`url(${app.cover})`;
-            document.getElementById('featuredIconImg').src=app.icon;
-            document.getElementById('featuredTitle').textContent=app.name;
-            document.getElementById('featuredDesc').textContent=app.mod;
-            document.getElementById('featuredRating').textContent='⭐ '+app.rating;
-            document.getElementById('featuredScarcity').textContent='⚡ Only '+app.scarcity+' left';
-            document.getElementById('claimBarFill').style.width=app.claimed+'%';
-            document.getElementById('claimBarText').textContent=app.claimed+'%';
-            document.getElementById('featuredDots').innerHTML=slideApps.map((_,i)=>`<div class="featured-dot ${i===slideIndex?'active':''}" onclick="event.stopPropagation();goToSlide(${i})"></div>`).join('');
+        startViewerFluctuation() {
+            const update = () => {
+                if (!this.state.isUserActive) return;
+                const base = Math.floor(Math.sin(Date.now()/28000)*8 + Math.random()*12 + (this.config.viewersMin+this.config.viewersMax)/2);
+                const bonus = this.state.userEngagementLevel * 7;
+                this.state.currentViewers = Math.min(base+bonus, this.config.viewersMax);
+                if (this.elements.viewerCount) this.elements.viewerCount.textContent = this.state.currentViewers;
+                if (this.elements.liveDot) this.elements.liveDot.classList.toggle('pulse-active');
+            };
+            setInterval(update, 3500); update();
         }
-        function goToSlide(i){ slideIndex=i; updateSlide(); resetSlideTimer(); }
-        function nextSlide(){ slideIndex=(slideIndex+1)%slideApps.length; updateSlide(); }
-        function resetSlideTimer(){ clearInterval(slideInterval); slideInterval=setInterval(nextSlide,4500); }
-
-        // ============ ACTIVITY FEED ============
-        function initActivityFeed(){
-            const list=document.getElementById('activityList');
-            const items = toastData.slice(0,6).map(a=>`<div class="activity-item"><span class="activity-flag">${a.flag}</span><span class="activity-info"><strong>${a.name}</strong> ${a.action}</span><span class="activity-time">just now</span></div>`).join('');
-            list.innerHTML=items;
-            setInterval(()=>{
-                const a=toastData[Math.floor(Math.random()*toastData.length)];
-                list.insertAdjacentHTML('afterbegin',`<div class="activity-item"><span class="activity-flag">${a.flag}</span><span class="activity-info"><strong>${a.name}</strong> ${a.action}</span><span class="activity-time">just now</span></div>`);
-                if(list.children.length>8) list.lastElementChild.remove();
-            },4000);
+        startSalesSimulation() {
+            const names = ["xShadowKiller99","ProGamer_YT","LootMaster22","OneTapQueen","Faze_Clone","NightHawkGaming","EpicModder","DarkSniper_","PixelWarrior","AimbotKing","CrystalSword","VenomGamerTV"];
+            const locations = ["US East","EU Germany","Brazil","Asia","UK","Middle East","Australia","Canada"];
+            const generate = () => {
+                if (!this.state.isUserActive && Math.random()>0.3) return;
+                const name = names[Math.floor(Math.random()*names.length)];
+                const loc = locations[Math.floor(Math.random()*locations.length)];
+                const mins = Math.floor(Math.random()*8)+1;
+                this.state.salesToday++;
+                if (this.elements.recentSales) {
+                    const el = document.createElement('div'); el.className = 'ghost-sale-item';
+                    el.innerHTML = `<span class="sale-icon-ghost">🟢</span><span><strong>${name}</strong> downloaded from ${loc}</span><span class="sale-time-ghost">${mins} min ago</span>`;
+                    this.elements.recentSales.prepend(el);
+                    if (this.elements.recentSales.children.length>6) this.elements.recentSales.children[6].remove();
+                    el.animate([{opacity:0,transform:'translateY(-15px)'},{opacity:1,transform:'translateY(0)'}],{duration:350});
+                }
+                setTimeout(generate, this.config.salesIntervalMin+Math.random()*(this.config.salesIntervalMax-this.config.salesIntervalMin));
+            };
+            setTimeout(generate, 3000+Math.random()*6000);
         }
-
-        // ============ INIT ============
-        function init(){
-            updateSlide(); resetSlideTimer(); startToasts(); initActivityFeed();
-            document.getElementById('trending-scroll').innerHTML=appsData.filter(a=>a.cat==='games').slice(0,6).map(a=>renderCard(a,true)).join('');
-            document.getElementById('new-apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').slice(0,4).map(a=>renderCard(a)).join('');
-            document.getElementById('apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').map(a=>renderCard(a)).join('');
-            document.getElementById('games-grid').innerHTML=appsData.filter(a=>a.cat==='games').map(a=>renderCard(a,true)).join('');
-            doSearch();
-            updateLiveStats(); setInterval(updateLiveStats,5000);
-            updateCountdown(); setInterval(updateCountdown,1000);
-            window.addEventListener('scroll',()=>{
-                document.getElementById('btnBackTop').classList.toggle('show',window.scrollY>300);
-                document.getElementById('stickyCta').classList.toggle('show',currentView==='detail'&&window.scrollY>200);
+        startStockDepletion() {
+            const deplete = () => {
+                if (this.state.stockRemaining<=3) return;
+                const rate = 0.4 + (this.state.userEngagementLevel*0.7);
+                this.state.stockRemaining -= (Date.now()-this.state.lastInteraction<10000) ? rate*2 : rate*0.25;
+                this.state.stockRemaining = Math.max(3, Math.round(this.state.stockRemaining));
+                if (this.elements.stockCounter) this.elements.stockCounter.textContent = this.state.stockRemaining;
+                if (this.elements.stockBar) {
+                    const pct = (this.state.stockRemaining/this.config.stockInitial)*100;
+                    this.elements.stockBar.style.width = pct+'%';
+                    if (pct<25) {
+                        this.elements.stockBar.style.background = '#ff4444';
+                        if (this.elements.urgencyMessage) { this.elements.urgencyMessage.innerHTML = '🚨 <strong>CRITICAL:</strong> Download slots almost gone!'; this.elements.urgencyMessage.style.display = 'block'; }
+                    } else if (pct<50) { this.elements.stockBar.style.background = '#ffaa00'; }
+                }
+                setTimeout(deplete, 8000+Math.random()*10000);
+            };
+            setTimeout(deplete, 9000);
+        }
+        trackUserEngagement() {
+            const handler = () => { this.state.lastInteraction = Date.now(); };
+            ['mousemove','scroll','click','touchmove'].forEach(e=>document.addEventListener(e,handler,{passive:true}));
+            const cta = document.querySelector('.btn-start');
+            if (cta) cta.addEventListener('mouseenter',()=>{this.state.userEngagementLevel=3;this.state.lastInteraction=Date.now();});
+            setInterval(()=>{this.state.isUserActive=Date.now()-this.state.lastInteraction<25000;},8000);
+        }
+        activateExitIntentTrigger() {
+            document.addEventListener('mouseleave',(e)=>{
+                if (e.clientY<=0&&this.state.stockRemaining>3) {
+                    this.state.stockRemaining = Math.max(3,this.state.stockRemaining-6);
+                    if (this.elements.stockCounter) { this.elements.stockCounter.textContent = this.state.stockRemaining; this.elements.stockCounter.animate([{transform:'scale(1.6)',color:'#ff0000'},{transform:'scale(1)',color:'#ff4444'}],{duration:500}); }
+                }
             });
         }
+    }
 
-        function updateLiveStats(){
-            document.getElementById('statDownloads').textContent=Math.floor(Math.random()*50000+120000).toLocaleString();
-            document.getElementById('liveCount').textContent=Math.floor(Math.random()*2000+2000).toLocaleString();
+    // ==================== SCROLLREAPER (Gaming Edition) ====================
+    class ScrollReaper {
+        constructor(config={}) {
+            this.config = {
+                bottomThreshold: config.bottomThreshold||350, velocityThreshold: config.velocityThreshold||2800, pauseCountThreshold: config.pauseCountThreshold||4,
+                retentionOffer: config.retentionOffer||"🎮 Wait! Anti-Ban Shield Included!",
+                retentionDescription: config.retentionDescription||"Most players miss the Anti-Ban Shield activation. 90% of bans happen because people skip this step. Let me show you.",
+                ...config
+            };
+            this.state = { lastScrollY:0, lastScrollTime:Date.now(), velocityHistory:[], pauseCount:0, hasReachedBottom:false, hasShownRetention:false, maxScrollDepth:0 };
+            this.init();
         }
-
-        // ============ NAVIGATION ============
-        function showView(view){
-            document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach((n,i)=>n.classList.toggle('active',(view==='discover'&&i===0)||(view==='apps'&&i===1)||(view==='games'&&i===2)));
-            const map={discover:'view-discover',apps:'view-apps',games:'view-games',search:'view-search',detail:'view-detail'};
-            if(map[view]) document.getElementById(map[view]).classList.add('active');
-            document.getElementById('mainHeader').style.display=(view==='detail'||view==='search')?'none':'flex';
-            document.getElementById('bottomNav').style.display=(view==='detail'||view==='search')?'none':'flex';
-            document.getElementById('homeFooter').style.display=(view==='detail'||view==='search')?'none':'block';
-            document.getElementById('stickyCta').classList.remove('show');
-            currentView=view; window.scrollTo(0,0);
+        init() { this.createPopup(); this.monitorScroll(); console.log('💀 ScrollReaper activated'); }
+        createPopup() {
+            const p = document.createElement('div'); p.id = 'scroll-reaper-popup';
+            p.innerHTML = `<div style="position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(5px);z-index:99998;"></div><div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0a0a0a;border:1px solid #00ff66;border-radius:16px;padding:35px 25px;text-align:center;max-width:400px;width:90%;color:#fff;z-index:99999;"><span style="position:absolute;top:10px;right:15px;font-size:26px;cursor:pointer;color:#555;" onclick="this.parentElement.parentElement.style.display=\'none\'">&times;</span><div style="font-size:45px;margin-bottom:12px;">🛡️</div><h3 style="font-size:22px;color:#00ff66;margin-bottom:10px;">${this.config.retentionOffer}</h3><p style="color:#aaa;margin-bottom:20px;font-size:14px;">${this.config.retentionDescription}</p><div style="display:flex;flex-direction:column;gap:8px;"><button style="padding:14px;background:#00ff66;color:#000;border:none;border-radius:8px;font-weight:bold;cursor:pointer;font-size:15px;" onclick="document.getElementById(\'scroll-reaper-popup\').style.display=\'none\';document.querySelector(\'.btn-start\').click()">Show Me How</button><button style="background:transparent;border:none;color:#555;cursor:pointer;font-size:13px;padding:8px;" onclick="this.parentElement.parentElement.parentElement.style.display=\'none\'">I'll risk the ban</button></div></div>`;
+            p.style.display = 'none'; document.body.appendChild(p);
         }
-        function goHome(){ showView('discover'); }
-        function goBack(){ showView('discover'); }
-
-        function openApp(app){
-            currentApp=app;
-            document.getElementById('detail-img').src=app.icon;
-            document.getElementById('detail-name').textContent=app.name;
-            document.getElementById('detail-category').textContent=app.cat==='games'?'Games':'Apps';
-            document.getElementById('detail-rating').textContent='⭐ '+app.rating;
-            document.getElementById('detail-downloads').textContent='⬇️ '+app.downloads;
-            document.getElementById('detail-mod').textContent='✨ '+app.mod;
-            document.getElementById('detail-about').textContent=app.desc||`${app.name} ${app.mod}. Install now with our guide and unlock powerful features instantly on iOS and Android. 100% working and verified safe.`;
-            const related=appsData.filter(a=>a.cat===app.cat&&a.name!==app.name).slice(0,5);
-            document.getElementById('related-scroll').innerHTML=related.length?related.map(a=>renderCard(a)).join(''):'';
-            showView('detail');
+        showPopup() { if(!this.state.hasShownRetention) { this.state.hasShownRetention = true; document.getElementById('scroll-reaper-popup').style.display = 'block'; } }
+        monitorScroll() {
+            let pt; let ps=0;
+            document.addEventListener('scroll',()=>{
+                const cy=window.scrollY, ct=Date.now(), td=ct-this.state.lastScrollTime, sd=Math.abs(cy-this.state.lastScrollY);
+                const vel = td>0?(sd/td)*1000:0;
+                this.state.velocityHistory.push(vel);
+                if(this.state.velocityHistory.length>10) this.state.velocityHistory.shift();
+                const avgVel = this.state.velocityHistory.reduce((a,b)=>a+b,0)/this.state.velocityHistory.length;
+                const dh = document.documentElement.scrollHeight-window.innerHeight;
+                this.state.maxScrollDepth = Math.max(this.state.maxScrollDepth,cy);
+                if(avgVel>this.config.velocityThreshold&&(dh-cy)<this.config.bottomThreshold&&!this.state.hasReachedBottom) { this.state.hasReachedBottom=true; setTimeout(()=>this.showPopup(),500); }
+                this.state.lastScrollY=cy; this.state.lastScrollTime=ct;
+                clearTimeout(pt); pt=setTimeout(()=>{ this.state.pauseCount++; if(this.state.pauseCount>=this.config.pauseCountThreshold&&this.state.maxScrollDepth>window.innerHeight) this.showPopup(); },2200);
+            },{passive:true});
+            setTimeout(()=>{if(this.state.maxScrollDepth<window.innerHeight*0.5&&!this.state.hasShownRetention)this.showPopup();},40000);
         }
+    }
 
-        function startPreparing(){
-            const app=currentApp||appsData[0];
-            document.getElementById('preparingScreen').classList.add('active');
-            document.body.style.overflow='hidden';
-            document.getElementById('stickyCta').classList.remove('show');
-            let progress=0;
-            const msgs=[{p:0,t:"Looking for download source..",s:"Connecting to server"},{p:35,t:"Source found!",s:"Generating your mod"},{p:65,t:"Source updated 14 minutes ago..",s:"Almost ready"},{p:100,t:"Complete!",s:"Redirecting..."}];
-            const interval=setInterval(()=>{
-                progress+=Math.random()*3.5+1; if(progress>100) progress=100;
-                const pct=Math.floor(progress);
-                document.getElementById('preparingPercent').textContent=pct+'%';
-                document.getElementById('progressPercent').textContent=pct+'%';
-                document.getElementById('progressFill').style.width=progress+'%';
-                const msg=msgs.slice().reverse().find(m=>progress>=m.p);
-                if(msg){ document.getElementById('preparingText').textContent=msg.t; document.getElementById('preparingSub').textContent=msg.s; }
-                if(progress>=100){ clearInterval(interval); setTimeout(()=>{ window.location.href='YOUR_CPA_LOCKER_URL_HERE'; },600); }
-            },80);
+    // ==================== TIMEWARP ====================
+    class TimeWarp {
+        constructor(config={}) {
+            this.config = {
+                targetElementId: config.targetElementId||'countdownBar',
+                finalCountdownHours: config.finalCountdownHours||3,
+                messageBefore: config.messageBefore||'⚠️ LIMITED ACCESS — slots reset at midnight!',
+                messageDuring: config.messageDuring||'🚨 FINAL HOURS: Slots reset at midnight! Download NOW!',
+                ...config
+            };
+            this.elements = { timer: document.getElementById('countdownTimer'), container: document.getElementById(this.config.targetElementId) };
+            this.startCountdown();
+            console.log('⏳ TimeWarp activated');
         }
-
-        function setFilter(filter,el){ searchFilter=filter; document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); doSearch(); }
-        function doSearch(){
-            const q=document.getElementById('searchInput').value.toLowerCase();
-            let results=appsData.filter(a=>a.name.toLowerCase().includes(q));
-            if(searchFilter==='app') results=results.filter(a=>a.cat!=='games');
-            if(searchFilter==='game') results=results.filter(a=>a.cat==='games');
-            document.getElementById('search-results').innerHTML=results.length?results.map(a=>renderCard(a)).join(''):'<div style="text-align:center;color:var(--text2);margin-top:40px;">No results found</div>';
+        startCountdown() {
+            const update = () => {
+                const now=new Date(), mid=new Date(now); mid.setHours(24,0,0,0);
+                const diff=mid-now, ts=Math.floor(diff/1000);
+                if(ts<=0) return;
+                const h=Math.floor(ts/3600), m=Math.floor((ts%3600)/60), s=ts%60;
+                if(this.elements.timer) this.elements.timer.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+                const msgSpan = this.elements.container?.querySelector('span:first-child');
+                if(msgSpan && h<this.config.finalCountdownHours) msgSpan.textContent = this.config.messageDuring;
+                setTimeout(update, h<1?1000:8000);
+            };
+            update();
         }
+    }
 
-        function toggleTheme(){
-            const h=document.documentElement; const d=h.getAttribute('data-theme')==='dark';
-            h.setAttribute('data-theme',d?'light':'dark');
-            localStorage.setItem('theme',d?'light':'dark');
+    // ==================== CURSORMIRROR ====================
+    class CursorMirror {
+        constructor(config={}) {
+            this.config = { ctaSelector: config.ctaSelector||'#detailCtaBtn', magneticRadius: config.magneticRadius||160, heartbeatBPM: config.heartbeatBPM||70, ...config };
+            this.state={mouseX:-1000,mouseY:-1000,ctaRect:null,isNearCTA:false};
+            this.ctaElement=null; this.glowElement=null; this.init();
         }
-        (function(){ document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark'); })();
-        document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ document.getElementById('preparingScreen').classList.remove('active'); document.body.style.overflow=''; } });
+        init() {
+            this.ctaElement=document.querySelector(this.config.ctaSelector);
+            if(!this.ctaElement) return;
+            this.glowElement = this.ctaElement.querySelector('.cta-magnetic-glow');
+            if(!this.glowElement) { this.glowElement=document.createElement('div'); this.glowElement.className='cta-magnetic-glow'; this.ctaElement.style.position='relative'; this.ctaElement.appendChild(this.glowElement); }
+            this.trackMouse(); this.startHeartbeat();
+            console.log('🪞 CursorMirror activated');
+        }
+        trackMouse() {
+            document.addEventListener('mousemove',(e)=>{
+                this.state.mouseX=e.clientX; this.state.mouseY=e.clientY;
+                this.state.ctaRect=this.ctaElement.getBoundingClientRect();
+                const cx=this.state.ctaRect.left+this.state.ctaRect.width/2, cy=this.state.ctaRect.top+this.state.ctaRect.height/2;
+                const dist=Math.hypot(this.state.mouseX-cx,this.state.mouseY-cy);
+                const wasNear=this.state.isNearCTA;
+                this.state.isNearCTA=dist<this.config.magneticRadius;
+                if(this.state.isNearCTA&&!wasNear){this.glowElement.classList.add('active');this.ctaElement.style.transform='scale(1.04)';}
+                else if(!this.state.isNearCTA&&wasNear){this.glowElement.classList.remove('active');this.ctaElement.style.transform='scale(1)';}
+                if(this.state.isNearCTA){
+                    const px=(this.state.mouseX-cx)*0.04, py=(this.state.mouseY-cy)*0.04;
+                    this.ctaElement.style.transform=`translate(${px}px,${py}px) scale(1.04)`;
+                    this.ctaElement.style.transition='transform 0.12s ease-out';
+                } else this.ctaElement.style.transition='transform 0.35s ease-out';
+            });
+        }
+        startHeartbeat() {
+            const iv=(60/this.config.heartbeatBPM)*1000;
+            const beat=()=>{
+                if(this.state.isNearCTA){this.ctaElement.style.boxShadow='0 0 35px 12px rgba(255,59,48,0.5)';setTimeout(()=>this.ctaElement.style.boxShadow='0 6px 24px rgba(255,59,48,0.35)',350);}
+                setTimeout(beat,iv);
+            };
+            setTimeout(beat,400);
+        }
+    }
 
-        init();
+    // ==================== SCROLLSEDUCER ====================
+    class ScrollSeducer {
+        constructor(config={}) {
+            this.config = { ctaSelector: config.ctaSelector||'#detailCtaBtn', particleColor: config.particleColor||'#ff4444', particleCount: config.particleCount||65, ...config };
+            this.canvas=null; this.ctx=null; this.particles=[]; this.ctaElement=null; this.isVisible=true; this.mousePos={x:-100,y:-100}; this.init();
+        }
+        init() {
+            this.ctaElement=document.querySelector(this.config.ctaSelector);
+            if(!this.ctaElement) return;
+            this.canvas=document.getElementById('scroll-seducer-canvas');
+            this.ctx=this.canvas.getContext('2d');
+            this.resize(); window.addEventListener('resize',()=>this.resize());
+            this.createParticles(); this.animate();
+            document.addEventListener('mousemove',(e)=>{this.mousePos={x:e.clientX,y:e.clientY};});
+            console.log('🌀 ScrollSeducer activated');
+        }
+        resize() { this.canvas.width=window.innerWidth; this.canvas.height=window.innerHeight; }
+        createParticles() {
+            for(let i=0;i<this.config.particleCount;i++) {
+                this.particles.push({x:Math.random()*this.canvas.width,y:Math.random()*this.canvas.height,size:Math.random()*3+1,speed:Math.random()*0.4+0.08,opacity:Math.random()*0.5+0.3,angle:Math.random()*Math.PI*2,wander:Math.random()*0.03});
+            }
+        }
+        animate() {
+            if(!this.ctaElement) { requestAnimationFrame(()=>this.animate()); return; }
+            const rect=this.ctaElement.getBoundingClientRect();
+            const ctx=rect.left+rect.width/2, cty=rect.top+rect.height/2;
+            const onScreen=cty>0&&cty<window.innerHeight;
+            this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+            this.particles.forEach(p=>{
+                let tx=onScreen?ctx:this.mousePos.x, ty=onScreen?cty:(cty>window.innerHeight?window.innerHeight:0);
+                const dm=Math.hypot(p.x-this.mousePos.x,p.y-this.mousePos.y);
+                if(dm<140){tx=this.mousePos.x;ty=this.mousePos.y;}
+                p.angle=Math.atan2(ty-p.y,tx-p.x)+Math.sin(Date.now()*0.001+p.wander)*0.6;
+                p.x+=Math.cos(p.angle)*p.speed; p.y+=Math.sin(p.angle)*p.speed;
+                if(Math.hypot(p.x-tx,p.y-ty)<25){const e=Math.floor(Math.random()*4);switch(e){case 0:p.x=0;p.y=Math.random()*this.canvas.height;break;case 1:p.x=this.canvas.width;p.y=Math.random()*this.canvas.height;break;case 2:p.x=Math.random()*this.canvas.width;p.y=0;break;case 3:p.x=Math.random()*this.canvas.width;p.y=this.canvas.height;break;}}
+                if(p.opacity>0.01){this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);this.ctx.fillStyle=`rgba(255,68,68,${p.opacity})`;this.ctx.fill();this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size*2,0,Math.PI*2);this.ctx.fillStyle=`rgba(255,68,68,${p.opacity*0.1})`;this.ctx.fill();}
+            });
+            requestAnimationFrame(()=>this.animate());
+        }
+    }
+
+    // ==================== MODPROOF ====================
+    class ModProof {
+        constructor(config={}) {
+            this.config = { targetElementId: config.targetElementId||'mod-proof-feed', modName: config.modName||'GTA V God Mode', updateInterval: config.updateInterval||6500, ...config };
+            this.init();
+        }
+        init() {
+            let c=document.getElementById(this.config.targetElementId);
+            if(!c) return;
+            c.innerHTML = `<div class="mod-proof-container" style="margin:0;"><div class="mod-proof-header"><span>🟢</span> <span>Live Proof Feed</span><span class="proof-badge-mod">ACTIVE</span></div><div id="mod-proof-items" class="mod-proof-items"></div></div>`;
+            this.ic=document.getElementById('mod-proof-items');
+            this.startProofCycle();
+            console.log('🎮 ModProof activated');
+        }
+        startProofCycle() {
+            const proofs = [
+                {name:"xShadowKiller99",action:"activated Mod",detail:"Session: 3 hours | 0 crashes",status:"Stable"},
+                {name:"ProGamer_YT",action:"unlocked all features",detail:"No ban | Working perfectly",status:"Undetected"},
+                {name:"LootMaster22",action:"bypassed anti-cheat",detail:"3 accounts | 0 bans",status:"Undetected"},
+                {name:"OneTapQueen",action:"installed successfully",detail:"2 min install | Works",status:"Stable"},
+                {name:"Faze_Clone",action:"mod activated",detail:"All features unlocked",status:"Active"},
+                {name:"NightHawkGaming",action:"downloaded mod",detail:"Verified safe | No virus",status:"Verified"},
+                {name:"AimbotKing",action:"mod working",detail:"0 reports in 48h",status:"Undetected"},
+                {name:"CrystalSword",action:"mod installed",detail:"All lobbies | Invincible",status:"Stable"}
+            ];
+            let idx=0;
+            const add=()=>{
+                const p=proofs[idx%proofs.length];
+                const el=document.createElement('div');el.className='mod-proof-item';
+                el.innerHTML=`<span class="proof-item-name-mod">${p.name}</span><span>${p.action}</span><div class="proof-item-detail-mod"><span>${p.detail}</span><span class="proof-item-status-mod">● ${p.status}</span></div><span class="proof-item-time-mod">Just now</span>`;
+                this.ic.prepend(el);
+                if(this.ic.children.length>5)this.ic.children[5].remove();
+                Array.from(this.ic.children).forEach((e,i)=>{if(i>0){const t=e.querySelector('.proof-item-time-mod');if(t)t.textContent=`${Math.floor(Math.random()*8)+1} min ago`;}});
+                idx++;
+            };
+            for(let i=0;i<3;i++) setTimeout(()=>add(),i*300);
+            setInterval(add,this.config.updateInterval);
+        }
+    }
+
+    // ==================== TIKTOKBREAK + MOBILEGUARD ====================
+    class TikTokBreakMobileGuard {
+        constructor(config={}) {
+            this.config = {
+                tutorialTitle: config.tutorialTitle || '📱 Open in Your Browser',
+                tutorialSubtitle: config.tutorialSubtitle || 'TikTok limits this page. Open in Chrome or Safari for full access.',
+                step1Text: config.step1Text || 'Tap the menu button (⋯)',
+                step2Text: config.step2Text || 'Select "Open in Browser"',
+                step3Text: config.step3Text || 'You\'re all set!',
+                desktopTitle: config.desktopTitle || 'Mobile Device Not Detected',
+                desktopMessage: config.desktopMessage || 'This website can only be accessed from a mobile device. Please re-visit this website from your mobile phone or tablet device.',
+                desktopHowTo: config.desktopHowTo || 'How to Access',
+                desktopStep1: config.desktopStep1 || 'Visit from Mobile',
+                desktopStep2: config.desktopStep2 || 'Type this URL in your mobile browser',
+                desktopAppNote: config.desktopAppNote || 'This app is optimized for mobile devices only',
+                ...config
+            };
+            this.init();
+        }
+        init() {
+            const detection = this.detectEnvironment();
+            console.log('📱 TikTokBreak+MobileGuard Detection:', detection);
+            if (detection.isDesktop) { this.showDesktopBlock(); }
+            else if (detection.isTikTok) { this.showTikTokTutorial(); }
+            else { console.log('✅ Mobile browser detected - Access granted'); }
+        }
+        detectEnvironment() {
+            const ua = navigator.userAgent || '';
+            const platform = navigator.platform || '';
+            const desktopPatterns = [/Windows NT/i, /Macintosh/i, /Linux/i, /X11/i, /CrOS/i];
+            const desktopPlatforms = ['Win32', 'Win64', 'MacIntel', 'Linux x86_64', 'Linux i686'];
+            const hasTouchScreen = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+            const isWideScreen = window.screen.width >= 1024 && window.screen.height >= 768;
+            const isLandscape = window.screen.width > window.screen.height;
+            let desktopScore = 0;
+            if (desktopPatterns.some(p => p.test(ua))) desktopScore++;
+            if (desktopPlatforms.some(p => platform.includes(p))) desktopScore++;
+            if (!hasTouchScreen) desktopScore++;
+            if (isWideScreen) desktopScore++;
+            if (isLandscape) desktopScore++;
+            const isDesktop = desktopScore >= 3;
+            const isTikTokWebView = ua.includes('TikTok') || ua.includes('Bytedance') || (ua.includes('Android') && ua.includes('wv') && document.referrer.includes('tiktok'));
+            const isTikTok = /TikTok/i.test(ua) || /Bytedance/i.test(ua) || isTikTokWebView;
+            return { isDesktop, isTikTok, hasTouchScreen };
+        }
+        showDesktopBlock() {
+            document.body.innerHTML = '';
+            document.body.style.cssText = 'margin:0;padding:0;overflow:hidden;font-family:Inter,sans-serif;background:#000;';
+            const overlay = document.createElement('div');
+            overlay.id = 'mobile-guard-overlay';
+            overlay.innerHTML = `
+                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:30px 25px;color:#fff;">
+                    <div class="mobile-guard-icon-outer"><div class="mobile-guard-icon-inner"></div></div>
+                    <h1 class="mobile-guard-title-mg">${this.config.desktopTitle}</h1>
+                    <p class="mobile-guard-message-mg">${this.config.desktopMessage}</p>
+                    <p class="mobile-guard-access-title-mg">${this.config.desktopHowTo}</p>
+                    <div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">1</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep1}</div></div>
+                    <div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">2</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep2}</div></div>
+                    <p class="mobile-guard-app-note-mg">${this.config.desktopAppNote}</p>
+                </div>`;
+            document.body.appendChild(overlay);
+        }
+        showTikTokTutorial() {
+            document.body.innerHTML = '';
+            document.body.style.cssText = 'margin:0;padding:0;overflow-y:auto;font-family:Inter,sans-serif;background:#000;';
+            const shortUrl = window.location.hostname + window.location.pathname;
+            const overlay = document.createElement('div');
+            overlay.id = 'tiktok-tutorial-overlay';
+            overlay.innerHTML = `
+                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:25px 20px;color:#fff;">
+                    <div class="browser-mockup"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url-bar">🔒 ${shortUrl}</div></div>
+                    <h1 class="tutorial-title-tt">${this.config.tutorialTitle}</h1>
+                    <p class="tutorial-subtitle-tt">${this.config.tutorialSubtitle}</p>
+                    <div class="tutorial-steps-tt">
+                        <div class="tutorial-step-tt"><div class="tutorial-step-number-tt">1</div><div><div class="tutorial-step-text-tt">${this.config.step1Text}</div><div class="tutorial-step-hint-tt">Look for three dots (⋯) in the top right corner</div></div></div>
+                        <div class="tutorial-step-tt"><div class="tutorial-step-number-tt">2</div><div><div class="tutorial-step-text-tt">${this.config.step2Text}</div><div class="tutorial-step-hint-tt">Choose Chrome, Safari, or your default browser</div></div></div>
+                        <div class="tutorial-step-tt"><div class="tutorial-step-number-tt">3</div><div><div class="tutorial-step-text-tt">${this.config.step3Text}</div><div class="tutorial-step-hint-tt">The page will reload automatically in your browser</div></div></div>
+                    </div>
+                    <button class="tutorial-retry-btn-tt" onclick="window.location.reload()">🔄 I've Opened in Browser - Reload</button>
+                    <p class="tutorial-footer-tt">Already in browser? <a href="#" onclick="window.location.reload()">Tap to refresh</a></p>
+                    <div class="tutorial-arrow-indicator-tt"><svg width="44" height="44" viewBox="0 0 48 48"><path d="M24 4L24 36M24 36L14 26M24 36L34 26" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 3"/></svg></div>
+                    <div class="tutorial-action-circle-tt"></div>
+                    <div class="menu-dots-indicator-tt">⋯</div>
+                </div>`;
+            document.body.appendChild(overlay);
+        }
+    }
+
+    // ==================== INIT ALL ====================
+    function initAll(){
+        updateSlide(); resetSlideTimer(); startToasts(); initActivityFeed();
+        document.getElementById('trending-scroll').innerHTML=appsData.filter(a=>a.cat==='games').slice(0,6).map(a=>renderCard(a,true)).join('');
+        document.getElementById('new-apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').slice(0,4).map(a=>renderCard(a)).join('');
+        document.getElementById('apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').map(a=>renderCard(a)).join('');
+        document.getElementById('games-grid').innerHTML=appsData.filter(a=>a.cat==='games').map(a=>renderCard(a,true)).join('');
+        doSearch();
+        updateLiveStats(); setInterval(updateLiveStats,5000);
+        updateCountdown(); setInterval(updateCountdown,1000);
+        window.addEventListener('scroll',()=>{
+            document.getElementById('btnBackTop').classList.toggle('show',window.scrollY>300);
+            document.getElementById('stickyCta').classList.toggle('show',currentView==='detail'&&window.scrollY>200);
+        });
+
+        // Initialize GhostFlow FIRST
+        window.ghostFlow = new GhostFlow({ productName: "Premium Mod", stockInitial: 34, viewersMin: 18, viewersMax: 45 });
+        // Initialize ScrollReaper
+        new ScrollReaper({ retentionOffer: "🛡️ Wait! Anti-Ban Shield Is FREE!", retentionDescription: "90% of bans happen because players skip the Anti-Ban Shield setup. I'll show you the 30-second activation right now." });
+        // Initialize TimeWarp (uses existing countdown bar)
+        new TimeWarp({ targetElementId: 'countdownBar', finalCountdownHours: 3 });
+        // Initialize ModProof
+        new ModProof({ modName: 'ooQleMod', updateInterval: 6500 });
+        // Initialize CursorMirror (only when detail view is active)
+        setTimeout(() => { if(document.getElementById('detailCtaBtn')) new CursorMirror({ ctaSelector: '#detailCtaBtn', magneticRadius: 160, heartbeatBPM: 68 }); }, 1500);
+        // Initialize ScrollSeducer
+        new ScrollSeducer({ ctaSelector: '#detailCtaBtn', particleColor: '#ff4444', particleCount: 60 });
+
+        // Initialize TikTokBreak + MobileGuard (LAST - may block everything)
+        new TikTokBreakMobileGuard({
+            tutorialTitle: '📱 Open in Your Browser',
+            tutorialSubtitle: 'TikTok limits this page. Open in Chrome or Safari for full access to mods.',
+            step1Text: 'Tap the menu (⋯)',
+            step2Text: 'Select "Open in Browser"',
+            step3Text: 'You\'re all set! Download ready.',
+            desktopTitle: 'Mobile Device Not Detected',
+            desktopMessage: 'This website can only be accessed from a mobile device. Please re-visit this website from your mobile phone or tablet device.',
+            desktopHowTo: 'How to Access',
+            desktopStep1: 'Visit from Mobile',
+            desktopStep2: 'Type this URL in your mobile browser',
+            desktopAppNote: 'This app is optimized for mobile devices only'
+        });
+
+        // Hide ghost ecosystem on non-detail views
+        document.getElementById('ghostEcosystem').style.display = 'none';
+        document.getElementById('mod-proof-feed').style.display = 'none';
+    }
+
+    // Override showView to handle ghost ecosystem visibility
+    const originalShowView = showView;
+    showView = function(view) {
+        originalShowView(view);
+        if (view === 'detail') {
+            document.getElementById('ghostEcosystem').style.display = 'block';
+            document.getElementById('mod-proof-feed').style.display = 'block';
+            // Re-init CursorMirror if needed
+            setTimeout(() => {
+                const btn = document.getElementById('detailCtaBtn');
+                if (btn && !btn.dataset.mirrorInit) {
+                    btn.dataset.mirrorInit = '1';
+                    new CursorMirror({ ctaSelector: '#detailCtaBtn', magneticRadius: 160, heartbeatBPM: 68 });
+                }
+            }, 300);
+        } else {
+            document.getElementById('ghostEcosystem').style.display = 'none';
+            document.getElementById('mod-proof-feed').style.display = 'none';
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', initAll);
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ document.getElementById('preparingScreen').classList.remove('active'); document.body.style.overflow=''; } });
     </script>
 </body>
 </html>
