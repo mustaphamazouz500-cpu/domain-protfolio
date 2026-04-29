@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Download Premium Modded Apps & Games. Pokémon Go Spoofer, 8 Ball Pool Mod, Baseball 9, Toca Boca World and more. 100% working mods - No jailbreak required.">
+    <meta name="description" content="Download Premium Modded Apps & Games. Pokémon Go Spoofer, 8 Ball Pool Mod, Baseball 9, Toca Boca World and more. 100% working mods.">
     <meta property="og:title" content="ooQleMod - Premium Modded Apps & Games">
     <meta property="og:description" content="Get unlimited mods for your favorite games. All verified and safe.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230a0e27' width='32' height='32' rx='8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='%23FF3B30' font-size='20' font-weight='bold'%3Eoo%3C/text%3E%3C/svg%3E">
@@ -12,294 +12,475 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root[data-theme="dark"] {
-            --bg: #0a0e27; --bg2: #0f1335; --surface: rgba(20, 25, 55, 0.85);
-            --surface2: rgba(30, 36, 70, 0.9); --border: rgba(255,255,255,0.04);
-            --border2: rgba(255,255,255,0.07); --text: #ffffff; --text2: #b0b8d0;
+            --bg: #0a0e27; --bg2: #0f1335; --surface: rgba(20, 25, 55, 0.7);
+            --surface2: rgba(30, 36, 70, 0.8); --border: rgba(255,255,255,0.06);
+            --border2: rgba(255,255,255,0.1); --text: #ffffff; --text2: #b0b8d0;
             --text3: #6e7590; --accent: #FF3B30; --accent2: #ff5a4f;
             --accent-glow: rgba(255,59,48,0.35); --mod: #6366f1; --mod-glow: rgba(99,102,241,0.4);
             --success: #00C853; --warning: #FF9500; --danger: #FF3B30;
-            --gold: #FFD60A; --header-bg: rgba(10,14,39,0.88); --nav-bg: rgba(10,14,39,0.92);
-            --overlay: linear-gradient(to top, rgba(10,14,39,0.98) 0%, rgba(10,14,39,0.35) 50%, rgba(10,14,39,0.05) 100%);
-            --card-shadow: 0 4px 24px rgba(0,0,0,0.6);
-            --featured-shadow: 0 20px 60px rgba(0,0,0,0.7);
+            --gold: #FFD60A; --header-bg: rgba(10,14,39,0.8); --nav-bg: rgba(10,14,39,0.85);
+            --card-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+            --featured-shadow: 0 24px 60px rgba(0,0,0,0.6);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; font-size: 16px; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); overflow-x: hidden; min-height: 100vh;
-            -webkit-font-smoothing: antialiased; transition: background 0.4s, color 0.4s; line-height: 1.5;
+            -webkit-font-smoothing: antialiased; line-height: 1.5; cursor: none;
+            animation: bgBreath 10s ease-in-out infinite;
         }
+        @keyframes bgBreath {
+            0%, 100% { background-color: #0a0e27; }
+            50% { background-color: #0d1035; }
+        }
+        body.touch-device { cursor: auto; }
+
+        /* FINGER GLOW */
+        #finger-glow {
+            position: fixed; pointer-events: none; z-index: 10000;
+            width: 80px; height: 80px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            transform: translate(-50%, -50%); opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        #finger-glow.active { opacity: 1; }
+
+        /* BREATHING BG MESH */
         .bg-mesh {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;
+            animation: meshBreath 12s ease-in-out infinite;
             background:
-                radial-gradient(ellipse 80% 50% at 15% 5%, rgba(255,59,48,0.07) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 85% 80%, rgba(255,149,0,0.05) 0%, transparent 45%),
-                radial-gradient(ellipse 50% 50% at 50% 50%, rgba(99,102,241,0.03) 0%, transparent 60%);
+                radial-gradient(ellipse 80% 50% at 15% 5%, rgba(255,59,48,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 85% 80%, rgba(99,102,241,0.04) 0%, transparent 45%),
+                radial-gradient(ellipse 50% 50% at 50% 50%, rgba(255,149,0,0.03) 0%, transparent 60%);
         }
+        @keyframes meshBreath {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
         .app-container { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 160px; }
 
+        /* HEADER */
         .header {
             position: sticky; top: 0; z-index: 100; display: flex; align-items: center;
-            justify-content: space-between; padding: 10px 16px; background: var(--header-bg);
-            backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
-            border-bottom: 1px solid var(--border); transition: background 0.4s;
+            justify-content: space-between; padding: 12px 16px;
+            background: var(--header-bg); backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border-bottom: 1px solid var(--border); border-radius: 0 0 24px 24px;
         }
         .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 17px; cursor: pointer; text-decoration: none; color: var(--text); }
         .logo-icon {
             width: 34px; height: 34px; background: linear-gradient(135deg, #FF3B30, #d6302b);
             border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            font-size: 15px; color: #fff; font-weight: 800; box-shadow: 0 4px 16px rgba(255,59,48,0.4);
+            font-size: 15px; color: #fff; font-weight: 800;
+            box-shadow: 0 4px 16px rgba(255,59,48,0.4), 0 0 40px rgba(255,59,48,0.15);
         }
         .live-counter {
-            display: flex; align-items: center; gap: 6px; background: rgba(0,200,83,0.1);
-            border: 1px solid rgba(0,200,83,0.2); border-radius: 20px; padding: 5px 12px;
+            display: flex; align-items: center; gap: 6px; background: rgba(0,200,83,0.08);
+            border: 1px solid rgba(0,200,83,0.2); border-radius: 20px; padding: 6px 14px;
             font-size: 11px; font-weight: 700; color: var(--success);
+            backdrop-filter: blur(10px);
         }
-        .live-counter .pulse-dot { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse-dot 1.5s infinite; }
-        @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(0,200,83,0.6); } 50% { box-shadow: 0 0 0 10px transparent; } }
+        .live-counter .pulse-dot { width: 6px; height: 6px; background: var(--success); border-radius: 50%; animation: pulseDotSoft 2s infinite; }
+        @keyframes pulseDotSoft { 0%,100% { box-shadow: 0 0 0 0 rgba(0,200,83,0.5); } 50% { box-shadow: 0 0 0 12px transparent; } }
 
+        /* COUNTDOWN BAR */
         .countdown-bar {
-            background: linear-gradient(90deg, #FF3B30, #FF9500); color: #fff; text-align: center;
-            padding: 8px 14px; font-size: 12px; font-weight: 800; letter-spacing: 0.5px;
+            background: linear-gradient(90deg, rgba(255,59,48,0.2), rgba(255,149,0,0.2));
+            backdrop-filter: blur(20px); border: 1px solid rgba(255,59,48,0.2);
+            color: #fff; text-align: center; padding: 8px 14px; margin: 10px 14px;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
             display: flex; align-items: center; justify-content: center; gap: 8px;
+            border-radius: 40px; animation: countdownGlow 3s ease-in-out infinite;
         }
-        .countdown-bar .timer { background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px; font-size: 13px; }
+        @keyframes countdownGlow {
+            0%, 100% { border-color: rgba(255,59,48,0.2); }
+            50% { border-color: rgba(255,59,48,0.5); }
+        }
+        .countdown-bar .timer { background: rgba(0,0,0,0.4); padding: 3px 12px; border-radius: 20px; font-size: 13px; font-weight: 800; }
 
+        /* TOAST */
         .toast-container {
             position: fixed; bottom: 150px; left: 10px; z-index: 300;
             display: flex; flex-direction: column; gap: 8px; pointer-events: none;
         }
         .toast {
-            background: var(--surface2); border: 1px solid var(--border2); border-radius: 12px;
-            padding: 10px 14px; font-size: 11px; color: var(--text); font-weight: 600;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4); display: flex; align-items: center; gap: 8px;
-            animation: toastIn 0.5s ease, toastOut 0.5s ease 4.5s forwards;
+            background: var(--surface2); backdrop-filter: blur(40px); border: 1px solid var(--border2);
+            border-radius: 16px; padding: 10px 14px; font-size: 11px; color: var(--text);
+            font-weight: 600; box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+            display: flex; align-items: center; gap: 8px;
+            animation: toastGentleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1), toastGentleOut 0.5s ease 4.5s forwards;
             max-width: 280px;
         }
-        @keyframes toastIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes toastOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-30px); } }
-        .toast-flag { font-size: 20px; flex-shrink: 0; }
+        @keyframes toastGentleIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes toastGentleOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-10px); } }
+        .toast-flag { font-size: 22px; flex-shrink: 0; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
         .toast-info strong { color: var(--success); }
 
-        .view { display: none; animation: viewIn 0.35s ease; padding: 0 14px; }
-        .view.active { display: block; }
-        @keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .featured-wrapper { position: relative; margin-top: 10px; }
-        .featured {
-            position: relative; border-radius: 22px; overflow: hidden;
-            height: 250px; cursor: pointer; box-shadow: var(--featured-shadow);
-            transition: all 0.4s; border: 1px solid var(--border2);
+        /* VIEWS */
+        .view { display: none; padding: 0 14px; }
+        .view.active { display: block; animation: viewCinematicIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes viewCinematicIn {
+            from { opacity: 0; transform: scale(0.96); filter: blur(8px); }
+            to { opacity: 1; transform: scale(1); filter: blur(0); }
         }
-        .featured-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: background-image 0.6s ease; }
-        .featured-bg::after { content: ''; position: absolute; inset: 0; background: var(--overlay); }
+
+        /* FEATURED */
+        .featured-wrapper { position: relative; margin-top: 10px; perspective: 1000px; }
+        .featured {
+            position: relative; border-radius: 24px; overflow: hidden;
+            height: 250px; cursor: pointer;
+            box-shadow: var(--featured-shadow), 0 0 80px rgba(99,102,241,0.08);
+            border: 1px solid var(--border2);
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+        .featured-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: background-image 0.8s ease; }
+        .featured-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(10,14,39,0.95) 0%, rgba(10,14,39,0.3) 50%, rgba(10,14,39,0.05) 100%);
+        }
         .featured-app-icon {
             position: absolute; top: 14px; left: 14px; z-index: 3;
-            width: 48px; height: 48px; border-radius: 14px; overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.4); box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            background: #fff;
+            width: 50px; height: 50px; border-radius: 16px; overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 12px 28px rgba(0,0,0,0.6);
+            background: #fff; backdrop-filter: blur(10px);
         }
         .featured-app-icon img { width: 100%; height: 100%; object-fit: cover; }
-        .featured-dots {
-            display: flex; gap: 5px; position: absolute; top: 70px; right: 14px; z-index: 3;
-        }
+        .featured-dots { display: flex; gap: 6px; position: absolute; top: 70px; right: 14px; z-index: 3; }
         .featured-dot {
-            width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.3);
-            transition: all 0.4s; cursor: pointer;
+            width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.25);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer;
         }
-        .featured-dot.active { background: #FFD60A; box-shadow: 0 0 8px rgba(255,214,10,0.7); width: 22px; border-radius: 4px; }
-        .featured-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 16px 16px; z-index: 2; }
-        .featured-badge { display: inline-flex; align-items: center; gap: 4px; background: var(--mod); color: #fff; padding: 3px 9px; border-radius: 14px; font-size: 10px; font-weight: 700; margin-bottom: 6px; }
-        .featured-title { font-size: 22px; font-weight: 900; margin-bottom: 3px; letter-spacing: -0.5px; }
-        .featured-desc { font-size: 11px; opacity: 0.85; line-height: 1.4; max-width: 90%; }
-        .featured-meta { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 11px; font-weight: 600; }
+        .featured-dot.active { background: #FFD60A; box-shadow: 0 0 12px rgba(255,214,10,0.8); width: 24px; border-radius: 4px; }
+        .featured-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 16px 18px; z-index: 2; }
+        .featured-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(99,102,241,0.3); backdrop-filter: blur(10px);
+            color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; margin-bottom: 8px;
+            border: 1px solid rgba(99,102,241,0.3);
+        }
+        .featured-title { font-size: 24px; font-weight: 900; margin-bottom: 3px; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .featured-desc { font-size: 12px; opacity: 0.9; line-height: 1.4; max-width: 85%; }
+        .featured-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 11px; font-weight: 600; }
         .featured-scarcity {
-            display: inline-flex; align-items: center; gap: 4px; background: rgba(255,59,48,0.2);
-            color: var(--danger); padding: 3px 8px; border-radius: 10px; font-size: 10px; font-weight: 700;
-            margin-left: auto; animation: pulse-bg 2s infinite;
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(255,59,48,0.25); backdrop-filter: blur(10px);
+            color: var(--danger); padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700;
+            margin-left: auto; animation: softPulse 2.5s infinite; border: 1px solid rgba(255,59,48,0.2);
         }
-        @keyframes pulse-bg { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes softPulse { 0%,100% { opacity: 0.8; } 50% { opacity: 1; } }
 
+        /* CLAIM BAR */
         .claim-bar {
-            background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-            padding: 10px 14px; margin: 10px 0; backdrop-filter: blur(10px);
+            background: var(--surface); backdrop-filter: blur(30px);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 10px 14px; margin: 10px 0;
             font-size: 10px; font-weight: 700; color: var(--warning);
             display: flex; align-items: center; gap: 10px;
         }
-        .claim-bar-fill { flex: 1; height: 7px; background: var(--border); border-radius: 4px; overflow: hidden; }
-        .claim-bar-fill-inner { height: 100%; background: linear-gradient(90deg, #FF9500, #FF3B30); border-radius: 4px; width: 83%; transition: width 0.5s; }
+        .claim-bar-fill { flex: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; }
+        .claim-bar-fill-inner {
+            height: 100%; background: linear-gradient(90deg, #FF9500, #FF3B30);
+            border-radius: 3px; width: 83%; transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
+        /* ACTIVITY */
         .activity-feed {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: 14px; padding: 10px 14px; margin: 10px 0; backdrop-filter: blur(10px);
+            background: var(--surface); backdrop-filter: blur(30px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 10px 14px; margin: 10px 0;
         }
         .activity-title { font-size: 11px; font-weight: 700; color: var(--success); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
-        .activity-item { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 10px; border-bottom: 1px solid var(--border); animation: slideUp 0.4s ease; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .activity-item {
+            display: flex; align-items: center; gap: 8px; padding: 6px 0;
+            font-size: 10px; border-bottom: 1px solid rgba(255,255,255,0.03);
+            animation: symphonyIn 0.5s ease both;
+        }
+        .activity-item:nth-child(1) { animation-delay: 0s; }
+        .activity-item:nth-child(2) { animation-delay: 0.08s; }
+        .activity-item:nth-child(3) { animation-delay: 0.16s; }
+        .activity-item:nth-child(4) { animation-delay: 0.24s; }
+        .activity-item:nth-child(5) { animation-delay: 0.32s; }
+        .activity-item:nth-child(6) { animation-delay: 0.40s; }
+        @keyframes symphonyIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
         .activity-item:last-child { border-bottom: none; }
         .activity-flag { font-size: 16px; }
         .activity-time { font-size: 9px; color: var(--text3); margin-left: auto; }
 
-        .stats-bar { display: flex; justify-content: space-around; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px 8px; margin: 8px 0; backdrop-filter: blur(10px); }
-        .stat-val { font-size: 16px; font-weight: 800; color: var(--accent); }
+        /* STATS */
+        .stats-bar {
+            display: flex; justify-content: space-around;
+            background: var(--surface); backdrop-filter: blur(30px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 14px 8px; margin: 8px 0;
+        }
+        .stat-val { font-size: 17px; font-weight: 800; background: linear-gradient(135deg, #FF3B30, #FF9500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .stat-lbl { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 20px 0 8px; }
+        /* SECTION HEADERS */
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 22px 0 10px; }
         .section-title { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
-        .section-link { font-size: 12px; color: var(--accent2); text-decoration: none; font-weight: 700; cursor: pointer; }
+        .section-link { font-size: 12px; color: var(--accent2); text-decoration: none; font-weight: 700; cursor: pointer; transition: color 0.2s; }
+        .section-link:hover { color: #fff; }
 
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        /* CARDS */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .card {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: 16px; padding: 8px; cursor: pointer;
-            transition: all 0.25s; position: relative; backdrop-filter: blur(12px);
-            box-shadow: var(--card-shadow);
+            background: var(--surface); backdrop-filter: blur(30px);
+            border: 1px solid var(--border); border-radius: 20px;
+            padding: 10px; cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; box-shadow: var(--card-shadow);
+            transform-style: preserve-3d;
         }
-        .card:active { transform: scale(0.96); }
-        .card-icon-wrap { width: 100%; aspect-ratio: 1; border-radius: 14px; position: relative; overflow: hidden; margin-bottom: 6px; background: var(--bg2); }
+        .card:active { transform: scale(0.97); }
+        .card-icon-wrap {
+            width: 100%; aspect-ratio: 1; border-radius: 16px;
+            position: relative; overflow: hidden; margin-bottom: 8px;
+            background: var(--bg2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
         .card-icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .card-mod, .card-badge { position: absolute; top: 4px; font-size: 7px; font-weight: 800; padding: 2px 5px; border-radius: 4px; text-transform: uppercase; z-index: 2; letter-spacing: 0.2px; }
-        .card-mod { right: 4px; background: var(--mod); color: #fff; }
-        .card-badge { left: 4px; }
-        .badge-hot { background: #FF3B30; color: #fff; }
-        .badge-new { background: #00C853; color: #000; }
-        .badge-trending { background: #FF9500; color: #000; }
-        .badge-vip { background: #FFD60A; color: #000; }
-        .card-viewers {
-            position: absolute; bottom: 6px; left: 6px;
-            background: rgba(0,0,0,0.7); color: #fff; font-size: 8px;
-            font-weight: 600; padding: 2px 5px; border-radius: 3px;
-            display: flex; align-items: center; gap: 3px;
+        .card-mod, .card-badge {
+            position: absolute; top: 6px; font-size: 7px; font-weight: 800;
+            padding: 3px 7px; border-radius: 6px; text-transform: uppercase;
+            z-index: 2; letter-spacing: 0.3px; backdrop-filter: blur(10px);
         }
-        .card-viewers .eye-dot { width: 4px; height: 4px; background: var(--success); border-radius: 50%; animation: pulse-dot 1.5s infinite; }
-        .card-title { font-size: 11px; font-weight: 700; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-meta { font-size: 9px; color: var(--text2); margin-bottom: 3px; }
-        .card-rating { display: flex; align-items: center; gap: 3px; font-size: 9px; font-weight: 700; }
+        .card-mod { right: 6px; background: rgba(99,102,241,0.7); color: #fff; }
+        .card-badge { left: 6px; }
+        .badge-hot { background: rgba(255,59,48,0.7); color: #fff; }
+        .badge-new { background: rgba(0,200,83,0.7); color: #000; }
+        .badge-trending { background: rgba(255,149,0,0.7); color: #000; }
+        .badge-vip { background: rgba(255,214,10,0.7); color: #000; }
+        .card-viewers {
+            position: absolute; bottom: 8px; left: 8px;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(10px);
+            color: #fff; font-size: 8px; font-weight: 700;
+            padding: 3px 7px; border-radius: 6px;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .card-viewers .eye-dot { width: 5px; height: 5px; background: var(--success); border-radius: 50%; animation: pulseDotSoft 2s infinite; }
+        .card-title { font-size: 12px; font-weight: 700; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-meta { font-size: 10px; color: var(--text2); margin-bottom: 3px; }
+        .card-rating { display: flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 700; }
 
-        .h-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; scroll-snap-type: x mandatory; }
+        /* STAR FIELD */
+        .star-field { position: absolute; pointer-events: none; z-index: 5; }
+        .star-field canvas { width: 100%; height: 100%; }
+
+        .h-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; scroll-snap-type: x mandatory; }
         .h-scroll::-webkit-scrollbar { display: none; }
-        .h-scroll .card { min-width: 125px; max-width: 130px; flex-shrink: 0; scroll-snap-align: start; }
+        .h-scroll .card { min-width: 130px; max-width: 135px; flex-shrink: 0; scroll-snap-align: start; }
 
+        /* NAV */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
-            display: flex; justify-content: center; padding: 6px 14px 18px;
-            background: var(--nav-bg); backdrop-filter: blur(28px);
+            display: flex; justify-content: center; padding: 8px 14px 20px;
+            background: var(--nav-bg); backdrop-filter: blur(40px) saturate(180%);
             border-top: 1px solid var(--border);
         }
-        .nav-inner { display: flex; background: var(--surface); border: 1px solid var(--border2); border-radius: 22px; padding: 3px; gap: 2px; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 7px 18px; border-radius: 16px; cursor: pointer; font-size: 10px; font-weight: 600; color: var(--text2); transition: all 0.25s; border: none; background: transparent; font-family: inherit; text-decoration: none; }
-        .nav-item.active { background: #FF3B30; color: #fff; box-shadow: 0 4px 14px rgba(255,59,48,0.3); }
+        .nav-inner {
+            display: flex; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border2); border-radius: 24px; padding: 4px; gap: 2px;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
+            padding: 8px 20px; border-radius: 18px; cursor: pointer;
+            font-size: 10px; font-weight: 600; color: var(--text2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none; background: transparent; font-family: inherit; text-decoration: none;
+        }
+        .nav-item.active {
+            background: #FF3B30; color: #fff;
+            box-shadow: 0 8px 24px rgba(255,59,48,0.4), 0 0 40px rgba(255,59,48,0.2);
+        }
         .nav-item svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-        .back-btn { display: inline-flex; align-items: center; gap: 5px; background: transparent; border: none; color: var(--text); font-size: 13px; cursor: pointer; margin: 6px 0 2px; padding: 5px 0; font-weight: 700; font-family: inherit; }
-        .detail-header { display: flex; gap: 12px; margin-top: 6px; align-items: flex-start; }
-        .detail-icon { width: 70px; height: 70px; border-radius: 16px; overflow: hidden; flex-shrink: 0; box-shadow: 0 8px 20px rgba(0,0,0,0.4); border: 1px solid var(--border2); }
-        .detail-icon img { width: 100%; height: 100%; object-fit: cover; }
-        .detail-info h1 { font-size: 18px; font-weight: 900; margin-bottom: 2px; }
-        .detail-info .sub { font-size: 11px; color: var(--text2); margin-bottom: 6px; }
-        .detail-meta-row { display: flex; gap: 10px; font-size: 10px; color: var(--text2); font-weight: 600; }
-        .mod-features { display: inline-flex; align-items: center; gap: 4px; background: rgba(99,102,241,0.12); color: var(--mod); padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; margin-top: 6px; }
-
-        .btn-start {
-            width: 100%; margin-top: 16px; padding: 14px; border-radius: 12px;
-            background: linear-gradient(135deg, #FF3B30, #d6302b); color: #fff;
-            font-size: 15px; font-weight: 800; border: none; cursor: pointer;
-            box-shadow: 0 6px 24px rgba(255,59,48,0.35); transition: all 0.15s;
-            font-family: inherit; animation: pulse-btn 2.5s infinite;
-            position: relative; overflow: hidden; text-transform: uppercase; letter-spacing: 0.5px;
+        /* DETAIL */
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); color: var(--text);
+            font-size: 12px; cursor: pointer; margin: 8px 0 4px;
+            padding: 7px 14px; font-weight: 700; font-family: inherit;
+            border-radius: 20px; transition: all 0.3s;
         }
-        @keyframes pulse-btn { 0%,100% { box-shadow: 0 6px 24px rgba(255,59,48,0.35); } 50% { box-shadow: 0 6px 38px rgba(255,59,48,0.6); } }
-        .btn-start:active { transform: scale(0.97); }
+        .back-btn:active { background: var(--accent); color: #fff; }
+        .detail-header { display: flex; gap: 14px; margin-top: 8px; align-items: flex-start; }
+        .detail-icon {
+            width: 75px; height: 75px; border-radius: 20px; overflow: hidden; flex-shrink: 0;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 40px rgba(99,102,241,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .detail-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .detail-info h1 { font-size: 20px; font-weight: 900; margin-bottom: 2px; }
+        .detail-info .sub { font-size: 11px; color: var(--text2); margin-bottom: 8px; }
+        .detail-meta-row { display: flex; gap: 12px; font-size: 10px; color: var(--text2); font-weight: 600; }
+        .mod-features {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(99,102,241,0.15); backdrop-filter: blur(10px);
+            color: #a5b4fc; padding: 5px 10px; border-radius: 8px;
+            font-size: 10px; font-weight: 700; margin-top: 8px;
+            border: 1px solid rgba(99,102,241,0.2);
+        }
 
-        .safety-badges { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+        /* CTA */
+        .btn-start {
+            width: 100%; margin-top: 18px; padding: 16px; border-radius: 16px;
+            background: linear-gradient(135deg, #FF3B30, #d6302b); color: #fff;
+            font-size: 16px; font-weight: 800; border: none; cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255,59,48,0.4), 0 0 60px rgba(255,59,48,0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: inherit; position: relative; overflow: hidden;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn-start:active { transform: scale(0.97); box-shadow: 0 4px 12px rgba(255,59,48,0.3); }
+
+        /* AURA GLOW */
+        .aura-glow {
+            position: absolute; inset: -20px; border-radius: inherit;
+            background: radial-gradient(circle at center, var(--aura-color, rgba(255,59,48,0.3)) 0%, transparent 70%);
+            opacity: 0; transition: opacity 0.5s ease; pointer-events: none; z-index: -1;
+        }
+        .aura-glow.visible { opacity: 1; }
+
+        .safety-badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
         .safety-badge {
             font-size: 10px; color: var(--success); font-weight: 600;
             display: flex; align-items: center; gap: 3px;
-            background: rgba(0,200,83,0.08); padding: 4px 8px; border-radius: 6px;
+            background: rgba(0,200,83,0.08); backdrop-filter: blur(10px);
+            padding: 5px 10px; border-radius: 8px; border: 1px solid rgba(0,200,83,0.15);
         }
 
+        /* STICKY CTA */
         .sticky-cta {
-            position: fixed; bottom: 70px; left: 0; right: 0; z-index: 99;
-            background: var(--nav-bg); backdrop-filter: blur(28px);
-            border-top: 1px solid var(--border); padding: 8px 14px 10px;
+            position: fixed; bottom: 75px; left: 0; right: 0; z-index: 99;
+            background: var(--nav-bg); backdrop-filter: blur(40px);
+            border-top: 1px solid var(--border); padding: 10px 16px 12px;
             display: none; align-items: center; gap: 10px;
         }
-        .sticky-cta.show { display: flex; }
+        .sticky-cta.show { display: flex; animation: slideUpSticky 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUpSticky { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .sticky-cta .btn-start { margin: 0; flex: 1; padding: 12px; font-size: 13px; }
 
-        .preparing-screen { position: fixed; inset: 0; background: var(--bg); z-index: 200; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; }
-        .preparing-screen.active { display: flex; }
-        .preparing-percent { font-size: 80px; font-weight: 900; background: linear-gradient(to bottom, rgba(255,59,48,0.3), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 16px; }
-        .preparing-circle { width: 60px; height: 60px; border-radius: 50%; background: var(--surface); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; position: relative; }
-        .preparing-circle::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 3px solid transparent; border-top-color: #FF3B30; animation: spin 0.85s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .preparing-text { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+        /* ECHO LOADING */
+        .preparing-screen {
+            position: fixed; inset: 0; background: rgba(10,14,39,0.97);
+            backdrop-filter: blur(30px); z-index: 200; display: none;
+            flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 30px;
+        }
+        .preparing-screen.active { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .echo-canvas { width: 200px; height: 200px; margin-bottom: 20px; }
+        .preparing-text { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
         .preparing-sub { font-size: 12px; color: var(--text2); max-width: 260px; }
-        .progress-container { position: absolute; bottom: 90px; left: 22px; right: 22px; }
-        .progress-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; color: var(--text2); }
-        .progress-bar { height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, #FF3B30, #FF9500); border-radius: 3px; width: 0%; transition: width 0.25s ease; }
 
-        .btn-back-top { position: fixed; bottom: 140px; right: 14px; z-index: 90; width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border2); color: var(--text); cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 15px; }
+        /* PRESTIGE BADGE */
+        .prestige-overlay {
+            position: fixed; inset: 0; z-index: 250; display: none;
+            align-items: center; justify-content: center;
+            background: rgba(10,14,39,0.8); backdrop-filter: blur(20px);
+        }
+        .prestige-overlay.active { display: flex; }
+        .prestige-seal {
+            background: linear-gradient(135deg, #1a1a3e, #0f1335);
+            border: 3px solid #FFD60A; border-radius: 50%;
+            width: 160px; height: 160px; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 0 60px rgba(255,214,10,0.4), 0 0 120px rgba(255,214,10,0.1);
+            animation: sealDrop 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            color: #FFD60A; font-weight: 900;
+        }
+        @keyframes sealDrop {
+            from { transform: translateY(-120px) scale(0.5); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        .prestige-number { font-size: 36px; line-height: 1; }
+        .prestige-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
+
+        /* BACK TO TOP */
+        .btn-back-top {
+            position: fixed; bottom: 140px; right: 14px; z-index: 90;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border2); color: var(--text);
+            cursor: pointer; display: none; align-items: center; justify-content: center;
+            font-size: 16px; transition: all 0.3s;
+        }
         .btn-back-top.show { display: flex; }
+        .btn-back-top:active { background: var(--accent); color: #fff; }
 
-        .search-bar { margin-top: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+        /* SEARCH */
+        .search-bar {
+            margin-top: 10px; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 10px 14px; display: flex; align-items: center; gap: 8px;
+        }
         .search-bar input { flex: 1; background: transparent; border: none; color: var(--text); font-size: 13px; outline: none; font-family: inherit; }
         .search-bar input::placeholder { color: var(--text3); }
-        .search-filters { display: flex; gap: 5px; margin: 10px 0 12px; }
-        .filter-chip { padding: 5px 10px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); font-size: 11px; cursor: pointer; color: var(--text2); font-weight: 600; font-family: inherit; }
+        .search-filters { display: flex; gap: 6px; margin: 10px 0 12px; }
+        .filter-chip {
+            padding: 6px 12px; border-radius: 20px;
+            background: var(--surface); backdrop-filter: blur(10px);
+            border: 1px solid var(--border); font-size: 11px; cursor: pointer;
+            color: var(--text2); font-weight: 600; font-family: inherit;
+            transition: all 0.3s;
+        }
         .filter-chip.active { background: #FF3B30; color: #fff; border-color: #FF3B30; }
 
-        .footer { text-align: center; padding: 20px 14px 30px; font-size: 10px; color: var(--text3); border-top: 1px solid var(--border); margin-top: 16px; }
-        .footer-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 6px; }
+        /* FOOTER */
+        .footer { text-align: center; padding: 24px 14px 30px; font-size: 10px; color: var(--text3); border-top: 1px solid var(--border); margin-top: 20px; }
+        .footer-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
         .footer-links a { color: var(--text2); text-decoration: none; font-weight: 500; }
 
-        /* ============ GHOSTFLOW + MODPROOF + TIMEWARP STYLES ============ */
+        /* GHOSTFLOW + MODPROOF */
         .ghost-ecosystem { margin: 14px 0; }
         .live-indicator-ghost {
             display: flex; align-items: center; gap: 10px;
-            background: var(--surface); padding: 10px 14px; border-radius: 10px;
+            background: var(--surface); backdrop-filter: blur(20px);
+            padding: 10px 14px; border-radius: 12px;
             margin-bottom: 8px; font-size: 12px; font-weight: 600;
             border: 1px solid var(--border);
         }
-        .live-dot-ghost {
-            width: 9px; height: 9px; background: #ff0000;
-            border-radius: 50%; display: inline-block;
-        }
-        .live-dot-ghost.pulse-active { animation: dotPulseGhost 1.2s infinite; }
-        @keyframes dotPulseGhost { 0%,100% { box-shadow: 0 0 0 0 rgba(255,0,0,0.8); } 50% { box-shadow: 0 0 18px 8px rgba(255,0,0,0); } }
+        .live-dot-ghost { width: 8px; height: 8px; background: #ff0000; border-radius: 50%; display: inline-block; }
+        .live-dot-ghost.pulse-active { animation: dotPulseGhost 1.5s infinite; }
+        @keyframes dotPulseGhost { 0%,100% { box-shadow: 0 0 0 0 rgba(255,0,0,0.6); } 50% { box-shadow: 0 0 20px 10px transparent; } }
         .stock-indicator-ghost { margin: 10px 0; }
-        .stock-bar-ghost { height: 8px; background: #1a1a2e; border-radius: 4px; overflow: hidden; }
-        .stock-bar-fill-ghost { height: 100%; width: 100%; background: #00ff66; transition: width 0.7s ease, background 0.4s ease; border-radius: 4px; }
+        .stock-bar-ghost { height: 7px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+        .stock-bar-fill-ghost { height: 100%; width: 100%; background: #00ff66; transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s; border-radius: 4px; }
         .stock-text-ghost { margin-top: 5px; font-size: 11px; color: #ff6666; font-weight: 600; }
-        .urgency-message-ghost { display: none; background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.3); border-radius: 8px; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #ff4444; font-weight: 700; }
-        .sales-feed-ghost { background: var(--surface); border-radius: 10px; padding: 10px; max-height: 200px; overflow-y: auto; font-size: 10px; border: 1px solid var(--border); margin-top: 8px; }
-        .ghost-sale-item { padding: 6px 4px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 7px; font-weight: 500; }
+        .urgency-message-ghost { display: none; background: rgba(255,0,0,0.06); border: 1px solid rgba(255,0,0,0.2); border-radius: 10px; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #ff4444; font-weight: 700; backdrop-filter: blur(10px); }
+        .sales-feed-ghost { background: var(--surface); backdrop-filter: blur(20px); border-radius: 12px; padding: 10px; max-height: 180px; overflow-y: auto; font-size: 10px; border: 1px solid var(--border); margin-top: 8px; }
+        .ghost-sale-item { padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.03); display: flex; align-items: center; gap: 7px; font-weight: 500; }
         .sale-time-ghost { color: var(--text3); margin-left: auto; font-size: 9px; }
-        .sale-icon-ghost { font-size: 7px; color: #00ff66; }
+        .sale-icon-ghost { font-size: 8px; color: #00ff66; }
 
-        /* mod-proof styles */
-        .mod-proof-container { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px; margin: 14px 0; }
+        .mod-proof-container { background: var(--surface); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 14px; padding: 12px; margin: 14px 0; }
         .mod-proof-header { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; font-weight: 700; color: #00ff66; font-size: 12px; }
-        .proof-badge-mod { background: #00ff66; color: #000; padding: 1px 8px; border-radius: 12px; font-size: 9px; font-weight: 700; margin-left: auto; animation: badgePulseMod 2s infinite; }
-        @keyframes badgePulseMod { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .mod-proof-item { background: rgba(0,255,100,0.03); border-left: 2px solid #00ff66; padding: 8px 10px; margin-bottom: 6px; border-radius: 0 6px 6px 0; font-size: 11px; color: #ccc; animation: slideInMod 0.35s ease-out; }
-        @keyframes slideInMod { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+        .proof-badge-mod { background: #00ff66; color: #000; padding: 1px 8px; border-radius: 12px; font-size: 9px; font-weight: 700; margin-left: auto; animation: softPulse 2s infinite; }
+        .mod-proof-item {
+            background: rgba(0,255,100,0.02); border-left: 2px solid #00ff66;
+            padding: 8px 10px; margin-bottom: 6px; border-radius: 0 8px 8px 0;
+            font-size: 11px; color: #ccc; animation: slideGentle 0.4s ease-out;
+        }
+        @keyframes slideGentle { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
         .proof-item-name-mod { color: #00ff66; font-weight: 700; display: block; margin-bottom: 2px; }
         .proof-item-detail-mod { color: #888; font-size: 9px; display: flex; justify-content: space-between; margin-top: 3px; }
         .proof-item-status-mod { color: #00ff66; font-size: 9px; }
         .proof-item-time-mod { color: #555; font-size: 9px; }
 
-        /* TikTok + Desktop Block Styles */
-        .tiktok-blocked body > *:not(#tiktok-tutorial-overlay):not(#mobile-guard-overlay) { display: none !important; }
+        /* TIKTOK + DESKTOP BLOCK */
         #tiktok-tutorial-overlay, #mobile-guard-overlay {
             position: fixed; inset: 0; z-index: 1000000; background: #000;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 25px 20px; box-sizing: border-box; animation: fadeInOverlay 0.35s ease-out;
+            padding: 25px 20px; box-sizing: border-box; animation: fadeIn 0.35s ease;
         }
-        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
-        .browser-mockup { width: 100%; max-width: 380px; background: #1c1c1e; border-radius: 12px 12px 0 0; padding: 10px 14px; margin-bottom: 22px; border: 1px solid #333; }
+        .browser-mockup { width: 100%; max-width: 380px; background: #1c1c1e; border-radius: 14px 14px 0 0; padding: 10px 14px; margin-bottom: 22px; border: 1px solid #333; }
         .browser-dots { display: flex; gap: 5px; margin-bottom: 8px; }
         .browser-dot { width: 9px; height: 9px; border-radius: 50%; background: #444; }
         .browser-dot.red { background: #ff5f57; } .browser-dot.yellow { background: #ffbd2e; } .browser-dot.green { background: #28c840; }
@@ -307,9 +488,8 @@
         .tutorial-title-tt { color: #fff; font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 6px; }
         .tutorial-subtitle-tt { color: #999; font-size: 14px; text-align: center; margin-bottom: 30px; line-height: 1.5; max-width: 280px; }
         .tutorial-steps-tt { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 25px; }
-        .tutorial-step-tt { display: flex; align-items: flex-start; gap: 14px; padding: 16px 14px; background: #111; border-radius: 12px; border: 1px solid #222; animation: slideStepIn 0.5s ease-out forwards; opacity: 0; }
+        .tutorial-step-tt { display: flex; align-items: flex-start; gap: 14px; padding: 16px 14px; background: #111; border-radius: 12px; border: 1px solid #222; animation: slideGentle 0.5s ease-out forwards; opacity: 0; }
         .tutorial-step-tt:nth-child(1) { animation-delay: 0.2s; } .tutorial-step-tt:nth-child(2) { animation-delay: 0.55s; } .tutorial-step-tt:nth-child(3) { animation-delay: 0.9s; }
-        @keyframes slideStepIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .tutorial-step-number-tt { width: 34px; height: 34px; background: #007AFF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; box-shadow: 0 0 16px rgba(0,122,255,0.4); }
         .tutorial-step-text-tt { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
         .tutorial-step-hint-tt { color: #888; font-size: 11px; line-height: 1.3; }
@@ -324,12 +504,9 @@
         .tutorial-footer-tt { margin-top: 15px; color: #666; font-size: 11px; text-align: center; }
         .tutorial-footer-tt a { color: #007AFF; text-decoration: none; }
 
-        /* Mobile Guard (Desktop Block) */
-        .mobile-guard-icon-outer { width: 80px; height: 80px; border: 3px solid #333; border-radius: 16px; display: flex; align-items: center; justify-content: center; animation: pulseIcon 2s infinite; margin-bottom: 25px; }
-        @keyframes pulseIcon { 0%,100% { transform: scale(1); border-color: #333; } 50% { transform: scale(1.05); border-color: #555; } }
+        .mobile-guard-icon-outer { width: 80px; height: 80px; border: 3px solid #333; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; }
         .mobile-guard-icon-inner { width: 32px; height: 50px; border: 3px solid #007AFF; border-radius: 5px; position: relative; }
-        .mobile-guard-icon-inner::after { content: ''; position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border: 3px solid #007AFF; border-radius: 50%; animation: tapPulse 1.5s infinite; }
-        @keyframes tapPulse { 0%,100% { transform: translateX(-50%) scale(1); opacity: 1; } 50% { transform: translateX(-50%) scale(0.7); opacity: 0.5; } }
+        .mobile-guard-icon-inner::after { content: ''; position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border: 3px solid #007AFF; border-radius: 50%; }
         .mobile-guard-title-mg { color: #fff; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; }
         .mobile-guard-message-mg { color: #999; font-size: 14px; text-align: center; margin-bottom: 30px; line-height: 1.6; max-width: 320px; }
         .mobile-guard-access-title-mg { color: #fff; font-size: 16px; font-weight: 700; text-align: center; margin-bottom: 16px; }
@@ -338,11 +515,20 @@
         .mobile-guard-step-text-mg { color: #ccc; font-size: 13px; }
         .mobile-guard-app-note-mg { color: #666; font-size: 12px; text-align: center; margin-top: 5px; font-style: italic; }
 
-        /* CTA Magnetic Glow */
-        .cta-magnetic-glow { position: absolute; inset: -8px; border-radius: inherit; background: radial-gradient(circle at center, rgba(255,59,48,0.4) 0%, rgba(255,100,0,0.08) 50%, transparent 70%); opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: -1; }
-        .cta-magnetic-glow.active { opacity: 1; }
+        /* MEMENTO */
+        .memento-toast {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 999;
+            background: var(--surface2); backdrop-filter: blur(40px);
+            border: 1px solid var(--border2); border-radius: 16px;
+            padding: 12px 20px; color: var(--text); font-size: 13px; font-weight: 600;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            animation: mementoIn 0.6s cubic-bezier(0.16, 1, 0.3, 1), mementoOut 0.5s ease 3s forwards;
+            text-align: center;
+        }
+        @keyframes mementoIn { from { opacity: 0; transform: translateX(-50%) translateY(-30px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+        @keyframes mementoOut { from { opacity: 1; transform: translateX(-50%) translateY(0); } to { opacity: 0; transform: translateX(-50%) translateY(-10px); } }
 
-        /* Particle Canvas */
+        /* PARTICLE CANVAS */
         #scroll-seducer-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9997; }
 
         @media (min-width: 420px) { .featured { height: 280px; } .h-scroll .card { min-width: 140px; max-width: 145px; } }
@@ -350,6 +536,7 @@
 </head>
 <body>
     <div class="bg-mesh"></div>
+    <div id="finger-glow"></div>
     <div class="app-container" id="mainAppContainer">
         <header class="header" id="mainHeader">
             <a href="index.html" class="logo"><div class="logo-icon">oo</div><span>ooQleMod</span></a>
@@ -357,31 +544,27 @@
         </header>
 
         <div class="countdown-bar" id="countdownBar">
-            ⚡ LIMITED ACCESS — <span class="timer" id="countdownTimer">04:32:17</span> remaining until slots reset
+            <span>⚡ LIMITED ACCESS</span>
+            <span class="timer" id="countdownTimer">05:23:17</span>
+            <span>remaining</span>
         </div>
 
         <div class="toast-container" id="toastContainer"></div>
 
-        <!-- ============ GHOSTFLOW ECOSYSTEM ============ -->
-        <div class="ghost-ecosystem" id="ghostEcosystem" style="padding: 0 14px;">
+        <div class="ghost-ecosystem" id="ghostEcosystem" style="padding:0 14px;display:none;">
             <div class="live-indicator-ghost">
                 <span id="live-dot-ghost" class="live-dot-ghost"></span>
-                <span id="viewer-count-ghost">24</span> players viewing now
+                <span id="viewer-count-ghost">24</span> players viewing this mod
             </div>
             <div class="stock-indicator-ghost">
-                <div class="stock-bar-ghost">
-                    <div id="stock-bar-fill-ghost" class="stock-bar-fill-ghost"></div>
-                </div>
-                <p class="stock-text-ghost">
-                    ⚠️ Only <span id="stock-counter-ghost">34</span> download slots left
-                </p>
+                <div class="stock-bar-ghost"><div id="stock-bar-fill-ghost" class="stock-bar-fill-ghost"></div></div>
+                <p class="stock-text-ghost">⚠️ Only <span id="stock-counter-ghost">34</span> download slots left</p>
             </div>
             <div id="urgency-message-ghost" class="urgency-message-ghost"></div>
             <div id="recent-sales-feed-ghost" class="sales-feed-ghost"></div>
         </div>
 
-        <!-- ============ MODPROOF FEED ============ -->
-        <div id="mod-proof-feed" style="padding: 0 14px;"></div>
+        <div id="mod-proof-feed" style="padding:0 14px;display:none;"></div>
 
         <div class="view active" id="view-discover">
             <div class="featured-wrapper">
@@ -400,28 +583,23 @@
                     </div>
                 </div>
             </div>
-
-            <div class="claim-bar" id="claimBar">
+            <div class="claim-bar">
                 <span>🔥 87% of today's licenses claimed</span>
                 <div class="claim-bar-fill"><div class="claim-bar-fill-inner" id="claimBarFill"></div></div>
                 <span id="claimBarText">87%</span>
             </div>
-
             <div class="activity-feed">
                 <div class="activity-title">🟢 LIVE — Real people downloading</div>
                 <div class="activity-list" id="activityList"></div>
             </div>
-
             <div class="stats-bar">
                 <div style="text-align:center;"><div class="stat-val" id="statDownloads">147K</div><div class="stat-lbl">Downloads</div></div>
                 <div style="text-align:center;"><div class="stat-val">4.9 ★</div><div class="stat-lbl">Rating</div></div>
                 <div style="text-align:center;"><div class="stat-val">99.3%</div><div class="stat-lbl">Safe</div></div>
                 <div style="text-align:center;"><div class="stat-val">24/7</div><div class="stat-lbl">Support</div></div>
             </div>
-
             <div class="section-header"><div class="section-title">🔥 Trending Now</div><span class="section-link" onclick="showView('games')">View all →</span></div>
             <div class="h-scroll" id="trending-scroll"></div>
-
             <div class="section-header"><div class="section-title">✨ New Releases</div><span class="section-link" onclick="showView('apps')">View all →</span></div>
             <div class="grid" id="new-apps-grid"></div>
         </div>
@@ -441,10 +619,7 @@
         <div class="view" id="view-search">
             <button class="back-btn" onclick="goHome()">← Back</button>
             <h2 style="font-size:22px;font-weight:900;margin:10px 0 12px;">🔍 Search</h2>
-            <div class="search-bar">
-                <span style="color:var(--text3)">🔍</span>
-                <input type="text" placeholder="Search mods..." id="searchInput" oninput="doSearch()">
-            </div>
+            <div class="search-bar"><span style="color:var(--text3)">🔍</span><input type="text" placeholder="Search mods..." id="searchInput" oninput="doSearch()"></div>
             <div class="search-filters">
                 <div class="filter-chip active" onclick="setFilter('all', this)">All</div>
                 <div class="filter-chip" onclick="setFilter('app', this)">📱 Apps</div>
@@ -468,7 +643,7 @@
                 </div>
             </div>
             <button class="btn-start" id="detailCtaBtn" onclick="startPreparing()" style="position:relative;">
-                <span class="cta-magnetic-glow"></span>
+                <div class="aura-glow" id="ctaAura"></div>
                 ⚡ Get My Download Now
             </button>
             <div class="safety-badges" id="safetyBadges">
@@ -509,18 +684,21 @@
         </div>
     </div>
 
+    <!-- ECHO LOADING -->
     <div class="preparing-screen" id="preparingScreen">
-        <div class="preparing-percent" id="preparingPercent">0%</div>
-        <div class="preparing-circle">☁️</div>
-        <div class="preparing-text" id="preparingText">Preparing...</div>
-        <div class="preparing-sub" id="preparingSub">Please wait while we generate your download</div>
-        <div class="progress-container">
-            <div class="progress-label"><span>PROCESSING</span><span id="progressPercent">0%</span></div>
-            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <canvas class="echo-canvas" id="echoCanvas"></canvas>
+        <div class="preparing-text" id="preparingText">Preparing your download...</div>
+        <div class="preparing-sub" id="preparingSub">Please wait while we generate your mod</div>
+    </div>
+
+    <!-- PRESTIGE BADGE -->
+    <div class="prestige-overlay" id="prestigeOverlay">
+        <div class="prestige-seal">
+            <div class="prestige-number" id="prestigeNumber">12,847</div>
+            <div class="prestige-label">Downloader #</div>
         </div>
     </div>
 
-    <!-- Particle Canvas for ScrollSeducer -->
     <canvas id="scroll-seducer-canvas"></canvas>
 
     <script>
@@ -551,6 +729,7 @@
     ];
 
     let currentApp=null, currentView='discover', searchFilter='all', slideIndex=0, slideInterval=null, toastInterval=null;
+    let totalDownloads = 12847;
 
     const toastData = [
         { flag:'🇺🇸', name:'James A.', city:'New York, USA', action:'downloaded Pokémon Go Spoofer' },
@@ -575,7 +754,7 @@
         container.appendChild(div); setTimeout(() => div.remove(), 5000);
         if(container.children.length > 3) container.firstElementChild.remove();
     }
-    function startToasts() { toastInterval = setInterval(showToast, 5000); showToast(); }
+    function startToasts() { toastInterval = setInterval(showToast, 6000); showToast(); }
 
     function updateCountdown() {
         const now = new Date(); const end = new Date(now); end.setHours(23,59,59,999);
@@ -617,7 +796,7 @@
     }
     function goToSlide(i){ slideIndex=i; updateSlide(); resetSlideTimer(); }
     function nextSlide(){ slideIndex=(slideIndex+1)%slideApps.length; updateSlide(); }
-    function resetSlideTimer(){ clearInterval(slideInterval); slideInterval=setInterval(nextSlide,4500); }
+    function resetSlideTimer(){ clearInterval(slideInterval); slideInterval=setInterval(nextSlide,5000); }
 
     function initActivityFeed(){
         const list=document.getElementById('activityList');
@@ -626,7 +805,7 @@
             const a=toastData[Math.floor(Math.random()*toastData.length)];
             list.insertAdjacentHTML('afterbegin',`<div class="activity-item"><span class="activity-flag">${a.flag}</span><span class="activity-info"><strong>${a.name}</strong> ${a.action}</span><span class="activity-time">just now</span></div>`);
             if(list.children.length>8) list.lastElementChild.remove();
-        },4000);
+        },5000);
     }
 
     function updateLiveStats(){
@@ -643,10 +822,8 @@
         document.getElementById('bottomNav').style.display=(view==='detail'||view==='search')?'none':'flex';
         document.getElementById('homeFooter').style.display=(view==='detail'||view==='search')?'none':'block';
         document.getElementById('stickyCta').classList.remove('show');
-        // Show/hide ghost ecosystem on detail
-        document.getElementById('ghostEcosystem').style.display = (view==='detail') ? 'block' : 'none';
-        document.getElementById('mod-proof-feed').style.display = (view==='detail') ? 'block' : 'none';
-        document.getElementById('countdownBar').style.display = (view==='detail') ? 'flex' : 'flex';
+        document.getElementById('ghostEcosystem').style.display=(view==='detail')?'block':'none';
+        document.getElementById('mod-proof-feed').style.display=(view==='detail')?'block':'none';
         currentView=view; window.scrollTo(0,0);
     }
     function goHome(){ showView('discover'); }
@@ -666,23 +843,145 @@
         showView('detail');
     }
 
-    function startPreparing(){
-        const app=currentApp||appsData[0];
-        document.getElementById('preparingScreen').classList.add('active');
-        document.body.style.overflow='hidden';
+    // ==================== ECHO LOADING ====================
+    let echoAnimationId = null;
+    function startEchoLoading() {
+        const canvas = document.getElementById('echoCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 200; canvas.height = 200;
+        const cx = 100, cy = 100;
+        let rings = [];
+        let phase = 0;
+
+        function drawEcho() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Center icon
+            ctx.beginPath(); ctx.arc(cx, cy, 18, 0, Math.PI*2);
+            const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 18);
+            grad.addColorStop(0, '#FF3B30'); grad.addColorStop(1, '#d6302b');
+            ctx.fillStyle = grad; ctx.fill();
+
+            // Rings
+            phase += 0.015;
+            for (let i = 0; i < 4; i++) {
+                const r = ((phase * 80 + i * 40) % 120) + 20;
+                const alpha = Math.max(0, 1 - (r - 20) / 120);
+                ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2);
+                ctx.strokeStyle = `rgba(255,59,48,${alpha * 0.5})`;
+                ctx.lineWidth = 2; ctx.stroke();
+
+                const r2 = r + 15;
+                const alpha2 = Math.max(0, 1 - (r2 - 20) / 120) * 0.3;
+                ctx.beginPath(); ctx.arc(cx, cy, r2, 0, Math.PI*2);
+                ctx.strokeStyle = `rgba(255,149,0,${alpha2})`;
+                ctx.lineWidth = 1; ctx.stroke();
+            }
+
+            // Success glow when ready
+            if (window._echoReady) {
+                ctx.beginPath(); ctx.arc(cx, cy, 50, 0, Math.PI*2);
+                const glow = ctx.createRadialGradient(cx, cy, 20, cx, cy, 50);
+                glow.addColorStop(0, 'rgba(0,200,83,0.4)'); glow.addColorStop(1, 'rgba(0,200,83,0)');
+                ctx.fillStyle = glow; ctx.fill();
+            }
+
+            echoAnimationId = requestAnimationFrame(drawEcho);
+        }
+        drawEcho();
+    }
+
+    function stopEchoLoading() {
+        if (echoAnimationId) { cancelAnimationFrame(echoAnimationId); echoAnimationId = null; }
+        window._echoReady = false;
+    }
+
+    // ==================== PRESTIGE BADGE ====================
+    function showPrestigeBadge(callback) {
+        totalDownloads += Math.floor(Math.random() * 10) + 1;
+        document.getElementById('prestigeNumber').textContent = totalDownloads.toLocaleString();
+        document.getElementById('prestigeOverlay').classList.add('active');
+
+        // Animate number counting up
+        const startNum = totalDownloads - 50;
+        let currentNum = startNum;
+        const targetNum = totalDownloads;
+        const numInterval = setInterval(() => {
+            currentNum += Math.floor((targetNum - currentNum) / 5) + 1;
+            if (currentNum >= targetNum) { currentNum = targetNum; clearInterval(numInterval); }
+            document.getElementById('prestigeNumber').textContent = currentNum.toLocaleString();
+        }, 50);
+
+        setTimeout(() => {
+            document.getElementById('prestigeOverlay').classList.remove('active');
+            if (callback) callback();
+        }, 2500);
+    }
+
+    // ==================== PREPARING (SLOW & CINEMATIC) ====================
+    function startPreparing() {
+        const app = currentApp || appsData[0];
+        const screen = document.getElementById('preparingScreen');
+        screen.classList.add('active');
+        document.body.style.overflow = 'hidden';
         document.getElementById('stickyCta').classList.remove('show');
-        let progress=0;
-        const msgs=[{p:0,t:"Looking for download source..",s:"Connecting to server"},{p:35,t:"Source found!",s:"Generating your mod"},{p:65,t:"Source updated 14 minutes ago..",s:"Almost ready"},{p:100,t:"Complete!",s:"Redirecting..."}];
-        const interval=setInterval(()=>{
-            progress+=Math.random()*3.5+1; if(progress>100) progress=100;
-            const pct=Math.floor(progress);
-            document.getElementById('preparingPercent').textContent=pct+'%';
-            document.getElementById('progressPercent').textContent=pct+'%';
-            document.getElementById('progressFill').style.width=progress+'%';
-            const msg=msgs.slice().reverse().find(m=>progress>=m.p);
-            if(msg){ document.getElementById('preparingText').textContent=msg.t; document.getElementById('preparingSub').textContent=msg.s; }
-            if(progress>=100){ clearInterval(interval); setTimeout(()=>{ window.location.href='YOUR_CPA_LOCKER_URL_HERE'; },600); }
-        },80);
+        window._echoReady = false;
+
+        // Start echo animation
+        const canvas = document.getElementById('echoCanvas');
+        if (!canvas.dataset.animating) {
+            canvas.dataset.animating = '1';
+            startEchoLoading();
+        }
+
+        let progress = 0;
+        const stages = [
+            { at: 0, text: 'Looking for download source...', sub: 'Connecting to server', duration: 2500 },
+            { at: 15, text: 'Source located! Verifying integrity...', sub: 'Checking file signatures', duration: 2000 },
+            { at: 30, text: 'Source verified ✓', sub: 'Generating your mod package', duration: 3500 },
+            { at: 51, text: 'Mod package assembled', sub: 'Optimizing for your device', duration: 2500 },
+            { at: 68, text: 'Safety scan in progress...', sub: 'Checking for vulnerabilities', duration: 3000 },
+            { at: 82, text: 'Safety verified ✓', sub: 'Finalizing download link', duration: 2500 },
+            { at: 95, text: 'Almost ready!', sub: 'Preparing redirect...', duration: 1500 },
+            { at: 100, text: 'Complete! 🎉', sub: 'Redirecting now...', duration: 0 }
+        ];
+
+        let currentStage = 0;
+        const speed = 0.25; // Very slow progress
+
+        const interval = setInterval(() => {
+            progress += speed;
+            if (progress > 100) progress = 100;
+
+            // Find current stage
+            for (let i = stages.length - 1; i >= 0; i--) {
+                if (progress >= stages[i].at) {
+                    if (currentStage !== i) {
+                        currentStage = i;
+                        document.getElementById('preparingText').textContent = stages[i].text;
+                        document.getElementById('preparingSub').textContent = stages[i].sub;
+                        if (progress >= 95) window._echoReady = true;
+                    }
+                    break;
+                }
+            }
+
+            if (progress >= 100) {
+                clearInterval(interval);
+                stopEchoLoading();
+                screen.classList.remove('active');
+                document.body.style.overflow = '';
+                document.getElementById('echoCanvas').dataset.animating = '';
+
+                // Show prestige badge then redirect
+                showPrestigeBadge(() => {
+                    // CHANGE THIS URL TO YOUR CPA LINK
+                    window.location.href = 'YOUR_CPA_LOCKER_URL_HERE';
+                });
+            }
+        }, 120);
+
+        // Store interval for potential cancellation
+        screen.dataset.intervalId = interval;
     }
 
     function setFilter(filter,el){ searchFilter=filter; document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); doSearch(); }
@@ -694,234 +993,76 @@
         document.getElementById('search-results').innerHTML=results.length?results.map(a=>renderCard(a)).join(''):'<div style="text-align:center;color:var(--text2);margin-top:40px;">No results found</div>';
     }
 
-    // ==================== GHOSTFLOW (CPA Gaming Edition) ====================
-    class GhostFlow {
-        constructor(config={}) {
-            this.config = {
-                productName: config.productName || "Premium Mod",
-                stockInitial: config.stockInitial || 34,
-                viewersMin: config.viewersMin || 18,
-                viewersMax: config.viewersMax || 45,
-                salesIntervalMin: config.salesIntervalMin || 12000,
-                salesIntervalMax: config.salesIntervalMax || 50000,
-                ...config
-            };
-            this.state = { stockRemaining: this.config.stockInitial, currentViewers: 0, salesToday: 0, lastInteraction: Date.now(), userEngagementLevel: 0, isUserActive: true };
-            this.elements = {};
-            this.init();
-        }
-        init() {
-            this.cacheDomElements();
-            this.startViewerFluctuation();
-            this.startSalesSimulation();
-            this.startStockDepletion();
-            this.trackUserEngagement();
-            this.activateExitIntentTrigger();
-            console.log('👻 GhostFlow activated');
-        }
-        cacheDomElements() {
-            this.elements.stockCounter = document.getElementById('stock-counter-ghost');
-            this.elements.stockBar = document.getElementById('stock-bar-fill-ghost');
-            this.elements.viewerCount = document.getElementById('viewer-count-ghost');
-            this.elements.urgencyMessage = document.getElementById('urgency-message-ghost');
-            this.elements.recentSales = document.getElementById('recent-sales-feed-ghost');
-            this.elements.liveDot = document.getElementById('live-dot-ghost');
-        }
-        startViewerFluctuation() {
-            const update = () => {
-                if (!this.state.isUserActive) return;
-                const base = Math.floor(Math.sin(Date.now()/28000)*8 + Math.random()*12 + (this.config.viewersMin+this.config.viewersMax)/2);
-                const bonus = this.state.userEngagementLevel * 7;
-                this.state.currentViewers = Math.min(base+bonus, this.config.viewersMax);
-                if (this.elements.viewerCount) this.elements.viewerCount.textContent = this.state.currentViewers;
-                if (this.elements.liveDot) this.elements.liveDot.classList.toggle('pulse-active');
-            };
-            setInterval(update, 3500); update();
-        }
-        startSalesSimulation() {
-            const names = ["xShadowKiller99","ProGamer_YT","LootMaster22","OneTapQueen","Faze_Clone","NightHawkGaming","EpicModder","DarkSniper_","PixelWarrior","AimbotKing","CrystalSword","VenomGamerTV"];
-            const locations = ["US East","EU Germany","Brazil","Asia","UK","Middle East","Australia","Canada"];
-            const generate = () => {
-                if (!this.state.isUserActive && Math.random()>0.3) return;
-                const name = names[Math.floor(Math.random()*names.length)];
-                const loc = locations[Math.floor(Math.random()*locations.length)];
-                const mins = Math.floor(Math.random()*8)+1;
-                this.state.salesToday++;
-                if (this.elements.recentSales) {
-                    const el = document.createElement('div'); el.className = 'ghost-sale-item';
-                    el.innerHTML = `<span class="sale-icon-ghost">🟢</span><span><strong>${name}</strong> downloaded from ${loc}</span><span class="sale-time-ghost">${mins} min ago</span>`;
-                    this.elements.recentSales.prepend(el);
-                    if (this.elements.recentSales.children.length>6) this.elements.recentSales.children[6].remove();
-                    el.animate([{opacity:0,transform:'translateY(-15px)'},{opacity:1,transform:'translateY(0)'}],{duration:350});
-                }
-                setTimeout(generate, this.config.salesIntervalMin+Math.random()*(this.config.salesIntervalMax-this.config.salesIntervalMin));
-            };
-            setTimeout(generate, 3000+Math.random()*6000);
-        }
-        startStockDepletion() {
-            const deplete = () => {
-                if (this.state.stockRemaining<=3) return;
-                const rate = 0.4 + (this.state.userEngagementLevel*0.7);
-                this.state.stockRemaining -= (Date.now()-this.state.lastInteraction<10000) ? rate*2 : rate*0.25;
-                this.state.stockRemaining = Math.max(3, Math.round(this.state.stockRemaining));
-                if (this.elements.stockCounter) this.elements.stockCounter.textContent = this.state.stockRemaining;
-                if (this.elements.stockBar) {
-                    const pct = (this.state.stockRemaining/this.config.stockInitial)*100;
-                    this.elements.stockBar.style.width = pct+'%';
-                    if (pct<25) {
-                        this.elements.stockBar.style.background = '#ff4444';
-                        if (this.elements.urgencyMessage) { this.elements.urgencyMessage.innerHTML = '🚨 <strong>CRITICAL:</strong> Download slots almost gone!'; this.elements.urgencyMessage.style.display = 'block'; }
-                    } else if (pct<50) { this.elements.stockBar.style.background = '#ffaa00'; }
-                }
-                setTimeout(deplete, 8000+Math.random()*10000);
-            };
-            setTimeout(deplete, 9000);
-        }
-        trackUserEngagement() {
-            const handler = () => { this.state.lastInteraction = Date.now(); };
-            ['mousemove','scroll','click','touchmove'].forEach(e=>document.addEventListener(e,handler,{passive:true}));
-            const cta = document.querySelector('.btn-start');
-            if (cta) cta.addEventListener('mouseenter',()=>{this.state.userEngagementLevel=3;this.state.lastInteraction=Date.now();});
-            setInterval(()=>{this.state.isUserActive=Date.now()-this.state.lastInteraction<25000;},8000);
-        }
-        activateExitIntentTrigger() {
-            document.addEventListener('mouseleave',(e)=>{
-                if (e.clientY<=0&&this.state.stockRemaining>3) {
-                    this.state.stockRemaining = Math.max(3,this.state.stockRemaining-6);
-                    if (this.elements.stockCounter) { this.elements.stockCounter.textContent = this.state.stockRemaining; this.elements.stockCounter.animate([{transform:'scale(1.6)',color:'#ff0000'},{transform:'scale(1)',color:'#ff4444'}],{duration:500}); }
-                }
+    // ==================== FINGER GLOW ====================
+    function initFingerGlow() {
+        const glow = document.getElementById('finger-glow');
+        if (!('ontouchstart' in window)) { glow.style.display = 'none'; document.body.style.cursor = 'auto'; return; }
+        document.body.classList.add('touch-device');
+        document.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            glow.style.left = touch.clientX + 'px';
+            glow.style.top = touch.clientY + 'px';
+            glow.classList.add('active');
+        });
+        document.addEventListener('touchend', () => glow.classList.remove('active'));
+        document.addEventListener('touchcancel', () => glow.classList.remove('active'));
+    }
+
+    // ==================== GYROSCOPE FLOATING CARDS ====================
+    function initGyroscope() {
+        if (!window.DeviceOrientationEvent) return;
+        window.addEventListener('deviceorientation', (e) => {
+            const gamma = e.gamma || 0; // -90 to 90 (left-right tilt)
+            const beta = e.beta || 0;   // -180 to 180 (front-back tilt)
+            const tiltX = Math.max(-5, Math.min(5, gamma / 10));
+            const tiltY = Math.max(-5, Math.min(5, (beta - 45) / 10));
+
+            document.querySelectorAll('.card, .featured').forEach(card => {
+                card.style.transform = `perspective(1000px) rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
+                card.style.transition = 'transform 0.3s ease-out';
             });
-        }
+        });
     }
 
-    // ==================== SCROLLREAPER (Gaming Edition) ====================
-    class ScrollReaper {
-        constructor(config={}) {
-            this.config = {
-                bottomThreshold: config.bottomThreshold||350, velocityThreshold: config.velocityThreshold||2800, pauseCountThreshold: config.pauseCountThreshold||4,
-                retentionOffer: config.retentionOffer||"🎮 Wait! Anti-Ban Shield Included!",
-                retentionDescription: config.retentionDescription||"Most players miss the Anti-Ban Shield activation. 90% of bans happen because people skip this step. Let me show you.",
-                ...config
-            };
-            this.state = { lastScrollY:0, lastScrollTime:Date.now(), velocityHistory:[], pauseCount:0, hasReachedBottom:false, hasShownRetention:false, maxScrollDepth:0 };
-            this.init();
-        }
-        init() { this.createPopup(); this.monitorScroll(); console.log('💀 ScrollReaper activated'); }
-        createPopup() {
-            const p = document.createElement('div'); p.id = 'scroll-reaper-popup';
-            p.innerHTML = `<div style="position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(5px);z-index:99998;"></div><div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0a0a0a;border:1px solid #00ff66;border-radius:16px;padding:35px 25px;text-align:center;max-width:400px;width:90%;color:#fff;z-index:99999;"><span style="position:absolute;top:10px;right:15px;font-size:26px;cursor:pointer;color:#555;" onclick="this.parentElement.parentElement.style.display=\'none\'">&times;</span><div style="font-size:45px;margin-bottom:12px;">🛡️</div><h3 style="font-size:22px;color:#00ff66;margin-bottom:10px;">${this.config.retentionOffer}</h3><p style="color:#aaa;margin-bottom:20px;font-size:14px;">${this.config.retentionDescription}</p><div style="display:flex;flex-direction:column;gap:8px;"><button style="padding:14px;background:#00ff66;color:#000;border:none;border-radius:8px;font-weight:bold;cursor:pointer;font-size:15px;" onclick="document.getElementById(\'scroll-reaper-popup\').style.display=\'none\';document.querySelector(\'.btn-start\').click()">Show Me How</button><button style="background:transparent;border:none;color:#555;cursor:pointer;font-size:13px;padding:8px;" onclick="this.parentElement.parentElement.parentElement.style.display=\'none\'">I'll risk the ban</button></div></div>`;
-            p.style.display = 'none'; document.body.appendChild(p);
-        }
-        showPopup() { if(!this.state.hasShownRetention) { this.state.hasShownRetention = true; document.getElementById('scroll-reaper-popup').style.display = 'block'; } }
-        monitorScroll() {
-            let pt; let ps=0;
-            document.addEventListener('scroll',()=>{
-                const cy=window.scrollY, ct=Date.now(), td=ct-this.state.lastScrollTime, sd=Math.abs(cy-this.state.lastScrollY);
-                const vel = td>0?(sd/td)*1000:0;
-                this.state.velocityHistory.push(vel);
-                if(this.state.velocityHistory.length>10) this.state.velocityHistory.shift();
-                const avgVel = this.state.velocityHistory.reduce((a,b)=>a+b,0)/this.state.velocityHistory.length;
-                const dh = document.documentElement.scrollHeight-window.innerHeight;
-                this.state.maxScrollDepth = Math.max(this.state.maxScrollDepth,cy);
-                if(avgVel>this.config.velocityThreshold&&(dh-cy)<this.config.bottomThreshold&&!this.state.hasReachedBottom) { this.state.hasReachedBottom=true; setTimeout(()=>this.showPopup(),500); }
-                this.state.lastScrollY=cy; this.state.lastScrollTime=ct;
-                clearTimeout(pt); pt=setTimeout(()=>{ this.state.pauseCount++; if(this.state.pauseCount>=this.config.pauseCountThreshold&&this.state.maxScrollDepth>window.innerHeight) this.showPopup(); },2200);
-            },{passive:true});
-            setTimeout(()=>{if(this.state.maxScrollDepth<window.innerHeight*0.5&&!this.state.hasShownRetention)this.showPopup();},40000);
-        }
-    }
-
-    // ==================== TIMEWARP ====================
-    class TimeWarp {
-        constructor(config={}) {
-            this.config = {
-                targetElementId: config.targetElementId||'countdownBar',
-                finalCountdownHours: config.finalCountdownHours||3,
-                messageBefore: config.messageBefore||'⚠️ LIMITED ACCESS — slots reset at midnight!',
-                messageDuring: config.messageDuring||'🚨 FINAL HOURS: Slots reset at midnight! Download NOW!',
-                ...config
-            };
-            this.elements = { timer: document.getElementById('countdownTimer'), container: document.getElementById(this.config.targetElementId) };
-            this.startCountdown();
-            console.log('⏳ TimeWarp activated');
-        }
-        startCountdown() {
-            const update = () => {
-                const now=new Date(), mid=new Date(now); mid.setHours(24,0,0,0);
-                const diff=mid-now, ts=Math.floor(diff/1000);
-                if(ts<=0) return;
-                const h=Math.floor(ts/3600), m=Math.floor((ts%3600)/60), s=ts%60;
-                if(this.elements.timer) this.elements.timer.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-                const msgSpan = this.elements.container?.querySelector('span:first-child');
-                if(msgSpan && h<this.config.finalCountdownHours) msgSpan.textContent = this.config.messageDuring;
-                setTimeout(update, h<1?1000:8000);
-            };
-            update();
-        }
-    }
-
-    // ==================== CURSORMIRROR ====================
-    class CursorMirror {
-        constructor(config={}) {
-            this.config = { ctaSelector: config.ctaSelector||'#detailCtaBtn', magneticRadius: config.magneticRadius||160, heartbeatBPM: config.heartbeatBPM||70, ...config };
-            this.state={mouseX:-1000,mouseY:-1000,ctaRect:null,isNearCTA:false};
-            this.ctaElement=null; this.glowElement=null; this.init();
-        }
-        init() {
-            this.ctaElement=document.querySelector(this.config.ctaSelector);
-            if(!this.ctaElement) return;
-            this.glowElement = this.ctaElement.querySelector('.cta-magnetic-glow');
-            if(!this.glowElement) { this.glowElement=document.createElement('div'); this.glowElement.className='cta-magnetic-glow'; this.ctaElement.style.position='relative'; this.ctaElement.appendChild(this.glowElement); }
-            this.trackMouse(); this.startHeartbeat();
-            console.log('🪞 CursorMirror activated');
-        }
-        trackMouse() {
-            document.addEventListener('mousemove',(e)=>{
-                this.state.mouseX=e.clientX; this.state.mouseY=e.clientY;
-                this.state.ctaRect=this.ctaElement.getBoundingClientRect();
-                const cx=this.state.ctaRect.left+this.state.ctaRect.width/2, cy=this.state.ctaRect.top+this.state.ctaRect.height/2;
-                const dist=Math.hypot(this.state.mouseX-cx,this.state.mouseY-cy);
-                const wasNear=this.state.isNearCTA;
-                this.state.isNearCTA=dist<this.config.magneticRadius;
-                if(this.state.isNearCTA&&!wasNear){this.glowElement.classList.add('active');this.ctaElement.style.transform='scale(1.04)';}
-                else if(!this.state.isNearCTA&&wasNear){this.glowElement.classList.remove('active');this.ctaElement.style.transform='scale(1)';}
-                if(this.state.isNearCTA){
-                    const px=(this.state.mouseX-cx)*0.04, py=(this.state.mouseY-cy)*0.04;
-                    this.ctaElement.style.transform=`translate(${px}px,${py}px) scale(1.04)`;
-                    this.ctaElement.style.transition='transform 0.12s ease-out';
-                } else this.ctaElement.style.transition='transform 0.35s ease-out';
-            });
-        }
-        startHeartbeat() {
-            const iv=(60/this.config.heartbeatBPM)*1000;
-            const beat=()=>{
-                if(this.state.isNearCTA){this.ctaElement.style.boxShadow='0 0 35px 12px rgba(255,59,48,0.5)';setTimeout(()=>this.ctaElement.style.boxShadow='0 6px 24px rgba(255,59,48,0.35)',350);}
-                setTimeout(beat,iv);
-            };
-            setTimeout(beat,400);
-        }
+    // ==================== CTA AURA GLOW ====================
+    function initCtaAura() {
+        const btn = document.getElementById('detailCtaBtn');
+        const aura = document.getElementById('ctaAura');
+        if (!btn || !aura) return;
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            aura.style.setProperty('--aura-color', 'rgba(255,59,48,0.4)');
+            aura.style.left = x + 'px';
+            aura.style.top = y + 'px';
+            aura.classList.add('visible');
+        });
+        btn.addEventListener('mouseleave', () => aura.classList.remove('visible'));
+        btn.addEventListener('touchstart', () => aura.classList.add('visible'));
+        btn.addEventListener('touchend', () => setTimeout(() => aura.classList.remove('visible'), 500));
     }
 
     // ==================== SCROLLSEDUCER ====================
     class ScrollSeducer {
         constructor(config={}) {
-            this.config = { ctaSelector: config.ctaSelector||'#detailCtaBtn', particleColor: config.particleColor||'#ff4444', particleCount: config.particleCount||65, ...config };
-            this.canvas=null; this.ctx=null; this.particles=[]; this.ctaElement=null; this.isVisible=true; this.mousePos={x:-100,y:-100}; this.init();
+            this.config = { ctaSelector: config.ctaSelector||'#detailCtaBtn', particleColor: config.particleColor||'#ff6666', particleCount: config.particleCount||50, ...config };
+            this.canvas=null; this.ctx=null; this.particles=[]; this.ctaElement=null; this.mousePos={x:-100,y:-100}; this.init();
         }
         init() {
             this.ctaElement=document.querySelector(this.config.ctaSelector);
-            if(!this.ctaElement) return;
+            if(!this.ctaElement) { setTimeout(()=>this.init(),1000); return; }
             this.canvas=document.getElementById('scroll-seducer-canvas');
             this.ctx=this.canvas.getContext('2d');
             this.resize(); window.addEventListener('resize',()=>this.resize());
             this.createParticles(); this.animate();
             document.addEventListener('mousemove',(e)=>{this.mousePos={x:e.clientX,y:e.clientY};});
-            console.log('🌀 ScrollSeducer activated');
+            document.addEventListener('touchmove',(e)=>{if(e.touches[0])this.mousePos={x:e.touches[0].clientX,y:e.touches[0].clientY};});
         }
         resize() { this.canvas.width=window.innerWidth; this.canvas.height=window.innerHeight; }
         createParticles() {
             for(let i=0;i<this.config.particleCount;i++) {
-                this.particles.push({x:Math.random()*this.canvas.width,y:Math.random()*this.canvas.height,size:Math.random()*3+1,speed:Math.random()*0.4+0.08,opacity:Math.random()*0.5+0.3,angle:Math.random()*Math.PI*2,wander:Math.random()*0.03});
+                this.particles.push({x:Math.random()*this.canvas.width,y:Math.random()*this.canvas.height,size:Math.random()*2.5+0.8,speed:Math.random()*0.3+0.05,opacity:Math.random()*0.4+0.2,angle:Math.random()*Math.PI*2,wander:Math.random()*0.04});
             }
         }
         animate() {
@@ -933,54 +1074,76 @@
             this.particles.forEach(p=>{
                 let tx=onScreen?ctx:this.mousePos.x, ty=onScreen?cty:(cty>window.innerHeight?window.innerHeight:0);
                 const dm=Math.hypot(p.x-this.mousePos.x,p.y-this.mousePos.y);
-                if(dm<140){tx=this.mousePos.x;ty=this.mousePos.y;}
-                p.angle=Math.atan2(ty-p.y,tx-p.x)+Math.sin(Date.now()*0.001+p.wander)*0.6;
+                if(dm<120){tx=this.mousePos.x;ty=this.mousePos.y;}
+                p.angle=Math.atan2(ty-p.y,tx-p.x)+Math.sin(Date.now()*0.0008+p.wander)*0.7;
                 p.x+=Math.cos(p.angle)*p.speed; p.y+=Math.sin(p.angle)*p.speed;
-                if(Math.hypot(p.x-tx,p.y-ty)<25){const e=Math.floor(Math.random()*4);switch(e){case 0:p.x=0;p.y=Math.random()*this.canvas.height;break;case 1:p.x=this.canvas.width;p.y=Math.random()*this.canvas.height;break;case 2:p.x=Math.random()*this.canvas.width;p.y=0;break;case 3:p.x=Math.random()*this.canvas.width;p.y=this.canvas.height;break;}}
-                if(p.opacity>0.01){this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);this.ctx.fillStyle=`rgba(255,68,68,${p.opacity})`;this.ctx.fill();this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size*2,0,Math.PI*2);this.ctx.fillStyle=`rgba(255,68,68,${p.opacity*0.1})`;this.ctx.fill();}
+                if(Math.hypot(p.x-tx,p.y-ty)<20){const e=Math.floor(Math.random()*4);switch(e){case 0:p.x=0;p.y=Math.random()*this.canvas.height;break;case 1:p.x=this.canvas.width;p.y=Math.random()*this.canvas.height;break;case 2:p.x=Math.random()*this.canvas.width;p.y=0;break;case 3:p.x=Math.random()*this.canvas.width;p.y=this.canvas.height;break;}}
+                if(p.opacity>0.01){this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);this.ctx.fillStyle=`rgba(255,100,100,${p.opacity})`;this.ctx.fill();}
             });
             requestAnimationFrame(()=>this.animate());
         }
     }
 
+    // ==================== GHOSTFLOW ====================
+    class GhostFlow {
+        constructor(config={}) {
+            this.config = { productName: config.productName||"Premium Mod", stockInitial: config.stockInitial||34, viewersMin: config.viewersMin||18, viewersMax: config.viewersMax||45, salesIntervalMin: config.salesIntervalMin||15000, salesIntervalMax: config.salesIntervalMax||55000, ...config };
+            this.state = { stockRemaining: this.config.stockInitial, currentViewers: 0, salesToday: 0, lastInteraction: Date.now(), userEngagementLevel: 0, isUserActive: true };
+            this.elements = {}; this.init();
+        }
+        init() { this.cacheDomElements(); this.startViewerFluctuation(); this.startSalesSimulation(); this.startStockDepletion(); this.trackUserEngagement(); }
+        cacheDomElements() {
+            this.elements.stockCounter = document.getElementById('stock-counter-ghost');
+            this.elements.stockBar = document.getElementById('stock-bar-fill-ghost');
+            this.elements.viewerCount = document.getElementById('viewer-count-ghost');
+            this.elements.urgencyMessage = document.getElementById('urgency-message-ghost');
+            this.elements.recentSales = document.getElementById('recent-sales-feed-ghost');
+            this.elements.liveDot = document.getElementById('live-dot-ghost');
+        }
+        startViewerFluctuation() {
+            const update = () => { if(!this.state.isUserActive) return; const base = Math.floor(Math.sin(Date.now()/32000)*6 + Math.random()*10 + (this.config.viewersMin+this.config.viewersMax)/2); const bonus = this.state.userEngagementLevel*5; this.state.currentViewers = Math.min(base+bonus, this.config.viewersMax); if(this.elements.viewerCount) this.elements.viewerCount.textContent=this.state.currentViewers; if(this.elements.liveDot) this.elements.liveDot.classList.toggle('pulse-active'); };
+            setInterval(update,4000); update();
+        }
+        startSalesSimulation() {
+            const names = ["xShadowKiller99","ProGamer_YT","LootMaster22","OneTapQueen","Faze_Clone","NightHawkGaming","EpicModder","DarkSniper_","PixelWarrior","AimbotKing","CrystalSword","VenomGamerTV"];
+            const locations = ["US East","EU Germany","Brazil","Asia","UK","Middle East","Australia","Canada"];
+            const generate = () => { if(!this.state.isUserActive&&Math.random()>0.3) return; const name=names[Math.floor(Math.random()*names.length)], loc=locations[Math.floor(Math.random()*locations.length)], mins=Math.floor(Math.random()*7)+1; this.state.salesToday++; if(this.elements.recentSales){const el=document.createElement('div');el.className='ghost-sale-item';el.innerHTML=`<span class="sale-icon-ghost">🟢</span><span><strong>${name}</strong> downloaded from ${loc}</span><span class="sale-time-ghost">${mins} min ago</span>`;this.elements.recentSales.prepend(el);if(this.elements.recentSales.children.length>6)this.elements.recentSales.children[6].remove();el.animate([{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'translateY(0)'}],{duration:400});} setTimeout(generate,this.config.salesIntervalMin+Math.random()*(this.config.salesIntervalMax-this.config.salesIntervalMin)); };
+            setTimeout(generate,4000+Math.random()*7000);
+        }
+        startStockDepletion() {
+            const deplete = () => { if(this.state.stockRemaining<=3) return; const rate=0.3+(this.state.userEngagementLevel*0.5); this.state.stockRemaining-=(Date.now()-this.state.lastInteraction<12000)?rate*2:rate*0.2; this.state.stockRemaining=Math.max(3,Math.round(this.state.stockRemaining)); if(this.elements.stockCounter) this.elements.stockCounter.textContent=this.state.stockRemaining; if(this.elements.stockBar){const pct=(this.state.stockRemaining/this.config.stockInitial)*100;this.elements.stockBar.style.width=pct+'%';if(pct<25){this.elements.stockBar.style.background='#ff4444';if(this.elements.urgencyMessage){this.elements.urgencyMessage.innerHTML='🚨 <strong>CRITICAL:</strong> Download slots almost gone!';this.elements.urgencyMessage.style.display='block';}}else if(pct<50){this.elements.stockBar.style.background='#ffaa00';}} setTimeout(deplete,10000+Math.random()*12000); };
+            setTimeout(deplete,10000);
+        }
+        trackUserEngagement() { const handler=()=>{this.state.lastInteraction=Date.now();};['mousemove','scroll','click','touchmove'].forEach(e=>document.addEventListener(e,handler,{passive:true})); const cta=document.querySelector('.btn-start'); if(cta) cta.addEventListener('mouseenter',()=>{this.state.userEngagementLevel=3;this.state.lastInteraction=Date.now();}); setInterval(()=>{this.state.isUserActive=Date.now()-this.state.lastInteraction<30000;},10000); }
+    }
+
     // ==================== MODPROOF ====================
     class ModProof {
-        constructor(config={}) {
-            this.config = { targetElementId: config.targetElementId||'mod-proof-feed', modName: config.modName||'GTA V God Mode', updateInterval: config.updateInterval||6500, ...config };
-            this.init();
-        }
-        init() {
-            let c=document.getElementById(this.config.targetElementId);
-            if(!c) return;
-            c.innerHTML = `<div class="mod-proof-container" style="margin:0;"><div class="mod-proof-header"><span>🟢</span> <span>Live Proof Feed</span><span class="proof-badge-mod">ACTIVE</span></div><div id="mod-proof-items" class="mod-proof-items"></div></div>`;
-            this.ic=document.getElementById('mod-proof-items');
-            this.startProofCycle();
-            console.log('🎮 ModProof activated');
-        }
+        constructor(config={}) { this.config = { targetElementId: config.targetElementId||'mod-proof-feed', modName: config.modName||'Mod', updateInterval: config.updateInterval||7000, ...config }; this.init(); }
+        init() { let c=document.getElementById(this.config.targetElementId); if(!c) return; c.innerHTML=`<div class="mod-proof-container" style="margin:0;"><div class="mod-proof-header"><span>🟢</span><span>Live Proof Feed</span><span class="proof-badge-mod">ACTIVE</span></div><div id="mod-proof-items" class="mod-proof-items"></div></div>`; this.ic=document.getElementById('mod-proof-items'); this.startProofCycle(); }
         startProofCycle() {
-            const proofs = [
-                {name:"xShadowKiller99",action:"activated Mod",detail:"Session: 3 hours | 0 crashes",status:"Stable"},
-                {name:"ProGamer_YT",action:"unlocked all features",detail:"No ban | Working perfectly",status:"Undetected"},
-                {name:"LootMaster22",action:"bypassed anti-cheat",detail:"3 accounts | 0 bans",status:"Undetected"},
-                {name:"OneTapQueen",action:"installed successfully",detail:"2 min install | Works",status:"Stable"},
-                {name:"Faze_Clone",action:"mod activated",detail:"All features unlocked",status:"Active"},
-                {name:"NightHawkGaming",action:"downloaded mod",detail:"Verified safe | No virus",status:"Verified"},
-                {name:"AimbotKing",action:"mod working",detail:"0 reports in 48h",status:"Undetected"},
-                {name:"CrystalSword",action:"mod installed",detail:"All lobbies | Invincible",status:"Stable"}
-            ];
-            let idx=0;
-            const add=()=>{
-                const p=proofs[idx%proofs.length];
-                const el=document.createElement('div');el.className='mod-proof-item';
-                el.innerHTML=`<span class="proof-item-name-mod">${p.name}</span><span>${p.action}</span><div class="proof-item-detail-mod"><span>${p.detail}</span><span class="proof-item-status-mod">● ${p.status}</span></div><span class="proof-item-time-mod">Just now</span>`;
-                this.ic.prepend(el);
-                if(this.ic.children.length>5)this.ic.children[5].remove();
-                Array.from(this.ic.children).forEach((e,i)=>{if(i>0){const t=e.querySelector('.proof-item-time-mod');if(t)t.textContent=`${Math.floor(Math.random()*8)+1} min ago`;}});
-                idx++;
-            };
-            for(let i=0;i<3;i++) setTimeout(()=>add(),i*300);
-            setInterval(add,this.config.updateInterval);
+            const proofs=[{name:"xShadowKiller99",action:"activated Mod",detail:"Session: 3 hours | 0 crashes",status:"Stable"},{name:"ProGamer_YT",action:"unlocked all features",detail:"No ban | Working perfectly",status:"Undetected"},{name:"LootMaster22",action:"bypassed anti-cheat",detail:"3 accounts | 0 bans",status:"Undetected"},{name:"OneTapQueen",action:"installed successfully",detail:"2 min install | Works",status:"Stable"},{name:"Faze_Clone",action:"mod activated",detail:"All features unlocked",status:"Active"},{name:"NightHawkGaming",action:"downloaded mod",detail:"Verified safe | No virus",status:"Verified"},{name:"AimbotKing",action:"mod working",detail:"0 reports in 48h",status:"Undetected"},{name:"CrystalSword",action:"mod installed",detail:"All lobbies | Invincible",status:"Stable"}];
+            let idx=0; const add=()=>{const p=proofs[idx%proofs.length];const el=document.createElement('div');el.className='mod-proof-item';el.innerHTML=`<span class="proof-item-name-mod">${p.name}</span><span>${p.action}</span><div class="proof-item-detail-mod"><span>${p.detail}</span><span class="proof-item-status-mod">● ${p.status}</span></div><span class="proof-item-time-mod">Just now</span>`;this.ic.prepend(el);if(this.ic.children.length>5)this.ic.children[5].remove();Array.from(this.ic.children).forEach((e,i)=>{if(i>0){const t=e.querySelector('.proof-item-time-mod');if(t)t.textContent=`${Math.floor(Math.random()*8)+1} min ago`;}});idx++;};
+            for(let i=0;i<3;i++) setTimeout(()=>add(),i*350); setInterval(add,this.config.updateInterval);
         }
+    }
+
+    // ==================== MEMENTO ====================
+    function checkMemento() {
+        const lastVisit = localStorage.getItem('ooqlemod_last_visit');
+        const lastApp = localStorage.getItem('ooqlemod_last_app');
+        const now = Date.now();
+        if (lastVisit && (now - parseInt(lastVisit)) < 86400000 && lastApp) {
+            setTimeout(() => {
+                const toast = document.createElement('div');
+                toast.className = 'memento-toast';
+                toast.innerHTML = `👋 Welcome back! Your download of <strong>${lastApp}</strong> is still waiting.`;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 3500);
+            }, 1500);
+        }
+        localStorage.setItem('ooqlemod_last_visit', now);
+        if (currentApp) localStorage.setItem('ooqlemod_last_app', currentApp.name);
     }
 
     // ==================== TIKTOKBREAK + MOBILEGUARD ====================
@@ -993,7 +1156,7 @@
                 step2Text: config.step2Text || 'Select "Open in Browser"',
                 step3Text: config.step3Text || 'You\'re all set!',
                 desktopTitle: config.desktopTitle || 'Mobile Device Not Detected',
-                desktopMessage: config.desktopMessage || 'This website can only be accessed from a mobile device. Please re-visit this website from your mobile phone or tablet device.',
+                desktopMessage: config.desktopMessage || 'This website can only be accessed from a mobile device.',
                 desktopHowTo: config.desktopHowTo || 'How to Access',
                 desktopStep1: config.desktopStep1 || 'Visit from Mobile',
                 desktopStep2: config.desktopStep2 || 'Type this URL in your mobile browser',
@@ -1004,10 +1167,8 @@
         }
         init() {
             const detection = this.detectEnvironment();
-            console.log('📱 TikTokBreak+MobileGuard Detection:', detection);
             if (detection.isDesktop) { this.showDesktopBlock(); }
             else if (detection.isTikTok) { this.showTikTokTutorial(); }
-            else { console.log('✅ Mobile browser detected - Access granted'); }
         }
         detectEnvironment() {
             const ua = navigator.userAgent || '';
@@ -1026,122 +1187,77 @@
             const isDesktop = desktopScore >= 3;
             const isTikTokWebView = ua.includes('TikTok') || ua.includes('Bytedance') || (ua.includes('Android') && ua.includes('wv') && document.referrer.includes('tiktok'));
             const isTikTok = /TikTok/i.test(ua) || /Bytedance/i.test(ua) || isTikTokWebView;
-            return { isDesktop, isTikTok, hasTouchScreen };
+            return { isDesktop, isTikTok };
         }
         showDesktopBlock() {
             document.body.innerHTML = '';
             document.body.style.cssText = 'margin:0;padding:0;overflow:hidden;font-family:Inter,sans-serif;background:#000;';
-            const overlay = document.createElement('div');
-            overlay.id = 'mobile-guard-overlay';
-            overlay.innerHTML = `
-                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:30px 25px;color:#fff;">
-                    <div class="mobile-guard-icon-outer"><div class="mobile-guard-icon-inner"></div></div>
-                    <h1 class="mobile-guard-title-mg">${this.config.desktopTitle}</h1>
-                    <p class="mobile-guard-message-mg">${this.config.desktopMessage}</p>
-                    <p class="mobile-guard-access-title-mg">${this.config.desktopHowTo}</p>
-                    <div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">1</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep1}</div></div>
-                    <div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">2</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep2}</div></div>
-                    <p class="mobile-guard-app-note-mg">${this.config.desktopAppNote}</p>
-                </div>`;
-            document.body.appendChild(overlay);
+            document.body.innerHTML = `<div id="mobile-guard-overlay"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:30px 25px;color:#fff;"><div class="mobile-guard-icon-outer"><div class="mobile-guard-icon-inner"></div></div><h1 class="mobile-guard-title-mg">${this.config.desktopTitle}</h1><p class="mobile-guard-message-mg">${this.config.desktopMessage}</p><p class="mobile-guard-access-title-mg">${this.config.desktopHowTo}</p><div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">1</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep1}</div></div><div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">2</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep2}</div></div><p class="mobile-guard-app-note-mg">${this.config.desktopAppNote}</p></div></div>`;
         }
         showTikTokTutorial() {
             document.body.innerHTML = '';
             document.body.style.cssText = 'margin:0;padding:0;overflow-y:auto;font-family:Inter,sans-serif;background:#000;';
             const shortUrl = window.location.hostname + window.location.pathname;
-            const overlay = document.createElement('div');
-            overlay.id = 'tiktok-tutorial-overlay';
-            overlay.innerHTML = `
-                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:25px 20px;color:#fff;">
-                    <div class="browser-mockup"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url-bar">🔒 ${shortUrl}</div></div>
-                    <h1 class="tutorial-title-tt">${this.config.tutorialTitle}</h1>
-                    <p class="tutorial-subtitle-tt">${this.config.tutorialSubtitle}</p>
-                    <div class="tutorial-steps-tt">
-                        <div class="tutorial-step-tt"><div class="tutorial-step-number-tt">1</div><div><div class="tutorial-step-text-tt">${this.config.step1Text}</div><div class="tutorial-step-hint-tt">Look for three dots (⋯) in the top right corner</div></div></div>
-                        <div class="tutorial-step-tt"><div class="tutorial-step-number-tt">2</div><div><div class="tutorial-step-text-tt">${this.config.step2Text}</div><div class="tutorial-step-hint-tt">Choose Chrome, Safari, or your default browser</div></div></div>
-                        <div class="tutorial-step-tt"><div class="tutorial-step-number-tt">3</div><div><div class="tutorial-step-text-tt">${this.config.step3Text}</div><div class="tutorial-step-hint-tt">The page will reload automatically in your browser</div></div></div>
-                    </div>
-                    <button class="tutorial-retry-btn-tt" onclick="window.location.reload()">🔄 I've Opened in Browser - Reload</button>
-                    <p class="tutorial-footer-tt">Already in browser? <a href="#" onclick="window.location.reload()">Tap to refresh</a></p>
-                    <div class="tutorial-arrow-indicator-tt"><svg width="44" height="44" viewBox="0 0 48 48"><path d="M24 4L24 36M24 36L14 26M24 36L34 26" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 3"/></svg></div>
-                    <div class="tutorial-action-circle-tt"></div>
-                    <div class="menu-dots-indicator-tt">⋯</div>
-                </div>`;
-            document.body.appendChild(overlay);
+            document.body.innerHTML = `<div id="tiktok-tutorial-overlay"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:25px 20px;color:#fff;"><div class="browser-mockup"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url-bar">🔒 ${shortUrl}</div></div><h1 class="tutorial-title-tt">${this.config.tutorialTitle}</h1><p class="tutorial-subtitle-tt">${this.config.tutorialSubtitle}</p><div class="tutorial-steps-tt"><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">1</div><div><div class="tutorial-step-text-tt">${this.config.step1Text}</div><div class="tutorial-step-hint-tt">Look for three dots (⋯) in the top right corner</div></div></div><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">2</div><div><div class="tutorial-step-text-tt">${this.config.step2Text}</div><div class="tutorial-step-hint-tt">Choose Chrome, Safari, or your default browser</div></div></div><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">3</div><div><div class="tutorial-step-text-tt">${this.config.step3Text}</div><div class="tutorial-step-hint-tt">The page will reload automatically in your browser</div></div></div></div><button class="tutorial-retry-btn-tt" onclick="window.location.reload()">🔄 I've Opened in Browser - Reload</button><p class="tutorial-footer-tt">Already in browser? <a href="#" onclick="window.location.reload()">Tap to refresh</a></p><div class="tutorial-arrow-indicator-tt"><svg width="44" height="44" viewBox="0 0 48 48"><path d="M24 4L24 36M24 36L14 26M24 36L34 26" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 3"/></svg></div><div class="tutorial-action-circle-tt"></div><div class="menu-dots-indicator-tt">⋯</div></div>`;
         }
     }
 
     // ==================== INIT ALL ====================
-    function initAll(){
+    function initAll() {
         updateSlide(); resetSlideTimer(); startToasts(); initActivityFeed();
         document.getElementById('trending-scroll').innerHTML=appsData.filter(a=>a.cat==='games').slice(0,6).map(a=>renderCard(a,true)).join('');
         document.getElementById('new-apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').slice(0,4).map(a=>renderCard(a)).join('');
         document.getElementById('apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').map(a=>renderCard(a)).join('');
         document.getElementById('games-grid').innerHTML=appsData.filter(a=>a.cat==='games').map(a=>renderCard(a,true)).join('');
         doSearch();
-        updateLiveStats(); setInterval(updateLiveStats,5000);
+        updateLiveStats(); setInterval(updateLiveStats,6000);
         updateCountdown(); setInterval(updateCountdown,1000);
+
         window.addEventListener('scroll',()=>{
             document.getElementById('btnBackTop').classList.toggle('show',window.scrollY>300);
             document.getElementById('stickyCta').classList.toggle('show',currentView==='detail'&&window.scrollY>200);
         });
 
-        // Initialize GhostFlow FIRST
-        window.ghostFlow = new GhostFlow({ productName: "Premium Mod", stockInitial: 34, viewersMin: 18, viewersMax: 45 });
-        // Initialize ScrollReaper
-        new ScrollReaper({ retentionOffer: "🛡️ Wait! Anti-Ban Shield Is FREE!", retentionDescription: "90% of bans happen because players skip the Anti-Ban Shield setup. I'll show you the 30-second activation right now." });
-        // Initialize TimeWarp (uses existing countdown bar)
-        new TimeWarp({ targetElementId: 'countdownBar', finalCountdownHours: 3 });
-        // Initialize ModProof
-        new ModProof({ modName: 'ooQleMod', updateInterval: 6500 });
-        // Initialize CursorMirror (only when detail view is active)
-        setTimeout(() => { if(document.getElementById('detailCtaBtn')) new CursorMirror({ ctaSelector: '#detailCtaBtn', magneticRadius: 160, heartbeatBPM: 68 }); }, 1500);
-        // Initialize ScrollSeducer
-        new ScrollSeducer({ ctaSelector: '#detailCtaBtn', particleColor: '#ff4444', particleCount: 60 });
+        initFingerGlow();
+        initGyroscope();
+        setTimeout(initCtaAura, 1500);
+        checkMemento();
 
-        // Initialize TikTokBreak + MobileGuard (LAST - may block everything)
+        window.ghostFlow = new GhostFlow({ productName: "Premium Mod", stockInitial: 34, viewersMin: 18, viewersMax: 45 });
+        new ModProof({ modName: 'ooQleMod', updateInterval: 7000 });
+        new ScrollSeducer({ ctaSelector: '#detailCtaBtn', particleColor: '#ff6666', particleCount: 50 });
+
         new TikTokBreakMobileGuard({
             tutorialTitle: '📱 Open in Your Browser',
-            tutorialSubtitle: 'TikTok limits this page. Open in Chrome or Safari for full access to mods.',
+            tutorialSubtitle: 'TikTok limits this page. Open in Chrome or Safari for full access.',
             step1Text: 'Tap the menu (⋯)',
             step2Text: 'Select "Open in Browser"',
             step3Text: 'You\'re all set! Download ready.',
             desktopTitle: 'Mobile Device Not Detected',
-            desktopMessage: 'This website can only be accessed from a mobile device. Please re-visit this website from your mobile phone or tablet device.',
+            desktopMessage: 'This website can only be accessed from a mobile device.',
             desktopHowTo: 'How to Access',
             desktopStep1: 'Visit from Mobile',
             desktopStep2: 'Type this URL in your mobile browser',
             desktopAppNote: 'This app is optimized for mobile devices only'
         });
-
-        // Hide ghost ecosystem on non-detail views
-        document.getElementById('ghostEcosystem').style.display = 'none';
-        document.getElementById('mod-proof-feed').style.display = 'none';
     }
 
-    // Override showView to handle ghost ecosystem visibility
-    const originalShowView = showView;
-    showView = function(view) {
-        originalShowView(view);
-        if (view === 'detail') {
-            document.getElementById('ghostEcosystem').style.display = 'block';
-            document.getElementById('mod-proof-feed').style.display = 'block';
-            // Re-init CursorMirror if needed
-            setTimeout(() => {
-                const btn = document.getElementById('detailCtaBtn');
-                if (btn && !btn.dataset.mirrorInit) {
-                    btn.dataset.mirrorInit = '1';
-                    new CursorMirror({ ctaSelector: '#detailCtaBtn', magneticRadius: 160, heartbeatBPM: 68 });
-                }
-            }, 300);
-        } else {
-            document.getElementById('ghostEcosystem').style.display = 'none';
-            document.getElementById('mod-proof-feed').style.display = 'none';
-        }
+    const originalOpenApp = openApp;
+    openApp = function(app) {
+        originalOpenApp(app);
+        checkMemento();
     };
 
     document.addEventListener('DOMContentLoaded', initAll);
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ document.getElementById('preparingScreen').classList.remove('active'); document.body.style.overflow=''; } });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            const screen = document.getElementById('preparingScreen');
+            screen.classList.remove('active');
+            document.body.style.overflow = '';
+            stopEchoLoading();
+            if (screen.dataset.intervalId) clearInterval(parseInt(screen.dataset.intervalId));
+        }
+    });
     </script>
 </body>
 </html>
