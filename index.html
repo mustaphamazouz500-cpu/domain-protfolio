@@ -1,267 +1,1307 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow"> <title>ULTRA MODS | Private US/UK Access</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Download Premium Modded Apps & Games. Pokémon Go Spoofer, 8 Ball Pool Mod, Baseball 9, Toca Boca World and more. 100% working mods.">
+    <meta property="og:title" content="ooQleMod - Premium Modded Apps & Games">
+    <meta property="og:description" content="Get unlimited mods for your favorite games. All verified and safe.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230a0e27' width='32' height='32' rx='8'/%3E%3Ctext x='16' y='23' text-anchor='middle' fill='%23FF3B30' font-size='20' font-weight='bold'%3Eoo%3C/text%3E%3C/svg%3E">
+    <title>ooQleMod - Premium Modded Apps & Games | 100% Working</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #ff003c; /* Cyber Red */
-            --secondary: #1a1a2e;
-            --accent: #00f2ff;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
+        :root[data-theme="dark"] {
+            --bg: #0a0e27; --bg2: #0f1335; --surface: rgba(20, 25, 55, 0.65);
+            --surface2: rgba(28, 34, 70, 0.85); --border: rgba(255,255,255,0.05);
+            --border2: rgba(255,255,255,0.1); --text: #ffffff; --text2: #b0b8d0;
+            --text3: #6e7590; --accent: #FF3B30; --accent2: #ff5a4f;
+            --accent-glow: rgba(255,59,48,0.35); --mod: #6366f1; --mod-glow: rgba(99,102,241,0.4);
+            --success: #00C853; --warning: #FF9500; --danger: #FF3B30;
+            --gold: #FFD60A; --header-bg: rgba(10,14,39,0.78); --nav-bg: rgba(10,14,39,0.85);
+            --card-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+            --featured-shadow: 0 24px 60px rgba(0,0,0,0.6);
+            --matrix-color: rgba(255,59,48,0.12);
+        }
+        :root[data-theme="light"] {
+            --bg: #f2f3f7; --bg2: #f8f9fc; --surface: rgba(255,255,255,0.7);
+            --surface2: rgba(255,255,255,0.85); --border: rgba(0,0,0,0.05);
+            --border2: rgba(0,0,0,0.08); --text: #0a0e27; --text2: #3d4560;
+            --text3: #7c83a0; --accent: #d6302b; --accent2: #e8403b;
+            --accent-glow: rgba(214,48,43,0.25); --mod: #4f46e5; --mod-glow: rgba(79,70,229,0.3);
+            --success: #00a844; --warning: #e68600; --danger: #d6302b;
+            --gold: #d4b000; --header-bg: rgba(242,243,247,0.8); --nav-bg: rgba(242,243,247,0.9);
+            --card-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+            --featured-shadow: 0 16px 40px rgba(0,0,0,0.1);
+            --matrix-color: rgba(214,48,43,0.06);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; font-size: 16px; }
         body {
-            background-color: #050505;
-            color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,0,60,0.05) 1px, transparent 0);
-            background-size: 40px 40px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg); color: var(--text); overflow-x: hidden; min-height: 100vh;
+            -webkit-font-smoothing: antialiased; line-height: 1.5; cursor: none;
+            transition: background 0.4s, color 0.4s;
+        }
+        body.touch-device { cursor: auto; }
+
+        #finger-glow {
+            position: fixed; pointer-events: none; z-index: 10000;
+            width: 80px; height: 80px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
+            transform: translate(-50%, -50%); opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        #finger-glow.active { opacity: 1; }
+
+        /* MATRIX CANVAS */
+        #matrix-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
         }
 
-        /* --- Navbar --- */
-        nav {
-            width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(15px);
-            position: fixed;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
+        .app-container { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 160px; }
+
+        .header {
+            position: sticky; top: 0; z-index: 100; display: flex; align-items: center;
+            justify-content: space-between; padding: 10px 14px;
+            background: var(--header-bg); backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border-bottom: 1px solid var(--border); border-radius: 0 0 24px 24px;
+            gap: 8px;
+        }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 17px; cursor: pointer; text-decoration: none; color: var(--text); flex-shrink: 0; }
+        .logo-icon {
+            width: 34px; height: 34px; background: linear-gradient(135deg, #FF3B30, #d6302b);
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            font-size: 15px; color: #fff; font-weight: 800;
+            box-shadow: 0 4px 16px rgba(255,59,48,0.4), 0 0 40px rgba(255,59,48,0.15);
+        }
+        .header-actions { display: flex; align-items: center; gap: 8px; }
+        .header-btn {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border2); color: var(--text);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 16px; transition: all 0.3s; font-family: inherit;
+        }
+        .header-btn:active { background: var(--accent); color: #fff; transform: scale(0.92); }
+        .live-counter {
+            display: flex; align-items: center; gap: 6px; background: rgba(0,200,83,0.08);
+            border: 1px solid rgba(0,200,83,0.2); border-radius: 20px; padding: 5px 10px;
+            font-size: 10px; font-weight: 700; color: var(--success);
+            backdrop-filter: blur(10px); white-space: nowrap;
+        }
+        .live-counter .pulse-dot { width: 6px; height: 6px; background: var(--success); border-radius: 50%; animation: pulseDotSoft 2s infinite; }
+        @keyframes pulseDotSoft { 0%,100% { box-shadow: 0 0 0 0 rgba(0,200,83,0.5); } 50% { box-shadow: 0 0 0 12px transparent; } }
+
+        .countdown-bar {
+            background: linear-gradient(90deg, rgba(255,59,48,0.2), rgba(255,149,0,0.2));
+            backdrop-filter: blur(20px); border: 1px solid rgba(255,59,48,0.2);
+            color: #fff; text-align: center; padding: 7px 12px; margin: 10px 14px;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            border-radius: 40px; animation: countdownGlow 3s ease-in-out infinite;
+        }
+        @keyframes countdownGlow { 0%,100% { border-color: rgba(255,59,48,0.2); } 50% { border-color: rgba(255,59,48,0.5); } }
+        .countdown-bar .timer { background: rgba(0,0,0,0.4); padding: 3px 12px; border-radius: 20px; font-size: 13px; font-weight: 800; }
+
+        .toast-container {
+            position: fixed; bottom: 150px; left: 10px; z-index: 300;
+            display: flex; flex-direction: column; gap: 8px; pointer-events: none;
+        }
+        .toast {
+            background: var(--surface2); backdrop-filter: blur(40px); border: 1px solid var(--border2);
+            border-radius: 16px; padding: 10px 14px; font-size: 11px; color: var(--text);
+            font-weight: 600; box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+            display: flex; align-items: center; gap: 8px;
+            animation: toastGentleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1), toastGentleOut 0.5s ease 4.5s forwards;
+            max-width: 280px;
+        }
+        @keyframes toastGentleIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes toastGentleOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-10px); } }
+        .toast-flag { font-size: 22px; flex-shrink: 0; }
+        .toast-info strong { color: var(--success); }
+
+        .view { display: none; padding: 0 14px; }
+        .view.active { display: block; animation: viewCinematicIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes viewCinematicIn { from { opacity: 0; transform: scale(0.96); filter: blur(8px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
+
+        .featured-wrapper { position: relative; margin-top: 10px; }
+        .featured {
+            position: relative; border-radius: 24px; overflow: hidden;
+            height: 250px; cursor: pointer;
+            box-shadow: var(--featured-shadow), 0 0 80px rgba(99,102,241,0.08);
+            border: 1px solid var(--border2);
+            backdrop-filter: blur(10px); touch-action: pan-y;
+        }
+        .featured-bg {
+            position: absolute; inset: 0; background-size: cover; background-position: center;
+            transition: opacity 1s ease;
+        }
+        .featured-bg.fade-out { opacity: 0; }
+        .featured-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(10,14,39,0.95) 0%, rgba(10,14,39,0.3) 50%, rgba(10,14,39,0.05) 100%);
+        }
+        .featured-app-icon {
+            position: absolute; top: 14px; left: 14px; z-index: 3;
+            width: 50px; height: 50px; border-radius: 16px; overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 12px 28px rgba(0,0,0,0.6);
+            background: #fff;
+        }
+        .featured-app-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .featured-dots { display: flex; gap: 8px; position: absolute; top: 70px; right: 14px; z-index: 3; }
+        .featured-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.25);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; padding: 4px;
+        }
+        .featured-dot.active { background: #FFD60A; box-shadow: 0 0 14px rgba(255,214,10,0.9); width: 28px; border-radius: 4px; }
+        .featured-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 16px 18px; z-index: 2; }
+        .featured-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(99,102,241,0.3); backdrop-filter: blur(10px);
+            color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; margin-bottom: 8px;
+            border: 1px solid rgba(99,102,241,0.3);
+        }
+        .featured-title { font-size: 24px; font-weight: 900; margin-bottom: 3px; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .featured-desc { font-size: 12px; opacity: 0.9; line-height: 1.4; max-width: 85%; }
+        .featured-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 11px; font-weight: 600; }
+        .featured-scarcity {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(255,59,48,0.25); backdrop-filter: blur(10px);
+            color: var(--danger); padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700;
+            margin-left: auto; animation: softPulse 2.5s infinite; border: 1px solid rgba(255,59,48,0.2);
+        }
+        @keyframes softPulse { 0%,100% { opacity: 0.85; } 50% { opacity: 1; } }
+
+        .claim-bar {
+            background: var(--surface); backdrop-filter: blur(30px);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 10px 14px; margin: 10px 0;
+            font-size: 10px; font-weight: 700; color: var(--warning);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .claim-bar-fill { flex: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; }
+        .claim-bar-fill-inner {
+            height: 100%; background: linear-gradient(90deg, #FF9500, #FF3B30);
+            border-radius: 3px; width: 80%; transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .logo { font-size: 1.8rem; font-weight: 700; letter-spacing: 3px; color: var(--primary); text-transform: uppercase; }
+        .activity-feed {
+            background: var(--surface); backdrop-filter: blur(30px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 10px 14px; margin: 10px 0;
+        }
+        .activity-title { font-size: 11px; font-weight: 700; color: var(--success); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+        .activity-item {
+            display: flex; align-items: center; gap: 8px; padding: 6px 0;
+            font-size: 10px; border-bottom: 1px solid rgba(255,255,255,0.03);
+            animation: symphonyIn 0.5s ease both;
+        }
+        .activity-item:nth-child(1) { animation-delay: 0s; }
+        .activity-item:nth-child(2) { animation-delay: 0.08s; }
+        .activity-item:nth-child(3) { animation-delay: 0.16s; }
+        .activity-item:nth-child(4) { animation-delay: 0.24s; }
+        .activity-item:nth-child(5) { animation-delay: 0.32s; }
+        .activity-item:nth-child(6) { animation-delay: 0.40s; }
+        @keyframes symphonyIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-flag { font-size: 16px; }
+        .activity-time { font-size: 9px; color: var(--text3); margin-left: auto; }
 
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .stats-bar {
+            display: flex; justify-content: space-around;
+            background: var(--surface); backdrop-filter: blur(30px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 14px 8px; margin: 8px 0;
+        }
+        .stat-val { font-size: 17px; font-weight: 800; background: linear-gradient(135deg, #FF3B30, #FF9500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-lbl { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin: 22px 0 10px; }
+        .section-title { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
+        .section-link { font-size: 12px; color: var(--accent2); text-decoration: none; font-weight: 700; cursor: pointer; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .card {
+            background: var(--surface); backdrop-filter: blur(30px);
+            border: 1px solid var(--border); border-radius: 20px;
+            padding: 10px; cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; box-shadow: var(--card-shadow);
+        }
+        .card:active { transform: scale(0.97); }
+        .card-icon-wrap {
+            width: 100%; aspect-ratio: 1; border-radius: 16px;
+            position: relative; overflow: hidden; margin-bottom: 8px;
+            background: var(--bg2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .card-icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .card-mod, .card-badge {
+            position: absolute; top: 6px; font-size: 7px; font-weight: 800;
+            padding: 3px 7px; border-radius: 6px; text-transform: uppercase;
+            z-index: 2; letter-spacing: 0.3px; backdrop-filter: blur(10px);
+        }
+        .card-mod { right: 6px; background: rgba(99,102,241,0.7); color: #fff; }
+        .card-badge { left: 6px; }
+        .badge-hot { background: rgba(255,59,48,0.7); color: #fff; }
+        .badge-new { background: rgba(0,200,83,0.7); color: #000; }
+        .badge-trending { background: rgba(255,149,0,0.7); color: #000; }
+        .badge-vip { background: rgba(255,214,10,0.7); color: #000; }
+        .card-viewers {
+            position: absolute; bottom: 8px; left: 8px;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(10px);
+            color: #fff; font-size: 8px; font-weight: 700;
+            padding: 3px 7px; border-radius: 6px;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .card-viewers .eye-dot { width: 5px; height: 5px; background: var(--success); border-radius: 50%; animation: pulseDotSoft 2s infinite; }
+        .card-title { font-size: 12px; font-weight: 700; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-meta { font-size: 10px; color: var(--text2); margin-bottom: 3px; }
+        .card-rating { display: flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 700; }
+
+        .h-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; scroll-snap-type: x mandatory; }
+        .h-scroll::-webkit-scrollbar { display: none; }
+        .h-scroll .card { min-width: 130px; max-width: 135px; flex-shrink: 0; scroll-snap-align: start; }
+
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+            display: flex; justify-content: center; padding: 8px 14px 20px;
+            background: var(--nav-bg); backdrop-filter: blur(40px) saturate(180%);
+            border-top: 1px solid var(--border);
+        }
+        .nav-inner {
+            display: flex; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border2); border-radius: 24px; padding: 4px; gap: 2px;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
+            padding: 8px 20px; border-radius: 18px; cursor: pointer;
+            font-size: 10px; font-weight: 600; color: var(--text2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none; background: transparent; font-family: inherit; text-decoration: none;
+        }
+        .nav-item.active {
+            background: #FF3B30; color: #fff;
+            box-shadow: 0 8px 24px rgba(255,59,48,0.4), 0 0 40px rgba(255,59,48,0.2);
+        }
+        .nav-item svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); color: var(--text);
+            font-size: 12px; cursor: pointer; margin: 8px 0 4px;
+            padding: 7px 14px; font-weight: 700; font-family: inherit;
+            border-radius: 20px; transition: all 0.3s;
+        }
+        .back-btn:active { background: var(--accent); color: #fff; }
+        .detail-header { display: flex; gap: 14px; margin-top: 8px; align-items: flex-start; }
+        .detail-icon {
+            width: 75px; height: 75px; border-radius: 20px; overflow: hidden; flex-shrink: 0;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 40px rgba(99,102,241,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .detail-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .detail-info h1 { font-size: 20px; font-weight: 900; margin-bottom: 2px; }
+        .detail-info .sub { font-size: 11px; color: var(--text2); margin-bottom: 8px; }
+        .detail-meta-row { display: flex; gap: 12px; font-size: 10px; color: var(--text2); font-weight: 600; }
+        .mod-features {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(99,102,241,0.15); backdrop-filter: blur(10px);
+            color: #a5b4fc; padding: 5px 10px; border-radius: 8px;
+            font-size: 10px; font-weight: 700; margin-top: 8px;
+            border: 1px solid rgba(99,102,241,0.2);
+        }
+
+        .demo-video-section {
+            margin-top: 14px; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 12px; text-align: center;
+        }
+        .demo-video-section h3 { font-size: 13px; font-weight: 800; margin-bottom: 8px; color: var(--success); }
+        .demo-video-thumb {
+            width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;
+            background: #000; position: relative; cursor: pointer;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .demo-video-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .demo-play-btn {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.3);
+        }
+        .demo-play-btn span {
+            width: 50px; height: 50px; background: rgba(255,59,48,0.9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 20px; box-shadow: 0 0 30px rgba(255,59,48,0.5);
+            animation: softPulse 2s infinite;
+        }
+        .demo-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(0,200,83,0.1); color: var(--success);
+            padding: 3px 8px; border-radius: 10px; font-size: 9px; font-weight: 700;
+            margin-top: 8px; border: 1px solid rgba(0,200,83,0.2);
+        }
+
+        .btn-start {
+            width: 100%; margin-top: 18px; padding: 16px; border-radius: 16px;
+            background: linear-gradient(135deg, #FF3B30, #d6302b); color: #fff;
+            font-size: 16px; font-weight: 800; border: none; cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255,59,48,0.4), 0 0 60px rgba(255,59,48,0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: inherit; position: relative; overflow: hidden;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn-start:active { transform: scale(0.97); }
+
+        .cta-timer {
+            text-align: center; margin-top: 8px; font-size: 11px; color: var(--warning);
+            font-weight: 700; display: none;
+        }
+        .cta-timer.show { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .aura-glow {
+            position: absolute; inset: -20px; border-radius: inherit;
+            background: radial-gradient(circle at center, rgba(255,59,48,0.3) 0%, transparent 70%);
+            opacity: 0; transition: opacity 0.5s ease; pointer-events: none; z-index: -1;
+        }
+        .aura-glow.visible { opacity: 1; }
+
+        .safety-badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+        .safety-badge {
+            font-size: 10px; color: var(--success); font-weight: 600;
+            display: flex; align-items: center; gap: 3px;
+            background: rgba(0,200,83,0.08); backdrop-filter: blur(10px);
+            padding: 5px 10px; border-radius: 8px; border: 1px solid rgba(0,200,83,0.15);
+        }
+
+        .testimonials-section {
+            margin-top: 18px; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 14px;
+        }
+        .testimonial-card {
+            display: flex; gap: 10px; padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            animation: symphonyIn 0.5s ease both;
+        }
+        .testimonial-card:nth-child(1) { animation-delay: 0s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.2s; }
+        .testimonial-card:last-child { border-bottom: none; }
+        .testimonial-avatar {
+            width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; background: var(--bg2);
+        }
+        .testimonial-content { flex: 1; }
+        .testimonial-name { font-size: 11px; font-weight: 700; color: var(--text); }
+        .testimonial-text { font-size: 10px; color: var(--text2); line-height: 1.5; margin-top: 2px; font-style: italic; }
+        .testimonial-time { font-size: 9px; color: var(--text3); margin-top: 3px; }
+
+        .creator-card {
+            margin-top: 18px; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 14px; display: flex; gap: 12px; align-items: center;
+        }
+        .creator-avatar {
+            width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;
+            background: linear-gradient(135deg, #FF3B30, #FF9500);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; box-shadow: 0 8px 20px rgba(255,59,48,0.3);
+        }
+        .creator-info h3 { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+        .creator-info p { font-size: 10px; color: var(--text2); line-height: 1.5; }
+        .creator-badge {
+            display: inline-flex; align-items: center; gap: 3px;
+            background: rgba(0,200,83,0.1); color: var(--success);
+            padding: 2px 7px; border-radius: 6px; font-size: 9px; font-weight: 700;
+            margin-top: 4px; border: 1px solid rgba(0,200,83,0.2);
+        }
+
+        .sticky-cta {
+            position: fixed; bottom: 75px; left: 0; right: 0; z-index: 99;
+            background: var(--nav-bg); backdrop-filter: blur(40px);
+            border-top: 1px solid var(--border); padding: 10px 16px 12px;
+            display: none; align-items: center; gap: 10px;
+        }
+        .sticky-cta.show { display: flex; animation: slideUpSticky 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUpSticky { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .sticky-cta .btn-start { margin: 0; flex: 1; padding: 12px; font-size: 13px; }
+
+        /* PREPARING SCREEN - CLASSIC */
+        .preparing-screen {
+            position: fixed; inset: 0; background: var(--bg); z-index: 200; display: none;
+            flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 30px;
+        }
+        .preparing-screen.active { display: flex; }
+        .preparing-percent {
+            font-size: 80px; font-weight: 900;
+            background: linear-gradient(to bottom, rgba(255,59,48,0.3), transparent);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            line-height: 1; margin-bottom: 16px;
+        }
+        .preparing-circle {
+            width: 60px; height: 60px; border-radius: 50%;
+            background: var(--surface); border: 1.5px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin-bottom: 16px; position: relative;
+        }
+        .preparing-circle::after {
+            content: ''; position: absolute; inset: -3px; border-radius: 50%;
+            border: 3px solid transparent; border-top-color: #FF3B30;
+            animation: spin 0.85s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .preparing-text { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+        .preparing-sub { font-size: 12px; color: var(--text2); max-width: 260px; }
+        .progress-container {
+            position: absolute; bottom: 90px; left: 22px; right: 22px;
+        }
+        .progress-label {
+            display: flex; justify-content: space-between; font-size: 10px;
+            font-weight: 800; text-transform: uppercase; margin-bottom: 4px; color: var(--text2);
+        }
+        .progress-bar {
+            height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%; background: linear-gradient(90deg, #FF3B30, #FF9500);
+            border-radius: 3px; width: 0%; transition: width 0.25s ease;
+        }
+
+        /* BRIDGE SCREEN */
+        .bridge-screen {
+            position: fixed; inset: 0; z-index: 220; display: none;
+            flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 30px;
+            background: rgba(10,14,39,0.95); backdrop-filter: blur(30px);
+        }
+        .bridge-screen.active { display: flex; }
+        .bridge-icon { font-size: 60px; margin-bottom: 16px; animation: softPulse 2s infinite; }
+        .bridge-title { font-size: 20px; font-weight: 900; margin-bottom: 8px; color: #fff; }
+        .bridge-sub { font-size: 13px; color: var(--text2); margin-bottom: 20px; max-width: 300px; line-height: 1.5; }
+        .bridge-timer { font-size: 42px; font-weight: 900; color: var(--accent); margin-bottom: 16px; }
+        .bridge-btn {
+            padding: 14px 30px; background: var(--success); color: #000;
+            border: none; border-radius: 12px; font-size: 15px; font-weight: 800;
+            cursor: pointer; font-family: inherit;
+        }
+        .bridge-btn:active { transform: scale(0.97); }
+
+        .prestige-overlay {
+            position: fixed; inset: 0; z-index: 250; display: none;
+            align-items: center; justify-content: center;
+            background: rgba(10,14,39,0.85); backdrop-filter: blur(20px);
+        }
+        .prestige-overlay.active { display: flex; }
+        .prestige-seal {
+            background: linear-gradient(135deg, #1a1a3e, #0f1335);
+            border: 3px solid #FFD60A; border-radius: 50%;
+            width: 160px; height: 160px; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 0 60px rgba(255,214,10,0.4), 0 0 120px rgba(255,214,10,0.1);
+            animation: sealDrop 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            color: #FFD60A; font-weight: 900;
+        }
+        @keyframes sealDrop { from { transform: translateY(-120px) scale(0.5); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+        .prestige-number { font-size: 36px; line-height: 1; }
+        .prestige-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
+
+        .btn-back-top {
+            position: fixed; bottom: 140px; right: 14px; z-index: 90;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border2); color: var(--text);
+            cursor: pointer; display: none; align-items: center; justify-content: center;
+            font-size: 16px; transition: all 0.3s;
+        }
+        .btn-back-top.show { display: flex; }
+
+        .search-bar {
+            margin-top: 10px; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 10px 14px; display: flex; align-items: center; gap: 8px;
+        }
+        .search-bar input { flex: 1; background: transparent; border: none; color: var(--text); font-size: 13px; outline: none; font-family: inherit; }
+        .search-bar input::placeholder { color: var(--text3); }
+        .search-filters { display: flex; gap: 6px; margin: 10px 0 12px; }
+        .filter-chip {
+            padding: 6px 12px; border-radius: 20px;
+            background: var(--surface); backdrop-filter: blur(10px);
+            border: 1px solid var(--border); font-size: 11px; cursor: pointer;
+            color: var(--text2); font-weight: 600; font-family: inherit;
+            transition: all 0.3s;
+        }
+        .filter-chip.active { background: #FF3B30; color: #fff; border-color: #FF3B30; }
+
+        .footer { text-align: center; padding: 24px 14px 30px; font-size: 10px; color: var(--text3); border-top: 1px solid var(--border); margin-top: 20px; }
+        .footer-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+        .footer-links a { color: var(--text2); text-decoration: none; font-weight: 500; }
+
+        .ghost-ecosystem { margin: 14px 0; }
+        .live-indicator-ghost {
+            display: flex; align-items: center; gap: 10px;
+            background: var(--surface); backdrop-filter: blur(20px);
+            padding: 10px 14px; border-radius: 12px;
+            margin-bottom: 8px; font-size: 12px; font-weight: 600;
+            border: 1px solid var(--border);
+        }
+        .live-dot-ghost { width: 8px; height: 8px; background: #ff0000; border-radius: 50%; }
+        .live-dot-ghost.pulse-active { animation: dotPulseGhost 1.5s infinite; }
+        @keyframes dotPulseGhost { 0%,100% { box-shadow: 0 0 0 0 rgba(255,0,0,0.6); } 50% { box-shadow: 0 0 20px 10px transparent; } }
+        .stock-indicator-ghost { margin: 10px 0; }
+        .stock-bar-ghost { height: 7px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+        .stock-bar-fill-ghost { height: 100%; width: 100%; background: #00ff66; transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s; border-radius: 4px; }
+        .stock-text-ghost { margin-top: 5px; font-size: 11px; color: #ff6666; font-weight: 600; }
+        .urgency-message-ghost { display: none; background: rgba(255,0,0,0.06); border: 1px solid rgba(255,0,0,0.2); border-radius: 10px; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #ff4444; font-weight: 700; }
+        .sales-feed-ghost { background: var(--surface); backdrop-filter: blur(20px); border-radius: 12px; padding: 10px; max-height: 180px; overflow-y: auto; font-size: 10px; border: 1px solid var(--border); margin-top: 8px; }
+        .ghost-sale-item { padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.03); display: flex; align-items: center; gap: 7px; font-weight: 500; }
+        .sale-time-ghost { color: var(--text3); margin-left: auto; font-size: 9px; }
+        .sale-icon-ghost { font-size: 8px; color: #00ff66; }
+
+        .mod-proof-container { background: var(--surface); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 14px; padding: 12px; margin: 14px 0; }
+        .mod-proof-header { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; font-weight: 700; color: #00ff66; font-size: 12px; }
+        .proof-badge-mod { background: #00ff66; color: #000; padding: 1px 8px; border-radius: 12px; font-size: 9px; font-weight: 700; margin-left: auto; animation: softPulse 2s infinite; }
+        .mod-proof-item {
+            background: rgba(0,255,100,0.02); border-left: 2px solid #00ff66;
+            padding: 8px 10px; margin-bottom: 6px; border-radius: 0 8px 8px 0;
+            font-size: 11px; color: #ccc; animation: slideGentle 0.4s ease-out;
+        }
+        @keyframes slideGentle { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+        .proof-item-name-mod { color: #00ff66; font-weight: 700; display: block; margin-bottom: 2px; }
+        .proof-item-detail-mod { color: #888; font-size: 9px; display: flex; justify-content: space-between; margin-top: 3px; }
+        .proof-item-status-mod { color: #00ff66; font-size: 9px; }
+        .proof-item-time-mod { color: #555; font-size: 9px; }
+
+        /* TIKTOK + DESKTOP */
+        #tiktok-tutorial-overlay, #mobile-guard-overlay {
+            position: fixed; inset: 0; z-index: 1000000; background: #000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 25px 20px; box-sizing: border-box;
+        }
+        .browser-mockup { width: 100%; max-width: 380px; background: #1c1c1e; border-radius: 14px 14px 0 0; padding: 10px 14px; margin-bottom: 22px; border: 1px solid #333; }
+        .browser-dots { display: flex; gap: 5px; margin-bottom: 8px; }
+        .browser-dot { width: 9px; height: 9px; border-radius: 50%; background: #444; }
+        .browser-dot.red { background: #ff5f57; } .browser-dot.yellow { background: #ffbd2e; } .browser-dot.green { background: #28c840; }
+        .browser-url-bar { background: #2c2c2e; border-radius: 6px; padding: 6px 10px; color: #8e8e93; font-size: 11px; text-align: center; }
+        .tutorial-title-tt { color: #fff; font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 6px; }
+        .tutorial-subtitle-tt { color: #999; font-size: 14px; text-align: center; margin-bottom: 30px; line-height: 1.5; max-width: 280px; }
+        .tutorial-steps-tt { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 25px; }
+        .tutorial-step-tt { display: flex; align-items: flex-start; gap: 14px; padding: 16px 14px; background: #111; border-radius: 12px; border: 1px solid #222; animation: slideGentle 0.5s ease-out forwards; opacity: 0; }
+        .tutorial-step-tt:nth-child(1) { animation-delay: 0.2s; } .tutorial-step-tt:nth-child(2) { animation-delay: 0.55s; } .tutorial-step-tt:nth-child(3) { animation-delay: 0.9s; }
+        .tutorial-step-number-tt { width: 34px; height: 34px; background: #007AFF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+        .tutorial-step-text-tt { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .tutorial-step-hint-tt { color: #888; font-size: 11px; line-height: 1.3; }
+        .tutorial-retry-btn-tt { width: 100%; max-width: 360px; padding: 14px; background: #007AFF; color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
+        .tutorial-footer-tt { margin-top: 15px; color: #666; font-size: 11px; text-align: center; }
+        .tutorial-footer-tt a { color: #007AFF; text-decoration: none; }
+        .mobile-guard-icon-outer { width: 80px; height: 80px; border: 3px solid #333; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; }
+        .mobile-guard-icon-inner { width: 32px; height: 50px; border: 3px solid #007AFF; border-radius: 5px; position: relative; }
+        .mobile-guard-icon-inner::after { content: ''; position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; border: 3px solid #007AFF; border-radius: 50%; }
+        .mobile-guard-title-mg { color: #fff; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; }
+        .mobile-guard-message-mg { color: #999; font-size: 14px; text-align: center; margin-bottom: 30px; line-height: 1.6; max-width: 320px; }
+        .mobile-guard-access-title-mg { color: #fff; font-size: 16px; font-weight: 700; text-align: center; margin-bottom: 16px; }
+        .mobile-guard-step-mg { display: flex; align-items: center; gap: 12px; padding: 12px 14px; margin-bottom: 8px; background: #111; border-radius: 10px; border: 1px solid #222; width: 100%; max-width: 340px; }
+        .mobile-guard-step-num-mg { width: 28px; height: 28px; background: #007AFF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+        .mobile-guard-step-text-mg { color: #ccc; font-size: 13px; }
+        .mobile-guard-app-note-mg { color: #666; font-size: 12px; text-align: center; margin-top: 5px; font-style: italic; }
+
+        .memento-toast {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 999;
+            background: var(--surface2); backdrop-filter: blur(40px);
+            border: 1px solid var(--border2); border-radius: 16px;
+            padding: 12px 20px; color: var(--text); font-size: 13px; font-weight: 600;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            animation: mementoIn 0.6s cubic-bezier(0.16, 1, 0.3, 1), mementoOut 0.5s ease 3s forwards;
             text-align: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at center, rgba(255,0,60,0.1) 0%, transparent 70%);
         }
+        @keyframes mementoIn { from { opacity: 0; transform: translateX(-50%) translateY(-30px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+        @keyframes mementoOut { from { opacity: 1; transform: translateX(-50%) translateY(0); } to { opacity: 0; transform: translateX(-50%) translateY(-10px); } }
 
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); text-transform: uppercase; margin-bottom: 20px; line-height: 1; }
-        .hero p { font-size: 1.2rem; color: #aaa; max-width: 600px; margin-bottom: 30px; letter-spacing: 1px; }
+        #scroll-seducer-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9997; }
 
-        /* --- The Main Console (The Generator) --- */
-        .console-box {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 600px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            position: relative;
-        }
-
-        .console-box::before {
-            content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), transparent, var(--accent));
-            z-index: -1; border-radius: 22px; opacity: 0.3;
-        }
-
-        input {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(255,0,60,0.2); }
-
-        .btn-main {
-            width: 100%;
-            padding: 18px;
-            background: var(--primary);
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.4s;
-            box-shadow: 0 10px 20px rgba(255,0,60,0.3);
-        }
-
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(255,0,60,0.5); background: #ff1a4d; }
-
-        /* --- Live Notification --- */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0,0,0,0.9);
-            border-left: 4px solid var(--primary);
-            padding: 15px 25px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transform: translateX(-150%);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 2000;
-        }
-
-        .notification.active { transform: translateX(0); }
-
-        /* --- Terminal / Logic View --- */
-        #terminal {
-            display: none;
-            margin-top: 20px;
-            background: #000;
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: #00ff00;
-            text-align: left;
-            border: 1px solid #222;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-            width: 100%;
-            padding: 0 10%;
-        }
-
-        .f-card {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .f-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-
+        @media (min-width: 420px) { .featured { height: 280px; } .h-scroll .card { min-width: 140px; max-width: 145px; } }
     </style>
 </head>
 <body>
+    <canvas id="matrix-canvas"></canvas>
+    <div id="finger-glow"></div>
+    <div class="app-container" id="mainAppContainer">
+        <header class="header" id="mainHeader">
+            <a href="index.html" class="logo"><div class="logo-icon">oo</div><span>ooQleMod</span></a>
+            <div class="header-actions">
+                <button class="header-btn" onclick="showView('search')" aria-label="Search">🔍</button>
+                <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+                <div class="live-counter"><span class="pulse-dot"></span> <span id="liveCount">2,847</span></div>
+            </div>
+        </header>
 
-    <nav>
-        <div class="logo">ULTRA MODS</div>
-        <div style="font-size: 0.9rem; color: var(--accent);"><i class="fas fa-shield-alt"></i> ENCRYPTION: AES-256</div>
-    </nav>
-
-    <section class="hero">
-        <div class="status-indicator" style="color: #00ff00; margin-bottom: 10px; font-size: 0.8rem; letter-spacing: 2px;">
-            ● SERVERS ONLINE: LONDON | NEW YORK | TOKYO
+        <div class="countdown-bar" id="countdownBar">
+            <span>⚡ LIMITED ACCESS</span>
+            <span class="timer" id="countdownTimer">05:23:17</span>
+            <span>remaining</span>
         </div>
-        <h1>Next-Gen Gaming Mods</h1>
-        <p>Private cloud-based asset injection for US & UK elite accounts. Undetected. Exclusive. Permanent.</p>
 
-        <div class="console-box">
-            <input type="text" id="target_user" placeholder="Enter Player ID or Email...">
-            <select id="platform" style="width: 100%; padding: 15px; background: #000; color: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; outline: none;">
-                <option value="PC">PC / Windows</option>
-                <option value="PS5">PlayStation 5</option>
-                <option value="XBOX">Xbox Series X</option>
-            </select>
-            <button class="btn-main" onclick="initiateSequence()">Generate & Inject Assets</button>
+        <div class="toast-container" id="toastContainer"></div>
 
-            <div id="terminal"></div>
+        <div class="ghost-ecosystem" id="ghostEcosystem" style="padding:0 14px;display:none;">
+            <div class="live-indicator-ghost">
+                <span id="live-dot-ghost" class="live-dot-ghost"></span>
+                <span id="viewer-count-ghost">24</span> players viewing this mod
+            </div>
+            <div class="stock-indicator-ghost">
+                <div class="stock-bar-ghost"><div id="stock-bar-fill-ghost" class="stock-bar-fill-ghost"></div></div>
+                <p class="stock-text-ghost">⚠️ Only <span id="stock-counter-ghost">34</span> download slots left</p>
+            </div>
+            <div id="urgency-message-ghost" class="urgency-message-ghost"></div>
+            <div id="recent-sales-feed-ghost" class="sales-feed-ghost"></div>
         </div>
-    </section>
 
-    <div class="features-grid">
-        <div class="f-card">
-            <i class="fas fa-user-secret"></i>
-            <h3>Ghost Mode</h3>
-            <p>100% Invisible to anti-cheat systems during deployment.</p>
+        <div id="mod-proof-feed" style="padding:0 14px;display:none;"></div>
+
+        <div class="view active" id="view-discover">
+            <div class="featured-wrapper">
+                <div class="featured" id="featuredBanner">
+                    <div class="featured-bg" id="featuredBg"></div>
+                    <div class="featured-app-icon"><img src="" alt="" id="featuredIconImg"></div>
+                    <div class="featured-dots" id="featuredDots"></div>
+                    <div class="featured-content">
+                        <div class="featured-badge">⭐ Mod</div>
+                        <div class="featured-title" id="featuredTitle"></div>
+                        <div class="featured-desc" id="featuredDesc"></div>
+                        <div class="featured-meta">
+                            <span id="featuredRating"></span>
+                            <span class="featured-scarcity" id="featuredScarcity">⚡ Only 3 left</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="claim-bar">
+                <span>🔥 <span id="claimBarPct">82</span>% of today's licenses claimed</span>
+                <div class="claim-bar-fill"><div class="claim-bar-fill-inner" id="claimBarFill"></div></div>
+                <span id="claimBarText">82%</span>
+            </div>
+            <div class="activity-feed">
+                <div class="activity-title">🟢 LIVE — Real people downloading</div>
+                <div class="activity-list" id="activityList"></div>
+            </div>
+            <div class="stats-bar">
+                <div><div class="stat-val" id="statDownloads">147K</div><div class="stat-lbl">Downloads</div></div>
+                <div><div class="stat-val">4.9 ★</div><div class="stat-lbl">Rating</div></div>
+                <div><div class="stat-val">99.3%</div><div class="stat-lbl">Safe</div></div>
+                <div><div class="stat-val">24/7</div><div class="stat-lbl">Support</div></div>
+            </div>
+            <div class="section-header"><div class="section-title">🔥 Trending Now</div><span class="section-link" onclick="showView('games')">View all →</span></div>
+            <div class="h-scroll" id="trending-scroll"></div>
+            <div class="section-header"><div class="section-title">✨ New Releases</div><span class="section-link" onclick="showView('apps')">View all →</span></div>
+            <div class="grid" id="new-apps-grid"></div>
+            <div class="creator-card">
+                <div class="creator-avatar">🛠️</div>
+                <div class="creator-info">
+                    <h3>Hey, I'm Alex</h3>
+                    <p>I've been modding games since 2016. Every mod here is tested by me personally. <strong id="totalDownloadsGlobal">14,523</strong> people trust ooQleMod.</p>
+                    <span class="creator-badge">✅ Verified Creator</span>
+                </div>
+            </div>
         </div>
-        <div class="f-card">
-            <i class="fas fa-bolt"></i>
-            <h3>Instant Sync</h3>
-            <p>High-speed servers in UK/US ensure sub-second injection.</p>
+
+        <div class="view" id="view-games">
+            <button class="back-btn" onclick="goHome()">← Back</button>
+            <h2 style="font-size:22px;font-weight:900;margin:10px 0 12px;">🎮 Games</h2>
+            <div class="grid" id="games-grid"></div>
         </div>
-        <div class="f-card">
-            <i class="fas fa-crown"></i>
-            <h3>Elite Status</h3>
-            <p>Unlock unreleased skins and premium legacy content.</p>
+
+        <div class="view" id="view-apps">
+            <button class="back-btn" onclick="goHome()">← Back</button>
+            <h2 style="font-size:22px;font-weight:900;margin:10px 0 12px;">📱 Apps</h2>
+            <div class="grid" id="apps-grid"></div>
+        </div>
+
+        <div class="view" id="view-search">
+            <button class="back-btn" onclick="goHome()">← Back</button>
+            <h2 style="font-size:22px;font-weight:900;margin:10px 0 12px;">🔍 Search</h2>
+            <div class="search-bar"><span>🔍</span><input type="text" placeholder="Search mods..." id="searchInput" oninput="doSearch()"></div>
+            <div class="search-filters">
+                <div class="filter-chip active" onclick="setFilter('all', this)">All</div>
+                <div class="filter-chip" onclick="setFilter('app', this)">📱 Apps</div>
+                <div class="filter-chip" onclick="setFilter('game', this)">🎮 Games</div>
+            </div>
+            <div class="grid" id="search-results"></div>
+        </div>
+
+        <div class="view" id="view-detail">
+            <button class="back-btn" onclick="goBack()">← Back</button>
+            <div class="detail-header">
+                <div class="detail-icon"><img src="" alt="" id="detail-img"></div>
+                <div class="detail-info">
+                    <h1 id="detail-name">App Name</h1>
+                    <div class="sub" id="detail-category">Category</div>
+                    <div class="detail-meta-row">
+                        <span id="detail-rating">⭐ 4.8</span>
+                        <span id="detail-downloads">⬇️ 550k+</span>
+                    </div>
+                    <div class="mod-features" id="detail-mod">✨ Mod Features</div>
+                </div>
+            </div>
+            <div class="demo-video-section">
+                <h3>🎬 See It In Action</h3>
+                <div class="demo-video-thumb"><img src="" alt="Demo" id="demoVideoImg"><div class="demo-play-btn"><span>▶</span></div></div>
+                <div class="demo-badge">✅ Real footage — recorded recently</div>
+            </div>
+            <button class="btn-start" id="detailCtaBtn" onclick="startPreparing()" style="position:relative;">
+                <div class="aura-glow" id="ctaAura"></div>
+                ⚡ Get My Download Now
+            </button>
+            <div class="cta-timer" id="ctaTimer">⏳ Link expires in <span id="ctaTimerValue">2:00</span></div>
+            <div class="safety-badges" id="safetyBadges">
+                <span class="safety-badge">✅ Verified Safe</span>
+                <span class="safety-badge">🛡️ No Password</span>
+                <span class="safety-badge">🔒 SSL Secure</span>
+            </div>
+            <div class="testimonials-section">
+                <h3 style="font-size:13px;font-weight:800;margin-bottom:10px;">💬 What Users Say</h3>
+                <div class="testimonial-card"><div class="testimonial-avatar">🇺🇸</div><div class="testimonial-content"><div class="testimonial-name">Mike R. — New York, US</div><div class="testimonial-text">"I was skeptical at first but it actually works. No ban after 2 weeks. This site is legit."</div><div class="testimonial-time">2 weeks ago</div></div></div>
+                <div class="testimonial-card"><div class="testimonial-avatar">🇬🇧</div><div class="testimonial-content"><div class="testimonial-name">Sarah K. — London, UK</div><div class="testimonial-text">"8 Ball Pool Mod is insane. Long line hack works perfectly. I've recommended to all my friends."</div><div class="testimonial-time">5 days ago</div></div></div>
+                <div class="testimonial-card"><div class="testimonial-avatar">🇩🇪</div><div class="testimonial-content"><div class="testimonial-name">Lucas M. — Berlin, Germany</div><div class="testimonial-text">"Finally a site that doesn't ask for passwords. Free Fire mod took 2 minutes. Working 100%."</div><div class="testimonial-time">3 days ago</div></div></div>
+            </div>
+            <div style="margin-top:16px;"><h3 style="font-size:14px;font-weight:800;">About</h3><p style="font-size:12px;color:var(--text2);line-height:1.6;" id="detail-about">Description here...</p></div>
+            <div style="margin-top:16px;"><h3 style="font-size:14px;font-weight:800;margin-bottom:8px;">You Might Also Like</h3><div class="h-scroll" id="related-scroll"></div></div>
+        </div>
+
+        <div class="footer" id="homeFooter">
+            <div class="footer-links">
+                <a href="contact.html">Contact</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="faq.html">FAQ</a> · <a href="dmca.html">DMCA</a>
+            </div>
+            <p>© 2026 ooQleMod. All mods for educational purposes.</p>
         </div>
     </div>
 
-    <div class="notification" id="notif">
-        <div id="notif-text" style="font-size: 0.9rem;"></div>
+    <div class="sticky-cta" id="stickyCta">
+        <span style="font-size:11px;color:var(--text2);">👇 Your download is ready</span>
+        <button class="btn-start" onclick="startPreparing()">⚡ COMPLETE NOW</button>
     </div>
+
+    <button class="btn-back-top" id="btnBackTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <div class="bottom-nav" id="bottomNav">
+        <div class="nav-inner">
+            <button class="nav-item active" onclick="showView('discover')"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Discover</button>
+            <button class="nav-item" onclick="showView('apps')"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Apps</button>
+            <button class="nav-item" onclick="showView('games')"><svg viewBox="0 0 24 24"><path d="M6 11h4M8 9v4"/><path d="M15 12h.01"/><path d="M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258a4 4 0 0 0-3.995-3.742z"/></svg> Games</button>
+        </div>
+    </div>
+
+    <div class="preparing-screen" id="preparingScreen">
+        <div class="preparing-percent" id="preparingPercent">0%</div>
+        <div class="preparing-circle">☁️</div>
+        <div class="preparing-text" id="preparingText">Preparing your download...</div>
+        <div class="preparing-sub" id="preparingSub">Please wait while we generate your mod</div>
+        <div class="progress-container">
+            <div class="progress-label"><span>PROCESSING</span><span id="progressPercent">0%</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+    </div>
+
+    <div class="bridge-screen" id="bridgeScreen">
+        <div class="bridge-icon">🔐</div>
+        <div class="bridge-title">One Quick Step</div>
+        <div class="bridge-sub">Complete a quick verification to prove you're human and unlock your download. Takes less than 10 seconds.</div>
+        <div class="bridge-timer" id="bridgeTimer">0:05</div>
+        <button class="bridge-btn" id="bridgeBtn" onclick="goToCPA()">✅ Unlock My Download Now</button>
+    </div>
+
+    <div class="prestige-overlay" id="prestigeOverlay">
+        <div class="prestige-seal"><div class="prestige-number" id="prestigeNumber">14,523</div><div class="prestige-label">Downloader #</div></div>
+    </div>
+
+    <canvas id="scroll-seducer-canvas"></canvas>
 
     <script>
-        const names = ["Alex_99", "ShadowUK", "US_GamerX", "Liam_Modz", "Elite_Sniper", "Rex_London"];
-        const actions = ["unlocked Premium Skins", "injected FPS Booster", "activated Ghost Mode", "generated 50k Credits"];
+    // ==================== DATA ====================
+    const slideApps = [
+        { name:'Pokémon Go Spoofer', cat:'games', rating:'4.8', downloads:'550k+', version:'v4.1.5', icon:'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png', cover:'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/pokemon-go-characters-logo.jpg', mod:'Teleport + Joystick', badge:'HOT', claimed:87, scarcity:3, desc:'Install Pokémon GO Spoofer — Teleport, Joystick, Auto Walk. Works iOS & Android.' },
+        { name:'8 Ball Pool Mod', cat:'games', rating:'4.9', downloads:'1M+', version:'v55.9.0', icon:'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg', cover:'https://gamingonphone.com/wp-content/uploads/2020/05/Miniclip-8-Ball-Pool-4.6.2.jpg', mod:'Long Line + Auto Win', badge:'HOT', claimed:92, scarcity:2, desc:'8 Ball Pool Mod with Guideline Tool. No Jailbreak Needed.' },
+        { name:'Baseball 9', cat:'games', rating:'4.7', downloads:'87K', version:'v4.2.8', icon:'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg', cover:'https://i.ytimg.com/vi/14-IZpn1J-A/maxresdefault.jpg', mod:'Unlimited Gems + Stamina', badge:'TRENDING', claimed:78, scarcity:5, desc:'Baseball 9 Mod with Unlimited Gems.' },
+        { name:'Toca Boca World', cat:'games', rating:'4.8', downloads:'1.2M+', version:'v9.8.1', icon:'https://appzenn.com/assets/img/app_images/whKzcdW512x512bb2112.jpg', cover:'https://i.pinimg.com/1200x/fb/45/ea/fb45eac770317c165615e7bc0191a798.jpg', mod:'All Worlds Unlocked', badge:'VIP', claimed:95, scarcity:1, desc:'Toca Boca World Hack — All Worlds, Unlimited Money.' }
+    ];
 
-        function showNotification() {
-            const notif = document.getElementById('notif');
-            const text = document.getElementById('notif-text');
-            const randomName = names[Math.floor(Math.random() * names.length)];
-            const randomAction = actions[Math.floor(Math.random() * actions.length)];
-            
-            text.innerHTML = `<strong>${randomName}</strong> just ${randomAction}!`;
-            notif.classList.add('active');
-            
-            setTimeout(() => { notif.classList.remove('active'); }, 4000);
+    const appsData = [
+        ...slideApps,
+        { name:'Dragon Ball Legends', version:'v5.10.0', icon:'https://im5.pandahelp.vip/adverting/202602/2d9ddf21-a.jpg', cat:'games', rating:'4.9', downloads:'124K', mod:'Unlimited Crystals + God Mode', badge:'HOT' },
+        { name:'Free Fire MAX', version:'v2.103', icon:'https://im5.pandahelp.vip/panda_android/202109/5d3aee6b-b.jpg', cat:'games', rating:'4.6', downloads:'312K', mod:'ESP Hack + Aimbot', badge:'HOT' },
+        { name:'PUBG Mobile', version:'v3.3.0', icon:'https://im5.pandahelp.vip/panda_android/202102/97bf7db4-c.jpg', cat:'games', rating:'4.5', downloads:'198K', mod:'ESP + Wallhack', badge:'TRENDING' },
+        { name:'Roblox', version:'v2.645', icon:'https://im5.pandahelp.vip/userapp/AppIcon/202312/22/e502637d-7.jpg', cat:'games', rating:'4.3', downloads:'512K', mod:'Infinite Robux', badge:'TRENDING' },
+        { name:'Call of Duty Mobile', version:'v1.25.0', icon:'https://im5.pandahelp.vip/adverting/202204/6eadfa05-9.jpg', cat:'games', rating:'4.6', downloads:'156K', mod:'ESP + Aimbot', badge:'HOT' },
+        { name:'Subway Surfers', version:'v3.36.0', icon:'https://img.pandahelp.vip/outer/image/thumb/Purple126/v4/20/7a/77/207a77aa-06aa-eeda-3440-475f3fad441e/source/202407/22/100x100bb.jpg', cat:'games', rating:'4.4', downloads:'420K', mod:'Unlimited Coins', badge:'HOT' },
+        { name:'Genshin Impact', version:'v5.3.0', icon:'https://img.pandahelp.vip/outer/image/thumb/Purple124/v4/9b/2b/5f/9b2b5f6d-68d7-c358-6681-a94bb9111829/source/202404/24/100x100bb.jpg', cat:'games', rating:'4.9', downloads:'89K', mod:'God Mode + Primogems', badge:'VIP' },
+        { name:'Clash Royale', version:'v6.2.1', icon:'https://im5.pandahelp.vip/adverting/202209/827d286d-1.jpg', cat:'games', rating:'4.8', downloads:'178K', mod:'Unlimited Gems', badge:'HOT' },
+        { name:'CapCut Pro', version:'v13.5.0', icon:'https://im5.pandahelp.vip/panda/202502/eb5a1dc5-b.jpg', cat:'apps', rating:'4.9', downloads:'234K', mod:'No Watermark', badge:'HOT' },
+        { name:'Instagram Pro', version:'v350.0', icon:'https://im5.pandahelp.vip/panda_android/201906/a67ac7c3-b.jpg', cat:'social', rating:'4.7', downloads:'378K', mod:'Download Media', badge:'NEW' },
+        { name:'PicsArt Gold', version:'v24.1.0', icon:'https://im5.pandahelp.vip/userapp/AppIcon/202307/04/3a598341-2.jpg', cat:'apps', rating:'4.6', downloads:'289K', mod:'Gold Unlocked', badge:'HOT' },
+        { name:'YouTube Music', version:'v7.0.3', icon:'https://im5.pandahelp.vip/adverting/201801/e9f8c058-4.jpg', cat:'streaming', rating:'4.8', downloads:'523K', mod:'No Ads', badge:'HOT' },
+        { name:'Netflix Premium', version:'v11.2.0', icon:'https://im5.pandahelp.vip/panda_android/201906/85f85196-6.jpg', cat:'streaming', rating:'4.7', downloads:'345K', mod:'All Regions', badge:'VIP' },
+        { name:'TikTok Mod', version:'v36.0.1', icon:'https://im5.pandahelp.vip/panda/201904/d938a226-c.jpg', cat:'social', rating:'4.8', downloads:'445K', mod:'No Ads + Download', badge:'HOT' },
+    ];
+
+    let currentApp=null, currentView='discover', searchFilter='all', slideIndex=0, slideInterval=null, toastInterval=null;
+    let totalDownloads = 14847;
+    let ctaTimerInterval = null;
+    let ctaSecondsLeft = 120;
+    let claimPct = 82;
+    let claimDirection = 1;
+    let featuredPaused = false;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const toastData = [
+        { flag:'🇺🇸', name:'James A.', city:'New York, USA', action:'downloaded Pokémon Go Spoofer' },
+        { flag:'🇬🇧', name:'Emily T.', city:'London, UK', action:'unlocked 8 Ball Pool Mod' },
+        { flag:'🇨🇦', name:'Noah B.', city:'Toronto, Canada', action:'downloaded Toca Boca World' },
+        { flag:'🇦🇺', name:'Liam W.', city:'Sydney, Australia', action:'activated Free Fire MAX' },
+        { flag:'🇩🇪', name:'Sophia M.', city:'Berlin, Germany', action:'claimed PUBG Mobile' },
+        { flag:'🇫🇷', name:'Lucas R.', city:'Paris, France', action:'installed Roblox Mod' },
+        { flag:'🇳🇱', name:'Emma V.', city:'Amsterdam, Netherlands', action:'got CapCut Pro' },
+        { flag:'🇸🇪', name:'Erik L.', city:'Stockholm, Sweden', action:'unlocked Clash Royale' },
+        { flag:'🇳🇴', name:'Ingrid H.', city:'Oslo, Norway', action:'downloaded Subway Surfers' },
+        { flag:'🇩🇰', name:'Anders J.', city:'Copenhagen, Denmark', action:'activated Genshin Impact' },
+        { flag:'🇺🇸', name:'Ava M.', city:'Los Angeles, USA', action:'claimed Netflix Premium' },
+        { flag:'🇬🇧', name:'Ethan T.', city:'Manchester, UK', action:'installed Baseball 9' },
+        { flag:'🇨🇦', name:'Olivia W.', city:'Vancouver, Canada', action:'unlocked YouTube Music' },
+        { flag:'🇦🇺', name:'Mia J.', city:'Melbourne, Australia', action:'downloaded Dragon Ball Legends' },
+        { flag:'🇩🇪', name:'Max K.', city:'Munich, Germany', action:'activated Call of Duty Mobile' },
+        { flag:'🇫🇷', name:'Claire D.', city:'Lyon, France', action:'installed PicsArt Gold' },
+        { flag:'🇺🇸', name:'Benjamin D.', city:'Chicago, USA', action:'claimed Clash Royale' },
+        { flag:'🇬🇧', name:'Charlotte B.', city:'Birmingham, UK', action:'downloaded Instagram Pro' },
+        { flag:'🇨🇦', name:'William S.', city:'Montreal, Canada', action:'activated Free Fire MAX' },
+        { flag:'🇦🇺', name:'Zoe H.', city:'Brisbane, Australia', action:'unlocked Roblox Mod' },
+    ];
+
+    function showToast() {
+        const toast = toastData[Math.floor(Math.random()*toastData.length)];
+        const container = document.getElementById('toastContainer');
+        const div = document.createElement('div'); div.className = 'toast';
+        div.innerHTML = `<span class="toast-flag">${toast.flag}</span><span class="toast-info"><strong>${toast.name}</strong> from ${toast.city} ${toast.action}</span>`;
+        container.appendChild(div); setTimeout(() => div.remove(), 5000);
+        if(container.children.length > 3) container.firstElementChild.remove();
+    }
+    function startToasts() { toastInterval = setInterval(showToast, 4000 + Math.random()*3000); showToast(); }
+
+    function updateCountdown() {
+        const now = new Date(); const end = new Date(now); end.setHours(23,59,59,999);
+        const diff = end - now; if(diff <= 0) return;
+        const h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+        document.getElementById('countdownTimer').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+
+    function renderCard(app, showViewers=false) {
+        const badgeClass = app.badge==='HOT'?'badge-hot':app.badge==='NEW'?'badge-new':app.badge==='TRENDING'?'badge-trending':app.badge==='VIP'?'badge-vip':'';
+        const stars = '⭐'.repeat(Math.floor(parseFloat(app.rating)));
+        const viewers = Math.floor(Math.random()*20+5);
+        return `<div class="card" onclick="openAppByName('${app.name.replace(/'/g,"\\'")}')">
+            <div class="card-icon-wrap">
+                ${app.badge?`<div class="card-badge ${badgeClass}">${app.badge}</div>`:''}
+                <div class="card-mod">MOD</div>
+                ${showViewers?`<div class="card-viewers"><span class="eye-dot"></span> ${viewers} viewing</div>`:''}
+                <img src="${app.icon}" alt="${app.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#FF3B30,#d6302b)'">
+            </div>
+            <div class="card-title">${app.name}</div>
+            <div class="card-meta">${app.cat==='games'?'Games':'Apps'} · ${app.version}</div>
+            <div class="card-rating"><span>${stars}</span><span>${app.rating}</span></div>
+        </div>`;
+    }
+
+    function openAppByName(name){ const app=appsData.find(a=>a.name===name); if(app) openApp(app); }
+
+    function updateSlide(){
+        const app=slideApps[slideIndex];
+        const bg = document.getElementById('featuredBg');
+        bg.style.opacity = '0';
+        setTimeout(() => {
+            bg.style.backgroundImage=`url(${app.cover})`;
+            bg.style.opacity = '1';
+        }, 300);
+        document.getElementById('featuredIconImg').src=app.icon;
+        document.getElementById('featuredTitle').textContent=app.name;
+        document.getElementById('featuredDesc').textContent=app.mod;
+        document.getElementById('featuredRating').textContent='⭐ '+app.rating;
+        document.getElementById('featuredScarcity').textContent='⚡ Only '+app.scarcity+' left';
+        document.getElementById('featuredDots').innerHTML=slideApps.map((_,i)=>`<div class="featured-dot ${i===slideIndex?'active':''}" onclick="event.stopPropagation();goToSlide(${i})"></div>`).join('');
+    }
+    function goToSlide(i){ slideIndex=i; updateSlide(); resetSlideTimer(); }
+    function nextSlide(){ if(!featuredPaused){ slideIndex=(slideIndex+1)%slideApps.length; updateSlide(); } }
+    function resetSlideTimer(){ clearInterval(slideInterval); slideInterval=setInterval(nextSlide,4500); }
+
+    function pauseFeatured(){ featuredPaused=true; }
+    function resumeFeatured(){ featuredPaused=false; resetSlideTimer(); }
+
+    function initFeaturedSwipe(){
+        const el = document.getElementById('featuredBanner');
+        el.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            pauseFeatured();
+        }, {passive: true});
+        el.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40){
+                if(dx < -30) slideIndex = (slideIndex+1)%slideApps.length;
+                else if(dx > 30) slideIndex = (slideIndex-1+slideApps.length)%slideApps.length;
+                updateSlide();
+            } else if(Math.abs(dx) < 10 && Math.abs(dy) < 10){
+                openApp(slideApps[slideIndex]);
+            }
+            setTimeout(resumeFeatured, 3000);
+        });
+        el.addEventListener('touchcancel', () => setTimeout(resumeFeatured, 3000));
+    }
+
+    function initActivityFeed(){
+        const list=document.getElementById('activityList');
+        const items = toastData.slice(0,6);
+        list.innerHTML=items.map(a=>`<div class="activity-item"><span class="activity-flag">${a.flag}</span><span class="activity-info"><strong>${a.name}</strong> ${a.action}</span><span class="activity-time">just now</span></div>`).join('');
+        setInterval(()=>{
+            const a=toastData[Math.floor(Math.random()*toastData.length)];
+            list.insertAdjacentHTML('afterbegin',`<div class="activity-item"><span class="activity-flag">${a.flag}</span><span class="activity-info"><strong>${a.name}</strong> ${a.action}</span><span class="activity-time">just now</span></div>`);
+            if(list.children.length>8) list.lastElementChild.remove();
+        },3500+Math.random()*3000);
+    }
+
+    function updateClaimBar(){
+        claimPct += claimDirection * (Math.random()*0.3);
+        if(claimPct >= 94) claimDirection = -1;
+        if(claimPct <= 78) claimDirection = 1;
+        claimPct = Math.round(claimPct);
+        document.getElementById('claimBarFill').style.width = claimPct+'%';
+        document.getElementById('claimBarText').textContent = claimPct+'%';
+        document.getElementById('claimBarPct').textContent = claimPct;
+    }
+
+    function updateLiveStats(){
+        document.getElementById('statDownloads').textContent=Math.floor(Math.random()*50000+120000).toLocaleString();
+        document.getElementById('liveCount').textContent=Math.floor(Math.random()*2000+2000).toLocaleString();
+        document.getElementById('totalDownloadsGlobal').textContent=totalDownloads.toLocaleString();
+    }
+
+    function startCTATimer() {
+        ctaSecondsLeft = 120;
+        const timerEl = document.getElementById('ctaTimer');
+        const timerVal = document.getElementById('ctaTimerValue');
+        timerEl.classList.add('show');
+        if (ctaTimerInterval) clearInterval(ctaTimerInterval);
+        ctaTimerInterval = setInterval(() => {
+            ctaSecondsLeft--;
+            const m = Math.floor(ctaSecondsLeft / 60);
+            const s = ctaSecondsLeft % 60;
+            timerVal.textContent = m + ':' + String(s).padStart(2, '0');
+            if (ctaSecondsLeft <= 30) timerEl.style.color = '#FF3B30';
+            if (ctaSecondsLeft <= 0) { clearInterval(ctaTimerInterval); timerEl.textContent = '⚠️ Link expired. Refresh.'; }
+        }, 1000);
+    }
+
+    function showView(view){
+        document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach((n,i)=>n.classList.toggle('active',(view==='discover'&&i===0)||(view==='apps'&&i===1)||(view==='games'&&i===2)));
+        const map={discover:'view-discover',apps:'view-apps',games:'view-games',search:'view-search',detail:'view-detail'};
+        if(map[view]) document.getElementById(map[view]).classList.add('active');
+        document.getElementById('mainHeader').style.display=(view==='detail'||view==='search')?'none':'flex';
+        document.getElementById('bottomNav').style.display=(view==='detail'||view==='search')?'none':'flex';
+        document.getElementById('homeFooter').style.display=(view==='detail'||view==='search')?'none':'block';
+        document.getElementById('stickyCta').classList.remove('show');
+        document.getElementById('ghostEcosystem').style.display=(view==='detail')?'block':'none';
+        document.getElementById('mod-proof-feed').style.display=(view==='detail')?'block':'none';
+        if(view!=='detail'){ document.getElementById('ctaTimer').classList.remove('show'); if(ctaTimerInterval)clearInterval(ctaTimerInterval); }
+        currentView=view; window.scrollTo(0,0);
+    }
+    function goHome(){ showView('discover'); }
+    function goBack(){ showView('discover'); }
+
+    function openApp(app){
+        currentApp=app;
+        document.getElementById('detail-img').src=app.icon;
+        document.getElementById('detail-name').textContent=app.name;
+        document.getElementById('detail-category').textContent=app.cat==='games'?'Games':'Apps';
+        document.getElementById('detail-rating').textContent='⭐ '+app.rating;
+        document.getElementById('detail-downloads').textContent='⬇️ '+app.downloads;
+        document.getElementById('detail-mod').textContent='✨ '+app.mod;
+        document.getElementById('detail-about').textContent=app.desc||`${app.name} ${app.mod}. Install now with our guide.`;
+        document.getElementById('demoVideoImg').src = app.cover || app.icon;
+        const related=appsData.filter(a=>a.cat===app.cat&&a.name!==app.name).slice(0,5);
+        document.getElementById('related-scroll').innerHTML=related.length?related.map(a=>renderCard(a)).join(''):'';
+        document.getElementById('ctaTimer').classList.remove('show');
+        if(ctaTimerInterval)clearInterval(ctaTimerInterval);
+        showView('detail');
+    }
+
+    function startPreparing(){
+        const screen = document.getElementById('preparingScreen');
+        screen.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('stickyCta').classList.remove('show');
+        startCTATimer();
+        let progress=0;
+        const msgs=[
+            {p:0,t:"Looking for download source..",s:"Connecting to server"},
+            {p:15,t:"Source located! Verifying..",s:"Checking file signatures"},
+            {p:35,t:"Source verified ✓",s:"Generating your mod"},
+            {p:51,t:"Mod package assembled",s:"Optimizing for your device"},
+            {p:68,t:"Safety scan in progress..",s:"Checking for vulnerabilities"},
+            {p:82,t:"Safety verified ✓",s:"Finalizing download link"},
+            {p:95,t:"Almost ready!",s:"Preparing redirect..."},
+            {p:100,t:"Complete! 🎉",s:"Redirecting now..."}
+        ];
+        const interval=setInterval(()=>{
+            progress+=Math.random()*1.2+0.3; if(progress>100)progress=100;
+            const pct=Math.floor(progress);
+            document.getElementById('preparingPercent').textContent=pct+'%';
+            document.getElementById('progressPercent').textContent=pct+'%';
+            document.getElementById('progressFill').style.width=progress+'%';
+            const msg=msgs.slice().reverse().find(m=>progress>=m.p);
+            if(msg){document.getElementById('preparingText').textContent=msg.t;document.getElementById('preparingSub').textContent=msg.s;}
+            if(progress>=100){
+                clearInterval(interval);
+                screen.classList.remove('active');
+                document.body.style.overflow='';
+                showPrestigeBadge(()=>{showBridgeScreen();});
+            }
+        },120);
+    }
+
+    function showPrestigeBadge(callback){
+        totalDownloads+=Math.floor(Math.random()*10)+1;
+        document.getElementById('prestigeNumber').textContent=totalDownloads.toLocaleString();
+        document.getElementById('totalDownloadsGlobal').textContent=totalDownloads.toLocaleString();
+        document.getElementById('prestigeOverlay').classList.add('active');
+        const sn=totalDownloads-50; let cn=sn;
+        const ni=setInterval(()=>{cn+=Math.floor((totalDownloads-cn)/5)+1;if(cn>=totalDownloads){cn=totalDownloads;clearInterval(ni);}document.getElementById('prestigeNumber').textContent=cn.toLocaleString();},50);
+        setTimeout(()=>{document.getElementById('prestigeOverlay').classList.remove('active');if(callback)callback();},2200);
+    }
+
+    function showBridgeScreen(){
+        document.getElementById('bridgeScreen').classList.add('active');
+        let s=5;
+        document.getElementById('bridgeTimer').textContent='0:0'+s;
+        window._bridgeInterval=setInterval(()=>{s--;document.getElementById('bridgeTimer').textContent='0:0'+s;if(s<=0)clearInterval(window._bridgeInterval);},1000);
+    }
+
+    function goToCPA(){
+        if(window._bridgeInterval)clearInterval(window._bridgeInterval);
+        document.getElementById('bridgeScreen').classList.remove('active');
+        window.location.href='YOUR_CPA_LOCKER_URL_HERE';
+    }
+
+    function setFilter(filter,el){ searchFilter=filter; document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); doSearch(); }
+    function doSearch(){
+        const q=document.getElementById('searchInput').value.toLowerCase();
+        let results=appsData.filter(a=>a.name.toLowerCase().includes(q));
+        if(searchFilter==='app') results=results.filter(a=>a.cat!=='games');
+        if(searchFilter==='game') results=results.filter(a=>a.cat==='games');
+        document.getElementById('search-results').innerHTML=results.length?results.map(a=>renderCard(a)).join(''):'<div style="text-align:center;color:var(--text2);margin-top:40px;">No results found</div>';
+    }
+
+    function toggleTheme(){
+        const h=document.documentElement; const d=h.getAttribute('data-theme')==='dark';
+        h.setAttribute('data-theme',d?'light':'dark');
+        localStorage.setItem('theme',d?'light':'dark');
+        document.getElementById('themeToggleBtn').textContent=d?'🌙':'☀️';
+    }
+
+    // ==================== MATRIX CANVAS ====================
+    function initMatrix(){
+        const c=document.getElementById('matrix-canvas');
+        const ctx=c.getContext('2d');
+        c.width=window.innerWidth; c.height=window.innerHeight;
+        const fontSize=14;
+        const cols=Math.floor(c.width/fontSize);
+        const drops=Array(cols).fill(1);
+        const chars='01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'.split('');
+        function draw(){
+            ctx.fillStyle='rgba(10,14,39,0.05)';
+            ctx.fillRect(0,0,c.width,c.height);
+            ctx.fillStyle='rgba(255,59,48,0.15)';
+            ctx.font=fontSize+'px monospace';
+            for(let i=0;i<drops.length;i++){
+                const text=chars[Math.floor(Math.random()*chars.length)];
+                ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+                if(drops[i]*fontSize>c.height&&Math.random()>0.975) drops[i]=0;
+                drops[i]++;
+            }
         }
+        setInterval(draw,50);
+        window.addEventListener('resize',()=>{c.width=window.innerWidth;c.height=window.innerHeight;});
+    }
 
-        setInterval(showNotification, 8000);
+    function initFingerGlow(){
+        const glow=document.getElementById('finger-glow');
+        if(!('ontouchstart' in window)){glow.style.display='none';document.body.style.cursor='auto';return;}
+        document.body.classList.add('touch-device');
+        document.addEventListener('touchmove',(e)=>{const t=e.touches[0];glow.style.left=t.clientX+'px';glow.style.top=t.clientY+'px';glow.classList.add('active');});
+        document.addEventListener('touchend',()=>glow.classList.remove('active'));
+    }
 
-        function initiateSequence() {
-            const user = document.getElementById('target_user').value;
-            if(!user) return alert("Please enter a valid User ID.");
+    function initGyroscope(){
+        if(!window.DeviceOrientationEvent)return;
+        window.addEventListener('deviceorientation',(e)=>{const g=e.gamma||0,b=e.beta||0;const tx=Math.max(-5,Math.min(5,g/10)),ty=Math.max(-5,Math.min(5,(b-45)/10));document.querySelectorAll('.card,.featured').forEach(c=>{c.style.transform=`perspective(1000px) rotateY(${tx}deg) rotateX(${-ty}deg)`;c.style.transition='transform 0.3s ease-out';});});
+    }
 
-            const term = document.getElementById('terminal');
-            term.style.display = 'block';
-            const lines = [
-                "> Establishing connection to US-East Server...",
-                "> Handshaking with Sony/Microsoft API...",
-                "> Found account: " + user,
-                "> Status: Verified Tier-1 Access.",
-                "> Decrypting mod-packages...",
-                "> Injecting scripts to local memory...",
-                "> Finalizing encryption... 99%",
-                "> ACTION REQUIRED: Complete verification to finish."
-            ];
+    function initCtaAura(){
+        const btn=document.getElementById('detailCtaBtn'),aura=document.getElementById('ctaAura');
+        if(!btn||!aura)return;
+        btn.addEventListener('mousemove',(e)=>{const r=btn.getBoundingClientRect();aura.style.left=(e.clientX-r.left)+'px';aura.style.top=(e.clientY-r.top)+'px';aura.classList.add('visible');});
+        btn.addEventListener('mouseleave',()=>aura.classList.remove('visible'));
+        btn.addEventListener('touchstart',()=>aura.classList.add('visible'));
+        btn.addEventListener('touchend',()=>setTimeout(()=>aura.classList.remove('visible'),500));
+    }
 
-            let i = 0;
-            const interval = setInterval(() => {
-                term.innerHTML += lines[i] + "<br>";
-                term.scrollTop = term.scrollHeight;
-                i++;
-                if(i >= lines.length) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        // ضع رابط الـ CPA الخاص بك هنا
-                        window.location.href = "YOUR_CPA_LINK_HERE";
-                    }, 1000);
-                }
-            }, 700);
+    class ScrollSeducer{
+        constructor(config={}){
+            this.config={ctaSelector:'#detailCtaBtn',particleColor:'#ff6666',particleCount:50};
+            this.canvas=null;this.ctx=null;this.particles=[];this.ctaElement=null;this.mousePos={x:-100,y:-100};this.init();
         }
+        init(){
+            this.ctaElement=document.querySelector(this.config.ctaSelector);
+            if(!this.ctaElement){setTimeout(()=>this.init(),1000);return;}
+            this.canvas=document.getElementById('scroll-seducer-canvas');this.ctx=this.canvas.getContext('2d');
+            this.resize();window.addEventListener('resize',()=>this.resize());this.createParticles();this.animate();
+            document.addEventListener('mousemove',(e)=>{this.mousePos={x:e.clientX,y:e.clientY};});
+            document.addEventListener('touchmove',(e)=>{if(e.touches[0])this.mousePos={x:e.touches[0].clientX,y:e.touches[0].clientY};});
+        }
+        resize(){this.canvas.width=window.innerWidth;this.canvas.height=window.innerHeight;}
+        createParticles(){for(let i=0;i<this.config.particleCount;i++)this.particles.push({x:Math.random()*this.canvas.width,y:Math.random()*this.canvas.height,size:Math.random()*2.5+0.8,speed:Math.random()*0.3+0.05,opacity:Math.random()*0.4+0.2,angle:Math.random()*Math.PI*2,wander:Math.random()*0.04});}
+        animate(){
+            if(!this.ctaElement){requestAnimationFrame(()=>this.animate());return;}
+            const rect=this.ctaElement.getBoundingClientRect();
+            const ctx=rect.left+rect.width/2,cty=rect.top+rect.height/2;
+            this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+            this.particles.forEach(p=>{
+                let tx=ctx,ty=cty;const dm=Math.hypot(p.x-this.mousePos.x,p.y-this.mousePos.y);
+                if(dm<120){tx=this.mousePos.x;ty=this.mousePos.y;}
+                p.angle=Math.atan2(ty-p.y,tx-p.x)+Math.sin(Date.now()*0.0008+p.wander)*0.7;
+                p.x+=Math.cos(p.angle)*p.speed;p.y+=Math.sin(p.angle)*p.speed;
+                if(Math.hypot(p.x-tx,p.y-ty)<20){const e=Math.floor(Math.random()*4);switch(e){case 0:p.x=0;p.y=Math.random()*this.canvas.height;break;case 1:p.x=this.canvas.width;p.y=Math.random()*this.canvas.height;break;case 2:p.x=Math.random()*this.canvas.width;p.y=0;break;case 3:p.x=Math.random()*this.canvas.width;p.y=this.canvas.height;break;}}
+                if(p.opacity>0.01){this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);this.ctx.fillStyle=`rgba(255,100,100,${p.opacity})`;this.ctx.fill();}
+            });
+            requestAnimationFrame(()=>this.animate());
+        }
+    }
+
+    class GhostFlow{
+        constructor(config={}){
+            this.config={productName:"Premium Mod",stockInitial:34,viewersMin:18,viewersMax:45,salesIntervalMin:15000,salesIntervalMax:55000,...config};
+            this.state={stockRemaining:this.config.stockInitial,currentViewers:0,salesToday:0,lastInteraction:Date.now(),userEngagementLevel:0,isUserActive:true};
+            this.elements={};this.init();
+        }
+        init(){this.cacheDomElements();this.startViewerFluctuation();this.startSalesSimulation();this.startStockDepletion();this.trackUserEngagement();}
+        cacheDomElements(){
+            this.elements.stockCounter=document.getElementById('stock-counter-ghost');
+            this.elements.stockBar=document.getElementById('stock-bar-fill-ghost');
+            this.elements.viewerCount=document.getElementById('viewer-count-ghost');
+            this.elements.urgencyMessage=document.getElementById('urgency-message-ghost');
+            this.elements.recentSales=document.getElementById('recent-sales-feed-ghost');
+            this.elements.liveDot=document.getElementById('live-dot-ghost');
+        }
+        startViewerFluctuation(){
+            const u=()=>{if(!this.state.isUserActive)return;const b=Math.floor(Math.sin(Date.now()/32000)*6+Math.random()*10+(this.config.viewersMin+this.config.viewersMax)/2);this.state.currentViewers=Math.min(b+this.state.userEngagementLevel*5,this.config.viewersMax);if(this.elements.viewerCount)this.elements.viewerCount.textContent=this.state.currentViewers;if(this.elements.liveDot)this.elements.liveDot.classList.toggle('pulse-active');};
+            setInterval(u,4000);u();
+        }
+        startSalesSimulation(){
+            const n=["xShadowKiller99","ProGamer_YT","LootMaster22","OneTapQueen","Faze_Clone","NightHawkGaming","EpicModder","DarkSniper_","PixelWarrior","AimbotKing","CrystalSword","VenomGamerTV"];
+            const l=["US East","EU Germany","Brazil","Asia","UK","Middle East","Australia","Canada"];
+            const g=()=>{if(!this.state.isUserActive&&Math.random()>0.3)return;const nm=n[Math.floor(Math.random()*n.length)],lc=l[Math.floor(Math.random()*l.length)],m=Math.floor(Math.random()*7)+1;this.state.salesToday++;if(this.elements.recentSales){const el=document.createElement('div');el.className='ghost-sale-item';el.innerHTML=`<span class="sale-icon-ghost">🟢</span><span><strong>${nm}</strong> downloaded from ${lc}</span><span class="sale-time-ghost">${m} min ago</span>`;this.elements.recentSales.prepend(el);if(this.elements.recentSales.children.length>6)this.elements.recentSales.children[6].remove();el.animate([{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'translateY(0)'}],{duration:400});}setTimeout(g,this.config.salesIntervalMin+Math.random()*(this.config.salesIntervalMax-this.config.salesIntervalMin));};
+            setTimeout(g,4000+Math.random()*7000);
+        }
+        startStockDepletion(){
+            const d=()=>{if(this.state.stockRemaining<=3)return;const r=0.3+this.state.userEngagementLevel*0.5;this.state.stockRemaining-=(Date.now()-this.state.lastInteraction<12000)?r*2:r*0.2;this.state.stockRemaining=Math.max(3,Math.round(this.state.stockRemaining));if(this.elements.stockCounter)this.elements.stockCounter.textContent=this.state.stockRemaining;if(this.elements.stockBar){const p=(this.state.stockRemaining/this.config.stockInitial)*100;this.elements.stockBar.style.width=p+'%';if(p<25){this.elements.stockBar.style.background='#ff4444';if(this.elements.urgencyMessage){this.elements.urgencyMessage.innerHTML='🚨 <strong>CRITICAL:</strong> Download slots almost gone!';this.elements.urgencyMessage.style.display='block';}}else if(p<50)this.elements.stockBar.style.background='#ffaa00';}setTimeout(d,10000+Math.random()*12000);};
+            setTimeout(d,10000);
+        }
+        trackUserEngagement(){const h=()=>{this.state.lastInteraction=Date.now();};['mousemove','scroll','click','touchmove'].forEach(e=>document.addEventListener(e,h,{passive:true}));const cta=document.querySelector('.btn-start');if(cta)cta.addEventListener('mouseenter',()=>{this.state.userEngagementLevel=3;this.state.lastInteraction=Date.now();});setInterval(()=>{this.state.isUserActive=Date.now()-this.state.lastInteraction<30000;},10000);}
+    }
+
+    class ModProof{
+        constructor(config={}){this.config={targetElementId:'mod-proof-feed',modName:'Mod',updateInterval:7000,...config};this.init();}
+        init(){let c=document.getElementById(this.config.targetElementId);if(!c)return;c.innerHTML=`<div class="mod-proof-container"><div class="mod-proof-header"><span>🟢</span><span>Live Proof Feed</span><span class="proof-badge-mod">ACTIVE</span></div><div id="mod-proof-items"></div></div>`;this.ic=document.getElementById('mod-proof-items');this.startProofCycle();}
+        startProofCycle(){
+            const p=[{name:"xShadowKiller99",action:"activated Mod",detail:"Session: 3 hours | 0 crashes",status:"Stable"},{name:"ProGamer_YT",action:"unlocked all features",detail:"No ban | Working perfectly",status:"Undetected"},{name:"LootMaster22",action:"bypassed anti-cheat",detail:"3 accounts | 0 bans",status:"Undetected"},{name:"OneTapQueen",action:"installed successfully",detail:"2 min install | Works",status:"Stable"}];
+            let i=0;const a=()=>{const pp=p[i%p.length];const el=document.createElement('div');el.className='mod-proof-item';el.innerHTML=`<span class="proof-item-name-mod">${pp.name}</span><span>${pp.action}</span><div class="proof-item-detail-mod"><span>${pp.detail}</span><span class="proof-item-status-mod">● ${pp.status}</span></div><span class="proof-item-time-mod">Just now</span>`;this.ic.prepend(el);if(this.ic.children.length>5)this.ic.children[5].remove();Array.from(this.ic.children).forEach((e,idx)=>{if(idx>0){const t=e.querySelector('.proof-item-time-mod');if(t)t.textContent=`${Math.floor(Math.random()*8)+1} min ago`;}});i++;};
+            for(let j=0;j<3;j++)setTimeout(()=>a(),j*350);setInterval(a,this.config.updateInterval);
+        }
+    }
+
+    function checkMemento(){
+        const lv=localStorage.getItem('ooqlemod_last_visit'),la=localStorage.getItem('ooqlemod_last_app'),now=Date.now();
+        if(lv&&(now-parseInt(lv))<86400000&&la){setTimeout(()=>{const t=document.createElement('div');t.className='memento-toast';t.innerHTML=`👋 Welcome back! Your download of <strong>${la}</strong> is still waiting.`;document.body.appendChild(t);setTimeout(()=>t.remove(),3500);},1500);}
+        localStorage.setItem('ooqlemod_last_visit',now);if(currentApp)localStorage.setItem('ooqlemod_last_app',currentApp.name);
+    }
+
+    class TikTokBreakMobileGuard{
+        constructor(config={}){
+            this.config={
+                tutorialTitle:'📱 Open in Your Browser',tutorialSubtitle:'TikTok limits this page. Open in Chrome or Safari.',
+                step1Text:'Tap the menu button (⋯)',step2Text:'Select "Open in Browser"',step3Text:"You're all set!",
+                desktopTitle:'Mobile Device Not Detected',desktopMessage:'This website can only be accessed from a mobile device.',
+                desktopHowTo:'How to Access',desktopStep1:'Visit from Mobile',desktopStep2:'Type this URL in your mobile browser',
+                desktopAppNote:'This app is optimized for mobile devices only',...config
+            };this.init();
+        }
+        init(){const d=this.detectEnvironment();if(d.isDesktop)this.showDesktopBlock();else if(d.isTikTok)this.showTikTokTutorial();}
+        detectEnvironment(){
+            const ua=navigator.userAgent||'',p=navigator.platform||'';let s=0;
+            if(/Windows NT|Macintosh|Linux|X11|CrOS/i.test(ua))s++;
+            if(/Win32|Win64|MacIntel|Linux x86_64|Linux i686/.test(p))s++;
+            if(!('ontouchstart' in window||navigator.maxTouchPoints>0))s++;
+            if(window.screen.width>=1024&&window.screen.height>=768)s++;
+            if(window.screen.width>window.screen.height)s++;
+            return{isDesktop:s>=3,isTikTok:/TikTok|Bytedance/i.test(ua)||(ua.includes('Android')&&ua.includes('wv')&&document.referrer.includes('tiktok'))};
+        }
+        showDesktopBlock(){
+            document.body.innerHTML=`<div id="mobile-guard-overlay"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:30px;color:#fff;font-family:Inter,sans-serif;background:#000;"><div class="mobile-guard-icon-outer"><div class="mobile-guard-icon-inner"></div></div><h1 class="mobile-guard-title-mg">${this.config.desktopTitle}</h1><p class="mobile-guard-message-mg">${this.config.desktopMessage}</p><p class="mobile-guard-access-title-mg">${this.config.desktopHowTo}</p><div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">1</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep1}</div></div><div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">2</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep2}</div></div><p class="mobile-guard-app-note-mg">${this.config.desktopAppNote}</p></div></div>`;
+        }
+        showTikTokTutorial(){
+            const su=window.location.hostname+window.location.pathname;
+            document.body.innerHTML=`<div id="tiktok-tutorial-overlay"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:25px;color:#fff;font-family:Inter,sans-serif;background:#000;"><div class="browser-mockup"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url-bar">🔒 ${su}</div></div><h1 class="tutorial-title-tt">${this.config.tutorialTitle}</h1><p class="tutorial-subtitle-tt">${this.config.tutorialSubtitle}</p><div class="tutorial-steps-tt"><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">1</div><div><div class="tutorial-step-text-tt">${this.config.step1Text}</div><div class="tutorial-step-hint-tt">Look for three dots (⋯) in the top right corner</div></div></div><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">2</div><div><div class="tutorial-step-text-tt">${this.config.step2Text}</div><div class="tutorial-step-hint-tt">Choose Chrome, Safari, or your default browser</div></div></div><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">3</div><div><div class="tutorial-step-text-tt">${this.config.step3Text}</div><div class="tutorial-step-hint-tt">The page will reload automatically</div></div></div></div><button class="tutorial-retry-btn-tt" onclick="window.location.reload()">🔄 I've Opened in Browser - Reload</button><p class="tutorial-footer-tt">Already in browser? <a href="#" onclick="window.location.reload()">Tap to refresh</a></p></div>`;
+        }
+    }
+
+    function initAll(){
+        initMatrix();
+        (function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark');document.getElementById('themeToggleBtn').textContent=(localStorage.getItem('theme')==='light')?'☀️':'🌙';})();
+        updateSlide();resetSlideTimer();initFeaturedSwipe();startToasts();initActivityFeed();
+        document.getElementById('trending-scroll').innerHTML=appsData.filter(a=>a.cat==='games').slice(0,6).map(a=>renderCard(a,true)).join('');
+        document.getElementById('new-apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').slice(0,4).map(a=>renderCard(a)).join('');
+        document.getElementById('apps-grid').innerHTML=appsData.filter(a=>a.cat!=='games').map(a=>renderCard(a)).join('');
+        document.getElementById('games-grid').innerHTML=appsData.filter(a=>a.cat==='games').map(a=>renderCard(a,true)).join('');
+        doSearch();
+        updateLiveStats();setInterval(updateLiveStats,6000);
+        updateCountdown();setInterval(updateCountdown,1000);
+        updateClaimBar();setInterval(updateClaimBar,8000);
+
+        window.addEventListener('scroll',()=>{
+            document.getElementById('btnBackTop').classList.toggle('show',window.scrollY>300);
+            document.getElementById('stickyCta').classList.toggle('show',currentView==='detail'&&window.scrollY>200);
+        });
+
+        initFingerGlow();initGyroscope();setTimeout(initCtaAura,1500);checkMemento();
+        window.ghostFlow=new GhostFlow({productName:"Premium Mod",stockInitial:34,viewersMin:18,viewersMax:45});
+        new ModProof({modName:'ooQleMod',updateInterval:7000});
+        new ScrollSeducer({ctaSelector:'#detailCtaBtn',particleColor:'#ff6666',particleCount:50});
+
+        new TikTokBreakMobileGuard({
+            tutorialTitle:'📱 Open in Your Browser',tutorialSubtitle:'TikTok limits this page. Open in Chrome or Safari.',
+            step1Text:'Tap the menu (⋯)',step2Text:'Select "Open in Browser"',step3Text:"You're all set!",
+            desktopTitle:'Mobile Device Not Detected',desktopMessage:'This website can only be accessed from a mobile device.',
+            desktopHowTo:'How to Access',desktopStep1:'Visit from Mobile',desktopStep2:'Type this URL in your mobile browser',
+            desktopAppNote:'This app is optimized for mobile devices only'
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded',initAll);
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('preparingScreen').classList.remove('active');document.getElementById('bridgeScreen').classList.remove('active');document.body.style.overflow='';}});
     </script>
 </body>
 </html>
