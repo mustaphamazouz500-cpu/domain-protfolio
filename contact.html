@@ -3,79 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Contact - ooQleMod</title>
+    <title>Contact — The Palace of Mods</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root[data-theme="dark"]{--bg:#0a0e27;--surface:rgba(20,25,55,0.85);--border:rgba(255,255,255,0.05);--border2:rgba(255,255,255,0.08);--text:#fff;--text2:#b0b8d0;--text3:#6e7590;--accent:#FF3B30;--accent2:#ff5a4f;--success:#00C853;--header-bg:rgba(10,14,39,0.88)}
-        :root[data-theme="light"]{--bg:#f2f3f7;--surface:rgba(255,255,255,0.9);--border:rgba(0,0,0,0.05);--border2:rgba(0,0,0,0.08);--text:#0a0e27;--text2:#3d4560;--text3:#7c83a0;--accent:#d6302b;--accent2:#e8403b;--success:#00a844;--header-bg:rgba(242,243,247,0.88)}
+        :root[data-theme="dark"]{--bg:#0a0a0a;--surface:rgba(17,17,17,0.65);--border:rgba(212,175,55,0.06);--border2:rgba(212,175,55,0.12);--text:#fff;--text2:#b0b0b0;--text3:#777;--accent:#D4AF37;--accent2:#F4D03F;--success:#16A34A;--danger:#DC2626;--font-heading:'Cinzel',serif;--font-body:'Inter',sans-serif}
+        :root[data-theme="light"]{--bg:#faf8f2;--surface:rgba(255,255,255,0.7);--border:rgba(180,150,80,0.1);--border2:rgba(180,150,80,0.18);--text:#1a1a1a;--text2:#4a4a4a;--text3:#888;--accent:#b8941f;--accent2:#d4a830;--success:#15803d;--danger:#b91c1c;--font-heading:'Cinzel',serif;--font-body:'Inter',sans-serif}
         *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-        body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background 0.4s,color 0.4s;display:flex;flex-direction:column;align-items:center}
-        .bg-mesh{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(255,59,48,0.06) 0%,transparent 55%)}
-        .page-container{position:relative;z-index:1;max-width:600px;width:100%;padding:20px 16px 60px}
-        .header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);margin-bottom:20px}
-        .logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px;text-decoration:none;color:var(--text)}
-        .logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#FF3B30,#d6302b);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;font-weight:800;box-shadow:0 4px 16px rgba(255,59,48,0.4)}
-        .back-link{color:var(--accent2);text-decoration:none;font-weight:600;font-size:14px}
-        h1{font-size:28px;font-weight:900;margin-bottom:8px}
-        .subtitle{color:var(--text2);margin-bottom:24px;font-size:14px;line-height:1.5}
-        .form-group{margin-bottom:16px}
-        .form-group label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:var(--text)}
-        .form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;background:var(--surface);border:1px solid var(--border2);border-radius:12px;color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:all 0.3s}
-        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(255,59,48,0.1)}
+        body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background 0.4s,color 0.4s}
+        .ambient-glow-top{position:fixed;top:-300px;right:-300px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,0.08) 0%,transparent 70%);pointer-events:none;z-index:0;animation:floatGlow 8s ease-in-out infinite}
+        .ambient-glow-bottom{position:fixed;bottom:-300px;left:-300px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;animation:floatGlow 10s ease-in-out infinite reverse}
+        @keyframes floatGlow{0%,100%{transform:translate(0,0)}25%{transform:translate(30px,-20px)}50%{transform:translate(-20px,30px)}75%{transform:translate(-30px,-10px)}}
+        #matrix-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+        #particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+        .page-container{position:relative;z-index:1;max-width:620px;margin:0 auto;padding:20px 16px 60px}
+        .header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;margin:-20px -16px 24px;background:rgba(10,10,10,0.82);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border-bottom:1px solid var(--border);border-radius:0 0 20px 20px;position:sticky;top:0;z-index:10}
+        .logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:15px;text-decoration:none;color:var(--accent);font-family:var(--font-heading);letter-spacing:1px}
+        .logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#D4AF37,#8B7355);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#0a0a0a;font-weight:900;box-shadow:0 4px 20px rgba(212,175,55,0.5)}
+        .back-link{color:var(--accent2);text-decoration:none;font-weight:600;font-size:13px;font-family:var(--font-heading);transition:color 0.3s}.back-link:hover{color:var(--accent)}
+        h1{font-size:30px;font-weight:900;margin-bottom:6px;font-family:var(--font-heading);color:var(--accent);background:linear-gradient(to bottom,#F4D03F,#D4AF37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .subtitle{color:var(--text2);margin-bottom:24px;font-size:13px;line-height:1.6}
+        .card{background:var(--surface);backdrop-filter:blur(30px);border:1px solid var(--border);border-radius:18px;padding:20px;margin-bottom:20px;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+        .form-group{margin-bottom:14px}
+        .form-group label{display:block;font-size:12px;font-weight:700;margin-bottom:5px;color:var(--accent);font-family:var(--font-heading);letter-spacing:0.5px}
+        .form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 15px;background:rgba(0,0,0,0.2);border:1px solid var(--border2);border-radius:12px;color:var(--text);font-size:14px;font-family:var(--font-body);outline:none;transition:all 0.3s}
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(212,175,55,0.1)}
         .form-group textarea{min-height:140px;resize:vertical}
-        .btn-submit{width:100%;padding:14px;background:linear-gradient(135deg,#FF3B30,#d6302b);color:#fff;font-size:15px;font-weight:800;border:none;border-radius:12px;cursor:pointer;font-family:inherit;box-shadow:0 8px 24px rgba(255,59,48,0.3);transition:all 0.3s}
-        .btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,59,48,0.4)}
+        .btn-submit{width:100%;padding:14px;background:linear-gradient(135deg,#D4AF37,#8B7355);color:#0a0a0a;font-size:15px;font-weight:800;border:none;border-radius:12px;cursor:pointer;font-family:var(--font-heading);text-transform:uppercase;letter-spacing:1px;box-shadow:0 8px 24px rgba(212,175,55,0.3);transition:all 0.3s;position:relative;overflow:hidden}
+        .btn-submit:hover{box-shadow:0 14px 38px rgba(212,175,55,0.45);transform:translateY(-2px)}
         .btn-submit:active{transform:scale(0.97)}
-        .success-msg{display:none;background:rgba(0,200,83,0.1);border:1px solid rgba(0,200,83,0.3);border-radius:12px;padding:16px;text-align:center;color:var(--success);font-weight:700;margin-top:16px}
+        .btn-submit::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);animation:shimmer 2.5s infinite}
+        @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+        .success-msg{display:none;background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.3);border-radius:14px;padding:16px;text-align:center;color:var(--success);font-weight:700;font-family:var(--font-heading)}
         .success-msg.show{display:block}
-        .contact-info{margin-top:30px;padding:20px;background:var(--surface);border:1px solid var(--border);border-radius:14px}
-        .contact-info h3{font-size:16px;font-weight:800;margin-bottom:12px}
-        .contact-info p{font-size:13px;color:var(--text2);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-        .faq-mini{margin-top:30px}.faq-mini h3{font-size:18px;font-weight:800;margin-bottom:16px}
-        .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:8px;cursor:pointer}
-        .faq-q{font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center}
-        .faq-a{display:none;font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6}
-        .faq-item.open .faq-a{display:block}
-        .footer{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--text3)}
-        .footer a{color:var(--text2);text-decoration:none}
+        .contact-card p{font-size:12px;color:var(--text2);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+        .contact-card p strong{color:var(--accent);font-family:var(--font-heading)}
+        .faq-mini{margin-top:20px}.faq-mini h3{font-size:16px;font-weight:800;margin-bottom:14px;font-family:var(--font-heading);color:var(--accent)}
+        .faq-item{background:var(--surface);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
+        .faq-q{padding:14px 16px;font-weight:700;font-size:13px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.2s}.faq-q:hover{color:var(--accent)}
+        .faq-q .arrow{transition:transform 0.3s;font-size:10px;color:var(--text3)}.faq-item.open .faq-q .arrow{transform:rotate(180deg);color:var(--accent)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease;font-size:12px;color:var(--text2);line-height:1.7;padding:0 16px}.faq-item.open .faq-a{max-height:300px;padding:0 16px 14px}
+        .footer{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--border);font-size:10px;color:var(--text3)}
+        .footer a{color:var(--text2);text-decoration:none;margin:0 6px}.footer a:hover{color:var(--accent)}
         @media(max-width:400px){h1{font-size:24px}}
     </style>
 </head>
 <body>
-    <div class="bg-mesh"></div>
+    <div class="ambient-glow-top"></div>
+    <div class="ambient-glow-bottom"></div>
+    <canvas id="matrix-canvas"></canvas>
+    <canvas id="particles-canvas"></canvas>
     <div class="page-container">
         <div class="header">
-            <a href="index.html" class="logo"><div class="logo-icon">oo</div><span>ooQleMod</span></a>
-            <a href="index.html" class="back-link">← Back to Home</a>
+            <a href="index.html" class="logo"><div class="logo-icon">♔</div><span>The Palace</span></a>
+            <a href="index.html" class="back-link">← Return to Palace</a>
         </div>
-        <h1>📬 Contact Us</h1>
-        <p class="subtitle">Have a question, suggestion, or need help with a mod? Fill out the form below and we'll get back to you within 24 hours.</p>
-        <form id="contactForm" action="https://formspree.io/f/xdaypkly" method="POST">
-            <div class="form-group"><label for="name">Your Name *</label><input type="text" id="name" name="name" placeholder="Enter your full name" required></div>
-            <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
-            <div class="form-group"><label for="subject">Subject *</label><select id="subject" name="subject" required><option value="">Select a topic...</option><option value="mod-request">Mod Request</option><option value="download-issue">Download Issue</option><option value="app-not-working">App Not Working</option><option value="account-help">Account / License Help</option><option value="dmca">DMCA / Copyright</option><option value="other">Other</option></select></div>
-            <div class="form-group"><label for="message">Your Message *</label><textarea id="message" name="message" placeholder="Describe your issue or question in detail..." required></textarea></div>
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://yourdomain.com/contact.html?sent=1">
-            <button type="submit" class="btn-submit">✉️ Send Message</button>
-            <div class="success-msg" id="successMsg">✅ Your message has been sent successfully! We'll reply within 24 hours.</div>
-        </form>
-        <div class="contact-info">
-            <h3>📋 Other Ways to Reach Us</h3>
-            <p>📧 Email: support@ooqlemod.com</p>
-            <p>⏰ Response Time: Within 24 hours</p>
-            <p>🌍 Available: Monday - Saturday</p>
-            <p style="margin-top:8px;font-size:12px;color:var(--text3);">For DMCA takedown requests, please use our <a href="dmca.html" style="color:var(--accent2);">DMCA page</a>.</p>
+        <h1>📬 Contact the Royal Court</h1>
+        <p class="subtitle">Have a question, suggestion, or need help with a mod? Send word to the Royal Curator. We reply within 24 hours.</p>
+        <div class="card">
+            <form id="contactForm" action="https://formspree.io/f/xdaypkly" method="POST">
+                <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Enter your full name" required></div>
+                <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
+                <div class="form-group"><label for="subject">Subject</label><select id="subject" name="subject" required><option value="">Select a topic...</option><option value="mod-request">Mod Request</option><option value="download-issue">Download Issue</option><option value="app-not-working">App Not Working</option><option value="account-help">Account / License Help</option><option value="dmca">DMCA / Copyright</option><option value="other">Other</option></select></div>
+                <div class="form-group"><label for="message">Your Message</label><textarea id="message" name="message" placeholder="Describe your issue or question in detail..." required></textarea></div>
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://yourdomain.com/contact.html?sent=1">
+                <button type="submit" class="btn-submit">⚜️ Send Message to the Court</button>
+                <div class="success-msg" id="successMsg">✅ Your message has been delivered to the Royal Court. We'll reply within 24 hours.</div>
+            </form>
+        </div>
+        <div class="card contact-card">
+            <h3 style="font-family:var(--font-heading);color:var(--accent);margin-bottom:12px;">📋 Other Ways to Reach the Palace</h3>
+            <p><strong>📧 Email:</strong> support@thepalaceofmods.com</p>
+            <p><strong>⏰ Response:</strong> Within 24 hours</p>
+            <p><strong>🌍 Available:</strong> Monday - Saturday</p>
+            <p style="margin-top:8px;font-size:11px;color:var(--text3);">For DMCA takedown requests, please use our <a href="dmca.html" style="color:var(--accent)">DMCA page</a>.</p>
         </div>
         <div class="faq-mini">
             <h3>🙋 Quick Answers</h3>
-            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How long does it take to get a reply? <span>▼</span></div><div class="faq-a">We typically respond within 12-24 hours.</div></div>
-            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I request a specific mod? <span>▼</span></div><div class="faq-a">Yes! Select "Mod Request" in the subject.</div></div>
-            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What if my download doesn't work? <span>▼</span></div><div class="faq-a">Select "Download Issue" and describe the problem.</div></div>
+            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How long does it take to get a reply? <span class="arrow">▼</span></div><div class="faq-a">The Royal Curator typically responds within 12-24 hours.</div></div>
+            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I request a specific mod? <span class="arrow">▼</span></div><div class="faq-a">Yes! Select "Mod Request" in the subject above.</div></div>
+            <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What if my download doesn't work? <span class="arrow">▼</span></div><div class="faq-a">Select "Download Issue" and describe the problem. We'll help immediately.</div></div>
         </div>
         <div class="footer">
-            <p>© 2026 ooQleMod. All rights reserved.</p>
+            <p>© 2026 The Palace of Mods. All rights reserved.</p>
             <p><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="faq.html">FAQ</a> · <a href="dmca.html">DMCA</a></p>
         </div>
     </div>
@@ -83,6 +94,10 @@
         const urlParams=new URLSearchParams(window.location.search);
         if(urlParams.get('sent')==='1'){document.getElementById('successMsg').classList.add('show');document.getElementById('contactForm').style.display='none';}
         (function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark')})();
+        // Matrix Canvas
+        (function(){const c=document.getElementById('matrix-canvas'),ctx=c.getContext('2d');c.width=window.innerWidth;c.height=window.innerHeight;const f=14,cols=Math.floor(c.width/f),drops=Array(cols).fill(1);const ch='01ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ♔♕⚜'.split('');function draw(){ctx.fillStyle='rgba(10,10,10,0.03)';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='rgba(212,175,55,0.1)';ctx.font=f+'px monospace';for(let i=0;i<drops.length;i++){const t=ch[Math.floor(Math.random()*ch.length)];ctx.fillText(t,i*f,drops[i]*f);if(drops[i]*f>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++;}}setInterval(draw,50);window.addEventListener('resize',()=>{c.width=window.innerWidth;c.height=window.innerHeight})})();
+        // Particles
+        (function(){const c=document.getElementById('particles-canvas'),ctx=c.getContext('2d');c.width=window.innerWidth;c.height=window.innerHeight;const ps=Array.from({length:50},()=>({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-0.5)*0.25,vy:(Math.random()-0.5)*0.25,size:Math.random()*2+0.5,opacity:Math.random()*0.35+0.1}));let mx=-200,my=-200;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});function draw(){ctx.clearRect(0,0,c.width,c.height);ps.forEach(p=>{const dx=mx-p.x,dy=my-p.y,dist=Math.hypot(dx,dy);if(dist<180){p.vx+=dx*0.0002;p.vy+=dy*0.0002}p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.width)p.vx*=-1;if(p.y<0||p.y>c.height)p.vy*=-1;p.vx*=0.999;p.vy*=0.999;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fillStyle=`rgba(212,175,55,${p.opacity})`;ctx.fill()});requestAnimationFrame(draw)}draw();window.addEventListener('resize',()=>{c.width=window.innerWidth;c.height=window.innerHeight})})();
     </script>
 </body>
 </html>
