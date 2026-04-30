@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root[data-theme="dark"] {
-            --bg: #0a0e27; --bg2: #0f1335; --surface: rgba(20, 25, 55, 0.7);
-            --surface2: rgba(30, 36, 70, 0.8); --border: rgba(255,255,255,0.06);
+            --bg: #0a0e27; --bg2: #0f1335; --surface: rgba(20, 25, 55, 0.65);
+            --surface2: rgba(28, 34, 70, 0.85); --border: rgba(255,255,255,0.05);
             --border2: rgba(255,255,255,0.1); --text: #ffffff; --text2: #b0b8d0;
             --text3: #6e7590; --accent: #FF3B30; --accent2: #ff5a4f;
             --accent-glow: rgba(255,59,48,0.35); --mod: #6366f1; --mod-glow: rgba(99,102,241,0.4);
             --success: #00C853; --warning: #FF9500; --danger: #FF3B30;
-            --gold: #FFD60A; --header-bg: rgba(10,14,39,0.8); --nav-bg: rgba(10,14,39,0.85);
+            --gold: #FFD60A; --header-bg: rgba(10,14,39,0.78); --nav-bg: rgba(10,14,39,0.85);
             --card-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
             --featured-shadow: 0 24px 60px rgba(0,0,0,0.6);
         }
@@ -27,7 +27,7 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); overflow-x: hidden; min-height: 100vh;
-            -webkit-font-smoothing: antialiased; line-height: 1.5; cursor: none;
+            -webkit-font-smoothing: antialiased; line-height: 1.5;
             animation: bgBreath 10s ease-in-out infinite;
         }
         @keyframes bgBreath {
@@ -36,17 +36,15 @@
         }
         body.touch-device { cursor: auto; }
 
-        /* FINGER GLOW */
         #finger-glow {
             position: fixed; pointer-events: none; z-index: 10000;
             width: 80px; height: 80px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
             transform: translate(-50%, -50%); opacity: 0;
             transition: opacity 0.4s ease;
         }
         #finger-glow.active { opacity: 1; }
 
-        /* BREATHING BG MESH */
         .bg-mesh {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;
             animation: meshBreath 12s ease-in-out infinite;
@@ -62,7 +60,6 @@
 
         .app-container { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; min-height: 100vh; padding-bottom: 160px; }
 
-        /* HEADER */
         .header {
             position: sticky; top: 0; z-index: 100; display: flex; align-items: center;
             justify-content: space-between; padding: 12px 16px;
@@ -86,7 +83,6 @@
         .live-counter .pulse-dot { width: 6px; height: 6px; background: var(--success); border-radius: 50%; animation: pulseDotSoft 2s infinite; }
         @keyframes pulseDotSoft { 0%,100% { box-shadow: 0 0 0 0 rgba(0,200,83,0.5); } 50% { box-shadow: 0 0 0 12px transparent; } }
 
-        /* COUNTDOWN BAR */
         .countdown-bar {
             background: linear-gradient(90deg, rgba(255,59,48,0.2), rgba(255,149,0,0.2));
             backdrop-filter: blur(20px); border: 1px solid rgba(255,59,48,0.2);
@@ -101,7 +97,6 @@
         }
         .countdown-bar .timer { background: rgba(0,0,0,0.4); padding: 3px 12px; border-radius: 20px; font-size: 13px; font-weight: 800; }
 
-        /* TOAST */
         .toast-container {
             position: fixed; bottom: 150px; left: 10px; z-index: 300;
             display: flex; flex-direction: column; gap: 8px; pointer-events: none;
@@ -116,10 +111,9 @@
         }
         @keyframes toastGentleIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes toastGentleOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-10px); } }
-        .toast-flag { font-size: 22px; flex-shrink: 0; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+        .toast-flag { font-size: 22px; flex-shrink: 0; }
         .toast-info strong { color: var(--success); }
 
-        /* VIEWS */
         .view { display: none; padding: 0 14px; }
         .view.active { display: block; animation: viewCinematicIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes viewCinematicIn {
@@ -127,16 +121,13 @@
             to { opacity: 1; transform: scale(1); filter: blur(0); }
         }
 
-        /* FEATURED */
-        .featured-wrapper { position: relative; margin-top: 10px; perspective: 1000px; }
+        .featured-wrapper { position: relative; margin-top: 10px; }
         .featured {
             position: relative; border-radius: 24px; overflow: hidden;
             height: 250px; cursor: pointer;
             box-shadow: var(--featured-shadow), 0 0 80px rgba(99,102,241,0.08);
             border: 1px solid var(--border2);
             backdrop-filter: blur(10px);
-            transform-style: preserve-3d;
-            transition: transform 0.3s ease;
         }
         .featured-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: background-image 0.8s ease; }
         .featured-bg::after {
@@ -147,7 +138,7 @@
             position: absolute; top: 14px; left: 14px; z-index: 3;
             width: 50px; height: 50px; border-radius: 16px; overflow: hidden;
             border: 2px solid rgba(255,255,255,0.5); box-shadow: 0 12px 28px rgba(0,0,0,0.6);
-            background: #fff; backdrop-filter: blur(10px);
+            background: #fff;
         }
         .featured-app-icon img { width: 100%; height: 100%; object-fit: cover; }
         .featured-dots { display: flex; gap: 6px; position: absolute; top: 70px; right: 14px; z-index: 3; }
@@ -172,9 +163,8 @@
             color: var(--danger); padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700;
             margin-left: auto; animation: softPulse 2.5s infinite; border: 1px solid rgba(255,59,48,0.2);
         }
-        @keyframes softPulse { 0%,100% { opacity: 0.8; } 50% { opacity: 1; } }
+        @keyframes softPulse { 0%,100% { opacity: 0.85; } 50% { opacity: 1; } }
 
-        /* CLAIM BAR */
         .claim-bar {
             background: var(--surface); backdrop-filter: blur(30px);
             border: 1px solid var(--border); border-radius: 16px;
@@ -188,7 +178,6 @@
             border-radius: 3px; width: 83%; transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* ACTIVITY */
         .activity-feed {
             background: var(--surface); backdrop-filter: blur(30px);
             border: 1px solid var(--border); border-radius: 18px;
@@ -211,7 +200,6 @@
         .activity-flag { font-size: 16px; }
         .activity-time { font-size: 9px; color: var(--text3); margin-left: auto; }
 
-        /* STATS */
         .stats-bar {
             display: flex; justify-content: space-around;
             background: var(--surface); backdrop-filter: blur(30px);
@@ -221,13 +209,10 @@
         .stat-val { font-size: 17px; font-weight: 800; background: linear-gradient(135deg, #FF3B30, #FF9500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .stat-lbl { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 
-        /* SECTION HEADERS */
         .section-header { display: flex; justify-content: space-between; align-items: center; margin: 22px 0 10px; }
         .section-title { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 6px; }
-        .section-link { font-size: 12px; color: var(--accent2); text-decoration: none; font-weight: 700; cursor: pointer; transition: color 0.2s; }
-        .section-link:hover { color: #fff; }
+        .section-link { font-size: 12px; color: var(--accent2); text-decoration: none; font-weight: 700; cursor: pointer; }
 
-        /* CARDS */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .card {
             background: var(--surface); backdrop-filter: blur(30px);
@@ -235,7 +220,6 @@
             padding: 10px; cursor: pointer;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative; box-shadow: var(--card-shadow);
-            transform-style: preserve-3d;
         }
         .card:active { transform: scale(0.97); }
         .card-icon-wrap {
@@ -268,15 +252,10 @@
         .card-meta { font-size: 10px; color: var(--text2); margin-bottom: 3px; }
         .card-rating { display: flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 700; }
 
-        /* STAR FIELD */
-        .star-field { position: absolute; pointer-events: none; z-index: 5; }
-        .star-field canvas { width: 100%; height: 100%; }
-
         .h-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; scroll-snap-type: x mandatory; }
         .h-scroll::-webkit-scrollbar { display: none; }
         .h-scroll .card { min-width: 130px; max-width: 135px; flex-shrink: 0; scroll-snap-align: start; }
 
-        /* NAV */
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
             display: flex; justify-content: center; padding: 8px 14px 20px;
@@ -300,7 +279,6 @@
         }
         .nav-item svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-        /* DETAIL */
         .back-btn {
             display: inline-flex; align-items: center; gap: 5px;
             background: var(--surface); backdrop-filter: blur(20px);
@@ -328,6 +306,36 @@
             border: 1px solid rgba(99,102,241,0.2);
         }
 
+        /* DEMO VIDEO SECTION */
+        .demo-video-section {
+            margin-top: 14px; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 12px; text-align: center;
+        }
+        .demo-video-section h3 { font-size: 13px; font-weight: 800; margin-bottom: 8px; color: #00ff66; }
+        .demo-video-thumb {
+            width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;
+            background: #000; position: relative; cursor: pointer;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .demo-video-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .demo-play-btn {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.3);
+        }
+        .demo-play-btn span {
+            width: 50px; height: 50px; background: rgba(255,59,48,0.9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 20px; box-shadow: 0 0 30px rgba(255,59,48,0.5);
+            animation: softPulse 2s infinite;
+        }
+        .demo-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(0,200,83,0.1); color: var(--success);
+            padding: 3px 8px; border-radius: 10px; font-size: 9px; font-weight: 700;
+            margin-top: 8px; border: 1px solid rgba(0,200,83,0.2);
+        }
+
         /* CTA */
         .btn-start {
             width: 100%; margin-top: 18px; padding: 16px; border-radius: 16px;
@@ -338,12 +346,19 @@
             font-family: inherit; position: relative; overflow: hidden;
             text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn-start:active { transform: scale(0.97); box-shadow: 0 4px 12px rgba(255,59,48,0.3); }
+        .btn-start:active { transform: scale(0.97); }
 
-        /* AURA GLOW */
+        /* CTA Timer */
+        .cta-timer {
+            text-align: center; margin-top: 8px; font-size: 11px; color: var(--warning);
+            font-weight: 700; display: none; animation: fadeIn 0.3s ease;
+        }
+        .cta-timer.show { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
         .aura-glow {
             position: absolute; inset: -20px; border-radius: inherit;
-            background: radial-gradient(circle at center, var(--aura-color, rgba(255,59,48,0.3)) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255,59,48,0.3) 0%, transparent 70%);
             opacity: 0; transition: opacity 0.5s ease; pointer-events: none; z-index: -1;
         }
         .aura-glow.visible { opacity: 1; }
@@ -354,6 +369,52 @@
             display: flex; align-items: center; gap: 3px;
             background: rgba(0,200,83,0.08); backdrop-filter: blur(10px);
             padding: 5px 10px; border-radius: 8px; border: 1px solid rgba(0,200,83,0.15);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-section {
+            margin-top: 18px; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 14px;
+        }
+        .testimonial-card {
+            display: flex; gap: 10px; padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            animation: symphonyIn 0.5s ease both;
+        }
+        .testimonial-card:nth-child(1) { animation-delay: 0s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.2s; }
+        .testimonial-card:last-child { border-bottom: none; }
+        .testimonial-avatar {
+            width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; background: var(--bg2);
+        }
+        .testimonial-content { flex: 1; }
+        .testimonial-name { font-size: 11px; font-weight: 700; color: var(--text); }
+        .testimonial-text { font-size: 10px; color: var(--text2); line-height: 1.5; margin-top: 2px; font-style: italic; }
+        .testimonial-time { font-size: 9px; color: var(--text3); margin-top: 3px; }
+
+        /* CREATOR CARD */
+        .creator-card {
+            margin-top: 18px; background: var(--surface); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 14px; display: flex; gap: 12px; align-items: center;
+        }
+        .creator-avatar {
+            width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;
+            background: linear-gradient(135deg, #FF3B30, #FF9500);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; box-shadow: 0 8px 20px rgba(255,59,48,0.3);
+        }
+        .creator-info h3 { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+        .creator-info p { font-size: 10px; color: var(--text2); line-height: 1.5; }
+        .creator-badge {
+            display: inline-flex; align-items: center; gap: 3px;
+            background: rgba(0,200,83,0.1); color: var(--success);
+            padding: 2px 7px; border-radius: 6px; font-size: 9px; font-weight: 700;
+            margin-top: 4px; border: 1px solid rgba(0,200,83,0.2);
         }
 
         /* STICKY CTA */
@@ -374,17 +435,35 @@
             flex-direction: column; align-items: center; justify-content: center;
             text-align: center; padding: 30px;
         }
-        .preparing-screen.active { display: flex; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .echo-canvas { width: 200px; height: 200px; margin-bottom: 20px; }
+        .preparing-screen.active { display: flex; }
+        .echo-canvas { width: 180px; height: 180px; margin-bottom: 18px; }
         .preparing-text { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
         .preparing-sub { font-size: 12px; color: var(--text2); max-width: 260px; }
 
-        /* PRESTIGE BADGE */
+        /* BRIDGE SCREEN */
+        .bridge-screen {
+            position: fixed; inset: 0; z-index: 220; display: none;
+            flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 30px;
+            background: rgba(10,14,39,0.95); backdrop-filter: blur(30px);
+        }
+        .bridge-screen.active { display: flex; }
+        .bridge-icon { font-size: 60px; margin-bottom: 16px; animation: softPulse 2s infinite; }
+        .bridge-title { font-size: 20px; font-weight: 900; margin-bottom: 8px; color: #fff; }
+        .bridge-sub { font-size: 13px; color: var(--text2); margin-bottom: 20px; max-width: 300px; line-height: 1.5; }
+        .bridge-timer { font-size: 42px; font-weight: 900; color: var(--accent); margin-bottom: 16px; }
+        .bridge-btn {
+            padding: 14px 30px; background: var(--success); color: #000;
+            border: none; border-radius: 12px; font-size: 15px; font-weight: 800;
+            cursor: pointer; font-family: inherit;
+        }
+        .bridge-btn:active { transform: scale(0.97); }
+
+        /* PRESTIGE */
         .prestige-overlay {
             position: fixed; inset: 0; z-index: 250; display: none;
             align-items: center; justify-content: center;
-            background: rgba(10,14,39,0.8); backdrop-filter: blur(20px);
+            background: rgba(10,14,39,0.85); backdrop-filter: blur(20px);
         }
         .prestige-overlay.active { display: flex; }
         .prestige-seal {
@@ -403,7 +482,6 @@
         .prestige-number { font-size: 36px; line-height: 1; }
         .prestige-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
 
-        /* BACK TO TOP */
         .btn-back-top {
             position: fixed; bottom: 140px; right: 14px; z-index: 90;
             width: 40px; height: 40px; border-radius: 50%;
@@ -413,9 +491,7 @@
             font-size: 16px; transition: all 0.3s;
         }
         .btn-back-top.show { display: flex; }
-        .btn-back-top:active { background: var(--accent); color: #fff; }
 
-        /* SEARCH */
         .search-bar {
             margin-top: 10px; background: var(--surface); backdrop-filter: blur(20px);
             border: 1px solid var(--border); border-radius: 16px;
@@ -433,12 +509,10 @@
         }
         .filter-chip.active { background: #FF3B30; color: #fff; border-color: #FF3B30; }
 
-        /* FOOTER */
         .footer { text-align: center; padding: 24px 14px 30px; font-size: 10px; color: var(--text3); border-top: 1px solid var(--border); margin-top: 20px; }
         .footer-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
         .footer-links a { color: var(--text2); text-decoration: none; font-weight: 500; }
 
-        /* GHOSTFLOW + MODPROOF */
         .ghost-ecosystem { margin: 14px 0; }
         .live-indicator-ghost {
             display: flex; align-items: center; gap: 10px;
@@ -447,14 +521,14 @@
             margin-bottom: 8px; font-size: 12px; font-weight: 600;
             border: 1px solid var(--border);
         }
-        .live-dot-ghost { width: 8px; height: 8px; background: #ff0000; border-radius: 50%; display: inline-block; }
+        .live-dot-ghost { width: 8px; height: 8px; background: #ff0000; border-radius: 50%; }
         .live-dot-ghost.pulse-active { animation: dotPulseGhost 1.5s infinite; }
         @keyframes dotPulseGhost { 0%,100% { box-shadow: 0 0 0 0 rgba(255,0,0,0.6); } 50% { box-shadow: 0 0 20px 10px transparent; } }
         .stock-indicator-ghost { margin: 10px 0; }
         .stock-bar-ghost { height: 7px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
         .stock-bar-fill-ghost { height: 100%; width: 100%; background: #00ff66; transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s; border-radius: 4px; }
         .stock-text-ghost { margin-top: 5px; font-size: 11px; color: #ff6666; font-weight: 600; }
-        .urgency-message-ghost { display: none; background: rgba(255,0,0,0.06); border: 1px solid rgba(255,0,0,0.2); border-radius: 10px; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #ff4444; font-weight: 700; backdrop-filter: blur(10px); }
+        .urgency-message-ghost { display: none; background: rgba(255,0,0,0.06); border: 1px solid rgba(255,0,0,0.2); border-radius: 10px; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #ff4444; font-weight: 700; }
         .sales-feed-ghost { background: var(--surface); backdrop-filter: blur(20px); border-radius: 12px; padding: 10px; max-height: 180px; overflow-y: auto; font-size: 10px; border: 1px solid var(--border); margin-top: 8px; }
         .ghost-sale-item { padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.03); display: flex; align-items: center; gap: 7px; font-weight: 500; }
         .sale-time-ghost { color: var(--text3); margin-left: auto; font-size: 9px; }
@@ -478,29 +552,22 @@
         #tiktok-tutorial-overlay, #mobile-guard-overlay {
             position: fixed; inset: 0; z-index: 1000000; background: #000;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 25px 20px; box-sizing: border-box; animation: fadeIn 0.35s ease;
+            padding: 25px 20px; box-sizing: border-box;
         }
         .browser-mockup { width: 100%; max-width: 380px; background: #1c1c1e; border-radius: 14px 14px 0 0; padding: 10px 14px; margin-bottom: 22px; border: 1px solid #333; }
         .browser-dots { display: flex; gap: 5px; margin-bottom: 8px; }
         .browser-dot { width: 9px; height: 9px; border-radius: 50%; background: #444; }
         .browser-dot.red { background: #ff5f57; } .browser-dot.yellow { background: #ffbd2e; } .browser-dot.green { background: #28c840; }
-        .browser-url-bar { background: #2c2c2e; border-radius: 6px; padding: 6px 10px; color: #8e8e93; font-size: 11px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .browser-url-bar { background: #2c2c2e; border-radius: 6px; padding: 6px 10px; color: #8e8e93; font-size: 11px; text-align: center; }
         .tutorial-title-tt { color: #fff; font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 6px; }
         .tutorial-subtitle-tt { color: #999; font-size: 14px; text-align: center; margin-bottom: 30px; line-height: 1.5; max-width: 280px; }
         .tutorial-steps-tt { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 25px; }
         .tutorial-step-tt { display: flex; align-items: flex-start; gap: 14px; padding: 16px 14px; background: #111; border-radius: 12px; border: 1px solid #222; animation: slideGentle 0.5s ease-out forwards; opacity: 0; }
         .tutorial-step-tt:nth-child(1) { animation-delay: 0.2s; } .tutorial-step-tt:nth-child(2) { animation-delay: 0.55s; } .tutorial-step-tt:nth-child(3) { animation-delay: 0.9s; }
-        .tutorial-step-number-tt { width: 34px; height: 34px; background: #007AFF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; box-shadow: 0 0 16px rgba(0,122,255,0.4); }
+        .tutorial-step-number-tt { width: 34px; height: 34px; background: #007AFF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; }
         .tutorial-step-text-tt { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
         .tutorial-step-hint-tt { color: #888; font-size: 11px; line-height: 1.3; }
-        .tutorial-arrow-indicator-tt { position: fixed; top: 16px; right: 18px; z-index: 1000001; animation: bounceArrow 1s infinite; pointer-events: none; }
-        @keyframes bounceArrow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .tutorial-action-circle-tt { position: fixed; top: 10px; right: 14px; width: 40px; height: 40px; border: 2px solid rgba(255,255,255,0.7); border-radius: 50%; z-index: 1000000; animation: circleHighlight 1.5s infinite; pointer-events: none; }
-        @keyframes circleHighlight { 0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.5); } 50% { box-shadow: 0 0 22px 7px rgba(255,255,255,0); } }
-        .menu-dots-indicator-tt { position: fixed; top: 17px; right: 26px; color: #fff; font-size: 20px; font-weight: 700; z-index: 1000002; animation: fadeDots 2s infinite; pointer-events: none; }
-        @keyframes fadeDots { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
         .tutorial-retry-btn-tt { width: 100%; max-width: 360px; padding: 14px; background: #007AFF; color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
-        .tutorial-retry-btn-tt:active { background: #0056b3; transform: scale(0.97); }
         .tutorial-footer-tt { margin-top: 15px; color: #666; font-size: 11px; text-align: center; }
         .tutorial-footer-tt a { color: #007AFF; text-decoration: none; }
 
@@ -515,7 +582,6 @@
         .mobile-guard-step-text-mg { color: #ccc; font-size: 13px; }
         .mobile-guard-app-note-mg { color: #666; font-size: 12px; text-align: center; margin-top: 5px; font-style: italic; }
 
-        /* MEMENTO */
         .memento-toast {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 999;
             background: var(--surface2); backdrop-filter: blur(40px);
@@ -528,7 +594,6 @@
         @keyframes mementoIn { from { opacity: 0; transform: translateX(-50%) translateY(-30px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
         @keyframes mementoOut { from { opacity: 1; transform: translateX(-50%) translateY(0); } to { opacity: 0; transform: translateX(-50%) translateY(-10px); } }
 
-        /* PARTICLE CANVAS */
         #scroll-seducer-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9997; }
 
         @media (min-width: 420px) { .featured { height: 280px; } .h-scroll .card { min-width: 140px; max-width: 145px; } }
@@ -593,15 +658,25 @@
                 <div class="activity-list" id="activityList"></div>
             </div>
             <div class="stats-bar">
-                <div style="text-align:center;"><div class="stat-val" id="statDownloads">147K</div><div class="stat-lbl">Downloads</div></div>
-                <div style="text-align:center;"><div class="stat-val">4.9 ★</div><div class="stat-lbl">Rating</div></div>
-                <div style="text-align:center;"><div class="stat-val">99.3%</div><div class="stat-lbl">Safe</div></div>
-                <div style="text-align:center;"><div class="stat-val">24/7</div><div class="stat-lbl">Support</div></div>
+                <div><div class="stat-val" id="statDownloads">147K</div><div class="stat-lbl">Downloads</div></div>
+                <div><div class="stat-val">4.9 ★</div><div class="stat-lbl">Rating</div></div>
+                <div><div class="stat-val">99.3%</div><div class="stat-lbl">Safe</div></div>
+                <div><div class="stat-val">24/7</div><div class="stat-lbl">Support</div></div>
             </div>
             <div class="section-header"><div class="section-title">🔥 Trending Now</div><span class="section-link" onclick="showView('games')">View all →</span></div>
             <div class="h-scroll" id="trending-scroll"></div>
             <div class="section-header"><div class="section-title">✨ New Releases</div><span class="section-link" onclick="showView('apps')">View all →</span></div>
             <div class="grid" id="new-apps-grid"></div>
+
+            <!-- CREATOR CARD -->
+            <div class="creator-card">
+                <div class="creator-avatar">🛠️</div>
+                <div class="creator-info">
+                    <h3>Hey, I'm Alex</h3>
+                    <p>I've been modding games since 2016. Every mod here is tested by me personally. <strong id="totalDownloadsGlobal">14,523</strong> people trust ooQleMod.</p>
+                    <span class="creator-badge">✅ Verified Creator</span>
+                </div>
+            </div>
         </div>
 
         <div class="view" id="view-games">
@@ -642,16 +717,58 @@
                     <div class="mod-features" id="detail-mod">✨ Mod Features</div>
                 </div>
             </div>
+
+            <!-- DEMO VIDEO -->
+            <div class="demo-video-section">
+                <h3>🎬 See It In Action</h3>
+                <div class="demo-video-thumb" id="demoVideoThumb">
+                    <img src="" alt="Demo" id="demoVideoImg">
+                    <div class="demo-play-btn"><span>▶</span></div>
+                </div>
+                <div class="demo-badge">✅ Real footage — recorded 2 days ago</div>
+            </div>
+
             <button class="btn-start" id="detailCtaBtn" onclick="startPreparing()" style="position:relative;">
                 <div class="aura-glow" id="ctaAura"></div>
                 ⚡ Get My Download Now
             </button>
+            <div class="cta-timer" id="ctaTimer">⏳ Link expires in <span id="ctaTimerValue">2:00</span></div>
             <div class="safety-badges" id="safetyBadges">
                 <span class="safety-badge">✅ Verified Safe</span>
                 <span class="safety-badge">🛡️ No Password</span>
                 <span class="safety-badge">🔒 SSL Secure</span>
             </div>
-            <div style="margin-top:18px;">
+
+            <!-- TESTIMONIALS -->
+            <div class="testimonials-section">
+                <h3 style="font-size:13px;font-weight:800;margin-bottom:10px;">💬 What Users Say</h3>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">🇺🇸</div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-name">Mike R. — New York, US</div>
+                        <div class="testimonial-text">"I was skeptical at first but it actually works. No ban after 2 weeks of using Pokémon Go Spoofer. This site is legit."</div>
+                        <div class="testimonial-time">2 weeks ago</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">🇬🇧</div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-name">Sarah K. — London, UK</div>
+                        <div class="testimonial-text">"8 Ball Pool Mod is insane. Long line hack works perfectly. I've recommended this site to all my friends."</div>
+                        <div class="testimonial-time">5 days ago</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">🇧🇷</div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-name">Lucas M. — São Paulo, Brazil</div>
+                        <div class="testimonial-text">"Finally a site that doesn't ask for passwords. Downloaded Free Fire mod, took 2 minutes. Working 100%."</div>
+                        <div class="testimonial-time">3 days ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:16px;">
                 <h3 style="font-size:14px;font-weight:800;">About</h3>
                 <p style="font-size:12px;color:var(--text2);line-height:1.6;" id="detail-about">Description here...</p>
             </div>
@@ -691,6 +808,15 @@
         <div class="preparing-sub" id="preparingSub">Please wait while we generate your mod</div>
     </div>
 
+    <!-- BRIDGE SCREEN -->
+    <div class="bridge-screen" id="bridgeScreen">
+        <div class="bridge-icon">🔐</div>
+        <div class="bridge-title">One Quick Step</div>
+        <div class="bridge-sub">Complete a quick verification to prove you're human and unlock your download. Takes less than 10 seconds.</div>
+        <div class="bridge-timer" id="bridgeTimer">0:05</div>
+        <button class="bridge-btn" id="bridgeBtn" onclick="goToCPA()">✅ Unlock My Download Now</button>
+    </div>
+
     <!-- PRESTIGE BADGE -->
     <div class="prestige-overlay" id="prestigeOverlay">
         <div class="prestige-seal">
@@ -702,12 +828,11 @@
     <canvas id="scroll-seducer-canvas"></canvas>
 
     <script>
-    // ==================== DATA ====================
     const slideApps = [
-        { name:'Pokémon Go Spoofer', cat:'games', rating:'4.8', downloads:'550k+', version:'v4.1.5', icon:'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png', cover:'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/pokemon-go-characters-logo.jpg', mod:'Teleport + Joystick', badge:'HOT', claimed:87, scarcity:3, desc:'Install Pokémon GO Spoofer — Teleport, Joystick, Auto Walk. Works iOS & Android.' },
-        { name:'8 Ball Pool Mod', cat:'games', rating:'4.9', downloads:'1M+', version:'v55.9.0', icon:'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg', cover:'https://i2.kknews.cc/RdIP7Ts-99-OvrUyhJF_xH_vafs4n2M/0.jpg', mod:'Long Line + Auto Win', badge:'HOT', claimed:92, scarcity:2, desc:'8 Ball Pool Mod with Guideline Tool. No Jailbreak Needed.' },
-        { name:'Baseball 9', cat:'games', rating:'4.7', downloads:'87K', version:'v4.2.8', icon:'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg', cover:'https://i.ytimg.com/vi/14-IZpn1J-A/maxresdefault.jpg', mod:'Unlimited Gems + Stamina', badge:'TRENDING', claimed:78, scarcity:5, desc:'Baseball 9 Mod with Unlimited Gems. Build the ultimate team.' },
-        { name:'Toca Boca World', cat:'games', rating:'4.8', downloads:'1.2M+', version:'v9.8.1', icon:'https://appzenn.com/assets/img/app_images/whKzcdW512x512bb2112.jpg', cover:'https://i.pinimg.com/1200x/fb/45/ea/fb45eac770317c165615e7bc0191a798.jpg', mod:'All Worlds Unlocked', badge:'VIP', claimed:95, scarcity:1, desc:'Toca Boca World Hack — All Worlds, Unlimited Money.' }
+        { name:'Pokémon Go Spoofer', cat:'games', rating:'4.8', downloads:'550k+', version:'v4.1.5', icon:'https://im5.pandahelp.vip/adverting/202603/6d6baeb3-6.png', cover:'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/pokemon-go-characters-logo.jpg', mod:'Teleport + Joystick', badge:'HOT', claimed:87, scarcity:3, desc:'Install Pokémon GO Spoofer — Teleport, Joystick, Auto Walk. Works iOS & Android.', demo:'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/04/pokemon-go-characters-logo.jpg' },
+        { name:'8 Ball Pool Mod', cat:'games', rating:'4.9', downloads:'1M+', version:'v55.9.0', icon:'https://im5.pandahelp.vip/adverting/201810/a658f69e-a.jpg', cover:'https://i2.kknews.cc/RdIP7Ts-99-OvrUyhJF_xH_vafs4n2M/0.jpg', mod:'Long Line + Auto Win', badge:'HOT', claimed:92, scarcity:2, desc:'8 Ball Pool Mod with Guideline Tool. No Jailbreak Needed.', demo:'https://i2.kknews.cc/RdIP7Ts-99-OvrUyhJF_xH_vafs4n2M/0.jpg' },
+        { name:'Baseball 9', cat:'games', rating:'4.7', downloads:'87K', version:'v4.2.8', icon:'https://im5.pandahelp.vip/adverting/202107/a18ec2ba-e.jpg', cover:'https://i.ytimg.com/vi/14-IZpn1J-A/maxresdefault.jpg', mod:'Unlimited Gems + Stamina', badge:'TRENDING', claimed:78, scarcity:5, desc:'Baseball 9 Mod with Unlimited Gems.', demo:'https://i.ytimg.com/vi/14-IZpn1J-A/maxresdefault.jpg' },
+        { name:'Toca Boca World', cat:'games', rating:'4.8', downloads:'1.2M+', version:'v9.8.1', icon:'https://appzenn.com/assets/img/app_images/whKzcdW512x512bb2112.jpg', cover:'https://i.pinimg.com/1200x/fb/45/ea/fb45eac770317c165615e7bc0191a798.jpg', mod:'All Worlds Unlocked', badge:'VIP', claimed:95, scarcity:1, desc:'Toca Boca World Hack — All Worlds, Unlimited Money.', demo:'https://i.pinimg.com/1200x/fb/45/ea/fb45eac770317c165615e7bc0191a798.jpg' }
     ];
 
     const appsData = [
@@ -729,7 +854,9 @@
     ];
 
     let currentApp=null, currentView='discover', searchFilter='all', slideIndex=0, slideInterval=null, toastInterval=null;
-    let totalDownloads = 12847;
+    let totalDownloads = 14847;
+    let ctaTimerInterval = null;
+    let ctaSecondsLeft = 120;
 
     const toastData = [
         { flag:'🇺🇸', name:'James A.', city:'New York, USA', action:'downloaded Pokémon Go Spoofer' },
@@ -811,6 +938,26 @@
     function updateLiveStats(){
         document.getElementById('statDownloads').textContent=Math.floor(Math.random()*50000+120000).toLocaleString();
         document.getElementById('liveCount').textContent=Math.floor(Math.random()*2000+2000).toLocaleString();
+        document.getElementById('totalDownloadsGlobal').textContent=totalDownloads.toLocaleString();
+    }
+
+    function startCTATimer() {
+        ctaSecondsLeft = 120;
+        const timerEl = document.getElementById('ctaTimer');
+        const timerVal = document.getElementById('ctaTimerValue');
+        timerEl.classList.add('show');
+        if (ctaTimerInterval) clearInterval(ctaTimerInterval);
+        ctaTimerInterval = setInterval(() => {
+            ctaSecondsLeft--;
+            const m = Math.floor(ctaSecondsLeft / 60);
+            const s = ctaSecondsLeft % 60;
+            timerVal.textContent = m + ':' + String(s).padStart(2, '0');
+            if (ctaSecondsLeft <= 30) timerEl.style.color = '#FF3B30';
+            if (ctaSecondsLeft <= 0) {
+                clearInterval(ctaTimerInterval);
+                timerEl.textContent = '⚠️ Link expired. Refresh to try again.';
+            }
+        }, 1000);
     }
 
     function showView(view){
@@ -824,6 +971,10 @@
         document.getElementById('stickyCta').classList.remove('show');
         document.getElementById('ghostEcosystem').style.display=(view==='detail')?'block':'none';
         document.getElementById('mod-proof-feed').style.display=(view==='detail')?'block':'none';
+        if (view !== 'detail') {
+            document.getElementById('ctaTimer').classList.remove('show');
+            if (ctaTimerInterval) clearInterval(ctaTimerInterval);
+        }
         currentView=view; window.scrollTo(0,0);
     }
     function goHome(){ showView('discover'); }
@@ -837,9 +988,13 @@
         document.getElementById('detail-rating').textContent='⭐ '+app.rating;
         document.getElementById('detail-downloads').textContent='⬇️ '+app.downloads;
         document.getElementById('detail-mod').textContent='✨ '+app.mod;
-        document.getElementById('detail-about').textContent=app.desc||`${app.name} ${app.mod}. Install now with our guide and unlock powerful features instantly on iOS and Android. 100% working and verified safe.`;
+        document.getElementById('detail-about').textContent=app.desc||`${app.name} ${app.mod}. Install now with our guide.`;
+        const demoImg = document.getElementById('demoVideoImg');
+        demoImg.src = app.demo || app.cover || app.icon;
         const related=appsData.filter(a=>a.cat===app.cat&&a.name!==app.name).slice(0,5);
         document.getElementById('related-scroll').innerHTML=related.length?related.map(a=>renderCard(a)).join(''):'';
+        document.getElementById('ctaTimer').classList.remove('show');
+        if (ctaTimerInterval) clearInterval(ctaTimerInterval);
         showView('detail');
     }
 
@@ -848,43 +1003,25 @@
     function startEchoLoading() {
         const canvas = document.getElementById('echoCanvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = 200; canvas.height = 200;
-        const cx = 100, cy = 100;
-        let rings = [];
+        canvas.width = 180; canvas.height = 180;
+        const cx = 90, cy = 90;
         let phase = 0;
 
         function drawEcho() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // Center icon
-            ctx.beginPath(); ctx.arc(cx, cy, 18, 0, Math.PI*2);
-            const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 18);
+            ctx.beginPath(); ctx.arc(cx, cy, 16, 0, Math.PI*2);
+            const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 16);
             grad.addColorStop(0, '#FF3B30'); grad.addColorStop(1, '#d6302b');
             ctx.fillStyle = grad; ctx.fill();
 
-            // Rings
             phase += 0.015;
             for (let i = 0; i < 4; i++) {
-                const r = ((phase * 80 + i * 40) % 120) + 20;
-                const alpha = Math.max(0, 1 - (r - 20) / 120);
+                const r = ((phase * 70 + i * 35) % 100) + 18;
+                const alpha = Math.max(0, 1 - (r - 18) / 100);
                 ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2);
                 ctx.strokeStyle = `rgba(255,59,48,${alpha * 0.5})`;
                 ctx.lineWidth = 2; ctx.stroke();
-
-                const r2 = r + 15;
-                const alpha2 = Math.max(0, 1 - (r2 - 20) / 120) * 0.3;
-                ctx.beginPath(); ctx.arc(cx, cy, r2, 0, Math.PI*2);
-                ctx.strokeStyle = `rgba(255,149,0,${alpha2})`;
-                ctx.lineWidth = 1; ctx.stroke();
             }
-
-            // Success glow when ready
-            if (window._echoReady) {
-                ctx.beginPath(); ctx.arc(cx, cy, 50, 0, Math.PI*2);
-                const glow = ctx.createRadialGradient(cx, cy, 20, cx, cy, 50);
-                glow.addColorStop(0, 'rgba(0,200,83,0.4)'); glow.addColorStop(1, 'rgba(0,200,83,0)');
-                ctx.fillStyle = glow; ctx.fill();
-            }
-
             echoAnimationId = requestAnimationFrame(drawEcho);
         }
         drawEcho();
@@ -892,16 +1029,15 @@
 
     function stopEchoLoading() {
         if (echoAnimationId) { cancelAnimationFrame(echoAnimationId); echoAnimationId = null; }
-        window._echoReady = false;
     }
 
     // ==================== PRESTIGE BADGE ====================
     function showPrestigeBadge(callback) {
         totalDownloads += Math.floor(Math.random() * 10) + 1;
         document.getElementById('prestigeNumber').textContent = totalDownloads.toLocaleString();
+        document.getElementById('totalDownloadsGlobal').textContent = totalDownloads.toLocaleString();
         document.getElementById('prestigeOverlay').classList.add('active');
 
-        // Animate number counting up
         const startNum = totalDownloads - 50;
         let currentNum = startNum;
         const targetNum = totalDownloads;
@@ -914,19 +1050,39 @@
         setTimeout(() => {
             document.getElementById('prestigeOverlay').classList.remove('active');
             if (callback) callback();
-        }, 2500);
+        }, 2200);
     }
 
-    // ==================== PREPARING (SLOW & CINEMATIC) ====================
+    // ==================== BRIDGE SCREEN ====================
+    function showBridgeScreen() {
+        document.getElementById('bridgeScreen').classList.add('active');
+        let sec = 5;
+        document.getElementById('bridgeTimer').textContent = '0:0' + sec;
+        const bridgeInterval = setInterval(() => {
+            sec--;
+            document.getElementById('bridgeTimer').textContent = '0:0' + sec;
+            if (sec <= 0) clearInterval(bridgeInterval);
+        }, 1000);
+        window._bridgeInterval = bridgeInterval;
+    }
+
+    function goToCPA() {
+        if (window._bridgeInterval) clearInterval(window._bridgeInterval);
+        document.getElementById('bridgeScreen').classList.remove('active');
+        // ==================== CHANGE THIS URL ====================
+        window.location.href = 'YOUR_CPA_LOCKER_URL_HERE';
+    }
+
+    // ==================== PREPARING ====================
     function startPreparing() {
-        const app = currentApp || appsData[0];
         const screen = document.getElementById('preparingScreen');
         screen.classList.add('active');
         document.body.style.overflow = 'hidden';
         document.getElementById('stickyCta').classList.remove('show');
-        window._echoReady = false;
 
-        // Start echo animation
+        // Start CTA timer
+        startCTATimer();
+
         const canvas = document.getElementById('echoCanvas');
         if (!canvas.dataset.animating) {
             canvas.dataset.animating = '1';
@@ -935,53 +1091,38 @@
 
         let progress = 0;
         const stages = [
-            { at: 0, text: 'Looking for download source...', sub: 'Connecting to server', duration: 2500 },
-            { at: 15, text: 'Source located! Verifying integrity...', sub: 'Checking file signatures', duration: 2000 },
-            { at: 30, text: 'Source verified ✓', sub: 'Generating your mod package', duration: 3500 },
-            { at: 51, text: 'Mod package assembled', sub: 'Optimizing for your device', duration: 2500 },
-            { at: 68, text: 'Safety scan in progress...', sub: 'Checking for vulnerabilities', duration: 3000 },
-            { at: 82, text: 'Safety verified ✓', sub: 'Finalizing download link', duration: 2500 },
-            { at: 95, text: 'Almost ready!', sub: 'Preparing redirect...', duration: 1500 },
-            { at: 100, text: 'Complete! 🎉', sub: 'Redirecting now...', duration: 0 }
+            { at: 0, text: 'Looking for download source...', sub: 'Connecting to server' },
+            { at: 15, text: 'Source located! Verifying integrity...', sub: 'Checking file signatures' },
+            { at: 30, text: 'Source verified ✓', sub: 'Generating your mod package' },
+            { at: 51, text: 'Mod package assembled', sub: 'Optimizing for your device' },
+            { at: 68, text: 'Safety scan in progress...', sub: 'Checking for vulnerabilities' },
+            { at: 82, text: 'Safety verified ✓', sub: 'Finalizing download link' },
+            { at: 95, text: 'Almost ready!', sub: 'Preparing redirect...' },
+            { at: 100, text: 'Complete! 🎉', sub: 'Taking you to your download...' }
         ];
 
         let currentStage = 0;
-        const speed = 0.25; // Very slow progress
-
+        const speed = 0.25;
         const interval = setInterval(() => {
             progress += speed;
             if (progress > 100) progress = 100;
-
-            // Find current stage
             for (let i = stages.length - 1; i >= 0; i--) {
-                if (progress >= stages[i].at) {
-                    if (currentStage !== i) {
-                        currentStage = i;
-                        document.getElementById('preparingText').textContent = stages[i].text;
-                        document.getElementById('preparingSub').textContent = stages[i].sub;
-                        if (progress >= 95) window._echoReady = true;
-                    }
+                if (progress >= stages[i].at && currentStage !== i) {
+                    currentStage = i;
+                    document.getElementById('preparingText').textContent = stages[i].text;
+                    document.getElementById('preparingSub').textContent = stages[i].sub;
                     break;
                 }
             }
-
             if (progress >= 100) {
                 clearInterval(interval);
                 stopEchoLoading();
                 screen.classList.remove('active');
                 document.body.style.overflow = '';
-                document.getElementById('echoCanvas').dataset.animating = '';
-
-                // Show prestige badge then redirect
-                showPrestigeBadge(() => {
-                    // CHANGE THIS URL TO YOUR CPA LINK
-                    window.location.href = 'YOUR_CPA_LOCKER_URL_HERE';
-                });
+                canvas.dataset.animating = '';
+                showPrestigeBadge(() => { showBridgeScreen(); });
             }
         }, 120);
-
-        // Store interval for potential cancellation
-        screen.dataset.intervalId = interval;
     }
 
     function setFilter(filter,el){ searchFilter=filter; document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); doSearch(); }
@@ -993,7 +1134,6 @@
         document.getElementById('search-results').innerHTML=results.length?results.map(a=>renderCard(a)).join(''):'<div style="text-align:center;color:var(--text2);margin-top:40px;">No results found</div>';
     }
 
-    // ==================== FINGER GLOW ====================
     function initFingerGlow() {
         const glow = document.getElementById('finger-glow');
         if (!('ontouchstart' in window)) { glow.style.display = 'none'; document.body.style.cursor = 'auto'; return; }
@@ -1005,18 +1145,15 @@
             glow.classList.add('active');
         });
         document.addEventListener('touchend', () => glow.classList.remove('active'));
-        document.addEventListener('touchcancel', () => glow.classList.remove('active'));
     }
 
-    // ==================== GYROSCOPE FLOATING CARDS ====================
     function initGyroscope() {
         if (!window.DeviceOrientationEvent) return;
         window.addEventListener('deviceorientation', (e) => {
-            const gamma = e.gamma || 0; // -90 to 90 (left-right tilt)
-            const beta = e.beta || 0;   // -180 to 180 (front-back tilt)
+            const gamma = e.gamma || 0;
+            const beta = e.beta || 0;
             const tiltX = Math.max(-5, Math.min(5, gamma / 10));
             const tiltY = Math.max(-5, Math.min(5, (beta - 45) / 10));
-
             document.querySelectorAll('.card, .featured').forEach(card => {
                 card.style.transform = `perspective(1000px) rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
                 card.style.transition = 'transform 0.3s ease-out';
@@ -1024,18 +1161,15 @@
         });
     }
 
-    // ==================== CTA AURA GLOW ====================
     function initCtaAura() {
         const btn = document.getElementById('detailCtaBtn');
         const aura = document.getElementById('ctaAura');
         if (!btn || !aura) return;
         btn.addEventListener('mousemove', (e) => {
             const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
             aura.style.setProperty('--aura-color', 'rgba(255,59,48,0.4)');
-            aura.style.left = x + 'px';
-            aura.style.top = y + 'px';
+            aura.style.left = (e.clientX - rect.left) + 'px';
+            aura.style.top = (e.clientY - rect.top) + 'px';
             aura.classList.add('visible');
         });
         btn.addEventListener('mouseleave', () => aura.classList.remove('visible'));
@@ -1043,10 +1177,9 @@
         btn.addEventListener('touchend', () => setTimeout(() => aura.classList.remove('visible'), 500));
     }
 
-    // ==================== SCROLLSEDUCER ====================
     class ScrollSeducer {
         constructor(config={}) {
-            this.config = { ctaSelector: config.ctaSelector||'#detailCtaBtn', particleColor: config.particleColor||'#ff6666', particleCount: config.particleCount||50, ...config };
+            this.config = { ctaSelector: config.ctaSelector||'#detailCtaBtn', particleColor: config.particleColor||'#ff6666', particleCount: config.particleCount||50 };
             this.canvas=null; this.ctx=null; this.particles=[]; this.ctaElement=null; this.mousePos={x:-100,y:-100}; this.init();
         }
         init() {
@@ -1069,10 +1202,9 @@
             if(!this.ctaElement) { requestAnimationFrame(()=>this.animate()); return; }
             const rect=this.ctaElement.getBoundingClientRect();
             const ctx=rect.left+rect.width/2, cty=rect.top+rect.height/2;
-            const onScreen=cty>0&&cty<window.innerHeight;
             this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
             this.particles.forEach(p=>{
-                let tx=onScreen?ctx:this.mousePos.x, ty=onScreen?cty:(cty>window.innerHeight?window.innerHeight:0);
+                let tx=ctx, ty=cty;
                 const dm=Math.hypot(p.x-this.mousePos.x,p.y-this.mousePos.y);
                 if(dm<120){tx=this.mousePos.x;ty=this.mousePos.y;}
                 p.angle=Math.atan2(ty-p.y,tx-p.x)+Math.sin(Date.now()*0.0008+p.wander)*0.7;
@@ -1084,51 +1216,48 @@
         }
     }
 
-    // ==================== GHOSTFLOW ====================
     class GhostFlow {
         constructor(config={}) {
-            this.config = { productName: config.productName||"Premium Mod", stockInitial: config.stockInitial||34, viewersMin: config.viewersMin||18, viewersMax: config.viewersMax||45, salesIntervalMin: config.salesIntervalMin||15000, salesIntervalMax: config.salesIntervalMax||55000, ...config };
-            this.state = { stockRemaining: this.config.stockInitial, currentViewers: 0, salesToday: 0, lastInteraction: Date.now(), userEngagementLevel: 0, isUserActive: true };
+            this.config = { productName:"Premium Mod", stockInitial:34, viewersMin:18, viewersMax:45, salesIntervalMin:15000, salesIntervalMax:55000, ...config };
+            this.state = { stockRemaining:this.config.stockInitial, currentViewers:0, salesToday:0, lastInteraction:Date.now(), userEngagementLevel:0, isUserActive:true };
             this.elements = {}; this.init();
         }
         init() { this.cacheDomElements(); this.startViewerFluctuation(); this.startSalesSimulation(); this.startStockDepletion(); this.trackUserEngagement(); }
         cacheDomElements() {
-            this.elements.stockCounter = document.getElementById('stock-counter-ghost');
-            this.elements.stockBar = document.getElementById('stock-bar-fill-ghost');
-            this.elements.viewerCount = document.getElementById('viewer-count-ghost');
-            this.elements.urgencyMessage = document.getElementById('urgency-message-ghost');
-            this.elements.recentSales = document.getElementById('recent-sales-feed-ghost');
-            this.elements.liveDot = document.getElementById('live-dot-ghost');
+            this.elements.stockCounter=document.getElementById('stock-counter-ghost');
+            this.elements.stockBar=document.getElementById('stock-bar-fill-ghost');
+            this.elements.viewerCount=document.getElementById('viewer-count-ghost');
+            this.elements.urgencyMessage=document.getElementById('urgency-message-ghost');
+            this.elements.recentSales=document.getElementById('recent-sales-feed-ghost');
+            this.elements.liveDot=document.getElementById('live-dot-ghost');
         }
         startViewerFluctuation() {
-            const update = () => { if(!this.state.isUserActive) return; const base = Math.floor(Math.sin(Date.now()/32000)*6 + Math.random()*10 + (this.config.viewersMin+this.config.viewersMax)/2); const bonus = this.state.userEngagementLevel*5; this.state.currentViewers = Math.min(base+bonus, this.config.viewersMax); if(this.elements.viewerCount) this.elements.viewerCount.textContent=this.state.currentViewers; if(this.elements.liveDot) this.elements.liveDot.classList.toggle('pulse-active'); };
+            const update=()=>{if(!this.state.isUserActive)return;const base=Math.floor(Math.sin(Date.now()/32000)*6+Math.random()*10+(this.config.viewersMin+this.config.viewersMax)/2);this.state.currentViewers=Math.min(base+this.state.userEngagementLevel*5,this.config.viewersMax);if(this.elements.viewerCount)this.elements.viewerCount.textContent=this.state.currentViewers;if(this.elements.liveDot)this.elements.liveDot.classList.toggle('pulse-active');};
             setInterval(update,4000); update();
         }
         startSalesSimulation() {
-            const names = ["xShadowKiller99","ProGamer_YT","LootMaster22","OneTapQueen","Faze_Clone","NightHawkGaming","EpicModder","DarkSniper_","PixelWarrior","AimbotKing","CrystalSword","VenomGamerTV"];
-            const locations = ["US East","EU Germany","Brazil","Asia","UK","Middle East","Australia","Canada"];
-            const generate = () => { if(!this.state.isUserActive&&Math.random()>0.3) return; const name=names[Math.floor(Math.random()*names.length)], loc=locations[Math.floor(Math.random()*locations.length)], mins=Math.floor(Math.random()*7)+1; this.state.salesToday++; if(this.elements.recentSales){const el=document.createElement('div');el.className='ghost-sale-item';el.innerHTML=`<span class="sale-icon-ghost">🟢</span><span><strong>${name}</strong> downloaded from ${loc}</span><span class="sale-time-ghost">${mins} min ago</span>`;this.elements.recentSales.prepend(el);if(this.elements.recentSales.children.length>6)this.elements.recentSales.children[6].remove();el.animate([{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'translateY(0)'}],{duration:400});} setTimeout(generate,this.config.salesIntervalMin+Math.random()*(this.config.salesIntervalMax-this.config.salesIntervalMin)); };
+            const names=["xShadowKiller99","ProGamer_YT","LootMaster22","OneTapQueen","Faze_Clone","NightHawkGaming","EpicModder","DarkSniper_","PixelWarrior","AimbotKing","CrystalSword","VenomGamerTV"];
+            const locations=["US East","EU Germany","Brazil","Asia","UK","Middle East","Australia","Canada"];
+            const generate=()=>{if(!this.state.isUserActive&&Math.random()>0.3)return;const n=names[Math.floor(Math.random()*names.length)],l=locations[Math.floor(Math.random()*locations.length)],m=Math.floor(Math.random()*7)+1;this.state.salesToday++;if(this.elements.recentSales){const el=document.createElement('div');el.className='ghost-sale-item';el.innerHTML=`<span class="sale-icon-ghost">🟢</span><span><strong>${n}</strong> downloaded from ${l}</span><span class="sale-time-ghost">${m} min ago</span>`;this.elements.recentSales.prepend(el);if(this.elements.recentSales.children.length>6)this.elements.recentSales.children[6].remove();el.animate([{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'translateY(0)'}],{duration:400});}setTimeout(generate,this.config.salesIntervalMin+Math.random()*(this.config.salesIntervalMax-this.config.salesIntervalMin));};
             setTimeout(generate,4000+Math.random()*7000);
         }
         startStockDepletion() {
-            const deplete = () => { if(this.state.stockRemaining<=3) return; const rate=0.3+(this.state.userEngagementLevel*0.5); this.state.stockRemaining-=(Date.now()-this.state.lastInteraction<12000)?rate*2:rate*0.2; this.state.stockRemaining=Math.max(3,Math.round(this.state.stockRemaining)); if(this.elements.stockCounter) this.elements.stockCounter.textContent=this.state.stockRemaining; if(this.elements.stockBar){const pct=(this.state.stockRemaining/this.config.stockInitial)*100;this.elements.stockBar.style.width=pct+'%';if(pct<25){this.elements.stockBar.style.background='#ff4444';if(this.elements.urgencyMessage){this.elements.urgencyMessage.innerHTML='🚨 <strong>CRITICAL:</strong> Download slots almost gone!';this.elements.urgencyMessage.style.display='block';}}else if(pct<50){this.elements.stockBar.style.background='#ffaa00';}} setTimeout(deplete,10000+Math.random()*12000); };
+            const deplete=()=>{if(this.state.stockRemaining<=3)return;const rate=0.3+this.state.userEngagementLevel*0.5;this.state.stockRemaining-=(Date.now()-this.state.lastInteraction<12000)?rate*2:rate*0.2;this.state.stockRemaining=Math.max(3,Math.round(this.state.stockRemaining));if(this.elements.stockCounter)this.elements.stockCounter.textContent=this.state.stockRemaining;if(this.elements.stockBar){const pct=(this.state.stockRemaining/this.config.stockInitial)*100;this.elements.stockBar.style.width=pct+'%';if(pct<25){this.elements.stockBar.style.background='#ff4444';if(this.elements.urgencyMessage){this.elements.urgencyMessage.innerHTML='🚨 <strong>CRITICAL:</strong> Download slots almost gone!';this.elements.urgencyMessage.style.display='block';}}else if(pct<50)this.elements.stockBar.style.background='#ffaa00';}setTimeout(deplete,10000+Math.random()*12000);};
             setTimeout(deplete,10000);
         }
-        trackUserEngagement() { const handler=()=>{this.state.lastInteraction=Date.now();};['mousemove','scroll','click','touchmove'].forEach(e=>document.addEventListener(e,handler,{passive:true})); const cta=document.querySelector('.btn-start'); if(cta) cta.addEventListener('mouseenter',()=>{this.state.userEngagementLevel=3;this.state.lastInteraction=Date.now();}); setInterval(()=>{this.state.isUserActive=Date.now()-this.state.lastInteraction<30000;},10000); }
+        trackUserEngagement(){const h=()=>{this.state.lastInteraction=Date.now();};['mousemove','scroll','click','touchmove'].forEach(e=>document.addEventListener(e,h,{passive:true}));const cta=document.querySelector('.btn-start');if(cta)cta.addEventListener('mouseenter',()=>{this.state.userEngagementLevel=3;this.state.lastInteraction=Date.now();});setInterval(()=>{this.state.isUserActive=Date.now()-this.state.lastInteraction<30000;},10000);}
     }
 
-    // ==================== MODPROOF ====================
     class ModProof {
-        constructor(config={}) { this.config = { targetElementId: config.targetElementId||'mod-proof-feed', modName: config.modName||'Mod', updateInterval: config.updateInterval||7000, ...config }; this.init(); }
-        init() { let c=document.getElementById(this.config.targetElementId); if(!c) return; c.innerHTML=`<div class="mod-proof-container" style="margin:0;"><div class="mod-proof-header"><span>🟢</span><span>Live Proof Feed</span><span class="proof-badge-mod">ACTIVE</span></div><div id="mod-proof-items" class="mod-proof-items"></div></div>`; this.ic=document.getElementById('mod-proof-items'); this.startProofCycle(); }
-        startProofCycle() {
+        constructor(config={}){this.config={targetElementId:'mod-proof-feed',modName:'Mod',updateInterval:7000,...config};this.init();}
+        init(){let c=document.getElementById(this.config.targetElementId);if(!c)return;c.innerHTML=`<div class="mod-proof-container"><div class="mod-proof-header"><span>🟢</span><span>Live Proof Feed</span><span class="proof-badge-mod">ACTIVE</span></div><div id="mod-proof-items"></div></div>`;this.ic=document.getElementById('mod-proof-items');this.startProofCycle();}
+        startProofCycle(){
             const proofs=[{name:"xShadowKiller99",action:"activated Mod",detail:"Session: 3 hours | 0 crashes",status:"Stable"},{name:"ProGamer_YT",action:"unlocked all features",detail:"No ban | Working perfectly",status:"Undetected"},{name:"LootMaster22",action:"bypassed anti-cheat",detail:"3 accounts | 0 bans",status:"Undetected"},{name:"OneTapQueen",action:"installed successfully",detail:"2 min install | Works",status:"Stable"},{name:"Faze_Clone",action:"mod activated",detail:"All features unlocked",status:"Active"},{name:"NightHawkGaming",action:"downloaded mod",detail:"Verified safe | No virus",status:"Verified"},{name:"AimbotKing",action:"mod working",detail:"0 reports in 48h",status:"Undetected"},{name:"CrystalSword",action:"mod installed",detail:"All lobbies | Invincible",status:"Stable"}];
-            let idx=0; const add=()=>{const p=proofs[idx%proofs.length];const el=document.createElement('div');el.className='mod-proof-item';el.innerHTML=`<span class="proof-item-name-mod">${p.name}</span><span>${p.action}</span><div class="proof-item-detail-mod"><span>${p.detail}</span><span class="proof-item-status-mod">● ${p.status}</span></div><span class="proof-item-time-mod">Just now</span>`;this.ic.prepend(el);if(this.ic.children.length>5)this.ic.children[5].remove();Array.from(this.ic.children).forEach((e,i)=>{if(i>0){const t=e.querySelector('.proof-item-time-mod');if(t)t.textContent=`${Math.floor(Math.random()*8)+1} min ago`;}});idx++;};
-            for(let i=0;i<3;i++) setTimeout(()=>add(),i*350); setInterval(add,this.config.updateInterval);
+            let idx=0;const add=()=>{const p=proofs[idx%proofs.length];const el=document.createElement('div');el.className='mod-proof-item';el.innerHTML=`<span class="proof-item-name-mod">${p.name}</span><span>${p.action}</span><div class="proof-item-detail-mod"><span>${p.detail}</span><span class="proof-item-status-mod">● ${p.status}</span></div><span class="proof-item-time-mod">Just now</span>`;this.ic.prepend(el);if(this.ic.children.length>5)this.ic.children[5].remove();Array.from(this.ic.children).forEach((e,i)=>{if(i>0){const t=e.querySelector('.proof-item-time-mod');if(t)t.textContent=`${Math.floor(Math.random()*8)+1} min ago`;}});idx++;};
+            for(let i=0;i<3;i++)setTimeout(()=>add(),i*350);setInterval(add,this.config.updateInterval);
         }
     }
 
-    // ==================== MEMENTO ====================
     function checkMemento() {
         const lastVisit = localStorage.getItem('ooqlemod_last_visit');
         const lastApp = localStorage.getItem('ooqlemod_last_app');
@@ -1146,63 +1275,49 @@
         if (currentApp) localStorage.setItem('ooqlemod_last_app', currentApp.name);
     }
 
-    // ==================== TIKTOKBREAK + MOBILEGUARD ====================
     class TikTokBreakMobileGuard {
         constructor(config={}) {
             this.config = {
-                tutorialTitle: config.tutorialTitle || '📱 Open in Your Browser',
-                tutorialSubtitle: config.tutorialSubtitle || 'TikTok limits this page. Open in Chrome or Safari for full access.',
-                step1Text: config.step1Text || 'Tap the menu button (⋯)',
-                step2Text: config.step2Text || 'Select "Open in Browser"',
-                step3Text: config.step3Text || 'You\'re all set!',
-                desktopTitle: config.desktopTitle || 'Mobile Device Not Detected',
-                desktopMessage: config.desktopMessage || 'This website can only be accessed from a mobile device.',
-                desktopHowTo: config.desktopHowTo || 'How to Access',
-                desktopStep1: config.desktopStep1 || 'Visit from Mobile',
-                desktopStep2: config.desktopStep2 || 'Type this URL in your mobile browser',
-                desktopAppNote: config.desktopAppNote || 'This app is optimized for mobile devices only',
+                tutorialTitle: '📱 Open in Your Browser',
+                tutorialSubtitle: 'TikTok limits this page. Open in Chrome or Safari for full access.',
+                step1Text: 'Tap the menu button (⋯)',
+                step2Text: 'Select "Open in Browser"',
+                step3Text: "You're all set!",
+                desktopTitle: 'Mobile Device Not Detected',
+                desktopMessage: 'This website can only be accessed from a mobile device.',
+                desktopHowTo: 'How to Access',
+                desktopStep1: 'Visit from Mobile',
+                desktopStep2: 'Type this URL in your mobile browser',
+                desktopAppNote: 'This app is optimized for mobile devices only',
                 ...config
             };
             this.init();
         }
         init() {
-            const detection = this.detectEnvironment();
-            if (detection.isDesktop) { this.showDesktopBlock(); }
-            else if (detection.isTikTok) { this.showTikTokTutorial(); }
+            const d = this.detectEnvironment();
+            if (d.isDesktop) this.showDesktopBlock();
+            else if (d.isTikTok) this.showTikTokTutorial();
         }
         detectEnvironment() {
             const ua = navigator.userAgent || '';
             const platform = navigator.platform || '';
-            const desktopPatterns = [/Windows NT/i, /Macintosh/i, /Linux/i, /X11/i, /CrOS/i];
-            const desktopPlatforms = ['Win32', 'Win64', 'MacIntel', 'Linux x86_64', 'Linux i686'];
-            const hasTouchScreen = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-            const isWideScreen = window.screen.width >= 1024 && window.screen.height >= 768;
-            const isLandscape = window.screen.width > window.screen.height;
-            let desktopScore = 0;
-            if (desktopPatterns.some(p => p.test(ua))) desktopScore++;
-            if (desktopPlatforms.some(p => platform.includes(p))) desktopScore++;
-            if (!hasTouchScreen) desktopScore++;
-            if (isWideScreen) desktopScore++;
-            if (isLandscape) desktopScore++;
-            const isDesktop = desktopScore >= 3;
-            const isTikTokWebView = ua.includes('TikTok') || ua.includes('Bytedance') || (ua.includes('Android') && ua.includes('wv') && document.referrer.includes('tiktok'));
-            const isTikTok = /TikTok/i.test(ua) || /Bytedance/i.test(ua) || isTikTokWebView;
-            return { isDesktop, isTikTok };
+            let s=0;
+            if (/Windows NT|Macintosh|Linux|X11|CrOS/i.test(ua)) s++;
+            if (/Win32|Win64|MacIntel|Linux x86_64|Linux i686/.test(platform)) s++;
+            if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) s++;
+            if (window.screen.width>=1024&&window.screen.height>=768) s++;
+            if (window.screen.width>window.screen.height) s++;
+            return { isDesktop: s>=3, isTikTok: /TikTok|Bytedance/i.test(ua) || (ua.includes('Android')&&ua.includes('wv')&&document.referrer.includes('tiktok')) };
         }
         showDesktopBlock() {
-            document.body.innerHTML = '';
-            document.body.style.cssText = 'margin:0;padding:0;overflow:hidden;font-family:Inter,sans-serif;background:#000;';
-            document.body.innerHTML = `<div id="mobile-guard-overlay"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:30px 25px;color:#fff;"><div class="mobile-guard-icon-outer"><div class="mobile-guard-icon-inner"></div></div><h1 class="mobile-guard-title-mg">${this.config.desktopTitle}</h1><p class="mobile-guard-message-mg">${this.config.desktopMessage}</p><p class="mobile-guard-access-title-mg">${this.config.desktopHowTo}</p><div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">1</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep1}</div></div><div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">2</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep2}</div></div><p class="mobile-guard-app-note-mg">${this.config.desktopAppNote}</p></div></div>`;
+            document.body.innerHTML = `<div id="mobile-guard-overlay"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:30px;color:#fff;font-family:Inter,sans-serif;background:#000;"><div class="mobile-guard-icon-outer"><div class="mobile-guard-icon-inner"></div></div><h1 class="mobile-guard-title-mg">${this.config.desktopTitle}</h1><p class="mobile-guard-message-mg">${this.config.desktopMessage}</p><p class="mobile-guard-access-title-mg">${this.config.desktopHowTo}</p><div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">1</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep1}</div></div><div class="mobile-guard-step-mg"><div class="mobile-guard-step-num-mg">2</div><div class="mobile-guard-step-text-mg">${this.config.desktopStep2}</div></div><p class="mobile-guard-app-note-mg">${this.config.desktopAppNote}</p></div></div>`;
         }
         showTikTokTutorial() {
-            document.body.innerHTML = '';
-            document.body.style.cssText = 'margin:0;padding:0;overflow-y:auto;font-family:Inter,sans-serif;background:#000;';
             const shortUrl = window.location.hostname + window.location.pathname;
-            document.body.innerHTML = `<div id="tiktok-tutorial-overlay"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:25px 20px;color:#fff;"><div class="browser-mockup"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url-bar">🔒 ${shortUrl}</div></div><h1 class="tutorial-title-tt">${this.config.tutorialTitle}</h1><p class="tutorial-subtitle-tt">${this.config.tutorialSubtitle}</p><div class="tutorial-steps-tt"><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">1</div><div><div class="tutorial-step-text-tt">${this.config.step1Text}</div><div class="tutorial-step-hint-tt">Look for three dots (⋯) in the top right corner</div></div></div><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">2</div><div><div class="tutorial-step-text-tt">${this.config.step2Text}</div><div class="tutorial-step-hint-tt">Choose Chrome, Safari, or your default browser</div></div></div><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">3</div><div><div class="tutorial-step-text-tt">${this.config.step3Text}</div><div class="tutorial-step-hint-tt">The page will reload automatically in your browser</div></div></div></div><button class="tutorial-retry-btn-tt" onclick="window.location.reload()">🔄 I've Opened in Browser - Reload</button><p class="tutorial-footer-tt">Already in browser? <a href="#" onclick="window.location.reload()">Tap to refresh</a></p><div class="tutorial-arrow-indicator-tt"><svg width="44" height="44" viewBox="0 0 48 48"><path d="M24 4L24 36M24 36L14 26M24 36L34 26" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 3"/></svg></div><div class="tutorial-action-circle-tt"></div><div class="menu-dots-indicator-tt">⋯</div></div>`;
+            document.body.innerHTML = `<div id="tiktok-tutorial-overlay"><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:25px;color:#fff;font-family:Inter,sans-serif;background:#000;"><div class="browser-mockup"><div class="browser-dots"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div></div><div class="browser-url-bar">🔒 ${shortUrl}</div></div><h1 class="tutorial-title-tt">${this.config.tutorialTitle}</h1><p class="tutorial-subtitle-tt">${this.config.tutorialSubtitle}</p><div class="tutorial-steps-tt"><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">1</div><div><div class="tutorial-step-text-tt">${this.config.step1Text}</div><div class="tutorial-step-hint-tt">Look for three dots (⋯) in the top right corner</div></div></div><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">2</div><div><div class="tutorial-step-text-tt">${this.config.step2Text}</div><div class="tutorial-step-hint-tt">Choose Chrome, Safari, or your default browser</div></div></div><div class="tutorial-step-tt"><div class="tutorial-step-number-tt">3</div><div><div class="tutorial-step-text-tt">${this.config.step3Text}</div><div class="tutorial-step-hint-tt">The page will reload automatically</div></div></div></div><button class="tutorial-retry-btn-tt" onclick="window.location.reload()">🔄 I've Opened in Browser - Reload</button><p class="tutorial-footer-tt">Already in browser? <a href="#" onclick="window.location.reload()">Tap to refresh</a></p></div>`;
         }
     }
 
-    // ==================== INIT ALL ====================
     function initAll() {
         updateSlide(); resetSlideTimer(); startToasts(); initActivityFeed();
         document.getElementById('trending-scroll').innerHTML=appsData.filter(a=>a.cat==='games').slice(0,6).map(a=>renderCard(a,true)).join('');
@@ -1223,39 +1338,32 @@
         setTimeout(initCtaAura, 1500);
         checkMemento();
 
-        window.ghostFlow = new GhostFlow({ productName: "Premium Mod", stockInitial: 34, viewersMin: 18, viewersMax: 45 });
-        new ModProof({ modName: 'ooQleMod', updateInterval: 7000 });
-        new ScrollSeducer({ ctaSelector: '#detailCtaBtn', particleColor: '#ff6666', particleCount: 50 });
+        window.ghostFlow = new GhostFlow({ productName:"Premium Mod", stockInitial:34, viewersMin:18, viewersMax:45 });
+        new ModProof({ modName:'ooQleMod', updateInterval:7000 });
+        new ScrollSeducer({ ctaSelector:'#detailCtaBtn', particleColor:'#ff6666', particleCount:50 });
 
         new TikTokBreakMobileGuard({
-            tutorialTitle: '📱 Open in Your Browser',
-            tutorialSubtitle: 'TikTok limits this page. Open in Chrome or Safari for full access.',
-            step1Text: 'Tap the menu (⋯)',
-            step2Text: 'Select "Open in Browser"',
-            step3Text: 'You\'re all set! Download ready.',
-            desktopTitle: 'Mobile Device Not Detected',
-            desktopMessage: 'This website can only be accessed from a mobile device.',
-            desktopHowTo: 'How to Access',
-            desktopStep1: 'Visit from Mobile',
-            desktopStep2: 'Type this URL in your mobile browser',
-            desktopAppNote: 'This app is optimized for mobile devices only'
+            tutorialTitle:'📱 Open in Your Browser',
+            tutorialSubtitle:'TikTok limits this page. Open in Chrome or Safari.',
+            step1Text:'Tap the menu (⋯)',
+            step2Text:'Select "Open in Browser"',
+            step3Text:"You're all set!",
+            desktopTitle:'Mobile Device Not Detected',
+            desktopMessage:'This website can only be accessed from a mobile device.',
+            desktopHowTo:'How to Access',
+            desktopStep1:'Visit from Mobile',
+            desktopStep2:'Type this URL in your mobile browser',
+            desktopAppNote:'This app is optimized for mobile devices only'
         });
     }
-
-    const originalOpenApp = openApp;
-    openApp = function(app) {
-        originalOpenApp(app);
-        checkMemento();
-    };
 
     document.addEventListener('DOMContentLoaded', initAll);
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
-            const screen = document.getElementById('preparingScreen');
-            screen.classList.remove('active');
+            document.getElementById('preparingScreen').classList.remove('active');
+            document.getElementById('bridgeScreen').classList.remove('active');
             document.body.style.overflow = '';
             stopEchoLoading();
-            if (screen.dataset.intervalId) clearInterval(parseInt(screen.dataset.intervalId));
         }
     });
     </script>
