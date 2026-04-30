@@ -3,207 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Gaming Mod - Private Access</title>
+    <meta name="robots" content="noindex, nofollow"> <title>ULTRA MODS | Private US/UK Access</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
     <style>
         :root {
-            --primary-color: #00f2ff; /* Neon Blue */
-            --accent-color: #7000ff;  /* Deep Purple */
-            --bg-dark: #0a0a0c;
-            --card-bg: #16161a;
-            --text-main: #e0e0e0;
+            --primary: #ff003c; /* Cyber Red */
+            --secondary: #1a1a2e;
+            --accent: #00f2ff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
+            background-color: #050505;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,0,60,0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        /* --- Navbar --- */
+        nav {
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo { font-size: 1.8rem; font-weight: 700; letter-spacing: 3px; color: var(--primary); text-transform: uppercase; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-        }
-
-        /* Luxury Background Effect */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0c 100%);
-            z-index: -1;
-        }
-
-        .header {
-            width: 100%;
-            padding: 20px 0;
             text-align: center;
-            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
-            background: rgba(22, 22, 26, 0.8);
-            backdrop-filter: blur(10px);
+            padding: 0 10%;
+            background: radial-gradient(circle at center, rgba(255,0,60,0.1) 0%, transparent 70%);
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); text-transform: uppercase; margin-bottom: 20px; line-height: 1; }
+        .hero p { font-size: 1.2rem; color: #aaa; max-width: 600px; margin-bottom: 30px; letter-spacing: 1px; }
 
-        .main-container {
-            max-width: 800px;
-            width: 90%;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 42px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
-        }
-
-        .status-badge {
-            background: rgba(0, 242, 255, 0.1);
-            border: 1px solid var(--primary-color);
-            padding: 5px 15px;
+        /* --- The Main Console (The Generator) --- */
+        .console-box {
+            background: var(--glass);
+            border: 1px solid var(--border);
             border-radius: 20px;
-            font-size: 14px;
-            color: var(--primary-color);
-            display: inline-block;
-            margin-bottom: 30px;
-        }
-
-        .mod-card {
-            background: var(--card-bg);
-            border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            max-width: 600px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             position: relative;
         }
 
-        .input-group {
-            margin: 25px 0;
+        .console-box::before {
+            content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), transparent, var(--accent));
+            z-index: -1; border-radius: 22px; opacity: 0.3;
         }
 
-        input[type="text"] {
-            width: 80%;
-            padding: 15px;
-            background: #0d0d0f;
-            border: 1px solid #333;
+        input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
             border-radius: 8px;
-            color: white;
-            font-size: 16px;
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
             outline: none;
             transition: 0.3s;
         }
 
-        input[type="text"]:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
-        }
+        input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(255,0,60,0.2); }
 
-        .execute-btn {
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        .btn-main {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
             border: none;
-            padding: 18px 45px;
-            font-size: 18px;
-            font-weight: 700;
-            color: white;
             border-radius: 8px;
-            cursor: pointer;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
             text-transform: uppercase;
+            cursor: pointer;
             transition: 0.4s;
-            box-shadow: 0 5px 15px rgba(112, 0, 255, 0.4);
+            box-shadow: 0 10px 20px rgba(255,0,60,0.3);
         }
 
-        .execute-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 242, 255, 0.6);
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(255,0,60,0.5); background: #ff1a4d; }
+
+        /* --- Live Notification --- */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.9);
+            border-left: 4px solid var(--primary);
+            padding: 15px 25px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transform: translateX(-150%);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2000;
         }
 
-        /* Injection Simulation Overlay */
-        #injection-panel {
+        .notification.active { transform: translateX(0); }
+
+        /* --- Terminal / Logic View --- */
+        #terminal {
             display: none;
             margin-top: 20px;
-            text-align: left;
             background: #000;
-            padding: 15px;
-            border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
             color: #00ff00;
+            text-align: left;
+            border: 1px solid #222;
         }
 
-        .trust-section {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            opacity: 0.6;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+            width: 100%;
+            padding: 0 10%;
         }
+
+        .f-card {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .f-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+
     </style>
 </head>
 <body>
 
-<div class="header">
-    <div class="logo">EliteMods Private</div>
-</div>
+    <nav>
+        <div class="logo">ULTRA MODS</div>
+        <div style="font-size: 0.9rem; color: var(--accent);"><i class="fas fa-shield-alt"></i> ENCRYPTION: AES-256</div>
+    </nav>
 
-<div class="main-container">
-    <div class="status-badge">● SERVER STATUS: ONLINE (US/UK CLOUD)</div>
-    <h1 class="hero-title">Unlock Premium Mod Assets</h1>
-    <p>Secure, Anti-Ban Encryption, and Instant Injection for US & UK Verified Accounts.</p>
-
-    <div class="mod-card">
-        <div class="input-group">
-            <input type="text" id="username" placeholder="Enter Game ID or Email...">
+    <section class="hero">
+        <div class="status-indicator" style="color: #00ff00; margin-bottom: 10px; font-size: 0.8rem; letter-spacing: 2px;">
+            ● SERVERS ONLINE: LONDON | NEW YORK | TOKYO
         </div>
-        <button class="execute-btn" onclick="startInjection()">Initialize Injection</button>
+        <h1>Next-Gen Gaming Mods</h1>
+        <p>Private cloud-based asset injection for US & UK elite accounts. Undetected. Exclusive. Permanent.</p>
 
-        <div id="injection-panel"></div>
+        <div class="console-box">
+            <input type="text" id="target_user" placeholder="Enter Player ID or Email...">
+            <select id="platform" style="width: 100%; padding: 15px; background: #000; color: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; outline: none;">
+                <option value="PC">PC / Windows</option>
+                <option value="PS5">PlayStation 5</option>
+                <option value="XBOX">Xbox Series X</option>
+            </select>
+            <button class="btn-main" onclick="initiateSequence()">Generate & Inject Assets</button>
+
+            <div id="terminal"></div>
+        </div>
+    </section>
+
+    <div class="features-grid">
+        <div class="f-card">
+            <i class="fas fa-user-secret"></i>
+            <h3>Ghost Mode</h3>
+            <p>100% Invisible to anti-cheat systems during deployment.</p>
+        </div>
+        <div class="f-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Instant Sync</h3>
+            <p>High-speed servers in UK/US ensure sub-second injection.</p>
+        </div>
+        <div class="f-card">
+            <i class="fas fa-crown"></i>
+            <h3>Elite Status</h3>
+            <p>Unlock unreleased skins and premium legacy content.</p>
+        </div>
     </div>
 
-    <div class="trust-section">
-        <span>AES-256 Secured</span>
-        <span>No Human Verification Needed*</span>
-        <span>Anti-Ban v9.2</span>
+    <div class="notification" id="notif">
+        <div id="notif-text" style="font-size: 0.9rem;"></div>
     </div>
-</div>
 
-<script>
-    function startInjection() {
-        const user = document.getElementById('username').value;
-        if(!user) return alert('Enter ID first');
-        
-        const panel = document.getElementById('injection-panel');
-        panel.style.display = 'block';
-        const lines = [
-            "> Connecting to secure gaming server...",
-            "> User " + user + " identified...",
-            "> Fetching US/UK specific mod bundles...",
-            "> Bypassing server-side verification...",
-            "> Injecting assets into local cache...",
-            "> STATUS: FINALIZING... REDIRECTING FOR ACCESS..."
-        ];
+    <script>
+        const names = ["Alex_99", "ShadowUK", "US_GamerX", "Liam_Modz", "Elite_Sniper", "Rex_London"];
+        const actions = ["unlocked Premium Skins", "injected FPS Booster", "activated Ghost Mode", "generated 50k Credits"];
 
-        let i = 0;
-        const interval = setInterval(() => {
-            panel.innerHTML += lines[i] + "<br>";
-            i++;
-            if(i >= lines.length) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    // هنا تضع رابط الـ CPA الخاص بك
-                    window.location.href = "YOUR_CPA_LINK_HERE";
-                }, 1500);
-            }
-        }, 800);
-    }
-</script>
+        function showNotification() {
+            const notif = document.getElementById('notif');
+            const text = document.getElementById('notif-text');
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomAction = actions[Math.floor(Math.random() * actions.length)];
+            
+            text.innerHTML = `<strong>${randomName}</strong> just ${randomAction}!`;
+            notif.classList.add('active');
+            
+            setTimeout(() => { notif.classList.remove('active'); }, 4000);
+        }
 
+        setInterval(showNotification, 8000);
+
+        function initiateSequence() {
+            const user = document.getElementById('target_user').value;
+            if(!user) return alert("Please enter a valid User ID.");
+
+            const term = document.getElementById('terminal');
+            term.style.display = 'block';
+            const lines = [
+                "> Establishing connection to US-East Server...",
+                "> Handshaking with Sony/Microsoft API...",
+                "> Found account: " + user,
+                "> Status: Verified Tier-1 Access.",
+                "> Decrypting mod-packages...",
+                "> Injecting scripts to local memory...",
+                "> Finalizing encryption... 99%",
+                "> ACTION REQUIRED: Complete verification to finish."
+            ];
+
+            let i = 0;
+            const interval = setInterval(() => {
+                term.innerHTML += lines[i] + "<br>";
+                term.scrollTop = term.scrollHeight;
+                i++;
+                if(i >= lines.length) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        // ضع رابط الـ CPA الخاص بك هنا
+                        window.location.href = "YOUR_CPA_LINK_HERE";
+                    }, 1000);
+                }
+            }, 700);
+        }
+    </script>
 </body>
 </html>
