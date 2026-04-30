@@ -1,54 +1,72 @@
-<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>FAQ - ooQleMod</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>
-:root[data-theme="dark"]{--bg:#0a0e27;--surface:rgba(20,25,55,0.85);--border:rgba(255,255,255,0.05);--border2:rgba(255,255,255,0.08);--text:#fff;--text2:#b0b8d0;--text3:#6e7590;--accent:#FF3B30;--accent2:#ff5a4f;--success:#00C853}
-:root[data-theme="light"]{--bg:#f2f3f7;--surface:rgba(255,255,255,0.9);--border:rgba(0,0,0,0.05);--border2:rgba(0,0,0,0.08);--text:#0a0e27;--text2:#3d4560;--text3:#7c83a0;--accent:#d6302b;--accent2:#e8403b;--success:#00a844}
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background 0.4s,color 0.4s}
-.page-container{max-width:700px;margin:0 auto;padding:20px 16px 60px;position:relative;z-index:1}
-.header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);margin-bottom:20px}
-.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px;text-decoration:none;color:var(--text)}
-.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#FF3B30,#d6302b);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;font-weight:800}
-.back-link{color:var(--accent2);text-decoration:none;font-weight:600;font-size:14px}
-h1{font-size:28px;font-weight:900;margin-bottom:6px}
-.subtitle{color:var(--text2);margin-bottom:24px;font-size:14px}
-.categories{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.cat-btn{padding:6px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border2);color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s}
-.cat-btn.active,.cat-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:8px;overflow:hidden}
-.faq-q{padding:16px 18px;font-weight:700;font-size:14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
-.faq-q:hover{color:var(--accent2)}
-.faq-q .arrow{transition:transform 0.3s;font-size:12px;color:var(--text3)}
-.faq-item.open .faq-q .arrow{transform:rotate(180deg);color:var(--accent2)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease;font-size:13px;color:var(--text2);line-height:1.7;padding:0 18px}
-.faq-item.open .faq-a{max-height:500px;padding:0 18px 16px}
-.footer{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--text3)}
-.footer a{color:var(--text2);text-decoration:none}
-@media(max-width:400px){h1{font-size:23px}.faq-q{font-size:13px;padding:14px 16px}}
-</style></head><body><div class="page-container">
-<div class="header"><a href="index.html" class="logo"><div class="logo-icon">oo</div><span>ooQleMod</span></a><a href="index.html" class="back-link">← Back</a></div>
-<h1>🙋 Frequently Asked Questions</h1><p class="subtitle">Find answers to the most common questions about our modded apps and games.</p>
-<div class="categories">
-<div class="cat-btn active" onclick="filterFAQ('all',this)">All</div>
-<div class="cat-btn" onclick="filterFAQ('download',this)">📥 Download</div>
-<div class="cat-btn" onclick="filterFAQ('install',this)">📱 Install</div>
-<div class="cat-btn" onclick="filterFAQ('safety',this)">🛡️ Safety</div>
-<div class="cat-btn" onclick="filterFAQ('other',this)">📋 Other</div>
-</div>
-<div id="faqContainer">
-<div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I download a modded app? <span class="arrow">▼</span></div><div class="faq-a">Navigate to the app, tap download, complete verification, and get your link.</div></div>
-<div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is verification required? <span class="arrow">▼</span></div><div class="faq-a">It prevents bots and keeps the service free for real users.</div></div>
-<div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How to install APK on Android? <span class="arrow">▼</span></div><div class="faq-a">Enable "Unknown Sources" in Settings, open the APK, tap Install.</div></div>
-<div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How to install on iOS? <span class="arrow">▼</span></div><div class="faq-a">Use AltStore, Sideloadly, or Scarlet. No jailbreak required.</div></div>
-<div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are mods safe? <span class="arrow">▼</span></div><div class="faq-a">All mods are tested. We recommend using a guest account first.</div></div>
-<div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I get banned? <span class="arrow">▼</span></div><div class="faq-a">There's always a risk with mods in online games. Use alt accounts.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How often are mods updated? <span class="arrow">▼</span></div><div class="faq-a">Within 48 hours of official release.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I request a specific mod? <span class="arrow">▼</span></div><div class="faq-a">Yes! Use our <a href="contact.html" style="color:var(--accent2)">Contact page</a>.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is ooQleMod free? <span class="arrow">▼</span></div><div class="faq-a">Yes! Completely free. Supported by verification offers.</div></div>
-<div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What devices are supported? <span class="arrow">▼</span></div><div class="faq-a">Android 6.0+ and iOS 14+. Phones and tablets.</div></div>
-</div>
-<div class="footer"><p>© 2026 ooQleMod.</p><p><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="dmca.html">DMCA</a> · <a href="contact.html">Contact</a></p></div>
-</div>
-<script>
-function filterFAQ(cat,btn){document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.faq-item').forEach(item=>{item.style.display=(cat==='all'||item.dataset.cat===cat)?'':'none'});}
-(function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark')})()
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FAQ — The Palace of Mods</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root[data-theme="dark"]{--bg:#0a0a0a;--surface:rgba(17,17,17,0.65);--border:rgba(212,175,55,0.06);--border2:rgba(212,175,55,0.12);--text:#fff;--text2:#b0b0b0;--text3:#777;--accent:#D4AF37;--accent2:#F4D03F;--success:#16A34A;--font-heading:'Cinzel',serif;--font-body:'Inter',sans-serif}
+        :root[data-theme="light"]{--bg:#faf8f2;--surface:rgba(255,255,255,0.7);--border:rgba(180,150,80,0.1);--border2:rgba(180,150,80,0.18);--text:#1a1a1a;--text2:#4a4a4a;--text3:#888;--accent:#b8941f;--accent2:#d4a830;--success:#15803d;--font-heading:'Cinzel',serif;--font-body:'Inter',sans-serif}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background 0.4s,color 0.4s}
+        .ambient-glow-top{position:fixed;top:-300px;right:-300px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,0.06) 0%,transparent 70%);pointer-events:none;z-index:0}
+        #matrix-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+        #particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+        .page-container{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:20px 16px 60px}
+        .header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;margin:-20px -16px 24px;background:rgba(10,10,10,0.82);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border-bottom:1px solid var(--border);border-radius:0 0 20px 20px;position:sticky;top:0;z-index:10}
+        .logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:15px;text-decoration:none;color:var(--accent);font-family:var(--font-heading);letter-spacing:1px}
+        .logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#D4AF37,#8B7355);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#0a0a0a;font-weight:900;box-shadow:0 4px 20px rgba(212,175,55,0.5)}
+        .back-link{color:var(--accent2);text-decoration:none;font-weight:600;font-size:13px;font-family:var(--font-heading)}
+        h1{font-size:30px;font-weight:900;margin-bottom:6px;font-family:var(--font-heading);background:linear-gradient(to bottom,#F4D03F,#D4AF37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .subtitle{color:var(--text2);margin-bottom:20px;font-size:13px}
+        .categories{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+        .cat-btn{padding:6px 14px;border-radius:20px;background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--border2);color:var(--text2);font-size:11px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s}
+        .cat-btn.active,.cat-btn:hover{background:var(--accent);color:#0a0a0a;border-color:var(--accent);font-weight:700}
+        .faq-item{background:var(--surface);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:14px;margin-bottom:8px;overflow:hidden}
+        .faq-q{padding:15px 18px;font-weight:700;font-size:13px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.2s}.faq-q:hover{color:var(--accent)}
+        .faq-q .arrow{transition:transform 0.3s;font-size:10px;color:var(--text3)}.faq-item.open .faq-q .arrow{transform:rotate(180deg);color:var(--accent)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease;font-size:12px;color:var(--text2);line-height:1.7;padding:0 18px}.faq-item.open .faq-a{max-height:400px;padding:0 18px 14px}
+        .faq-a a{color:var(--accent);text-decoration:none;font-weight:600}
+        .footer{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--border);font-size:10px;color:var(--text3)}
+        .footer a{color:var(--text2);text-decoration:none;margin:0 6px}
+        @media(max-width:400px){h1{font-size:24px}.faq-q{font-size:12px;padding:13px 16px}}
+    </style>
+</head>
+<body>
+    <div class="ambient-glow-top"></div>
+    <canvas id="matrix-canvas"></canvas>
+    <canvas id="particles-canvas"></canvas>
+    <div class="page-container">
+        <div class="header"><a href="index.html" class="logo"><div class="logo-icon">♔</div><span>The Palace</span></a><a href="index.html" class="back-link">← Return to Palace</a></div>
+        <h1>🙋 Frequently Asked Questions</h1><p class="subtitle">Find answers to the most common questions about the Royal Vault.</p>
+        <div class="categories">
+            <div class="cat-btn active" onclick="filterFAQ('all',this)">All</div>
+            <div class="cat-btn" onclick="filterFAQ('download',this)">📥 Download</div>
+            <div class="cat-btn" onclick="filterFAQ('install',this)">📱 Install</div>
+            <div class="cat-btn" onclick="filterFAQ('safety',this)">🛡️ Safety</div>
+            <div class="cat-btn" onclick="filterFAQ('other',this)">📋 Other</div>
+        </div>
+        <div id="faqContainer">
+            <div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I download a modded app? <span class="arrow">▼</span></div><div class="faq-a">Navigate to the app, tap Enter the Vault, complete verification, and get your download link.</div></div>
+            <div class="faq-item" data-cat="download"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is verification required? <span class="arrow">▼</span></div><div class="faq-a">It prevents bots from entering the Royal Vault and keeps the service free for real users.</div></div>
+            <div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How to install APK on Android? <span class="arrow">▼</span></div><div class="faq-a">Enable "Unknown Sources" in Settings, open the APK, tap Install.</div></div>
+            <div class="faq-item" data-cat="install"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How to install on iOS? <span class="arrow">▼</span></div><div class="faq-a">Use AltStore, Sideloadly, or Scarlet. No jailbreak required.</div></div>
+            <div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are mods safe? <span class="arrow">▼</span></div><div class="faq-a">All mods are tested by the Royal Curator. We recommend using a guest account first.</div></div>
+            <div class="faq-item" data-cat="safety"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I get banned? <span class="arrow">▼</span></div><div class="faq-a">There's always a risk with mods in online games. Use alt accounts for safety.</div></div>
+            <div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How often are mods updated? <span class="arrow">▼</span></div><div class="faq-a">Within 48 hours of official release.</div></div>
+            <div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I request a specific mod? <span class="arrow">▼</span></div><div class="faq-a">Yes! Use our <a href="contact.html">Contact page</a> and select "Mod Request".</div></div>
+            <div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is The Palace of Mods free? <span class="arrow">▼</span></div><div class="faq-a">Yes! Completely free. Supported by verification offers.</div></div>
+            <div class="faq-item" data-cat="other"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What devices are supported? <span class="arrow">▼</span></div><div class="faq-a">Android 6.0+ and iOS 14+. Phones and tablets.</div></div>
+        </div>
+        <div class="footer"><p>© 2026 The Palace of Mods.</p><p><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="dmca.html">DMCA</a> · <a href="contact.html">Contact</a></p></div>
+    </div>
+    <script>
+        function filterFAQ(cat,btn){document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.faq-item').forEach(item=>{item.style.display=(cat==='all'||item.dataset.cat===cat)?'':'none'});}
+        (function(){document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'dark')})();
+        (function(){const c=document.getElementById('matrix-canvas'),ctx=c.getContext('2d');c.width=window.innerWidth;c.height=window.innerHeight;const f=14,cols=Math.floor(c.width/f),drops=Array(cols).fill(1);const ch='01ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ♔♕⚜'.split('');function draw(){ctx.fillStyle='rgba(10,10,10,0.03)';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='rgba(212,175,55,0.1)';ctx.font=f+'px monospace';for(let i=0;i<drops.length;i++){const t=ch[Math.floor(Math.random()*ch.length)];ctx.fillText(t,i*f,drops[i]*f);if(drops[i]*f>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++;}}setInterval(draw,50);window.addEventListener('resize',()=>{c.width=window.innerWidth;c.height=window.innerHeight})})();
+        (function(){const c=document.getElementById('particles-canvas'),ctx=c.getContext('2d');c.width=window.innerWidth;c.height=window.innerHeight;const ps=Array.from({length:40},()=>({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-0.5)*0.2,vy:(Math.random()-0.5)*0.2,size:Math.random()*1.5+0.4,opacity:Math.random()*0.3+0.08}));function draw(){ctx.clearRect(0,0,c.width,c.height);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.width)p.vx*=-1;if(p.y<0||p.y>c.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fillStyle=`rgba(212,175,55,${p.opacity})`;ctx.fill()});requestAnimationFrame(draw)}draw();window.addEventListener('resize',()=>{c.width=window.innerWidth;c.height=window.innerHeight})})();
+    </script>
+</body>
+</html>
